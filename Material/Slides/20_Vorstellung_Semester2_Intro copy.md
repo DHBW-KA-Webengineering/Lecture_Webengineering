@@ -19,22 +19,15 @@ plantuml-format: svg
 
 ## Heute
 
-- Organisatorisches
-  - Vorstellung
-  - Ablauf
-  - Prüfungsleistung
-- Vorlesungsinhalt & Lernziele
-- Einführung Webengineering
 
 
 ## Vorstellung
 
-### Dozent: Silas Schnurr
-- 2018: Ausbildung Fachinformatiker Anwendungsentwicklung
+### Dozent: Lukas Panni 
 - 2021: _B.Sc._ Informatik - DHBW Karlsruhe
 - 2023: _M.Sc._ Informatik - HKA
-- Seit 2015 bei PeakAvenue (ehemals iqs Software GmbH) in Bühl
-    - aktuell Softwarearchitekt & Teamleiter Softwareentwicklung
+- Seit 2018 bei SEW-EURODRIVE in Bruchsal
+    - aktuell Softwareentwickler mit Fokus auf Open Source Compliance & Security
 
 
 ### Ihr
@@ -47,10 +40,10 @@ plantuml-format: svg
 
 ## Ablauf
 
-- Vorlesung: 72 Vorlesungseinheiten (VE)
-  - Dieses Semester: 11 Termine, je 3 VE = 33 VE
-    - Donnerstag 8:00 - 10:30 Uhr (3 VE + 15 Minuten Pause)
-  - Rest (39 VE) im nächsten Semester
+- Vorlesung: 44 Vorlesungseinheiten (VE)
+  - Dieses Semester: 8 Termine, je 3 VE = 24 VE
+    - Montag 8:30 - 11:00 Uhr (3 VE + 15 Minuten Pause)
+  - Rest (20 VE) im nächsten Semester
 
 - Vorlesung mit Programmieraufgaben
   - Keine Vorkenntnisse erforderlich
@@ -65,41 +58,35 @@ plantuml-format: svg
 - Sonstiges (Anleitungen, Zusatzmaterial) \rightarrow{} Extra
 
 
-\rightarrow{} alles auf GitHub [(DHBW-KA-Webengineering/Lecture_Webengineering_2024)](https://github.com/DHBW-KA-Webengineering/Lecture_Webengineering)
+\rightarrow{} alles auf GitHub [(lukaspanni/Lecture_Webengineering_2024)](https://github.com/lukaspanni/Lecture_Webengineering_2024)
 
-\rightarrow{} separates Repo für Code [(DHBW-KA-Webengineering/Lecture_Code)](https://github.com/DHBW-KA-Webengineering/Lecture_Code) 
+\rightarrow{} separates Repo für Code [(TINF23B5-Webengineering/Lecture_Code)](https://github.com/TINF23B5-Webengineering/Lecture_Code) 
 
 
-## Prüfungsleistungen
+## Prüfungsleistung
 
 ### Projektarbeit:
 
 - Entwicklung einer (kleinen) Webanwendung mit hier gelernten Technologien
-- Gruppenarbeit verpflichtend (3 - 5 Studierende)
-- Bewertung mit Vorlesung Projektmanagement (Hr. Darwish)
-- Note Projektmanagement: Projektmanagement, mehr dazu von Hr. Darwish
+- Gruppenarbeit möglich (3 - 5 Studierende)
+- Bewertung mit Vorlesung Projektmanagement (Hr. Merkel)
+  - Note Webengineering: 
+    - Konzept & Umsetzung der Webanwendungen
+    - Einhaltung vorgestellter Best-Practices
+    - Regelmäßige Vorstellung aktueller Zwischenstände
+  - Note Projektmanagement: Projektmanagement, mehr dazu von Hr. Merkel
 
-\rightarrow{} **Aufgabe bis in 2 Wochen (23.01.): Gruppen bilden & Thema aussuchen** + kurze Präsentation (~3 min) 
+\rightarrow{} **Aufgabe bis in 2 Wochen (22.01.): Gruppen bilden & Thema überlegen** + kurze Präsentation (~3 min) 
 
-
-### Klausur:
-  - Klausur (60 min) am Ende von Semester 2 über die Themen **beider** Semester
-
-
-### Note Webengineering: 
-- Kombinierte Prüfung: 
-  - 50 % Projekt (Details siehe Notes/Bewertung_Projektarbeit)
-  - 50% Klausur (60 min)
-
-
-## Projektarbeit - Themenauswahl
+## Projektarbeit - mögliche Themen
 
 - TODO-App
 - Zeiterfassung ("Stechuhr")
 - Karteikarten-Anwendung ("Anki")
-- Snake oder PAC Man
-- Dashboard für Daten von einer API (GitHub, deps.dev, ...)
+- einfaches Spiel (Snake, Pac-Man, ...)
+- Dashboard für Daten von einer APIs (GitHub, deps.dev, ...)
   - [verschiedene Daten öffentlicher Stellen](https://github.com/bundesAPI) 
+- eigene Ideen
 
 # Vorlesungsinhalt & Lernziele
 

@@ -6,36 +6,53 @@ author: "Lukas Panni"
 ...
 \clearpage
 
+
+
 # Grundsätzliches
 
-Es gibt keine Vorgabe zu eingesetzten Programmiersprachen (Empfohlen werden aber die in der Vorlesung behandelten!).
+Es gibt Einschränkungen bezüglich der zu verwendenden Technologien, mehr dazu siehe unten.
 Es geht nicht darum ein besonders innovatives Projekt umzusetzen oder eine produktionsreife Anwendung zu entwickeln.
 Ziel ist es zu zeigen, dass die Grundlagen der Webentwicklung beherrscht werden und in der Praxis genutzt werden können.
-
 
 Das Projekt wird in Gruppen von 3 bis 5 Personen bearbeitet, jeder sollte dabei in etwa gleich viel beitragen.
 Es ist klar, dass der Umfang eines Beitrags nicht immer einfach gemessen werden kann, Code-Zeilen werden z.B. nicht zur Überprüfung herangezogen.
 Genauso entscheidet auch bei mehreren Projekten nicht der jeweilige Umfang über die endgültige Note.
-Eigenleistungen müssen klar ersichtlich sein, dazu nutze ich vor allem die Git-History und die anzufertigende Dokumentation (siehe unten).
+Eigenleistungen müssen klar ersichtlich sein, dazu nutzen wir vor allem die Git-History, die anzufertigende Dokumentation und die Präsentationen (siehe unten).
 
+Für die Bewertung sind die folgenden Punkte relevant (Details siehe unten):
+    - Konzept & Umsetzung der Webanwendung
+    - Einhaltung vorgestellter Best-Practices
+    - Regelmäßige Vorstellung aktueller Zwischenstände
 
 # Abgabe
 
-Die Abgabe erfolgt am Ende des zweiten Theoriesemesters (Juli/August). 
+Die finale Abgabe erfolgt am Ende des zweiten Theoriesemesters (Juli/August). 
 Ein genauer Termin wird noch bekanntgegeben (mindestens 3 Wochen im Voraus).
 
-Das Projekt ist jedoch über beide Semester zu bearbeiten, nicht erst kurz vor Abgabe.
-Wer frühzeitig beginnt kann sich regelmäßig Feedback einholen!
+Das Projekt ist jedoch über beide Semester zu bearbeiten, nicht erst kurz vor Abgabe. Daher gibt es folgende Zwischenabgaben, welche in die Bewertung mit einfließen:
+
+1.⁠ ⁠Zwischenabgabe am 30.01.2025: GitHub Repository mit (leerem) Projekt, funktionierender GitHub Action für den Build und GitHub Pages.
+  - Präsentation ca. 5 Minuten pro Gruppe (zeigen dass alles geforderte da ist und funktioniert)
+
+2.⁠ ⁠Zwischenabgabe: Zwischenstand (vorgegeben je nach gewähltem Projekt, nur Frontend). Ende erstes Semester (Termin folgt, ca. 2 - 3 Wochen vor den Klausuren).
+  - Präsentation ca. 10 Minuten pro Gruppe
+
+
+3.⁠ ⁠Zwischenabgabe: Zwischenstand (vorgegeben je nach gewähltem Projekt). Anfang des zweiten Semesters (Termin folgt).
+  - Präsentation ca. 10 Minuten pro Gruppe
+  - Festlegen der Backend Technologien
+
+4.⁠ Finale Präsentation und Abgabe Quellcode + Dokumentation (15 Minuten pro Gruppe)
 
 ## Abzugebende Artefakte
 
 Die Bewertung im Fach Webengineering bezieht sich nur auf die technischen Aspekte der Umsetzung.
 Dazu ist das **vollständige Git-Repository** abzugeben.
-Die Abgabe erfolgt entweder als Zip/Tar per Mail oder per Freischaltung des Accounts `lukaspanni` für das Repository auf GitHub (Leserechte reichen aus).
+Die Abgabe erfolgt entweder als Zip/Tar per Mail oder per Freischaltung der Accounts `lukaspanni` und `pa-ssch` für das Repository auf GitHub (Leserechte reichen aus).
 Bei Abgabe per GitHub bitte trotzdem eine kurze Mail zur Erinnerung.
-Für die Bewertung brauche ich nur eure Matrikelnummern.
+Für die Bewertung brauchen wir nur eure Matrikelnummern.
 Ihr müsst eure Klarnamen nicht über Usernamen auf GitHub oder Namen + E-Mail Adressen der Committer in der Git-History preisgeben.
-Solange ich nachvollziehen kann, welche Matrikelnummer zu welchem Commit und welchem Code gehört bin ich zufrieden.
+Solange wir nachvollziehen können, welche Matrikelnummer zu welchem Commit und welchem Code gehört reicht das.
 
 Hinweis: ihr könnt bei Commits gerne mehrere Autoren angeben (siehe [Doku](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)), solange noch genügend Code/Commits einer einzigen Person zugeordnet werden kann. 
 
@@ -58,6 +75,16 @@ Die Dokumentation muss einige Punkte zwingend enthalten, da sie einen wichtigen 
   - Der Umfang einer "Funktion" ist abhängig vom konkreten Projekt, z.B. für ToDo-Anwendung: Login/Logout, Erstellen von ToDo's, Anzeige von ToDo's (z.B. auch verschiedene Oberflächen), ...
   - Die Dokumentation umfasst die Beschreibung der Funktion, die Einbindung in das Gesamtprojekt, die Angabe des entwickelten Codes, die zugrundeliegenden Ideen und die Funktionsweise, Entscheidungen, die bei der Entwicklung getroffen wurden, ...
 
+
+# Technologien
+
+- Frontend:
+  - TypeScript verpflichtend
+  - Framwork wählen aus: Angular, React, Svelte, 
+- Backend:
+  - Java, Node, C#, 
+
+
 # Bewertungskriterien
 
 Bewertet wird alles was im abgegebenen Repository enthalten ist.
@@ -71,5 +98,5 @@ Entscheidend ist die **Qualität** des abgegebenen Projekts.
 Dies schließt beispielsweise die syntaktische Korrektheit des Codes und die korrekte Nutzung von gelerntem Fachwissen mit ein.
 
 
-Ich biete euch an, regelmäßig einen Zwischenstand abzugeben und dazu ein kurzes Feedbackgespräch zu führen.
+Wir bieten euch an, regelmäßig einen Zwischenstand zu zeigen und dazu ein kurzes Feedbackgespräch zu führen.
 Diese Möglichkeit besteht bis 2 Wochen vor Abgabe, der letzte mögliche Termin wird noch bekannt gegeben.
