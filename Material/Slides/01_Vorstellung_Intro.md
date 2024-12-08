@@ -29,7 +29,7 @@ plantuml-format: svg
 
 ## Vorstellung
 
-### Dozent: Silas Schnurr
+### Dozent Semester 1: Silas Schnurr
 - 2018: Ausbildung Fachinformatiker Anwendungsentwicklung
 - 2021: _B.Sc._ Informatik - DHBW Karlsruhe
 - 2023: _M.Sc._ Informatik - HKA
@@ -50,7 +50,7 @@ plantuml-format: svg
 - Vorlesung: 72 Vorlesungseinheiten (VE)
   - Dieses Semester: 11 Termine, je 3 VE = 33 VE
     - Donnerstag 8:00 - 10:30 Uhr (3 VE + 15 Minuten Pause)
-  - Rest (39 VE) im nächsten Semester
+  - Rest (39 VE) im nächsten Semester bei Lukas Panni
 
 - Vorlesung mit Programmieraufgaben
   - Keine Vorkenntnisse erforderlich
