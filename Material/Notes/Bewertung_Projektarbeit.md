@@ -14,7 +14,7 @@ Es gibt Einschränkungen bezüglich der zu verwendenden Technologien, mehr dazu 
 Es geht nicht darum ein besonders innovatives Projekt umzusetzen oder eine produktionsreife Anwendung zu entwickeln.
 Ziel ist es zu zeigen, dass die Grundlagen der Webentwicklung beherrscht werden und in der Praxis genutzt werden können.
 
-Das Projekt wird in Gruppen von 3 bis 5 Personen bearbeitet, jeder sollte dabei in etwa gleich viel beitragen.
+Das Projekt wird in Gruppen von 3 bis 5 Personen bearbeitet, jeder muss dabei in etwa gleich viel beitragen.
 Es ist klar, dass der Umfang eines Beitrags nicht immer einfach gemessen werden kann, Code-Zeilen werden z.B. nicht zur Überprüfung herangezogen.
 Genauso entscheidet auch bei mehreren Projekten nicht der jeweilige Umfang über die endgültige Note.
 Eigenleistungen müssen klar ersichtlich sein, dazu nutzen wir vor allem die Git-History, die anzufertigende Dokumentation und die Präsentationen (siehe unten).
@@ -29,14 +29,13 @@ Für die Bewertung sind die folgenden Punkte relevant (Details siehe unten):
 Die finale Abgabe erfolgt am Ende des zweiten Theoriesemesters (Juli/August). 
 Ein genauer Termin wird noch bekanntgegeben (mindestens 3 Wochen im Voraus).
 
-Das Projekt ist jedoch über beide Semester zu bearbeiten, nicht erst kurz vor Abgabe. Daher gibt es folgende Zwischenabgaben, welche in die Bewertung mit einfließen:
+Das Projekt ist jedoch über beide Semester zu bearbeiten, nicht erst kurz vor der Abgabe. Daher gibt es folgende Zwischenabgaben, welche in die Bewertung mit einfließen. Die jeweiligen Termine werden ebenfalls rechtzeitig bekanntgegeben:
 
 1.⁠ ⁠Zwischenabgabe am 30.01.2025: GitHub Repository mit (leerem) Projekt, funktionierender GitHub Action für den Build und GitHub Pages.
   - Präsentation ca. 5 Minuten pro Gruppe (zeigen dass alles geforderte da ist und funktioniert)
 
-2.⁠ ⁠Zwischenabgabe: Zwischenstand (vorgegeben je nach gewähltem Projekt, nur Frontend). Ende erstes Semester (Termin folgt, ca. 2 - 3 Wochen vor den Klausuren).
+2.⁠ ⁠Zwischenabgabe: Zwischenstand (vorgegeben je nach gewähltem Projekt, nur Frontend). Ende erstes Semester (Termin ca. 2 - 3 Wochen vor den Klausuren).
   - Präsentation ca. 10 Minuten pro Gruppe
-
 
 3.⁠ ⁠Zwischenabgabe: Zwischenstand (vorgegeben je nach gewähltem Projekt). Anfang des zweiten Semesters (Termin folgt).
   - Präsentation ca. 10 Minuten pro Gruppe
@@ -87,8 +86,7 @@ Die Dokumentation muss einige Punkte zwingend enthalten, da sie einen wichtigen 
 
 # Bewertungskriterien
 
-Bewertet wird alles was im abgegebenen Repository enthalten ist.
-Alles andere (z.B. Vorstellung des Themas) fließt nicht in die Bewertung ein.
+Bewertet wird alles was im abgegebenen Repository enthalten ist. Die Zwischenstände fließen auch in die Bewertung ein, man kann jedoch trotzdem eine 1,0 bekommen, wenn die Zwischenstände Fehler aufgewiesen haben, wenn das Endergebnis entsprechend gut ist. Ein fehlender Zwischenstand kann nicht nachgeholt oder ausgebessert werden.
 
 Die oben beschriebenen Anforderungen zur Dokumentation müssen zwingend eingehalten werden.
 Insbesondere muss das Projekt der Dokumentation entsprechend lauffähig sein - ich kann keine gute Note vergeben, wenn das Projekt nicht wie beschrieben gestartet werden kann.
@@ -98,5 +96,5 @@ Entscheidend ist die **Qualität** des abgegebenen Projekts.
 Dies schließt beispielsweise die syntaktische Korrektheit des Codes und die korrekte Nutzung von gelerntem Fachwissen mit ein.
 
 
-Wir bieten euch an, regelmäßig einen Zwischenstand zu zeigen und dazu ein kurzes Feedbackgespräch zu führen.
+Neben den Zwischenabgaben gibt es ebenfalls regelmäßig die Möglichkeit einen Zwischenstand zu zeigen und dazu ein kurzes Feedbackgespräch zu führen.
 Diese Möglichkeit besteht bis 2 Wochen vor Abgabe, der letzte mögliche Termin wird noch bekannt gegeben.

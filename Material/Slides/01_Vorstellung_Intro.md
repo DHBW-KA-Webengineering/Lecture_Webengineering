@@ -50,7 +50,7 @@ plantuml-format: svg
 - Vorlesung: 72 Vorlesungseinheiten (VE)
   - Dieses Semester: 11 Termine, je 3 VE = 33 VE
     - Donnerstag 8:00 - 10:30 Uhr (3 VE + 15 Minuten Pause)
-  - Rest (39 VE) im nächsten Semester bei Lukas Panni
+  - Rest (39 VE) im nächsten Semester bei Hr. Panni
 
 - Vorlesung mit Programmieraufgaben
   - Keine Vorkenntnisse erforderlich
@@ -79,7 +79,7 @@ plantuml-format: svg
 - Bewertung mit Vorlesung Projektmanagement (Hr. Darwish)
 - Note Projektmanagement: Projektmanagement, mehr dazu von Hr. Darwish
 
-\rightarrow{} **Aufgabe bis in 2 Wochen (23.01.): Gruppen bilden & Thema aussuchen** + kurze Präsentation (~3 min) 
+\rightarrow{} **Aufgabe bis in 2 Wochen (23.01.): Gruppen bilden & Thema aussuchen**
 
 
 ### Klausur:
@@ -97,7 +97,7 @@ plantuml-format: svg
 - TODO-App
 - Zeiterfassung ("Stechuhr")
 - Karteikarten-Anwendung ("Anki")
-- Snake oder PAC Man
+- Snake oder PAC-Man
 - Dashboard für Daten von einer API (GitHub, deps.dev, ...)
   - [verschiedene Daten öffentlicher Stellen](https://github.com/bundesAPI) 
 
