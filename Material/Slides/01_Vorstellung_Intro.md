@@ -47,10 +47,10 @@ plantuml-format: svg
 
 ## Ablauf
 
-- Vorlesung: 72 Vorlesungseinheiten (VE)
+- Vorlesung: 66 Vorlesungseinheiten (VE)
   - Dieses Semester: 11 Termine, je 3 VE = 33 VE
     - Donnerstag 8:00 - 10:30 Uhr (3 VE + 15 Minuten Pause)
-  - Rest (39 VE) im nächsten Semester bei Hr. Panni
+  - Rest (33 VE) im nächsten Semester bei Hr. Panni
 
 - Vorlesung mit Programmieraufgaben
   - Keine Vorkenntnisse erforderlich
