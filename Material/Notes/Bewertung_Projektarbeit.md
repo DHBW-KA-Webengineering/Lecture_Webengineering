@@ -4,9 +4,8 @@ date: 2024-01-08
 lang: de-DE
 author: "Lukas Panni"
 ...
+
 \clearpage
-
-
 
 # Grundsätzliches
 
@@ -19,27 +18,27 @@ Es ist klar, dass der Umfang eines Beitrags nicht immer einfach gemessen werden 
 Genauso entscheidet auch bei mehreren Projekten nicht der jeweilige Umfang über die endgültige Note.
 Eigenleistungen müssen klar ersichtlich sein, dazu nutzen wir vor allem die Git-History, die anzufertigende Dokumentation und die Präsentationen (siehe unten).
 
-Für die Bewertung sind die folgenden Punkte relevant (Details siehe unten):
-    - Konzept & Umsetzung der Webanwendung
-    - Einhaltung vorgestellter Best-Practices
-    - Regelmäßige Vorstellung aktueller Zwischenstände
+Für die Bewertung sind die folgenden Punkte relevant (Details siehe unten): - Konzept & Umsetzung der Webanwendung - Einhaltung vorgestellter Best-Practices - Regelmäßige Vorstellung aktueller Zwischenstände
 
 # Abgabe
 
-Die finale Abgabe erfolgt am Ende des zweiten Theoriesemesters (Juli/August). 
+Die finale Abgabe erfolgt am Ende des zweiten Theoriesemesters (Juli/August).
 Ein genauer Termin wird noch bekanntgegeben (mindestens 3 Wochen im Voraus).
 
 Das Projekt ist jedoch über beide Semester zu bearbeiten, nicht erst kurz vor der Abgabe. Daher gibt es folgende Zwischenabgaben, welche in die Bewertung mit einfließen. Die jeweiligen Termine werden ebenfalls rechtzeitig bekanntgegeben:
 
 1.⁠ ⁠Zwischenabgabe am 30.01.2025: GitHub Repository mit (leerem) Projekt, funktionierender GitHub Action für den Build und GitHub Pages.
-  - Präsentation ca. 5 Minuten pro Gruppe (zeigen dass alles geforderte da ist und funktioniert)
+
+- Präsentation ca. 5 Minuten pro Gruppe (zeigen dass alles geforderte da ist und funktioniert)
 
 2.⁠ ⁠Zwischenabgabe: Zwischenstand (vorgegeben je nach gewähltem Projekt, nur Frontend). Ende erstes Semester (Termin ca. 2 - 3 Wochen vor den Klausuren).
-  - Präsentation ca. 10 Minuten pro Gruppe
+
+- Präsentation ca. 10 Minuten pro Gruppe
 
 3.⁠ ⁠Zwischenabgabe: Zwischenstand (vorgegeben je nach gewähltem Projekt). Anfang des zweiten Semesters (Termin folgt).
-  - Präsentation ca. 10 Minuten pro Gruppe
-  - Festlegen der Backend Technologien
+
+- Präsentation ca. 10 Minuten pro Gruppe
+- Festlegen der Backend Technologien
 
 4.⁠ Finale Präsentation und Abgabe Quellcode + Dokumentation (15 Minuten pro Gruppe)
 
@@ -53,8 +52,7 @@ Für die Bewertung brauchen wir nur eure Matrikelnummern.
 Ihr müsst eure Klarnamen nicht über Usernamen auf GitHub oder Namen + E-Mail Adressen der Committer in der Git-History preisgeben.
 Solange wir nachvollziehen können, welche Matrikelnummer zu welchem Commit und welchem Code gehört reicht das.
 
-Hinweis: ihr könnt bei Commits gerne mehrere Autoren angeben (siehe [Doku](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)), solange noch genügend Code/Commits einer einzigen Person zugeordnet werden kann. 
-
+Hinweis: ihr könnt bei Commits gerne mehrere Autoren angeben (siehe [Doku](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)), solange noch genügend Code/Commits einer einzigen Person zugeordnet werden kann.
 
 Das Repository muss enthalten:
 
@@ -63,8 +61,8 @@ Das Repository muss enthalten:
 
 Die Dokumentation muss einige Punkte zwingend enthalten, da sie einen wichtigen Teil der Bewertungsgrundlage darstellen wird:
 
-- Anweisungen zur Vorbereitung der Entwicklungsumgebung: ihr könnt nicht davon ausgehen, dass ich alle Tools bereits installiert habe. 
-  - Daher ist zunächst zu dokumentieren welche Tools benötigt werden und wie diese installiert werden können (am besten Setup-Skript bereitstellen) 
+- Anweisungen zur Vorbereitung der Entwicklungsumgebung: ihr könnt nicht davon ausgehen, dass ich alle Tools bereits installiert habe.
+  - Daher ist zunächst zu dokumentieren welche Tools benötigt werden und wie diese installiert werden können (am besten Setup-Skript bereitstellen)
   - Folgende Tools können vorausgesetzt werden und dürfen in einem Setup-Skript genutzt werden: `docker, node, npm, bash/Powershell-Core`
   - Die Anwendung darf nicht von einem konkreten Betriebssystem abhängen
 - Anweisungen zum Starten der Anwendung: der Build des _kompletten_ Projekts muss mit einem einzelnen Befehl möglich sein (nach Installation der benötigten Tools)
@@ -74,15 +72,13 @@ Die Dokumentation muss einige Punkte zwingend enthalten, da sie einen wichtigen 
   - Der Umfang einer "Funktion" ist abhängig vom konkreten Projekt, z.B. für ToDo-Anwendung: Login/Logout, Erstellen von ToDo's, Anzeige von ToDo's (z.B. auch verschiedene Oberflächen), ...
   - Die Dokumentation umfasst die Beschreibung der Funktion, die Einbindung in das Gesamtprojekt, die Angabe des entwickelten Codes, die zugrundeliegenden Ideen und die Funktionsweise, Entscheidungen, die bei der Entwicklung getroffen wurden, ...
 
-
 # Technologien
 
 - Frontend:
   - TypeScript verpflichtend
-  - Framwork wählen aus: Angular, React, Svelte, 
+  - Framwork wählen aus: Angular, React, Vue, Svelte
 - Backend:
-  - Java, Node, C#, 
-
+  - Java, Node, C#,
 
 # Bewertungskriterien
 
@@ -94,7 +90,6 @@ Insbesondere muss das Projekt der Dokumentation entsprechend lauffähig sein - i
 Die Anwendung wird nicht nach Originalität, Ästhetik oder ähnlichem bewertet.
 Entscheidend ist die **Qualität** des abgegebenen Projekts.
 Dies schließt beispielsweise die syntaktische Korrektheit des Codes und die korrekte Nutzung von gelerntem Fachwissen mit ein.
-
 
 Neben den Zwischenabgaben gibt es ebenfalls regelmäßig die Möglichkeit einen Zwischenstand zu zeigen und dazu ein kurzes Feedbackgespräch zu führen.
 Diese Möglichkeit besteht bis 2 Wochen vor Abgabe, der letzte mögliche Termin wird noch bekannt gegeben.
