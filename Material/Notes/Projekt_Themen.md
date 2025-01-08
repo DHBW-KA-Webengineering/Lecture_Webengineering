@@ -8,10 +8,13 @@ author: "Silas Schnurr"
 
 # Grundsätzliches
 
+Die beiden Semester sind mehr oder weniger in Frontend (Semester 1) und Backend (Semester 2) gegliedert. Da eine vollständige Trennung dieser beiden Bereiche nicht praktikabel ist, werden sich in der Regel Überschneidungen ergeben. Es ist daher von entscheidender Bedeutung, dass bereits in der Anfangsphase des Projekts ein sinnvolles "Mentales Modell" entwickelt wird. Dies gewährleistet, dass im zweiten Semester nur geringfügige (oder im Idealfall gar keine) Anpassungen am Frontend erforderlich sind, um eine sinnvolle, gut strukturierte und gekapselte API im Backend zu entwickeln.
+
 Die Themen sind bewusst so gewählt, dass sie verschiedene Schwerpunkte und Herausforderungen bieten. Jedes Thema bietet ausreichend Spielraum, um die erlernten Grundlagen der Webentwicklung anzuwenden. Zusätzlich ermöglicht die Themenwahl unterschiedliche technische Umsetzungen und Kreativität bei der Gestaltung.
 
-Die Mindestanforderungen sind eine Hilfestellung: Man kann eine 1,0 bekommen, wenn die Mindestanforderungen nicht wie beschrieben umgesetzt sind, das Ergebnis aber der Idee der Anwendung entspricht und die entsprechende Qualität aufweist. Ebenso kann man durchfallen, wenn die Umsetzung schlecht ist - auch wenn die Mindestanforderungen prinzipiell funktionieren.
+Die genannten Mindestanforderungen sind eine Hilfestellung: Man kann eine 1,0 bekommen, wenn die Mindestanforderungen nicht wie beschrieben umgesetzt sind, das Ergebnis aber der Idee der Anwendung entspricht und die entsprechende Qualität aufweist. Ebenso kann man durchfallen, wenn die Umsetzung schlecht ist - auch wenn die Mindestanforderungen prinzipiell funktionieren.
 
+Folgende Themen stehen zur Auswahl:
 - Thema 1: TODO-App
 - Thema 2: Zeiterfassung ("Stechuhr")
 - Thema 3: Karteikarten-Anwendung ("Anki")
@@ -26,7 +29,7 @@ Entwicklung einer webbasierten Anwendung, die es Nutzern ermöglicht, Aufgaben z
 ## Zwischenstand 1 (Termin: 30.01.2025)
 
 - Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages
-- 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee erläutern)
+- 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
 
 ## Zwischenstand 2 (ca. 2 - 3 Wochen vor den Klausuren Semester 1, Termin folgt)
 
@@ -58,7 +61,7 @@ Entwicklung einer Anwendung, die Arbeitszeiten erfasst, speichert und auswertet.
 ## Zwischenstand 1 (Termin: 30.01.2025)
 
 - Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages
-- 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee erläutern)
+- 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
 
 ## Zwischenstand 2 (ca. 2 - 3 Wochen vor den Klausuren Semester 1, Termin folgt)
 
@@ -90,7 +93,7 @@ Umsetzung einer Anwendung, die das Lernen mit Karteikarten erleichtert. Nutzer k
 ## Zwischenstand 1 (Termin: 30.01.2025)
 
 - Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages
-- 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee erläutern)
+- 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
 
 ## Zwischenstand 2 (ca. 2 - 3 Wochen vor den Klausuren Semester 1, Termin folgt)
 
@@ -120,7 +123,7 @@ Entwicklung einer klassischen Snake-Anwendung, bei der der Spieler Punkte sammel
 ## Zwischenstand 1 (Termin: 30.01.2025)
 
 - Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages
-- 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee erläutern)
+- 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
 
 ## Zwischenstand 2 (ca. 2 - 3 Wochen vor den Klausuren Semester 1, Termin folgt)
 
@@ -152,7 +155,7 @@ Umsetzung des Arcade-Klassikers Pac-Man, bei dem der Spieler durch ein Labyrinth
 ## Zwischenstand 1 (Termin: 30.01.2025)
 
 - Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages
-- 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee erläutern)
+- 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
 
 ## Zwischenstand 2 (ca. 2 - 3 Wochen vor den Klausuren Semester 1, Termin folgt)
 
@@ -184,7 +187,7 @@ Entwicklung eines Dashboards zur Visualisierung und Verwaltung von API-Daten (z.
 ## Zwischenstand 1 (Termin: 30.01.2025)
 
 - Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages
-- 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee erläutern)
+- 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
 
 ## Zwischenstand 2 (ca. 2 - 3 Wochen vor den Klausuren Semester 1, Termin folgt)
 
