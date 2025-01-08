@@ -77,7 +77,7 @@ plantuml-format: svg
 - Bewertung mit Vorlesung Projektmanagement (Hr. Darwish)
 - Note Projektmanagement: Projektmanagement, mehr dazu von Hr. Darwish
 
-\rightarrow{} **Aufgabe bis in 2 Wochen (23.01.): Gruppen bilden & Thema aussuchen**
+\rightarrow{} **Aufgabe bis 23.01.25: Gruppen bilden & Thema aussuchen**
 
 ### Klausur:
 

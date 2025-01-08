@@ -15,6 +15,7 @@ Die Themen sind bewusst so gewählt, dass sie verschiedene Schwerpunkte und Hera
 Die genannten Mindestanforderungen sind eine Hilfestellung: Man kann eine 1,0 bekommen, wenn die Mindestanforderungen nicht wie beschrieben umgesetzt sind, das Ergebnis aber der Idee der Anwendung entspricht und die entsprechende Qualität aufweist. Ebenso kann man durchfallen, wenn die Umsetzung schlecht ist - auch wenn die Mindestanforderungen prinzipiell funktionieren.
 
 Folgende Themen stehen zur Auswahl:
+
 - Thema 1: TODO-App
 - Thema 2: Zeiterfassung ("Stechuhr")
 - Thema 3: Karteikarten-Anwendung ("Anki")
