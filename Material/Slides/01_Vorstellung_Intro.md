@@ -94,9 +94,11 @@ plantuml-format: svg
 - TODO-App
 - Zeiterfassung ("Stechuhr")
 - Karteikarten-Anwendung ("Anki")
-- Snake oder PAC-Man
-- Dashboard für Daten von einer API (GitHub, deps.dev, ...)
-  - [verschiedene Daten öffentlicher Stellen](https://github.com/bundesAPI)
+- Snake
+- Pac-Man
+- API Dashboard
+
+\rightarrow{} siehe [Projekt Themen](https://github.com/DHBW-KA-Webengineering/Lecture_Webengineering/blob/2025/Material/Notes/Projekt_Themen.md)
 
 # Vorlesungsinhalt & Lernziele
 

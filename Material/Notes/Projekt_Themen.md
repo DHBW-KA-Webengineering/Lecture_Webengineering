@@ -17,7 +17,7 @@ Die Mindestanforderungen sind eine Hilfestellung: Man kann eine 1,0 bekommen, we
 - Thema 3: Karteikarten-Anwendung ("Anki")
 - Thema 4: Snake
 - Thema 5: Pac-Man
-- Thema 6: API Dashboard API
+- Thema 6: API Dashboard
 
 # Thema 1: TODO-App
 
@@ -37,14 +37,14 @@ Entwicklung einer webbasierten Anwendung, die es Nutzern ermöglicht, Aufgaben z
   - Interaktionen, wie Hinzufügen und Markieren von Aufgaben als “erledigt”
 - 10 Minuten Präsentation pro Gruppe (Zwischenstand, Ideen, Probleme)
 
-## Zwischenstand 3 (anfang des zweiten Semesters, Termin folgt)
+## Zwischenstand 3 (Anfang des zweiten Semesters, Termin folgt)
 
 - Zusätzliche mindestanforderungen Frontend:
   - Vollständige CRUD-Operationen: Aufgaben können erstellt, bearbeitet und gelöscht werden
   - Filter- oder Sortieroptionen implementiert
 - 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
 
-## Finale Abgabe (ende des zweiten Semesters, Termin folgt)
+## Finale Abgabe (Ende des zweiten Semesters, Termin folgt)
 
 - Komplett funktionsfähig mit persistenter Datenspeicherung
 - Details zum Backend (Persistierung, Accounts, API, ...) werden zu Beginn des zweiten Semesters bekannt gegeben
@@ -69,14 +69,14 @@ Entwicklung einer Anwendung, die Arbeitszeiten erfasst, speichert und auswertet.
   - Anzeige der berechneten Arbeitszeit in einer Tabelle
 - 10 Minuten Präsentation pro Gruppe (Zwischenstand, Ideen, Probleme)
 
-## Zwischenstand 3 (anfang des zweiten Semesters, Termin folgt)
+## Zwischenstand 3 (Anfang des zweiten Semesters, Termin folgt)
 
 - Zusätzliche mindestanforderungen Frontend:
   - Hinweise zu Arbeitszeitüberschreitungen
   - Anzeige von Wochenübersichten und Überstunden
 - 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
 
-## Finale Abgabe (ende des zweiten Semesters, Termin folgt)
+## Finale Abgabe (Ende des zweiten Semesters, Termin folgt)
 
 - Komplett funktionsfähig mit persistenter Datenspeicherung.
 - Details zum Backend (Persistierung, Accounts, API, ...) werden zu Beginn des zweiten Semesters bekannt gegeben
@@ -99,14 +99,14 @@ Umsetzung einer Anwendung, die das Lernen mit Karteikarten erleichtert. Nutzer k
   - Lernmodus, bei welchem man "Abgefragt" wird
 - 10 Minuten Präsentation pro Gruppe (Zwischenstand, Ideen, Probleme)
 
-## Zwischenstand 3 (anfang des zweiten Semesters, Termin folgt)
+## Zwischenstand 3 (Anfang des zweiten Semesters, Termin folgt)
 
 - Zusätzliche mindestanforderungen Frontend:
   - Gruppieren von Lernkarten
   - Karteikasten Funktion
 - 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
 
-## Finale Abgabe (ende des zweiten Semesters, Termin folgt)
+## Finale Abgabe (Ende des zweiten Semesters, Termin folgt)
 
 - Komplett funktionsfähig mit persistenter Datenspeicherung
 - Details zum Backend (Persistierung, Accounts, API, ...) werden zu Beginn des zweiten Semesters bekannt gegeben
@@ -130,7 +130,7 @@ Entwicklung einer klassischen Snake-Anwendung, bei der der Spieler Punkte sammel
   - Grundlegendes Punktesystem
 - 10 Minuten Präsentation pro Gruppe (Zwischenstand, Ideen, Probleme)
 
-## Zwischenstand 3 (anfang des zweiten Semesters, Termin folgt)
+## Zwischenstand 3 (Anfang des zweiten Semesters, Termin folgt)
 
 - Zusätzliche mindestanforderungen Frontend:
   - Spielmechaniken (z. B. Game Over bei Kollision)
@@ -138,7 +138,7 @@ Entwicklung einer klassischen Snake-Anwendung, bei der der Spieler Punkte sammel
   - Highscoreanzeige
 - 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
 
-## Finale Abgabe (ende des zweiten Semesters, Termin folgt)
+## Finale Abgabe (Ende des zweiten Semesters, Termin folgt)
 
 - Komplett funktionsfähig mit persistenter Datenspeicherung.
 - Details zum Backend (Persistierung, Accounts, API, ...) werden zu Beginn des zweiten Semesters bekannt gegeben.
@@ -162,7 +162,7 @@ Umsetzung des Arcade-Klassikers Pac-Man, bei dem der Spieler durch ein Labyrinth
   - Grundlegendes Punktesystem
 - 10 Minuten Präsentation pro Gruppe (Zwischenstand, Ideen, Probleme)
 
-## Zwischenstand 3 (anfang des zweiten Semesters, Termin folgt)
+## Zwischenstand 3 (Anfang des zweiten Semesters, Termin folgt)
 
 - Zusätzliche mindestanforderungen Frontend:
   - Gegnerbewegung mit Kollisionserkennung
@@ -170,14 +170,14 @@ Umsetzung des Arcade-Klassikers Pac-Man, bei dem der Spieler durch ein Labyrinth
   - Highscoreanzeige
 - 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
 
-## Finale Abgabe (ende des zweiten Semesters, Termin folgt)
+## Finale Abgabe (Ende des zweiten Semesters, Termin folgt)
 
 - Komplett funktionsfähig mit persistenter Datenspeicherung.
 - Details zum Backend (Persistierung, Accounts, API, ...) werden zu Beginn des zweiten Semesters bekannt gegeben.
 - Abgabe Quellcode + Dokumentation
 - 15 Minuten Präsentation pro Gruppe
 
-# Thema 6: API Dashboard API
+# Thema 6: API Dashboard
 
 Entwicklung eines Dashboards zur Visualisierung und Verwaltung von API-Daten (z. B. Wetter, Finanzen, etc.).
 
@@ -194,7 +194,7 @@ Entwicklung eines Dashboards zur Visualisierung und Verwaltung von API-Daten (z.
   - Grundlegende Filter- und Sortiermöglichkeiten
 - 10 Minuten Präsentation pro Gruppe (Zwischenstand, Ideen, Probleme)
 
-## Zwischenstand 3 (anfang des zweiten Semesters, Termin folgt)
+## Zwischenstand 3 (Anfang des zweiten Semesters, Termin folgt)
 
 - Zusätzliche mindestanforderungen Frontend:
   - Interaktive Visualisierungen (z. B. Diagramme)
@@ -202,7 +202,7 @@ Entwicklung eines Dashboards zur Visualisierung und Verwaltung von API-Daten (z.
   - Benutzerdefinierte Filter
 - 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
 
-## Finale Abgabe (ende des zweiten Semesters, Termin folgt)
+## Finale Abgabe (Ende des zweiten Semesters, Termin folgt)
 
 - Komplett funktionsfähig mit persistenter Datenspeicherung.
 - Details zum Backend (Persistierung, Accounts, Export, API, ...) werden zu Beginn des zweiten Semesters bekannt gegeben.
