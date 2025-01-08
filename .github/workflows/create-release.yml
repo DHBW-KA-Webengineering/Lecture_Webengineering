@@ -24,8 +24,10 @@ jobs:
 
   create_release:
     needs: build_pdf
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: ${{ github.ref == 'refs/heads/2025' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -35,7 +37,7 @@ jobs:
           name: pdf-output
       - name: Create Release
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           ls -R
           gh release create $(date +'%Y-%m-%d-%H-%M') build.zip --generate-notes
