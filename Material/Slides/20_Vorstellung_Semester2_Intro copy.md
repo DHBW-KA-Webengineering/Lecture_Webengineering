@@ -1,6 +1,6 @@
 ---
-title: "Vorlesung Webengineering I - Einführung"
-topic: "Webengineering_1_1"
+title: "Vorlesung Webengineering I (Semester 2) - Einführung"
+topic: "Webengineering_1_2_1"
 author: "Lukas Panni"
 theme: "Berlin"
 colortheme: "dove"
@@ -14,13 +14,6 @@ section-titles: true
 plantuml-format: svg
 ...
 
-
-# Organisatorisches
-
-## Heute
-
-
-
 ## Vorstellung
 
 ### Dozent: Lukas Panni 
@@ -28,22 +21,23 @@ plantuml-format: svg
 - 2023: _M.Sc._ Informatik - HKA
 - Seit 2018 bei SEW-EURODRIVE in Bruchsal
     - aktuell Softwareentwickler mit Fokus auf Open Source Compliance & Security
+    - Fachbetreuer DHBW Studierende Informatik
 
 
 ### Ihr
 - Firma
 - Programmiersprachen?
 - Vorkenntnisse Webengineering?
-    - Vorkenntnisse Tools: git, docker, VSCode?
+  - Lücken aus dem letzten Semester?
+  - Interessanteste Themen aus dem letzten Semester?
+  - Vorkenntnisse Tools: git, docker, VSCode?
 - Erwartungen & Wünsche
 
 
-## Ablauf
+## Vorlesung
 
-- Vorlesung: 44 Vorlesungseinheiten (VE)
-  - Dieses Semester: 8 Termine, je 3 VE = 24 VE
-    - Montag 8:30 - 11:00 Uhr (3 VE + 15 Minuten Pause)
-  - Rest (20 VE) im nächsten Semester
+- 33 Vorlesungseinheiten
+  - i.d.R. 3x 45 min. + 15 min. Pause 
 
 - Vorlesung mit Programmieraufgaben
   - Keine Vorkenntnisse erforderlich
@@ -53,14 +47,13 @@ plantuml-format: svg
 
 ## Material
 
-- Vorlesungsfolien \rightarrow{} Slides 
-- Vorlesungsnotizen (gemeinsam Erarbeitetes) \rightarrow{}  Notes
+- Vorlesungsfolien \rightarrow{} Slides
+- Vorlesungsnotizen (gemeinsam Erarbeitetes) \rightarrow{} Notes
 - Sonstiges (Anleitungen, Zusatzmaterial) \rightarrow{} Extra
 
+\rightarrow{} alles auf GitHub [(DHBW-KA-Webengineering/Lecture_Webengineering_2025)](https://github.com/DHBW-KA-Webengineering/Lecture_Webengineering)
 
-\rightarrow{} alles auf GitHub [(lukaspanni/Lecture_Webengineering_2024)](https://github.com/lukaspanni/Lecture_Webengineering_2024)
-
-\rightarrow{} separates Repo für Code [(TINF23B5-Webengineering/Lecture_Code)](https://github.com/TINF23B5-Webengineering/Lecture_Code) 
+\rightarrow{} separates Repo für Code [(DHBW-KA-Webengineering/Lecture_Code)](https://github.com/DHBW-KA-Webengineering/Lecture_Code)
 
 
 ## Prüfungsleistung
@@ -91,73 +84,25 @@ plantuml-format: svg
 # Vorlesungsinhalt & Lernziele
 
 ## Ziele der Vorlesung
-- Was ist eine "Webanwendung" und wie funktioniert sie?
-- Grundlegende Architektur von Webanwendungen
-- Erstellen einfacher Webanwendungen
-- Grundlagen Webdesign & Mobile Webdesign
+
+- Was ist eine "Webanwendung" und wie funktioniert sie? \rightarrow{} Fokus auf Backend
+- Erstellen einfacher Backends mit verschiedenen Technologien
+- Anbindung von Datenbanken & Crashkurs SQL
+- Grundlagen & Best-Practices Web-Security
 
 
 ## Vorlesungsinhalt / Agenda (vorläufig)
 
-- Grundlagen "Web" & Webanwendungen \rightarrow{} _ab heute_
-  - HTTP & REST
-- Einfache Webanwendungen
-  - HTML
-  - CSS
-- Einführung Webdesign
-- Dynamische Webanwendungen
-  - JavaScript + Intro TypeScript
-  - Interaktion Client/Server
-- Fortgeschrittene Themen
-  - Architektur moderner Webanwendungen
-  - Security: Angriffe, Best-Practices
+- Wiederholung Semester 1
+- Serverseitiges JavaScript
+  - Typsicherheit mit TypeScript
+  - Runtimes und Server-Frameworks: Node.js + express / Bun + Elysia
+- Datenbanken
+  - Crashkurs SQL & ORMs
+- Web-Security
+  - Angriffe & Best-Practices
+- Grundlagen ASP.NET Core
+- Deployment von Webanwendungen
+  - Docker, CI/CD
 
-
-# Einführung: Webanwendungen
-
-## Webanwendungen (1)
-
-![](./media/Example_Webapplications.png){width=70%}
-
-
-## Webanwendungen (2)
-
-> Eine **Webanwendung** (auch Online-Anwendung, Webapplikation oder kurz Web-App) ist ein Anwendungsprogramm nach dem **Client-Server-Modell**. Anders als klassische Desktopanwendungen werden Webanwendungen **nicht lokal** auf dem Rechner des Benutzers installiert. Die Datenverarbeitung findet **teilweise auf einem entfernten Webserver** statt. Die Ergebnisse der Datenverarbeitung werden an den lokalen Client-Rechner des Benutzers übertragen (Thin Client). Genutzt wird eine Webanwendung dabei zumeist über einen **Webbrowser**. Diese kommuniziert mit dem Webserver meist über das **HTTP**.
->
-> -- [Wikipedia](https://de.wikipedia.org/wiki/Webanwendung)
-
-\rightarrow{} zu komplex!  
-
-## Webanwendungen (3)
-
-> Eine **Webanwendung** ist ein Programm, das über einen **Webbrowser** aufgerufen wird und teilweise auf einem **Server** ausgeführt wird.
-
-- Auch nicht unbedingt korrekt 
-  - Progressive Web Apps (PWAs) können auch teilweise offline (ohne Server) ausgeführt werden
-  - z.B. Electron-Anwendungen sind unabhängig von Browser und Server \rightarrow{} integrierte Browser-Engine
-
-## Webanwendungen (4)
-
-> Eine **Webanwendung** ist eine Anwendung, die Web-Technologien (_HTML_, _CSS_, _JavaScript_) verwendet
-
-- Einfache und kurze, aber zyklische Definition
-- HTML + CSS werden teilweise auch außerhalb von Webanwendungen benutzt 
-- JavaScript wird heute praktisch überall benutzt!
-
-
-\rightarrow{} es gibt keine klare Definition! Das ist aber auch garnicht notwendig.
-
-
-
-## Live-Demo: Webanwendungen
-
-- Was passiert beim Abruf einer Webseite? z.B. "lukaspanni.de"
-  - Auflösung des Namens zu einer IP-Adresse über DNS \rightarrow{} 37.120.173.24
-  - HTTP-Anfrage an diese IP-Adresse an Port 80 (Standard für HTTP)
-  - Antwort: 301 Moved Permanently; Location: https://lukaspanni.de/
-  - HTTPS-Anfrage an gleiche IP-Adresse an Port 443 (Standard für HTTPS)
-  - Antwort: 200 OK, HTML-Code, CSS-Code
-
-- Was passiert bei komplexeren Websites?
-
-
+Nicht unbedingt in dieser Reihenfolge 

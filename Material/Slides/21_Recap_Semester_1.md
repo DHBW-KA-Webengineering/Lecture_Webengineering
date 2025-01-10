@@ -1,6 +1,6 @@
 ---
 title: "Vorlesung Webengineering 1 - Recap 1. Semester"
-topic: "Webengineering_1_09_x"
+topic: "Webengineering_1_2_2"
 author: "Lukas Panni"
 theme: "Berlin"
 colortheme: "dove"
@@ -15,10 +15,6 @@ plantuml-format: svg
 ...
 
 # Rückblick 1. Semester
-
-## Feedback
-
-### Was war gut? Was kann verbessert werden? Wünsche für dieses Semester?
 
 # Behandelte Themen
 
@@ -40,7 +36,7 @@ Einfache und ausreichende Definition.
 **Request**:
 
 ```
-GET / HTTP/1.1
+GET / HTTP/2
 Host: lukaspanni.de
 Accept: */*
 
@@ -49,9 +45,9 @@ Accept: */*
 **Response**:
 
 ```
-HTTP/1.1 200 OK
-Content-Type: text/html
-Date: Tue, 02 Apr 2024 17:42:37 GMT
+HTTP/2 200
+Date: Fri, 10 Jan 2025 14:31:28 GMT
+Content-Type: text/html; charset=utf-8
 
 <!DOCTYPE html>
 ...
@@ -66,7 +62,7 @@ Date: Tue, 02 Apr 2024 17:42:37 GMT
 | **HEAD**    | Header für Ressource abrufen      |
 | **POST**    | Ressource erstellen               |
 | **PUT**     | Ressource ersetzen                |
-| **DELETE**  | Resource löschen                  |
+| **DELETE**  | Ressource löschen                 |
 | **OPTIONS** | Liste erlaubter Methoden anfragen |
 
 ## Grundlagen Web: HTTP Statuscodes
@@ -89,7 +85,6 @@ Date: Tue, 02 Apr 2024 17:42:37 GMT
   - `<pfad>`: Pfad zur Ressource (konkrete "Seite") \rightarrow{} erste Zeile des Requests
   - `<query>`: Zusatzinformationen, z.B. Filter oder Anzeigeformate
   - `<fragment>`: Verweis auf bestimmten Abschnitt einer Webseite z.B. [wikipedia.org/wiki/URL#Fragment](https://de.wikipedia.org/wiki/URL#Fragment)
-
 
 ## Grundlagen Web: REST
 
@@ -126,7 +121,6 @@ Date: Tue, 02 Apr 2024 17:42:37 GMT
 - `<input type="text" name="name" placeholder="Name eingeben" required>`
   - Typen: `text`, `password`, `number`, `email`, `date`, `file`, `submit`, `reset`, ...
 
-
 ## Grundlagen Web: CSS
 
 - = Cascading Style Sheets
@@ -136,7 +130,6 @@ Date: Tue, 02 Apr 2024 17:42:37 GMT
   - **Eigenschaften**: `color`, `background-color`, `font-size`, `border`, `margin`, `padding`, `display`, ...
 - Einbindung: `style`-Element im `head`, externes Stylesheet (`<link rel="stylesheet" href="url">`), Inline-Styles (Attribut `style="..."`)
 
-
 ## Grundlagen Web: CSS - Box-Modell + Positionierung
 
 - Jedes Element ist eine Box: Inhalt umschlossen von _Padding_, _Border_ und _Margin_
@@ -145,7 +138,6 @@ Date: Tue, 02 Apr 2024 17:42:37 GMT
   - Flex-Container (`display: flex;`) und Flex-Items (`flex: ...;`)
   - Eigenschaften für Container: `flex-direction`, `justify-content`, `align-items`, ...
   - Eigenschaften für Items: `flex`, `order`, `align-self`, ...
-
 
 ## Exkurs: Webdesign
 
@@ -157,7 +149,6 @@ Date: Tue, 02 Apr 2024 17:42:37 GMT
   - Affordances & Constraings \rightarrow{} welche Nutzung wird nahegelegt? (sieh Norman-Doors)
   - Feedback: Sinnvolle Rückmeldungen bei Nutzerinteraktionen
 - Entwurfsprinzipien
-
 
 ## Grundlagen Web: JavaScript
 
@@ -183,7 +174,6 @@ Date: Tue, 02 Apr 2024 17:42:37 GMT
   - `element.addEventListener("click", handler)`
   - `element.onclick = handler`
 
-
 ## Grundlagen Web: JavaScript - fetch-API
 
 - Asynchrone API für Kommunikation mit Server
@@ -192,36 +182,47 @@ Date: Tue, 02 Apr 2024 17:42:37 GMT
   - `options`: Konfiguration (Methode, Body, Header, ...)
   - `Promise<Response>`: Asynchrones Ergebnis
 
-
-## Webarchitekturen
-
-- Grundlagen Client-Server-Modell
-  - Server: Bietet Dienste an
-  - Client: Nutzt Dienste
-- Zentrale Fragen der Softwarearchitektur: Modularisierung von Struktur, Kommunikation, Deployment
-  - Komplexes Problem wird in kleinere Teile zerlegt
-  - Komponenten lösen Problem durch Interaktion
-
-## Webarchitekturen Konzepte
-
-- **Schichtenarchitektur**: Aufteilung in klar getrennte Schichten (z.B. Präsentation, Anwendung, Daten)
-  - Klassische Aufgabenteilung: Browser (Präsentation), Web-Server (Anwendung) Datenbank-Server (Daten)
-  - Hohe Interaktivität erfordert Verlagerung von Logik in Richtung Client
-  - Aufgabenverteilung in der Praxis nicht so eindeutig möglich
-
+<!-- TODO: Webarchitekturen recap -->
 
 # Organisatorisches 2. Semester
 
 ## Vorlesung
 
-- 22 Vorlesungseinheiten
-  - i.d.R. 3x 45 min. + 15 min. Pause (1 Termin mit einer zusätzlichen Einheit)
-  - Feiertag 20.05. 
-  - letzte Vorlesung voraussichtlich 24.06.
+- 33 Vorlesungseinheiten
+  - i.d.R. 3x 45 min. + 15 min. Pause 
 
-## Prüfungsleistung
+- Vorlesung mit Programmieraufgaben
+  - Keine Vorkenntnisse erforderlich
+  - Tools: Texteditor, Browser, Terminal, Git, (evtl. Container-Tools, i.e. Docker)
+    - Empfehlung: [VSCode](https://code.visualstudio.com/) / [WebStorm](https://www.jetbrains.com/de-de/webstorm/) (kostenlos für Studenten), Firefox, Docker-Desktop
+  - kleine Hausaufgaben
 
-- Projektarbeit: 
-  - siehe Bewertungskriterien
-  - Abgabe: voraussichtlich 11.08. finaler Termin wird mindestens 3 Wochen vorher bekannt gegeben
+## Material
 
+- Vorlesungsfolien \rightarrow{} Slides
+- Vorlesungsnotizen (gemeinsam Erarbeitetes) \rightarrow{} Notes
+- Sonstiges (Anleitungen, Zusatzmaterial) \rightarrow{} Extra
+
+\rightarrow{} alles auf GitHub [(DHBW-KA-Webengineering/Lecture_Webengineering_2025)](https://github.com/DHBW-KA-Webengineering/Lecture_Webengineering)
+
+\rightarrow{} separates Repo für Code [(DHBW-KA-Webengineering/Lecture_Code)](https://github.com/DHBW-KA-Webengineering/Lecture_Code)
+
+## Prüfungsleistungen
+
+### Projektarbeit:
+
+- Entwicklung einer (kleinen) Webanwendung mit hier gelernten Technologien
+- Gruppenarbeit verpflichtend (3 - 5 Studierende)
+- Dieses Semester: Umsetzung Backend, Frontend sollte bereits vorhanden sein
+
+
+### Klausur:
+
+- Klausur (60 min) am Ende dieses Semesters über die Themen **beider** Semester!
+- Beispielaufgaben in Moodle verfügbar
+
+### Note Webengineering:
+
+- Kombinierte Prüfung:
+  - 50 % Projekt (Details siehe [Notes/Bewertung_Projektarbeit](https://github.com/DHBW-KA-Webengineering/Lecture_Webengineering/tree/2025/Material/Notes/Bewertung_Projektarbeit.md))
+  - 50 % Klausur (60 min)

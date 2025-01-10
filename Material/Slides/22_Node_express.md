@@ -1,6 +1,6 @@
 ---
-title: "Vorlesung Webengineering 1 - Dynamische Webseiten Serverseitig"
-topic: "Webengineering_1_10"
+title: "Vorlesung Webengineering 1 - Serverseitiges JavaScript mit NodeJS"
+topic: "Webengineering_1_2_3"
 author: "Lukas Panni"
 theme: "Berlin"
 colortheme: "dove"
@@ -33,7 +33,7 @@ plantuml-format: svg
 
 - Node.js kann über Installer oder Paketmanager installiert werden
   - [Windows Installer](https://nodejs.org/en/download/)
-  - [Windows chocolatey](https://chocolatey.org/packages/nodejs) `choco install nodejs.install`
+  - [Windows winget](https://winget.run/pkg/OpenJS/NodeJS) `winget install -e --id OpenJS.NodeJS`
   - [macOS Installer](https://nodejs.org/en/download/)
   - [macOS Homebrew](https://formulae.brew.sh/formula/node) `brew install node`
   - [Linux Package Manager](https://nodejs.org/en/download/package-manager/)
@@ -70,6 +70,7 @@ Test-File Line 2
 ### Erklärung
 
 - Modul `fs` (File System) wird über require eingebunden und ist über Variable `fs` verfügbar
+  - Mehr zu Modulen später
 - Ausgabe `console.log("Start")` wird sofort ausgeführt
 - `fs.readFile` wird mit einer Callback-Funktion aufgerufen
   - Datei lesen ist aufwändig, daher standardmäßig asynchron
@@ -180,19 +181,19 @@ Bei einem Aufruf der URL `http://localhost/style.css` soll die Datei `style.css`
 Analog auch für `/script.js`.
 Bei allen anderen Anfragen soll ein Fehler ausgegeben werden.
 
-Achtet auf die richtigen Content-Types und Status-Codes!
+Achtet auf die richtigen _Content-Types_ und _Status-Codes_!
 
 Argumente von `createServer`: `request`: [http.IncomingMessage](https://nodejs.org/api/http.html#class-httpincomingmessage), `response`: [http.ServerResponse](https://nodejs.org/api/http.html#class-httpserverresponse)
 
 # Modules und Pakckages
 
-## Modules in Node.js
+## Module in Node.js
 
 - Einige Standard-Module sind in Node.js integriert: `fs`, `http`, `os`, `net` ...
 - Ein Modul ist eine abgeschlossene Einheit mit **wiederverwendbarer Funktionalität**
   - Bessere Strukturierung von Code
   - Wird inzwischen auch in Browsern unterstützt
-- 2 Modulsysteme für Node.js:
+- Historisch mehrere Modulsysteme für Node.js:
   - CommonJS (CJS)
   - ECMAScript Modules (ESM)
 
@@ -210,7 +211,7 @@ Argumente von `createServer`: `request`: [http.IncomingMessage](https://nodejs.o
 
 - Import über `import XY` Statement
   - Kein dynamischer Import
-  - Import einzelner Elemente möglich (z.B. `import { readFileSync } from "fs";`)
+  - Import einzelner Teile möglich (z.B. `import { readFileSync } from "fs";`)
 - Export über `export` Statement
   - Benannter Export möglich (z.B. `export function XY ...`)
 - Moderner und heute empfohlen
@@ -243,7 +244,7 @@ export default data;
 
 ## Packages in Node.js
 
-- **Modul** = eine JavaScript-Datei
+- **Module** = eine JavaScript-Datei
 - **Package** = "A package is a folder tree described by a `package.json` file." ([Node.js Dokumentation](https://nodejs.org/api/packages.html))
   - Enthält mindestens ein Modul
   - Wird über Konfigurationsdatei `package.json` beschrieben
@@ -281,13 +282,24 @@ export default data;
   - \rightarrow{} rechtliche Folgen möglich!
 - \rightarrow{} Packages nur von vertrauenswürdigen Quellen installieren!
 
+## npm Alternativen
+
+- Verschiedene alternative Package Manager mit jeweils eigenen Stärken
+  - [yarn](https://yarnpkg.com/)
+    - Schneller
+    - Besseres Caching
+  - [pnpm](https://pnpm.io/)
+    - Schneller
+    - Weniger Speicherplatzverbrauch durch Teilen von Packages zwischen Projekten
+    - Guter Monorepo support
+
 # express
 
 ## express
 
 - Open Source (MIT) Webframework für Node.js
   - Leichtgewichtig, flexibel, erweiterbar
-  - Weit verbreitet (> 21.000.000 Downloads/Woche)
+  - Weit verbreitet (> 30.000.000 Downloads/Woche)
   - Besonders für APIs genutzt, kann aber auch als einfacher HTTP-Server genutzt werden
 
 Ressourcen:
@@ -298,7 +310,10 @@ Ressourcen:
 
 ## express Installation
 
-**Installation**: `npm install express`
+**Installation**:
+  - `npm install express`
+  - `yarn add express`
+  - `pnpm install express`
 
 **Import**:
 
@@ -320,7 +335,7 @@ Ressourcen:
 
 ## express Minimalbeispiel mit ESM (2)
 
-Siehe [express-basics](https://github.com/TINF23B5-Webengineering/Lecture_Code/tree/main/10_Javascript_Serverseitig/express-basics)
+Siehe [express-basics](https://github.com/TINF23B5-Webengineering/Lecture_Code/tree/2025/22_Node_express/express-basics)
 
 ### simple-express-server:
 
@@ -380,7 +395,7 @@ Grundkonzept in express: **Request Handler** für bestimmte **Routen**
 
 ## express Request Handler - Antwort erzeugen
 
-- `response.write` schreibt Daten in den Antwort-Body (Sendet direkt an Client!)
+- `response.write` schreibt Daten in den Antwort-Body (sendet direkt an Client!)
 - `response.end` sendet die Antwort, danach kein `response.write` mehr möglich
 - `response.send` = `response.write` + `response.end`
   - - automatisches setzen von `Content-Type` und `Content-Length`-Header
@@ -430,7 +445,8 @@ app.get(
   - \rightarrow{} Schrittweiser Aufbau der Antwort
 - `response.send` im letzen Request Handler, danach kann die Antwort nicht mehr verändert werden
   - Setzt Header automatisch und sendet Antwort an Client
-- \rightarrow{} Besserer Ansatz, wenn Antwort schrittweise aufgebaut wird!
+- \rightarrow{} Besserer Ansatz, wenn Antwort schrittweise aufgebaut wird und kein Response streaming gewünscht ist.
+  - Streaming (Antwort schrittweise senden) erfordert eventuell Anpassungen auf Client-Seite, kann aber vorteilhaft sein (z.B. wenn nicht alle Daten sofort verfügbar sind)
 
 ## express Request Handler - Header (1)
 
@@ -526,7 +542,7 @@ const folderPath = fileURLToPath(new URL(".", import.meta.url));
 Überarbeitet euren HTTP-Server aus der Praxisaufgabe 1, sodass er express nutzt.
 Die Funktionalität soll gleich bleiben.
 Setzt den Server-Root auf einen Unterordner `public`, nur Dateien aus diesem Ordner sollen ausgeliefert werden können!
-Ohne Dateiendung soll automatisch nach einem Unterordner mit dem Namen und einer Datei `index.html` gesucht werden.
+Ohne Dateiendung soll automatisch nach einem Unterordner mit dem angefragten Namen und einer Datei `index.html` gesucht werden.
 
 
 # express Middleware
