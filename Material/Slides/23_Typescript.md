@@ -1,6 +1,6 @@
 ---
-title: "Vorlesung Webengineering 1 - Dynamische Webseiten Serverseitig 2"
-topic: "Webengineering_1_11"
+title: "Vorlesung Webengineering 1 - TypeScript"
+topic: "Webengineering_1_2_4"
 author: "Lukas Panni"
 theme: "Berlin"
 colortheme: "dove"
@@ -165,7 +165,7 @@ printMessage(result);
 
 ## TypeScript Features - Klassen (2)
 
-Beispiel [`typescript-classes.ts`](https://github.com/TINF23B5-Webengineering/Lecture_Code/blob/main/11_Javascript_Serverseitig_2/typescript-example/typescript-classes.ts)
+Beispiel [`typescript-classes.ts`](https://github.com/TINF23B5-Webengineering/Lecture_Code/blob/2025/23_Typescript/typescript-example/typescript-classes.ts)
 
 
 ## TypeScript Features - Komplexere Typangaben (1)
@@ -223,62 +223,9 @@ export function isPerson(obj: any): obj is Person {
 - [TypeScript-Tutorial (Video)](https://www.youtube.com/watch?v=_CaGUZNEobk)
 - [Typdefinitionen für JavaScript-Bibliotheken](https://github.com/DefinitelyTyped/DefinitelyTyped)
 
-# Alternative Runtimes für JavaScript/TypeScript
 
-## Deno (1)
-
-[deno.land](https://deno.land)
-
-- Runtime für JavaScript und TypeScript
-- Basiert wie Node.js auf V8-Engine
-- idR. Performanter als Node.js
-- Standardfunktionalität bereits eingebaut (z.B. HTTP-Server)
-- Direkte Unterstützung von TypeScript, mitgelieferte Lint und Test-Tools
-- Kein Package Manager (Module über URLs eingebunden)
-  - Nutzung von NPM-Paketen meist problemlos möglich
-
-## Deno (2)
-
-- [Installation](https://docs.deno.com/runtime/manual#install-deno): `curl -fsSL https://deno.land/x/install/install.sh | sh` / `irm https://deno.land/install.ps1 | iex`
-- Einfacher Webserver:
-
-```typescript
-Deno.serve((_request: Request) => {
-  return new Response("Hello, world!");
-});
-```
-Ausführen: `deno run --allow-net server.ts`
-
-
-## Bun (1)
-
-[bun.sh](https://bun.sh/)
-
-- Runtime + Bundler + Package Manager + Test-Runner für JavaScript und TypeScript
-- Basiert auf `JavaScriptCore` Engine aus Apple WebKit
-- idR. Performanter als Node.js und Deno
-- Standardfunktionalität bereits eingebaut (z.B. HTTP-Server)
-- Nutzung von NPM-Paketen mit eigenem NPM-Client
-
-## Bun (2)
-
-- [Installation](https://bun.sh/docs/installation): `npm install -g @bun/cli` oder `curl -fsSL https://bun.sh/install | bash`
-  - Aktuell nur experimentelle Windows-Unterstützung (außer über WSL)
-- Einfacher Webserver:
-    
-```typescript
-const server = Bun.serve({
-  port: 8000,
-  fetch(request) {
-    return new Response("Welcome to Bun!");
-  },
-});
-```
-
-## Fazit Alternative Runtimes
-
-- Alle Runtimes entwickeln sich ständig weiter
-- Node-Ökosystem ist am größten: Pakete, Tools, Anleitungen, Stackoverflow-Beiträge, ...
-- Aktuell großer Hype um Bun
-
-\rightarrow{} Gerne alles ausprobieren und eigene Meinung bilden!
+<!-- TODO:
+  - Erweiterung express webserver mit TypeScript, zeigen konkreter Vorteile an dem Beispiel
+  - evtl. Compiler Optionen + Nutzung in CI-Build
+  - Input-Validierung und Typen zur Laufzeit mit zod
+-->

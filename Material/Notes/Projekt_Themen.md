@@ -43,7 +43,7 @@ Entwicklung einer webbasierten Anwendung, die es Nutzern ermöglicht, Aufgaben z
 
 ## Zwischenstand 3 (Anfang des zweiten Semesters, Termin folgt)
 
-- Zusätzliche mindestanforderungen Frontend:
+- Zusätzliche Mindestanforderungen Frontend:
   - Vollständige CRUD-Operationen: Aufgaben können erstellt, bearbeitet und gelöscht werden
   - Filter- oder Sortieroptionen implementiert
 - 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
