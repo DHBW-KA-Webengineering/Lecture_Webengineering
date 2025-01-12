@@ -105,6 +105,25 @@ console.log(add(null, 2));
 - Ausführen von erzeugtem JavaScript
   - `node <dateiname.js>`
 
+## TypeScript Kompiler-Optionen (1)
+
+- `tsc`-Compiler bietet viele Optionen zur Konfiguration
+- Beispiel: `tsconfig.json`-Datei zur Konfiguration des Compilers
+  - `tsc --init` erstellt eine `tsconfig.json`-Datei
+  - Optionen sind mit Kommentaren gut erklärt
+  - Oft reichen Standard-Einstellungen aus
+    - Insbesondere wenn `tsconfig.json` von Framework oder Template vorgegeben!
+- Hilfreichste Option `strict`: Aktiviert alle strikten Typenprüfungen für höchste Typsicherheit
+
+## TypeScript Kompiler-Optionen (2)
+
+- Häufige Optionen
+  - `outDir`: Verzeichnis für Ausgabedateien
+  - `include`: Dateien/Pattern, die kompiliert werden sollen
+  - `exclude`: Dateien/Pattern, die nicht berücksichtigt werden sollen
+  - `types`: Typdefinitionen für JavaScript-Bibliotheken (z.B. Standardmäßig alle NodeJS typen integrieren)
+
+
 ## TypeScript - Beispiel: Probleme von JavaScript
 
 Kompilation der zuvor gezeigten Beispiele (gleicher Code, Dateiendung `.ts`):
@@ -223,9 +242,127 @@ export function isPerson(obj: any): obj is Person {
 - [TypeScript-Tutorial (Video)](https://www.youtube.com/watch?v=_CaGUZNEobk)
 - [Typdefinitionen für JavaScript-Bibliotheken](https://github.com/DefinitelyTyped/DefinitelyTyped)
 
+# TypeScript in der Praxis
 
-<!-- TODO:
-  - Erweiterung express webserver mit TypeScript, zeigen konkreter Vorteile an dem Beispiel
-  - evtl. Compiler Optionen + Nutzung in CI-Build
-  - Input-Validierung und Typen zur Laufzeit mit zod
--->
+## express mit TypeScript 
+
+- [`DefinitelyTyped`-Projekt](https://github.com/DefinitelyTyped/DefinitelyTyped) stellt Typdefinitionen für viele JavaScript-Bibliotheken bereit
+- Installation von typen für express
+  - `npm install express @types/express`
+
+
+## express mit TypeScript - Beispiel User Router (1)
+
+```typescript
+const users: User[] = [
+  { id: 1, name: "Lukas" },
+  { id: 2, name: "Silas" },
+];
+
+router.get("/", (_, response) => {
+  response.json(users);
+});
+
+```
+
+## express mit TypeScript - Beispiel User Router (2)
+
+```typescript
+router.get("/:id", (request, response) => {
+  const id = parseInt(request.params.id);
+  const user = users.find((user) => user.id === id);
+
+  if (user) {
+    response.json(user);
+  } else {
+    response.status(404).json({ message: "User not found" });
+  }
+});
+
+```
+
+## express mit TypeScript - Beispiel User Router (3)
+
+![Typsicherheit bei Pfad-Parametern](media/path-param-types-express.png)
+  
+
+## express mit TypeScript - Beispiel Caching Middleware
+
+- Siehe [cache-middleware.ts](https://github.com/TINF23B5-Webengineering/Lecture_Code/blob/2025/23_Typescript/typescript-express/cache-middleware.ts)
+- Vorteile:
+  - Stellt kompatible `getCacheKey` Funktion zur Entwicklungszeit sicher
+  - Typsicherheit bei Verwendung 
+  - Allgemein bessere Developer Experience (DX)
+
+
+## Input und Typ-Validierung zur Laufzeit mit zod
+
+- [zod](https://zod.dev/) ist eine Bibliothek zur Input-Validierung
+- Validierung basiert auf erwartetem _Schema_
+- Erlaubt Validierung von primitiven Typen und komplexen Objekten zur Laufzeit
+- Erzeugt aus Schema TypeScript-Typen zur statischen Typisierung zur Entwicklungszeit
+- Installation: `npm install zod`
+
+## zod - Beispiel Strings
+
+```typescript
+
+import { z } from "zod";
+
+// String mit Länge 1-20
+const helloWorldSchema = z.string().min(1).max(20); 
+const string1 = helloWorldSchema.parse("Hello, World!"); // ok
+const string2 = helloWorldSchema.parse(""); 
+// Error: { code: 'too_small', message: ... }
+const { success, data, error } = helloWorldSchema.safeParse(""); 
+// ok, success = false 
+
+```
+
+## zod - Primitive Typen
+
+- [Primitive-Typen](https://zod.dev/?id=primitives) 
+  - `z.string()`
+  - `z.number()`
+  - `z.boolean()`
+  - `z.date()`
+  - ...
+- Zusätzlich mit Support für Typumwandlung (Coercion) zur Laufzeit
+  - `z.coerce.number().parse("1")` \rightarrow{} `1`
+  - Keine vorherige Umwandlung von User-Input (strings) nötig
+
+## zod - Einschränkungen für Primitive Typen (1)
+
+- Einfache Einschränkungen für Wertebereiche möglich
+- [Zahlen](https://zod.dev/?id=numbers)
+  - Beispiel `z.number().gt(0).lte(100)` \rightarrow{} Zahl > 0 und <= 100
+  - `gt`: greater than \rightarrow{} >
+  - `gte`: greater than or equal \rightarrow{} >= alias `min`
+  - `lt`: less than \rightarrow{} <
+  - `lte`: less than or equal \rightarrow{} <= alias `max`
+  - `int`: integer
+  - `multipleOf`: Vielfaches von Zahl
+  - `positive`, `negative`, `nonpositive`, `nonnegative` ...
+
+## zod - Einschränkungen für Primitive Typen (2)
+
+
+- [Strings](https://zod.dev/?id=strings) sehr viele Möglichkeiten, z.B.:
+  - `min`, `max`: Länge
+  - `email`: E-Mail-Adresse
+  - `url`: URL
+  - `uuid`: UUID
+  - `ip`: IP-Adressen
+  - `regex`: Validierung anhand von Regex
+  - `includes`: String muss bestimmten Substring enthalten
+  - `startsWith`, `endsWith`: String muss mit bestimmtem Substring beginnen/endigen
+  - `trim`: Leerzeichen entfernen
+  - `toLowerCase`, `toUpperCase`: Groß-/Kleinschreibung
+  - `date`: ISO-Datum
+  - ...
+
+
+## zod - Komplexe Typen (1)
+
+<!-- TODO -->
+
