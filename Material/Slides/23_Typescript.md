@@ -362,7 +362,76 @@ const { success, data, error } = helloWorldSchema.safeParse("");
   - ...
 
 
+## zod - Enums, optionale und undefinierte Werte
+
+- Feste Wertemengen mit `z.enum()`
+  - `z.enum(["red", "green", "blue"])`
+- Bei schon vorhandenem Enum-Typ: `z.nativeEnum(MyEnum)`
+- Optionale Werte mit `z.optional()` und `schema.optional()`
+  - `z.optional(z.string())` \rightarrow{} = `z.string().optional()`
+
 ## zod - Komplexe Typen (1)
 
-<!-- TODO -->
+- Arrays mit `z.array()`
+  - `min`, `max`: Minimale / Maximale Länge
+  - `length`: Exakte Länge
+  - `nonempty`: Nicht leer
+- Tupel mit `z.tuple()`
+  - `z.tuple([...])`
+  - Feste Anzahl von Elementen
+  - Typen der Elemente können unterschiedlich sein
 
+## zod - Komplexe Typen (2)
+
+- Definition von [Objekten](https://zod.dev/?id=objects) mit `z.object()`
+  - `z.object({ key1: <zodSchema>, key2: ... })`
+- Beispiel:
+
+```typescript
+const userSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  email: z.string().email(),
+});
+```
+
+- zod Schema kann in TypeScript-Typ für Verwendung bei Parameter- und Rückgabetypen konvertiert werden
+  - `type SchemaType = z.infer<typeof schema>`
+
+
+## zod - Komplexe Typen (3)
+
+- Weitere komplexe Typen:
+  - [Unions](https://zod.dev/?id=unions)
+  - [Discriminated Unions](https://zod.dev/?id=discriminated-unions) 
+  - [Records](https://zod.dev/?id=records)
+  - [Maps](https://zod.dev/?id=maps)
+
+
+
+## zod - Komplexe Typen (4)
+
+- Komplexe zod Schemata können verschachtelt werden
+- Beispiel:
+
+```typescript
+const userSchema = z.object({
+  ... 
+  emails: z.array(z.string().email()),
+  address: z.object({
+    street: z.string(),
+    city: z.string(),
+  }),
+
+});
+```
+
+
+## zod - Sonstiges
+
+- Viele weitere hilfreiche Funktionen:
+  - `transform`: Transformation von Werten
+  - `refine`: Benutzerdefinierte Validierungsfunktionen
+  - ...
+
+- Wenn Input-Validierung benötigt wird, ist zod in der Regel einer eigenen Implementierung vorzuziehen!
