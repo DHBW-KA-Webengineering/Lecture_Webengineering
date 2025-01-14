@@ -27,20 +27,20 @@ Ein genauer Termin wird noch bekanntgegeben (mindestens 3 Wochen im Voraus).
 
 Das Projekt ist jedoch über beide Semester zu bearbeiten, nicht erst kurz vor der Abgabe. Daher gibt es folgende Zwischenabgaben, welche in die Bewertung mit einfließen. Die jeweiligen Termine werden ebenfalls rechtzeitig bekanntgegeben:
 
-1.⁠ ⁠Zwischenabgabe am 30.01.2025: GitHub Repository mit (leerem) Projekt, funktionierender GitHub Action für den Build und GitHub Pages.
+1.⁠ ⁠Zwischenabgabe am 30.01.2025: GitHub Repository mit (leerem) Projekt, funktionierender GitHub Action für den Build und GitHub Pages (oder einem Äquivalent).
 
 - Präsentation ca. 5 Minuten pro Gruppe (zeigen dass alles geforderte da ist und funktioniert)
 
-2.⁠ ⁠Zwischenabgabe: Zwischenstand (vorgegeben je nach gewähltem Projekt, nur Frontend). Ende erstes Semester (Termin ca. 2 - 3 Wochen vor den Klausuren).
+  2.⁠ ⁠Zwischenabgabe: Zwischenstand (vorgegeben je nach gewähltem Projekt, nur Frontend). Ende erstes Semester (Termin ca. 2 - 3 Wochen vor den Klausuren).
 
 - Präsentation ca. 10 Minuten pro Gruppe
 
-3.⁠ ⁠Zwischenabgabe: Zwischenstand (vorgegeben je nach gewähltem Projekt). Anfang des zweiten Semesters (Termin folgt).
+  3.⁠ ⁠Zwischenabgabe: Zwischenstand (vorgegeben je nach gewähltem Projekt). Anfang des zweiten Semesters (Termin folgt).
 
 - Präsentation ca. 10 Minuten pro Gruppe
 - Festlegen der Backend Technologien
 
-4.⁠ Finale Präsentation und Abgabe Quellcode + Dokumentation (15 Minuten pro Gruppe)
+  4.⁠ Finale Präsentation und Abgabe Quellcode + Dokumentation (15 Minuten pro Gruppe)
 
 ## Abzugebende Artefakte
 
