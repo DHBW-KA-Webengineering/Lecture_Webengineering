@@ -346,3 +346,85 @@ Zustandslosigkeit der _Interaktion_
 ## REST - Skalierbarkeit
 
 ![](./media/Load_Balancing_2.png){height=90%}
+
+## REST - Alternativen
+
+### gRPC
+
+#### Beschreibung
+
+- Ein modernes Remote Procedure Call (RPC) Framework, entwickelt von Google, ermöglicht effiziente Kommunikation zwischen Diensten.
+- Nutzt HTTP/2 für die Kommunikation und Protocol Buffers (Protobuf) für die Serialisierung von Daten.
+- Binäre Serialisierung für geringe Latenz und hohe Performance im vergleich zu z. B. JSON.
+- Bidirektionales Streaming.
+- Strikt typisierte APIs mittels Interface Definition Language (IDL).
+
+#### Vorteile und Herausforderungen
+
+- Vorteile
+
+  - Sehr effizient bei der Kommunikation zwischen Diensten.
+  - Unterstützt Echtzeit-Datenstrom durch Streaming.
+  - Geringer Overhead dank binärem Datenformat.
+
+- Nachteile / Herausforderungen
+  - Weniger flexibel als REST.
+  - Eingeschränkte Browser-Unterstützung (benötigt Proxy oder spezielle Implementierungen).
+
+#### Anwendungsfälle (Beispiele)
+
+- Microservice-Architekturen mit hohen Performance-Anforderungen.
+- Backend-zu-Backend-Kommunikation.
+
+### Graph QL
+
+#### Beschreibung
+
+- Eine Abfragesprache und Laufzeitumgebung für APIs, entwickelt von Facebook, die Clients erlaubt, exakt die benötigten Daten anzufordern.
+- Baut auf HTTP (meist POST-Anfragen), bietet jedoch mehr Flexibilität als REST.
+- Client-gesteuerte Datenabfragen (über GraphQL-Abfragen und -Schemas).
+- Vermeidung von Overfetching und Underfetching.
+- Selbstbeschreibendes Schema (Schema Definition Language, SDL).
+
+#### Vorteile und Herausforderungen
+
+- Vorteile
+  - Clients erhalten exakt die benötigten Daten.
+  - Verbesserte API-Performance durch maßgeschneiderte Abfragen.
+  - Vereinfachte Versionierung durch Schema-Evolution.
+- Nachteile / Herausforderungen
+  - Höherer Entwicklungsaufwand durch Resolver-Implementierung.
+    - Ein Resolver ist für die Auflösung der in einer bestimmten Abfrage dargestellten Felder verantwortlich
+  - Schwierigere Caching-Strategien im Vergleich zu REST.
+  - Kann die Serverlast erhöhen (komplexe Abfragen, N+1-Problem).
+
+#### Anwendungsfälle (Beispiele)
+
+- Datenintensive Anwendungen
+- APIs mit komplexen Datenstrukturen oder Beziehungen.
+
+### WebSockets
+
+#### Beschreibung
+
+- Ein Kommunikationsprotokoll, das eine dauerhafte, bidirektionale Verbindung zwischen Client und Server ermöglicht.
+- Nutzt einen persistenten TCP-Kanal (ISO/OSI Schicht 4 statt 7 wie bei HTTP) und ermöglicht Echtzeit-Datenübertragung.
+- Full-Duplex-Kommunikation.
+- Echtzeitfähige Nachrichtenübertragung.
+- Unterstützt ereignisgesteuerte Architekturen.
+
+#### Vorteile und Herausforderungen
+
+- Vorteile
+  - Hervorragend für Echtzeit-Kommunikation.
+  - Verhindert ständigen Aufbau und Abbau von Verbindungen.
+  - Reduziert Latenzzeiten in Szenarien mit häufigen Updates.
+- Nachteile / Herausforderungen
+  - Höherer Implementierungsaufwand auf Serverseite.
+  - Erfordert komplexere Skalierung und Infrastruktur.
+  - Sicherheitsaspekte, insbesondere bei Authentifizierung und Autorisierung.
+
+#### Anwendungsfälle (Beispiele)
+
+- Chats, Online-Gaming, Live-Dashboards.
+- Anwendungen, die schnelle Reaktionen auf Ereignisse benötigen (z. B. Börsendaten-Updates).
