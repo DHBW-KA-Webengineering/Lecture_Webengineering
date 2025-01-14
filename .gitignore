@@ -4,3 +4,4 @@ tex2pdf*/
 plantuml-images/
 *.drawio.bkp
 *.drawio.dtmp
+.DS_Store

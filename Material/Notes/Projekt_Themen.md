@@ -29,7 +29,7 @@ Entwicklung einer webbasierten Anwendung, die es Nutzern ermöglicht, Aufgaben z
 
 ## Zwischenstand 1 (Termin: 30.01.2025)
 
-- Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages
+- Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages (oder einem Äquivalent)
 - 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
 
 ## Zwischenstand 2 (ca. 2 - 3 Wochen vor den Klausuren Semester 1, Termin folgt)
@@ -61,7 +61,7 @@ Entwicklung einer Anwendung, die Arbeitszeiten erfasst, speichert und auswertet.
 
 ## Zwischenstand 1 (Termin: 30.01.2025)
 
-- Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages
+- Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages (oder einem Äquivalent)
 - 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
 
 ## Zwischenstand 2 (ca. 2 - 3 Wochen vor den Klausuren Semester 1, Termin folgt)
@@ -93,7 +93,7 @@ Umsetzung einer Anwendung, die das Lernen mit Karteikarten erleichtert. Nutzer k
 
 ## Zwischenstand 1 (Termin: 30.01.2025)
 
-- Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages
+- Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages (oder einem Äquivalent)
 - 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
 
 ## Zwischenstand 2 (ca. 2 - 3 Wochen vor den Klausuren Semester 1, Termin folgt)
@@ -123,7 +123,7 @@ Entwicklung einer klassischen Snake-Anwendung, bei der der Spieler Punkte sammel
 
 ## Zwischenstand 1 (Termin: 30.01.2025)
 
-- Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages
+- Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages (oder einem Äquivalent)
 - 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
 
 ## Zwischenstand 2 (ca. 2 - 3 Wochen vor den Klausuren Semester 1, Termin folgt)
@@ -155,7 +155,7 @@ Umsetzung des Arcade-Klassikers Pac-Man, bei dem der Spieler durch ein Labyrinth
 
 ## Zwischenstand 1 (Termin: 30.01.2025)
 
-- Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages
+- Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages (oder einem Äquivalent)
 - 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
 
 ## Zwischenstand 2 (ca. 2 - 3 Wochen vor den Klausuren Semester 1, Termin folgt)
@@ -187,7 +187,7 @@ Entwicklung eines Dashboards zur Visualisierung und Verwaltung von API-Daten (z.
 
 ## Zwischenstand 1 (Termin: 30.01.2025)
 
-- Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages
+- Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages (oder einem Äquivalent)
 - 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
 
 ## Zwischenstand 2 (ca. 2 - 3 Wochen vor den Klausuren Semester 1, Termin folgt)
