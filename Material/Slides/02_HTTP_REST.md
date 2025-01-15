@@ -382,6 +382,7 @@ Zustandslosigkeit der _Interaktion_
 
 - Eine Abfragesprache und Laufzeitumgebung für APIs, entwickelt von Facebook, die Clients erlaubt, exakt die benötigten Daten anzufordern.
 - Baut auf HTTP (meist POST-Anfragen), bietet jedoch mehr Flexibilität als REST.
+- Hat nur einen Endpunkt
 - Client-gesteuerte Datenabfragen (über GraphQL-Abfragen und -Schemas).
 - Vermeidung von Overfetching und Underfetching.
 - Selbstbeschreibendes Schema (Schema Definition Language, SDL).
@@ -396,7 +397,7 @@ Zustandslosigkeit der _Interaktion_
   - Höherer Entwicklungsaufwand durch Resolver-Implementierung.
     - Ein Resolver ist für die Auflösung der in einer bestimmten Abfrage dargestellten Felder verantwortlich
   - Schwierigere Caching-Strategien im Vergleich zu REST.
-  - Kann die Serverlast erhöhen (komplexe Abfragen, N+1-Problem).
+  - Kann die Serverlast erhöhen (komplexe Abfragen, N+1-Problem bei verschachtelten Entitäten).
 
 #### Anwendungsfälle (Beispiele)
 
@@ -428,3 +429,34 @@ Zustandslosigkeit der _Interaktion_
 
 - Chats, Online-Gaming, Live-Dashboards.
 - Anwendungen, die schnelle Reaktionen auf Ereignisse benötigen (z. B. Börsendaten-Updates).
+- Oft als Ergänzung (zu einer anderen Technologie wie z. B. REST ) für bestimmte Teile der Anwendung
+
+
+### Server-Sent Events (SSE)
+
+#### Beschreibung
+
+- Ein Kommunikationsprotokoll, das eine unidirektionale Verbindung vom Server zum Client ermöglicht.
+- Nutzt Standard-HTTP für die Kommunikation und ermöglicht - Echtzeit-Datenübertragung vom Server zum Client.
+- Einfache Implementierung basierend auf dem HTTP-Protokoll.
+- Unterstützt automatische Wiederverbindung bei Verbindungsverlust.
+- Ermöglicht das Senden von Ereignissen mit benutzerdefinierten Typen.
+
+#### Vorteile und Herausforderungen
+
+- Vorteile
+  - Einfach zu implementieren und zu verwenden.
+  - Ideal für Szenarien, die hauptsächlich Server-zu-Client-Updates erfordern.
+  - Native Unterstützung in modernen Browsern.
+- Nachteile / Herausforderungen
+  - Nur unidirektionale Kommunikation (Server zu Client).
+  - Begrenzte Anzahl gleichzeitiger Verbindungen pro Browser (in der Regel sechs).
+
+#### Anwendungsfälle (Beispiele)
+
+- Live-Ticker, Benachrichtigungen, Social Media-Feeds.
+- Echtzeit-Aktualisierungen für Nachrichten, Sportergebnisse, Aktienkurse, ...
+
+
+
+--> Idempotenz ergänzen
