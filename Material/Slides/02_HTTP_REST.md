@@ -101,6 +101,7 @@ Date: Fri, 17 Nov 2023 12:26:59 GMT
   - Erlaubt virtuelle Hosts: mehrere Webseiten auf einem physischen Server (und einer IP)
 - `Accept: */*` \rightarrow{} Format der Antwort egal
 - Viele weitere Standard Request-Header:
+  - Authorization
   - User-Agent
   - Accept-Encoding
   - Accept-Language
