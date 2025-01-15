@@ -124,14 +124,15 @@ Verschiedene Methoden zum Ausdruck der _Semantik_
 
 ### Wichtige Methoden
 
-| **Methode** | **Beschreibung**                  |
-| ----------- | --------------------------------- |
-| **GET**     | Ressource abrufen                 |
-| **HEAD**    | Header für Ressource abrufen      |
-| **POST**    | Ressource erstellen               |
-| **PUT**     | Ressource ersetzen                |
-| **DELETE**  | Resource löschen                  |
-| **OPTIONS** | Liste erlaubter Methoden anfragen |
+| **Methode** | **Beschreibung**                  | **Idempotent** | **Safe** |
+| ----------- | --------------------------------- | -------------- | -------- |
+| **GET**     | Ressource abrufen                 | Ja             | Ja       |
+| **HEAD**    | Header für Ressource abrufen      | Ja             | Ja       |
+| **POST**    | Ressource erstellen               | Nein           | Nein     |
+| **PUT**     | Ressource ersetzen                | Ja             | Nein     |
+| **PATCH**   | Ressource teilweise aktualisieren | Nein           | Nein     |
+| **DELETE**  | Resource löschen                  | Ja             | Nein     |
+| **OPTIONS** | Liste erlaubter Methoden anfragen | Ja             | Ja       |
 
 ## HTTP Request-Body
 
@@ -431,7 +432,6 @@ Zustandslosigkeit der _Interaktion_
 - Anwendungen, die schnelle Reaktionen auf Ereignisse benötigen (z. B. Börsendaten-Updates).
 - Oft als Ergänzung (zu einer anderen Technologie wie z. B. REST ) für bestimmte Teile der Anwendung
 
-
 ### Server-Sent Events (SSE)
 
 #### Beschreibung
@@ -456,7 +456,3 @@ Zustandslosigkeit der _Interaktion_
 
 - Live-Ticker, Benachrichtigungen, Social Media-Feeds.
 - Echtzeit-Aktualisierungen für Nachrichten, Sportergebnisse, Aktienkurse, ...
-
-
-
---> Idempotenz ergänzen
