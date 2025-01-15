@@ -349,11 +349,9 @@ Zustandslosigkeit der _Interaktion_
 
 ![](./media/Load_Balancing_2.png){height=90%}
 
-## REST - Alternativen
+# REST Alternativen
 
-### gRPC
-
-#### Beschreibung
+## gRPC
 
 - Ein modernes Remote Procedure Call (RPC) Framework, entwickelt von Google, ermöglicht effiziente Kommunikation zwischen Diensten.
 - Nutzt HTTP/2 für die Kommunikation und Protocol Buffers (Protobuf) für die Serialisierung von Daten.
@@ -361,26 +359,25 @@ Zustandslosigkeit der _Interaktion_
 - Bidirektionales Streaming.
 - Strikt typisierte APIs mittels Interface Definition Language (IDL).
 
-#### Vorteile und Herausforderungen
+## gRPC - Vorteile und Herausforderungen
 
-- Vorteile
+### Vorteile
 
-  - Sehr effizient bei der Kommunikation zwischen Diensten.
-  - Unterstützt Echtzeit-Datenstrom durch Streaming.
-  - Geringer Overhead dank binärem Datenformat.
+- Sehr effizient bei der Kommunikation zwischen Diensten.
+- Unterstützt Echtzeit-Datenstrom durch Streaming.
+- Geringer Overhead dank binärem Datenformat.
 
-- Nachteile / Herausforderungen
-  - Weniger flexibel als REST.
-  - Eingeschränkte Browser-Unterstützung (benötigt Proxy oder spezielle Implementierungen).
+### Nachteile / Herausforderungen
 
-#### Anwendungsfälle (Beispiele)
+- Weniger flexibel als REST.
+- Eingeschränkte Browser-Unterstützung (benötigt Proxy oder spezielle Implementierungen).
+
+## gRPC - Anwendungsfälle (Beispiele)
 
 - Microservice-Architekturen mit hohen Performance-Anforderungen.
 - Backend-zu-Backend-Kommunikation.
 
-### Graph QL
-
-#### Beschreibung
+## Graph QL
 
 - Eine Abfragesprache und Laufzeitumgebung für APIs, entwickelt von Facebook, die Clients erlaubt, exakt die benötigten Daten anzufordern.
 - Baut auf HTTP (meist POST-Anfragen), bietet jedoch mehr Flexibilität als REST.
@@ -389,26 +386,27 @@ Zustandslosigkeit der _Interaktion_
 - Vermeidung von Overfetching und Underfetching.
 - Selbstbeschreibendes Schema (Schema Definition Language, SDL).
 
-#### Vorteile und Herausforderungen
+## Graph QL - Vorteile und Herausforderungen
 
-- Vorteile
-  - Clients erhalten exakt die benötigten Daten.
-  - Verbesserte API-Performance durch maßgeschneiderte Abfragen.
-  - Vereinfachte Versionierung durch Schema-Evolution.
-- Nachteile / Herausforderungen
-  - Höherer Entwicklungsaufwand durch Resolver-Implementierung.
-    - Ein Resolver ist für die Auflösung der in einer bestimmten Abfrage dargestellten Felder verantwortlich
-  - Schwierigere Caching-Strategien im Vergleich zu REST.
-  - Kann die Serverlast erhöhen (komplexe Abfragen, N+1-Problem bei verschachtelten Entitäten).
+### Vorteile
 
-#### Anwendungsfälle (Beispiele)
+- Clients erhalten exakt die benötigten Daten.
+- Verbesserte API-Performance durch maßgeschneiderte Abfragen.
+- Vereinfachte Versionierung durch Schema-Evolution.
+
+### Nachteile / Herausforderungen
+
+- Höherer Entwicklungsaufwand durch Resolver-Implementierung.
+  - Ein Resolver ist für die Auflösung der in einer bestimmten Abfrage dargestellten Felder verantwortlich
+- Schwierigere Caching-Strategien im Vergleich zu REST.
+- Kann die Serverlast erhöhen (komplexe Abfragen, N+1-Problem bei verschachtelten Entitäten).
+
+## Graph QL - Anwendungsfälle (Beispiele)
 
 - Datenintensive Anwendungen
 - APIs mit komplexen Datenstrukturen oder Beziehungen.
 
-### WebSockets
-
-#### Beschreibung
+## WebSockets
 
 - Ein Kommunikationsprotokoll, das eine dauerhafte, bidirektionale Verbindung zwischen Client und Server ermöglicht.
 - Nutzt einen persistenten TCP-Kanal (ISO/OSI Schicht 4 statt 7 wie bei HTTP) und ermöglicht Echtzeit-Datenübertragung.
@@ -416,26 +414,27 @@ Zustandslosigkeit der _Interaktion_
 - Echtzeitfähige Nachrichtenübertragung.
 - Unterstützt ereignisgesteuerte Architekturen.
 
-#### Vorteile und Herausforderungen
+## WebSockets - Vorteile und Herausforderungen
 
-- Vorteile
-  - Hervorragend für Echtzeit-Kommunikation.
-  - Verhindert ständigen Aufbau und Abbau von Verbindungen.
-  - Reduziert Latenzzeiten in Szenarien mit häufigen Updates.
-- Nachteile / Herausforderungen
-  - Höherer Implementierungsaufwand auf Serverseite.
-  - Erfordert komplexere Skalierung und Infrastruktur.
-  - Sicherheitsaspekte, insbesondere bei Authentifizierung und Autorisierung.
+### Vorteile
 
-#### Anwendungsfälle (Beispiele)
+- Hervorragend für Echtzeit-Kommunikation.
+- Verhindert ständigen Aufbau und Abbau von Verbindungen.
+- Reduziert Latenzzeiten in Szenarien mit häufigen Updates.
+
+### Nachteile / Herausforderungen
+
+- Höherer Implementierungsaufwand auf Serverseite.
+- Erfordert komplexere Skalierung und Infrastruktur.
+- Sicherheitsaspekte, insbesondere bei Authentifizierung und Autorisierung.
+
+## WebSockets - Anwendungsfälle (Beispiele)
 
 - Chats, Online-Gaming, Live-Dashboards.
 - Anwendungen, die schnelle Reaktionen auf Ereignisse benötigen (z. B. Börsendaten-Updates).
 - Oft als Ergänzung (zu einer anderen Technologie wie z. B. REST ) für bestimmte Teile der Anwendung
 
-### Server-Sent Events (SSE)
-
-#### Beschreibung
+## Server-Sent Events (SSE)
 
 - Ein Kommunikationsprotokoll, das eine unidirektionale Verbindung vom Server zum Client ermöglicht.
 - Nutzt Standard-HTTP für die Kommunikation und ermöglicht - Echtzeit-Datenübertragung vom Server zum Client.
@@ -443,17 +442,20 @@ Zustandslosigkeit der _Interaktion_
 - Unterstützt automatische Wiederverbindung bei Verbindungsverlust.
 - Ermöglicht das Senden von Ereignissen mit benutzerdefinierten Typen.
 
-#### Vorteile und Herausforderungen
+## SSE - Vorteile und Herausforderungen
 
-- Vorteile
-  - Einfach zu implementieren und zu verwenden.
-  - Ideal für Szenarien, die hauptsächlich Server-zu-Client-Updates erfordern.
-  - Native Unterstützung in modernen Browsern.
-- Nachteile / Herausforderungen
-  - Nur unidirektionale Kommunikation (Server zu Client).
-  - Begrenzte Anzahl gleichzeitiger Verbindungen pro Browser (in der Regel sechs).
+### Vorteile
 
-#### Anwendungsfälle (Beispiele)
+- Einfach zu implementieren und zu verwenden.
+- Ideal für Szenarien, die hauptsächlich Server-zu-Client-Updates erfordern.
+- Native Unterstützung in modernen Browsern.
+
+### Nachteile / Herausforderungen
+
+- Nur unidirektionale Kommunikation (Server zu Client).
+- Begrenzte Anzahl gleichzeitiger Verbindungen pro Browser (in der Regel sechs).
+
+## SSE - Anwendungsfälle (Beispiele)
 
 - Live-Ticker, Benachrichtigungen, Social Media-Feeds.
 - Echtzeit-Aktualisierungen für Nachrichten, Sportergebnisse, Aktienkurse, ...
