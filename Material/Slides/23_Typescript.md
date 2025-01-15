@@ -187,9 +187,44 @@ printMessage(result);
 Beispiel [`typescript-classes.ts`](https://github.com/TINF23B5-Webengineering/Lecture_Code/blob/2025/23_Typescript/typescript-example/typescript-classes.ts)
 
 
-## TypeScript Features - Komplexere Typangaben (1)
+## Exkurs: Interfaces in der Praxis - Repository Pattern (1)
 
-- Definition von neuen Typen (Typalias) für komplexere Typen
+- Repository Pattern: Abstraktion von Datenzugriff
+  - Ermöglicht Austausch von Datenquellen (z.B. verschiedene Datenbanksysteme, Mock-Implementierungen)
+  - Entkoppelt Datenspeicherung von restlicher Logik
+  - \rightarrow{} Einfaches Testen von Daten-abhängiger Logik ohne echte Datenbank
+
+## Exkurs: Interfaces in der Praxis - Repository Pattern (2)
+
+![repository pattern visualization](media/repository-visualization.png){height=80%}
+
+## Exkurs: Interfaces in der Praxis - Repository Pattern (3)
+
+```typescript
+// user-repository.ts
+export interface UserRepository {
+  getUserById(id: number): User | undefined;
+  addUser(user: User): void;
+  ...
+}
+// index.ts
+const userStore: UserRepository = new InMemoryUserRepository(); 
+app.get("/user/:id", (req, response) => { 
+  response.json(userStore.getUserById(req.params.id));
+});
+```
+
+## Exkurs: Interfaces in der Praxis - Repository Pattern (3)
+
+- Realistischere Implementierung
+  - User-Routen werden z.B. über `createUserRouter(userStore: UserRepository)` erzeugt
+  - Parameter `userStore` wird je nach Konfiguration entsprechend initialisiert
+  - \rightarrow{} Einfacher Austausch von Datenquellen anhand von z.B. Umgebungsvariablen
+
+
+## TypeScript Features - weitere Typfeatures (1)
+
+- Definition von neuen Typen (Typalias), insbesondere für komplexe Typen
   - `type <name> = <typ>`
 
 - Kombination mehrerer Typen zu neuem komplexeren Typ
@@ -198,7 +233,7 @@ Beispiel [`typescript-classes.ts`](https://github.com/TINF23B5-Webengineering/Le
   - Intersection: `type1 & type2` \rightarrow{} Typ muss sowohl `type1` als auch `type2` erfüllen
     - z.B. `type1 = {a: string}` und `type2 = {b: number}` \rightarrow{} `type1 & type2 => {a: string, b: number}` 
   
-## TypeScript Features - Komplexere Typangaben (2)
+## TypeScript Features - weitere Typfeatures (2)
 
 **Mapped Types**: dynamischer Typ aus bestehenden Typen,  häufiges Beispiel: Readonly-Typ (Achtung: nur Typprüfung, keine echte Immutability!)
 
