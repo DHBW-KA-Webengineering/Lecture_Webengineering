@@ -1,8 +1,8 @@
 ---
 title: "Vorlesung Webengineering I - HTTP & REST"
 topic: "Webengineering_1_2"
-date: 2024-01-15
-author: "Lukas Panni"
+date: 2025-01-16
+author: "Lukas Panni / Silas Schnurr"
 theme: "Berlin"
 colortheme: "dove"
 fonttheme: "structurebold"
@@ -46,7 +46,7 @@ plantuml-format: svg
   - Neues Übertragungsprotokoll: **QUIC**
   - Bei zuvor genutztem Multiplexing über TCP ist Head-of-Line-Blocking möglicht
     - Bei Paketverlust müssen alle folgenden Pakete (aller gemultiplexten Streams) auf erneute Übertragung des Verlorenen warten
-  - Mehrere nutzt _unabhängige_ parallele Datenströme über UDP, Head-of-Line-Blocking betrifft jeweils nur einen Stream
+  - Nutzt mehrere _unabhängige_ parallele Datenströme über UDP, Head-of-Line-Blocking betrifft jeweils nur einen Stream
 
 ## HTTP-Versionen - HTTP/3 vs. HTTP/2
 
