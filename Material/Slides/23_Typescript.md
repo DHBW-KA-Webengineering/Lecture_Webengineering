@@ -170,6 +170,11 @@ printMessage(result);
 
 ![Typeinference](./media/type-inference-example.png)
 
+## Praxisaufgabe 1
+
+Erstellt ein neues TypeScript projekt (z.B. auf Basis von vorherigen JavaScript Praxisaufgaben) und zeigt mindestens 3 Beispiele für Vorteile der TypeScript Implementierung auf. Das Projekt soll über den Befehl `npm run build` kompiliert werden und über `npm run start` gestartet werden können (nutzt dazu "scripts" in der `package.json`, siehe Doku falls erforderlich). Bereitet eine kurze Präsentation dazu vor.
+
+
 ## TypeScript Features - Klassen (1)
 
 - Mehr Klassenfeatures als in JavaScript (ECMAScript 6)
@@ -319,6 +324,10 @@ router.get("/:id", (request, response) => {
 ## express mit TypeScript - Beispiel User Router (3)
 
 ![Typsicherheit bei Pfad-Parametern](media/path-param-types-express.png)
+
+## Praxisaufgabe 2
+
+Erweitert den User Router um eine Implementierung des Repository pattern. Es sollen die klassischen CRUD Operationen implementiert werden. Als konkrete Implementierung des Repositories reicht ein In-Memory Speicher auf Basis eines Arrays aus.
   
 
 ## express mit TypeScript - Beispiel Caching Middleware
