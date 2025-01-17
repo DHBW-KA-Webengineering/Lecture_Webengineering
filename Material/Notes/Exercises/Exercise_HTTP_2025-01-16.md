@@ -13,7 +13,7 @@ Bei dieser Übung ist es Ihre Aufgabe mithilfe von Express.js, ein REST Backend 
 
 Legen Sie eine package.json Datei an, um das Projekt zu initialisieren.
 
-**Package.json**:
+**package.json**:
 
 ```json
 {
