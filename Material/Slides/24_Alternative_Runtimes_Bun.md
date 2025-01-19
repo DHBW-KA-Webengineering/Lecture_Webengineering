@@ -1,5 +1,5 @@
 ---
-title: "Vorlesung Webengineering 1 - Alternative Runtimes"
+title: "Vorlesung Webengineering 1 - Alternative Runtimes, Bun"
 topic: "Webengineering_1_2_5"
 author: "Lukas Panni"
 theme: "Berlin"
@@ -16,7 +16,7 @@ plantuml-format: svg
 
 # Alternative Runtimes für JavaScript/TypeScript
 
-## Deno (1)
+## Deno Einführung (1)
 
 [deno.land](https://deno.land)
 
@@ -24,24 +24,41 @@ plantuml-format: svg
 - Basiert wie Node.js auf V8-Engine
 - idR. Performanter als Node.js
 - Standardfunktionalität bereits eingebaut (z.B. HTTP-Server)
-- Direkte Unterstützung von TypeScript, mitgelieferte Lint und Test-Tools
-- Kein Package Manager (Module über URLs eingebunden)
-  - Nutzung von NPM-Paketen meist problemlos möglich
+- Direkte Unterstützung von TypeScript
+- Empfehlung: [VSCode-Plugin](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno)
+  - z.B. TypeScript-Unterstützung für Deno-Standardbibliothek
+  - Erleichtert Arbeit mit Deno
 
-## Deno (2)
+## Deno Einführung (2)
 
-- [Installation](https://docs.deno.com/runtime/manual#install-deno): `curl -fsSL https://deno.land/x/install/install.sh | sh` / `irm https://deno.land/install.ps1 | iex`
+- [Installation](https://docs.deno.com/runtime/#install-deno): `curl -fsSL https://deno.land/install.sh | sh` / `irm https://deno.land/install.ps1 | iex`
 - Einfacher Webserver:
 
 ```typescript
-Deno.serve((_request: Request) => {
-  return new Response("Hello, world!");
+Deno.serve((_req) => {
+  return new Response("Hello, World!");
 });
 ```
 
 Ausführen: `deno run --allow-net server.ts`
 
-<!-- TODO: Änderungen mit Deno 2.0 -->
+## Deno Security
+
+- Least Privilege Principle: Standardmäßig kein Zugriffe auf Dateisystem, Netzwerk, etc.
+  - Benötigte Berechtigungen müssen explizit freigegeben werden
+  - Dateisystemzugriff kann auch auf Pfade begrenzt werden
+- Macht Ausnutzen von Schwachstellen für Angreifer schwieriger
+- Nur als zusätzliche Maßnahme, kein Ersatz für Entsicklung von sicherer Software
+
+## Deno Tools
+
+- Deno bringt einige Standard-Tools mit:
+  - Formatter: `deno fmt`
+  - Linter: `deno lint`
+  - Test-Runner: `deno test`, oft trotzdem bekannte Testframeworks sinnvoll
+- Seit Deno v2 auch eigener Package Manager
+  - Nicht unbedingt nötig, npm-Pakete können über `import ... from "npm:Package"` auch ohne explizite Installation eingebunden werden
+
 
 ## Bun (1)
 
@@ -58,7 +75,7 @@ Ausführen: `deno run --allow-net server.ts`
 - [Installation](https://bun.sh/docs/installation):
 
   - MacOS/Linux: `curl -fsSL https://bun.sh/install | bash`
-  - Windows: powershell -c "irm bun.sh/install.ps1|iex"
+  - Windows: `powershell -c "irm bun.sh/install.ps1|iex"`
 
 - Einfacher Webserver:
 
@@ -70,6 +87,16 @@ const server = Bun.serve({
   },
 });
 ```
+
+## Bun Tools
+
+- Auch bun hat einige Funktionen direkt integriert:
+  - Package Manager: `bun install/remove`
+  - Test-Runner: `bun test`, oft trotzdem bekannte Testframeworks sinnvoll
+  - Bundler: `bun build`, Unterstützt Browser und Server-Bundles
+  
+
+
 
 ## Fazit Alternative Runtimes
 
