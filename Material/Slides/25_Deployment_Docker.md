@@ -1,5 +1,5 @@
 ---
-title: "Vorlesung Webengineering 1 - Exkurs: Deployment mit Docker"
+title: "Vorlesung Webengineering 1 - Deployment"
 topic: "Webengineering_1_2_6"
 author: "Lukas Panni"
 theme: "Berlin"
@@ -15,7 +15,150 @@ plantuml-format: svg
 ...
 
 
-# Grundlagen 
+# Backend-Deployment
+
+## Deployment
+
+- **Deployment**: Bereitstellung von Software auf einem Zielsystem
+- Zielsystem: Server, Cloud, IoT-Gerät, ...
+- Deployment-Prozess: Wie kommt die Software von der Entwicklungsumgebung auf das Zielsystem?
+  - Verschiedene Ansätze der grundlegenden Organisation
+  - Heute i.d.R. stark automatisiert, sodass mehrere Deployments pro Tag problemlos möglich sind
+
+## Unterschiede Frontend- und Backend-Deployment (1)
+
+(klassisches) Frontend:
+
+- Statische Dateien (HTML, CSS, JS) und Assets (Bilder, Videos, ...)
+- Auslieferung der Dateien über klassischen Webserver (Nginx, Apache2, ...) oder CDN
+- Noch einfachere Lösung: Bereitstellung über Object-Storage (z.B. AWS S3)
+- Skalierbarkeit vergleichsweise einfach über Replikation der Daten und Caching mit CDNs
+- Für kleine Projekte: Kostenloses Hosting z.B. über GitHub Pages, Cloudflare, AWS S3, Netlify, Vercel, ...
+
+
+## Unterschiede Frontend- und Backend-Deployment (2)
+Backend:
+
+- Antwort auf HTTP-Requests, Verarbeitung von Daten, Zugriff auf Datenbanken, ...
+- \rightarrow{} dynamische Inhalte und Logik
+- Skalierbarkeit komplexer, reine Replikation und Caching reichen nicht aus bzw. sind komplexer
+  - Load-Balancing muss Konsistenz sicherstellen (z.B. Login-Zustand etc.)
+  - Sollte von Anfang an in der Architektur berücksichtigt werden
+
+## Continuous Integration, Continuous Delivery / Deployment (CI/CD)
+
+- **Continuous Integration (CI)**: Häufiges zusammenführen von Code, Verifikation durch automatisierte Builds und Tests
+- **Continuous Delivery (CD)**: Software so zu entwickeln, dass sie jederzeit ausgeliefert werden kann (erfordert u.A. CI mit automatisierten Tests)
+- **Continuous Deployment (CD)**: Software wird kontinuierlich automatisiert ausgeliefert (nach erfolgreichen Tests, eventuellen Staging-Umgebungen etc.)
+
+- Vorteile: Schnellere Entwicklungszyklen, geringe Deployment-Risiken, schnelles User-Feedback, ...
+
+
+## CI/CD-Tools und Praktiken
+
+- Tools: GitHub Actions, GitLab CI/CD, Azure Pipelines, Travis CI, ...
+- Praktiken:
+  - Fokus auf Deployability anstatt auf fertige Features 
+  - **Automatisierte Tests**: Unit-Tests, Integrationstests, End-to-End-Tests, ...
+  - **Feature-Flags**: Neue Features können unabhängig von Deployment aktiviert werden
+    - Auch unfertige Features werden deployed, aber noch nicht aktiviert
+  - **Monitoring**: Überwachung der Anwendung, z.B. mit Sentry, Grafana, Prometheus, ...
+
+## Serverless Deployment
+
+- **Serverless**: Abstraktion von Servern, Load-Balancing, CDN, ...
+- Keine Verwaltung von Servern, Service übernimmt Infrastruktur 
+- Abrechnung nach Nutzung, keine Fixkosten
+- Automatische Skalierung
+- Viele Services bieten auch CI/CD Integration
+- Beispiele für Webanwendungen: Netlify, Vercel
+
+## Serverless Deployment Node.js + express Backend - Netlify (1)
+
+- [Netlify](https://www.netlify.com/): Service für Serverless-Deployment für Webanwendungen
+- Einfacher Import von Git-Repositories von GitHub, GitLab, Azure Repos, ...
+- Automatischer Build und Deployment bei Änderungen im Repository
+- Keine Verwaltung von Server, Load-Balancing, CDN etc. notwendig
+- Abrechung nach Nutzung, kostenloser Tarif für kleine Projekte ausreichend
+
+## Serverless Deployment Node.js + express Backend - Netlify (2)
+
+- Siehe [Dokumentation](https://docs.netlify.com/frameworks/express/)
+- Anwendungscode muss in `/netlify/functions` liegen
+  - Jede Datei in diesem Verzeichnis wird als eigene Serverless-Funktion behandelt
+  - Beispiel: `api.js` wird unter `/.netlify/functions/api` erreichbar
+- Zusätzliche Dependency: [`serverless-http`](https://www.npmjs.com/package/serverless-http) installieren
+  - Erlaubt einfache Nutzung von Node-Servern in Serverless-Umgebungen
+  - Anpassung von Anwendung: `app.listen` durch `export const handler = serverless(app)` ersetzen
+  - Für TypeScript noch `@netlify/functions` und  `@types/express` installieren
+
+## Serverless Deployment Node.js + express Backend - Netlify (3)
+
+Erstellen einer `netlify.toml`-Konfigurationsdatei im Projekt-Root:
+  
+- Konfiguration von Redirects (damit die express-Anwendung keine netlify-spezifischen URLs verwenden muss)
+
+```toml
+[functions]
+  external_node_modules = ["express"]
+  node_bundler = "esbuild"
+[[redirects]]
+  force = true
+  from = "/api/*"
+  status = 200
+  to = "/.netlify/functions/api/:splat"
+``` 
+  
+
+## Serverless Deployment Node.js + express Backend - Netlify (4)
+
+- Deployment über Web-UI oder netlify CLI einrichten
+  - In Web-UI GitHub-Repository verknüpfen, fertig
+  - CLI (Installation `npm i -g netlify-cli`): `netlify init` und Schritte befolgen
+
+**Live-Demo**
+
+## Serverless Deployment Node.js + express Backend - Vercel (1)
+
+- [Vercel](https://vercel.com/): Service für Serverless-Deployment für Webanwendungen
+- Viele Features ähnlich zu Netlify: Automatischer Build und Deployment bei Git-Änderungen, keine Server-Verwaltung, ...
+- Bessere Integration in GitHub: Deployment-Status einfach im Repository sichtbar, gute Integration in Pull-Requests, ...
+- Kostenloser Tarif reicht auch hier für kleine Projekt aus
+
+## Serverless Deployment Node.js + express Backend - Vercel (2)
+
+- Siehe [Dokumentation](https://vercel.com/guides/using-express-with-vercel)
+- Beispiel-Template von Vercel auf [GitHub](https://github.com/vercel/examples/tree/main/solutions/express)
+- Anwendungscode muss in `api` liegen, Einstiegspunkt ist `api/index.js` oder `.ts`
+  - Datei braucht einen default export der express-App
+- Zusätzliche Konfigurationsdatei `vercel.json` (rewrites zu API Endpunkten):
+
+```json
+{ "version": 2, "rewrites": [{ "source": "/(.*)", "destination": "/api" }]}
+
+```
+
+## CI / CD für Node.js + express Backend - Vercel (3)
+
+- Deployment über Web-UI oder Vercel CLI einrichten
+  - In Web-UI GitHub-Repository verknüpfen, fertig
+  - CLI (Installation `npm i -g vercel`): `vercel login`, Deployment über `vercel`-Befehl
+    - Lokales Testen über `vercel dev` sinnvoll um Verhalten in Vercel-Umgebungen zu testen
+
+**Live-Demo**
+
+
+## Einschränkungen von Serverless-Deployments
+
+- Kein durchgehend laufender Server, Instanz wird bei Bedarf gestartet
+  - \rightarrow{} Kein Zustand zwischen Requests, z.B. keine Sessions, kein simples In-Memory-Caching möglich
+- Limitierte Laufzeit (Request-Bearbeitung muss in dieser Zeit abgeschlossen sein)
+- Für euer Projekt bedeutet das: In-Memory Datenhaltung zum Testen funktioniert nur lokal, nicht in der Serverless-Umgebung!
+  - Falls nötig gibt es [VercelKV](https://vercel.com/docs/storage/vercel-kv), [Netlify Blobs](https://docs.netlify.com/blobs/overview/)
+  - Für die finale Abgabe ist sowieso eine Datenbank-Integration notwendig, auch hierfür gibt es Serverless-Lösungen (z.B. [Vercel Postgres](https://vercel.com/integrations/postgres) über [Neon](https://neon.tech/) Integration)
+
+
+# Grundlagen Docker
 
 ## Was ist Docker?
 
@@ -23,26 +166,16 @@ plantuml-format: svg
   - Aber auch Firma Docker Inc.
 - `docker` heute als Synonym für Containervirtualisierung
 
-## Containervirtualisierung (1)
+## Containervirtualisierung Recap (1)
 
-### Recap: Webarchitekturen - Deployment 
-
-- Leichtgewichtige Virtualisierung auf **Prozessebene**
-  - Betriebssystem(-Kern) von allen _Containern_ gemeinsam genutzt
-- Isolation über Linux Kernel-Features
-  - Namespaces: Isolation von Prozessen, eigene "Sicht" auf System (Dateisystem, Netzwerk, ...)
-  - Cgroups (Control Group): Beschränkung von Hardware-Ressourcen (CPU, RAM, ...)
-  - \rightarrow{} Container voneinander isoliert, bringen eigene Umgebung (Binaries, Bibliotheken, Konfiguration, ...) mit
-
-## Containervirtualisierung (2)
-
-### Begriffe
-
-- _Container_: Instanz eines Images (ähnlich zu Objekt in OOP)
-- _Image_: "Vorlage" für Container eines Typs (ähnlich zu Klasse in OOP)
-  - _Layer_: Teil eines Images (entfernt ähnlich zu Vererbung in OOP)
-  - Mehrere Layer bilden zusammen das Image, jedes fügt Dateien hinzu oder ändert bzw. entfernt bestehende
-- _Dockerfile_: Beschreibung des Images, Build-Script für ein Image
+- Grundlagen bekannt aus Kapitel Webarchitekturen - Deployment
+- **Container** sind isolierte Umgebungen für Anwendungen
+  - Enthalten Anwendungscode, Abhängigkeiten, Laufzeitumgebung
+  - Laufen auf einem Host-Betriebssystem
+  - Isoliert von anderen Containern und dem Host
+- Vorteile:
+  - Konsistente Umgebung für Anwendung: lokales Testen und Produktivumgebung sind gleich
+  - Einfache Verteilung von Anwendungen
 
 
 ## Docker Verwendung (1)
@@ -181,6 +314,7 @@ COPY static/ /usr/share/nginx/html
   - **Abhängigkeiten** (Bibliotheken, Frameworks, ...)!
 - JavaScript / TypeScript-Laufzeitumgebung
   - Node.js
+  - Deno
   - Bun
 
 ## Deployment von REST-APIs (3)
