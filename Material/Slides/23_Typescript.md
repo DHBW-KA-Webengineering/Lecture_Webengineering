@@ -327,7 +327,7 @@ router.get("/:id", (request, response) => {
 
 ## Praxisaufgabe 2
 
-Erweitert den User Router um eine Implementierung des Repository pattern. Es sollen die klassischen CRUD Operationen implementiert werden. Als konkrete Implementierung des Repositories reicht ein In-Memory Speicher auf Basis eines Arrays aus.
+Erweitert den User Router um eine Implementierung des Repository Pattern. Es sollen die klassischen CRUD Operationen implementiert werden. Als konkrete Implementierung des Repositories reicht ein In-Memory Speicher auf Basis eines Arrays aus.
   
 
 ## express mit TypeScript - Beispiel Caching Middleware
@@ -479,3 +479,20 @@ const userSchema = z.object({
   - ...
 
 - Wenn Input-Validierung benötigt wird, ist zod in der Regel einer eigenen Implementierung vorzuziehen!
+
+
+## zod - Fehlerbehandlung
+
+- `.parse()` wirft bei Fehlern Exceptions vom Typ `ZodError`
+- `.safeParse()` gibt ein Objekt zurück mit Feldern `success`, `data` und `error`
+  - `success`: `true` bei Erfolg, `false` bei Fehlern
+  - `data`: Geparste Daten bei Erfolg
+  - `error`: `ZodError` bei Fehlern
+- `ZodError`: `issues` Array mit allen Fehlern in der Form
+- Siehe [zod Dokumentation zu Error Handling](https://zod.dev/ERROR_HANDLING)
+  
+
+
+## Praxisaufgabe 3
+_
+Erweitert den User Router um eine Implementierung der Input-Validierung mit zod. Es sollen alle Daten, die vom Client kommen validiert werden. Gebt bei fehlerhaften Daten einen Statuscode _422 Unprocessable Entity_ mit Details zum Fehler und der erwarteten Eingabe zurück.
