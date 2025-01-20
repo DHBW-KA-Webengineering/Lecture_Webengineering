@@ -212,19 +212,33 @@ export default defineConfig({
 ## Drizzle Schema - Beziehungen
 
 - Drizzle unterscheidet zwischen One-to-One, One-to-Many und Many-to-Many Beziehungen
-- Alle Beziehungsarten werden über die `relations` Methode definiert
+- Alle Beziehungsarten können über die `relations` Methode definiert werden
+  - `relations` sind keine klassischen Fremdschlüsselbeziehungen, sondern ORM-Beziehungen!
+  - Höhere Abstraktionsebene, erlauben einfachere Abfragen
+- Reine Fremdschlüsselbeziehungen werden über die `.references` Methode auf den Attributen definiert
+  - Konsistenz auf Datenbankebene
+- Beides kann auch kombiniert werden
 
 ## Drizzle Schema - One-to-One
 
 ```typescript
 export const githubAccount = sqliteTable("github_account", {
-  id: int().primaryKey({ autoIncrement: true }),
-  username: text().unique(),
+  username: text().primaryKey(),
 });
 
 export const userRelations2 = relations(user, ({ one }) => ({
   githubAccount: one(githubAccount, { fields: [user.github_username], references: [githubAccount.username] }),
 }));
+```
+
+## Drizzle Schema - One-to-One mit Fremdschlüssel
+
+```typescript
+export const user = sqliteTable("user", {
+  id: int().primaryKey({ autoIncrement: true }),
+  name: text(),
+  github_username: text().references(() => githubAccount.username),
+});
 ```
 
 ## Drizzle Schema - One-to-Many
@@ -257,6 +271,8 @@ export const userGroup = sqliteTable("user_group", {
 export const userRelations = relations(user, ({ many }) => ({
   userGroups: many(userGroup),
 }));
+
+
 ```
 
 ## Drizzle Schema - Many-to-Many (3)
@@ -267,10 +283,20 @@ export const groupRelations = relations(group, ({ many }) => ({
 }));
 
 export const userGroupRelations = relations(userGroup, ({ one }) => ({
-  group: one(group, { fields: [userGroup.group_id], references: [group.id] }),
-  user: one(user, { fields: [userGroup.user_id], references: [user.id] }),
+  group: one(group, { fields: 
+  [userGroup.group_id], references: [group.id] }),
+  user: one(user, { fields: 
+  [userGroup.user_id], references: [user.id] }),
 }));
 ```
+
+## Drizzle Schema - Beziehungen Fazit
+
+- `relations` werden benötigt, um einfachere Abfragen zu ermöglichen
+  - Drizzle erlaubt Zugriff auf referenzierte Objekte ohne manuelle JOINs
+- `references` sind optional, aber empfohlen für Konsistenz auf Datenbankebene
+  - Sichergestellt, dass Änderungen auch korrekt in referenzierten Tabellen durchgeführt werden
+
 
 ## Drizzle - Abfragen
 
@@ -280,7 +306,7 @@ export const userGroupRelations = relations(userGroup, ({ one }) => ({
     - Stark von SQL abstrahiert
   - SQL-nahe Syntax mit `.select()`, `.insert()`, `.update()`, `.delete()` etc.
 
-## Drizzle - Query-Builder
+## Drizzle - Query-Builder 
 
 - Beim Erstellen des DB-Objekts kann das Schema übergeben werden, um die `.query` Methode verwenden zu können
   ```typescript
@@ -289,8 +315,9 @@ export const userGroupRelations = relations(userGroup, ({ one }) => ({
   ```
 - Typsicherheit bei der Abfrage, dadurch gute IDE Unterstützung auch bei verschachtelten Anfragen
 - Siehe [Dokumentation](https://orm.drizzle.team/docs/rqb) für weitere Details
+- Verwendung von Beziehungen über `with` erfordert `relations` im Schema
 
-## Drizzle - Query-Builder Beispiel
+## Drizzle - Query-Builder Beispiel (1)
 
 ```typescript
 const results = await db.query.user.findFirst({
@@ -307,3 +334,62 @@ const results = await db.query.user.findFirst({
     },
   });
 ```
+
+## Drizzle - Query-Builder Beispiel (2)
+
+```typescript
+db.query.user.findMany({
+// nur den Namen des Autors laden
+    columns: { name: true },
+    with: {
+// die Posts referenzieren
+      posts: {
+// nur Posts, bei denen die Bedingung zutrifft
+        where: (posts, { like }) => like(posts.title, "Hello*"),
+      },
+    },
+  });
+```
+
+## Drizzle - SQL-nahe Syntax
+
+- Relativ selbsterklärende Syntax auf Basis bekannter Keywords
+  - `SELECT * FROM user WHERE user.id = 1`
+  - \rightarrow{} `db.select().from(user).where(eq(user.id, 1))`
+  - Nur die Filter über `.where` sind etwas anders: Methoden `eq`, `gt`, `lt`, `like` etc., müssen von Drizzle importiert werden
+
+
+## Praxisaufgabe 3
+
+Erstellt ein Drizzle Schema für die Datenbank aus Praxisaufgabe 1 mit allen Beziehungen. Übertragt dann die SQL-Abfragen aus Praxisaufgabe 2 in Drizzle-Abfragen entweder über den Query-Builder oder die SQL-nahe Syntax.
+
+Tipp: `drizzle-kit` bringt eine [Web-UI](https://orm.drizzle.team/drizzle-studio/overview) mit, die es deutlich erleichtert die Datenbank zu verwalten und Abfragen (SQL und Drizzle-Syntax) zu testen. Dazu einfach `npx drizzle-kit studio` ausführen.
+
+
+# Exkurs: Vercel mit Neon Serverless PostgreSQL
+
+## Motivation
+
+- Für Serverless-Deployment auf Vercel oder Netlify ist Standard-SQLite leider nicht wirklich geeignet
+- Es gibt einige Dienste, die Datenbanken wie PostgreSQL auch serverless anbieten
+  - keine Verwaltung von Datenbank-Server nötig
+  - oft kostenlose Tarife für kleine Projekte
+  - Datenbankverbindung i.d.R. über HTTP
+- Bei Vercel sind Dienste wie [Neon](https://neon.tech) oder [Supabase](https://supabase.io) gut integriert
+
+## Neon Setup in Vercel (1)
+
+- Projekt > Storage > Create Database
+
+![Datenbank Hinzufügen](media/vercel-add-db.png){height=70%}
+
+## Neon Setup in Vercel (2)
+
+![Automatisches Erzeugen von Config für Drizzle](media/vercel-db-config-generation.png){height=70%}
+
+## Neon Setup in Vercel (3)
+
+- Drizzle-Code kopieren und in Projekt einfügen
+- Umgebungsvariablen in lokale `.env` Datei einfügen
+- Installation von `@neondatabase/serverless` 
+- Fertig!
