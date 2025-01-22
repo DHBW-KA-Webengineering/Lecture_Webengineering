@@ -1,6 +1,7 @@
 ---
 title: "Vorlesung Webengineering I - HTML"
 topic: "Webengineering_1_2"
+date: 2025-01-23
 author: "Lukas Panni"
 theme: "Berlin"
 colortheme: "dove"
@@ -28,7 +29,7 @@ plantuml-format: svg
 ## Grundstruktur
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>Titel</title>
@@ -66,7 +67,6 @@ plantuml-format: svg
 - Angabe im öffnenden Tag
 - `<ELEMENT ATTRIBUT="VALUE"> ... </ELEMENT>`
 - Nutzbarkeit abhängig vom Tag
-
 
 ## Head
 
@@ -108,7 +108,6 @@ plantuml-format: svg
     - \rightarrow{} Absatz 1
       Absatz 2
 
-
 ## Elemente: Überschriften
 
 - `<h1>...</h1>` bis `<h6></h6>` (h = headline)
@@ -116,7 +115,6 @@ plantuml-format: svg
 - Absteigende Wichtigkeit, Standardmäßig entsprechende Darstellung im Browser
 
 ![](./media/HTML_headings_default.png){height=55%}
-
 
 ## Elemente: Absätze
 
@@ -135,10 +133,10 @@ plantuml-format: svg
     - `../` Eltern-Segment (gleiches Beispiel, Link `../2.html` führt zu **abc.de/2.html**)
 - Inhalt des Tags als angezeigter Link
 
-
 ## Elemente: Zeilenumbruch + Trennlinie
 
 - `<br>` (br = break)
+
   - Zeilenumbruch, nachfolgende Elemente in nächster Zeile
 
 - `<hr>` (hr = horizontal ruler)
@@ -157,7 +155,6 @@ plantuml-format: svg
 
 ![](./media/HTML_emphasis.png){height=70%}
 
-
 ## Elemente: Fett / Kursiv
 
 - Fett lässt sich auch über `<b>` (b = bold) erreichen
@@ -166,24 +163,20 @@ plantuml-format: svg
   - Semantische Bedeutung: strong = "strong importance", em = "stressed emphasis"
   - \rightarrow{} Trennung von Inhalt + Struktur und Darstellung
 
-
 ## Elemente: Hoch- / Tiefstellung
 
 - `<sup>` (superscript)
-  - Hochstellung 
+  - Hochstellung
 - `<sub>` (subscript)
   - Tiefstellung
 
-
 ![](./media/HTML_sup_sub.png){height=70%}
-
-
 
 ## Elemente: Auswahl semantischer Elemente
 
 - Bereits behandelt: `<em>` / `<strong>`
 - Weitere Elemente mit vorwiegend **semantischer Bedeutung**
-  - `<article>`: in sich geschlossener Artikel (unabhängig von anderem Inhalt der Seite)  
+  - `<article>`: in sich geschlossener Artikel (unabhängig von anderem Inhalt der Seite)
   - `<section>`: Abschnitt einer Seite, wenn kein besser geeignetes semantisches Element existiert
   - `<header>`: Abschnitt mit einleitendem Inhalt
   - `<footer>`: Fußzeile, z.B. mit Angabe von Autor, Copyright etc.
@@ -193,20 +186,19 @@ plantuml-format: svg
 - `<ul>`: Unsortierte Liste (ul = unordered list)
   - Standarddarstellung: Aufzählungspunkte
 - `<ol>`: Sortierte Liste (ol = ordered list)
-  - Standarddarstellung: Nummeriert mit arabischen Ziffern 
+  - Standarddarstellung: Nummeriert mit arabischen Ziffern
 - `<li>`: Listenelement (li = list item)
 
 ## HTML Globale Attribute
 
 - Recap: Tags können mit Attributen (Key-Value Paare) angereichert werden
 - Attribute abhängig vom Tag
-  - Einige global verfügbar: [Universalattribute](https://wiki.selfhtml.org/wiki/HTML/Attribute#Universalattribute) 
+  - Einige global verfügbar: [Universalattribute](https://wiki.selfhtml.org/wiki/HTML/Attribute#Universalattribute)
 - Wichtige Universalattribute
   - `id` - eindeutiger Identifier für Element (z.B. Zugriff über `#ID` in URL)
   - `class` - Klasse von gleichartigen Elementen, Liste von Klassen (Leerzeichengetrennt)
   - `hidden` - Elemente verstecken
   - `style` - Inline CSS-Style
-
 
 ## Elemente: Tabellen
 
@@ -216,6 +208,7 @@ plantuml-format: svg
   - `<th>`: Kopfzeile (th = table header)
 
 ## Elemente: Tabellen
+
 ```html
 <table>
   <tr>
@@ -230,18 +223,17 @@ plantuml-format: svg
   </tr>
   ...
 </table>
-
 ```
+
 ## Elemente: Tabellen
 
 ![](./media/HTML_simple_table.png)
-
 
 ## Elemente: Tabellen - Border
 
 - Attribut `border` steuert die Umrandung
   - Standardwert: 0 \rightarrow{} kein Rand
-  - Wert x > 0:  Rand mit x Pixeln
+  - Wert x > 0: Rand mit x Pixeln
 
 ![](./media/HTML_table_border.png){width=70%}
 
@@ -250,27 +242,38 @@ plantuml-format: svg
 - Attribut `colspan` für Zusammenfassung mehrerer _Spalten_
 - Attribut `rowspan` für Zusammenfassung mehrerer _Zeilen_
 
-## Elemente: Tabellen - Colspan/Rowspan 
+## Elemente: Tabellen - Colspan/Rowspan
 
 ```html
 <table border="1">
   <tr>
-    <td>1-1</td><td>1-2</td><td>1-3</td><td>1-4</td>
+    <td>1-1</td>
+    <td>1-2</td>
+    <td>1-3</td>
+    <td>1-4</td>
   </tr>
   <tr>
-    <td>2-1</td><td>2-2</td><td>2-3</td><td>2-4</td>
+    <td>2-1</td>
+    <td>2-2</td>
+    <td>2-3</td>
+    <td>2-4</td>
   </tr>
   <tr>
-    <td>3-1</td><td>3-2</td><td>3-3</td><td>3-4</td>
+    <td>3-1</td>
+    <td>3-2</td>
+    <td>3-3</td>
+    <td>3-4</td>
   </tr>
   <tr>
-    <td>4-1</td><td>4-2</td><td>4-3</td><td>4-4</td>
+    <td>4-1</td>
+    <td>4-2</td>
+    <td>4-3</td>
+    <td>4-4</td>
   </tr>
 </table>
 ```
 
-
-## Elemente: Tabellen - Colspan/Rowspan 
+## Elemente: Tabellen - Colspan/Rowspan
 
 ![](./media/HTML_table_span_nospan.png){height=90%}
 
@@ -279,44 +282,61 @@ plantuml-format: svg
 ```html
 <table border="1">
   <tr>
-    <td>1-1</td><td>1-2</td><td>1-3</td><td>1-4</td>
+    <td>1-1</td>
+    <td>1-2</td>
+    <td>1-3</td>
+    <td>1-4</td>
   </tr>
   <tr>
     <td colspan="4">2-1 - 2-4</td>
   </tr>
   <tr>
-    <td>3-1</td><td>3-2</td><td>3-3</td><td>3-4</td>
+    <td>3-1</td>
+    <td>3-2</td>
+    <td>3-3</td>
+    <td>3-4</td>
   </tr>
   <tr>
-    <td colspan="2">4-1 - 4-2</td><td>4-3</td><td>4-4</td>
+    <td colspan="2">4-1 - 4-2</td>
+    <td>4-3</td>
+    <td>4-4</td>
   </tr>
 </table>
 ```
 
-## Elemente: Tabellen - Colspan/Rowspan 
+## Elemente: Tabellen - Colspan/Rowspan
 
 ![](./media/HTML_table_span_colspan.png){height=90%}
 
-## Elemente: Tabellen - Colspan/Rowspan 
+## Elemente: Tabellen - Colspan/Rowspan
 
 ```html
 <table border="1">
   <tr>
-    <td>1-1</td><td rowspan="2">1-2 - 2-2</td><td>1-3</td><td>1-4</td>
+    <td>1-1</td>
+    <td rowspan="2">1-2 - 2-2</td>
+    <td>1-3</td>
+    <td>1-4</td>
   </tr>
   <tr>
-    <td>2-1</td><td>2-3</td><td rowspan="3">2-4</td>
+    <td>2-1</td>
+    <td>2-3</td>
+    <td rowspan="3">2-4</td>
   </tr>
   <tr>
-    <td>3-1</td><td>3-2</td><td>3-3</td>
+    <td>3-1</td>
+    <td>3-2</td>
+    <td>3-3</td>
   </tr>
   <tr>
-    <td>4-1</td><td>4-2</td><td>4-3</td>
+    <td>4-1</td>
+    <td>4-2</td>
+    <td>4-3</td>
   </tr>
 </table>
 ```
 
-## Elemente: Tabellen - Colspan/Rowspan 
+## Elemente: Tabellen - Colspan/Rowspan
 
 ![](./media/HTML_table_span_rowspan.png){height=90%}
 
@@ -327,7 +347,7 @@ plantuml-format: svg
   - Browser muss URL abrufen können, URL darf auf andere Webseite verweisen
   - `crossorigin`-Attribut zur Steuerung, inwiefern eventuell benötigte Anmeldedaten mit dem Request gesendet werden
   - \rightarrow{} mehr dazu in einer weiteren Vorlesung, Stichwort: CORS
-- Attribute `width` und `heigth` zur Angabe von Breite / Höhe 
+- Attribute `width` und `heigth` zur Angabe von Breite / Höhe
 
 ## Sonderzeichen
 
@@ -337,13 +357,12 @@ plantuml-format: svg
   - `&gt;` / `&#62;` = `>`
   - ... \rightarrow{} [MDN](https://developer.mozilla.org/en-US/docs/Glossary/Entity)
 
-
 ## URL Sonderzeichen
 
 - URLs dürfen nur bestimmte Zeichen enthalten
   - z.B. haben `/`, `#`, `?` eine definierte Funktion
   - Auch andere Sonderzeichen sind nicht erlaubt
-- Codierung von Sonderzeichen Byteweise in Hexadezimaler Schreibweise: 
+- Codierung von Sonderzeichen Byteweise in Hexadezimaler Schreibweise:
   - `%20`= Leerzeichen, ASCII 0x20 = 32
   - `%2F` = `/`, ASCII 0x2F = 47
   - Nicht-ASCII Sonderzeichen (z.B. UTF-8): `%E2%82%AC` = `€`
@@ -354,11 +373,3 @@ plantuml-format: svg
 - [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML)
 - [W3Schools](https://www.w3schools.com/html/default.asp)
 - [SelfHTML](https://wiki.selfhtml.org/wiki/HTML/Tutorials/Einstieg)
-
-## Praxisübung HTML-Seite
-
-### Aufgabe: Eine Nachrichten-Seite mit bekannten Mitteln erstellen
-  - Eine Übersichtsseite (Liste von Artikeln mit Links auf Artikel)
-  - Einen Artikel als Unterseite
-
-_Hinweis_: ihr könnt den Lorem Ipsum Generator zur Erstellung von Beispieltext nutzen: [loremipsum.de](https://loremipsum.de/)
