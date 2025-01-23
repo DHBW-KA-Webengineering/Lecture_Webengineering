@@ -328,3 +328,65 @@ Zeigt, wie sich diese mit Hilfe von curl ausnutzen lässt und injiziert ein Scri
 - Weitere Einschränkungen: nur Scripte mit bestimmten Hashes erlauben
   - Kann auch inline-Scripte wieder erlauben
 - Mehr Informationen bei [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
+
+# OWASP Top 10
+
+## Grundlagen
+
+- **OWASP**: Open Web Application Security Project
+- **Top 10**: Liste der 10 häufigsten Sicherheitslücken in Web-Anwendungen
+  - Projektwebsite: [https://owasp.org/www-project-top-ten/](https://owasp.org/www-project-top-ten/)
+  - Basiert auf Schwachstellen in realen Web-Anwendungen
+  - Vor allem um Awareness zu schaffen
+  - Aktuelle [Stand 2021](https://owasp.org/Top10/), nächste Version H1/2025
+  - Separate Listen für [APIs](https://owasp.org/API-Security/editions/2023/en/0x11-t10/), [Mobile](https://owasp.org/www-project-mobile-top-10/)
+- OWASP bietet auch noch viele weitere hilfreiche Ressourcen
+  - Insbesondere [Cheatsheets](https://cheatsheetseries.owasp.org/index.html)
+
+## A01 - A03
+
+### [A01:2021 - Broken Access Control](https://owasp.org/Top10/A01_2021-Broken_Access_Control/)
+
+- Benutzer kann Aktionen ausführen, für die er nicht berechtigt ist (lesen/modifizieren)
+
+### [A02:2021 - Cryptographic Failures](https://owasp.org/Top10/A02_2021-Cryptographic_Failures/)
+
+- Schwache, fehlende oder falsch konfigurierte Verschlüsselung
+
+### [A03:2021 - Injection](https://owasp.org/Top10/A03_2021-Injection/)
+
+- Untrusted Input wird unzureichend geporüft an einen Interpreter übergeben \rightarrow{} SQL-Injection, Cross-site Scripting (XSS), ...
+
+## A04 - A06
+
+### [A04:2021 - Insecure Design](https://owasp.org/Top10/A04_2021-Insecure_Design/)
+
+- Verschiedene Designentscheidungen, die zu Sicherheitslücken führen
+
+### [A05:2021 - Security Misconfiguration](https://owasp.org/Top10/A05_2021-Security_Misconfiguration/)
+
+- Falsche oder fehlende Sicherheitskonfiguration, z.B. nicht ausreichende Härtung, Standardpasswörter
+
+### [A06:2021 - Vulnerable and Outdated Components](https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/)
+
+- Veraltete 3rd-Party Komponenten (OSS und proprietär) oder Komponenten mit bekannten Schwachstellen
+
+## A07 - A09
+
+### [A07:2021 - Identification and Authentication Failures](https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/)
+
+- Schwächen in Authentifizierung, z.B. keine Passwort-Policies, Schutz gegen Brute-Force-Angriffe, ...
+
+### [A08:2021 - Software and Data Integrity Failures](https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/)
+
+- Unzureichender Schutz gegen Integritätsverletzungen, z.B. fehlende Prüfung bei Updates
+
+### [A09:2021 - Security Logging and Monitoring Failures](https://owasp.org/Top10/A09_2021-Security_Logging_and_Monitoring_Failures/)
+
+- Unzureichendes Protokollieren von Sicherheits-relevanten Ereignissen, beeinträchtigt Erkennung und Aufarbeitung von Angriffen
+
+## A10
+
+### [A10:2021 - Server-Side Request Forgery](https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/)
+
+- Zugriff (Serverseitig) auf unzureichend validierte URLs aus untrusted input
