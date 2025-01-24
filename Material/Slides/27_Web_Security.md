@@ -117,7 +117,7 @@ SELECT * FROM posts WHERE title LIKE '<Suchbegriff>';
 - JavaScript baut die SQL-Abfrage:
 
 ```javascript
-const query = `SELECT * FROM posts WHERE posts.title = '${req.query.query}'`;
+const query = `SELECT * FROM posts WHERE posts.title LIKE '${req.query.query}'`;
 ```
 
 ## SQLi Einführung (2)
@@ -130,7 +130,7 @@ Einfaches Beispiel: `'OR 1=1 --` (`--` ist Kommentarzeichen in SQL)
 \rightarrow{} Erweitert die SQL-Abfrage zu:
 
 ```sql
-SELECT * FROM posts WHERE posts.title '' OR 1=1 --';
+SELECT * FROM posts WHERE posts.title LIKE '' OR 1=1 --';
 ```
 
 \rightarrow{} Implikationen?
