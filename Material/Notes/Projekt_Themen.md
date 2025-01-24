@@ -46,12 +46,21 @@ Entwicklung einer webbasierten Anwendung, die es Nutzern ermöglicht, Aufgaben z
 - Zusätzliche Mindestanforderungen Frontend:
   - Vollständige CRUD-Operationen: Aufgaben können erstellt, bearbeitet und gelöscht werden
   - Filter- oder Sortieroptionen implementiert
+- Mindestanforderungen Backend:
+  - Backend-Repository eingerichtet
+  - Mindestens 1 Demo-Endpunkt implementiert
+  - Lokale Ausführung reicht aus
 - 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
 
 ## Finale Abgabe (Ende des zweiten Semesters, Termin folgt)
 
 - Komplett funktionsfähig mit persistenter Datenspeicherung
-- Details zum Backend (Persistierung, Accounts, API, ...) werden zu Beginn des zweiten Semesters bekannt gegeben
+- Mindestanforderungen Backend:
+  - Persistente Datenspeicherung
+    - Unabhängige Datenspeicherung für lokale Tests
+  - Deployment auf einem Server / Serverless
+  - Web-Security Best-Practices befolgt
+- Verbindung Frontend - Backend
 - Abgabe Quellcode + Dokumentation
 - 15 Minuten Präsentation pro Gruppe
 
@@ -75,15 +84,24 @@ Entwicklung einer Anwendung, die Arbeitszeiten erfasst, speichert und auswertet.
 
 ## Zwischenstand 3 (Anfang des zweiten Semesters, Termin folgt)
 
-- Zusätzliche mindestanforderungen Frontend:
+- Zusätzliche Mindestanforderungen Frontend:
   - Hinweise zu Arbeitszeitüberschreitungen
   - Anzeige von Wochenübersichten und Überstunden
+- Mindestanforderungen Backend:
+  - Backend-Repository eingerichtet
+  - Mindestens 1 Demo-Endpunkt implementiert
+  - Lokale Ausführung reicht aus
 - 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
 
 ## Finale Abgabe (Ende des zweiten Semesters, Termin folgt)
 
 - Komplett funktionsfähig mit persistenter Datenspeicherung.
-- Details zum Backend (Persistierung, Accounts, API, ...) werden zu Beginn des zweiten Semesters bekannt gegeben
+- Mindestanforderungen Backend:
+  - Persistente Datenspeicherung
+    - Unabhängige Datenspeicherung für lokale Tests
+  - Deployment auf einem Server / Serverless
+  - Web-Security Best-Practices befolgt
+- Verbindung Frontend - Backend
 - Abgabe Quellcode + Dokumentation
 - 15 Minuten Präsentation pro Gruppe
 
@@ -108,12 +126,21 @@ Umsetzung einer Anwendung, die das Lernen mit Karteikarten erleichtert. Nutzer k
 - Zusätzliche mindestanforderungen Frontend:
   - Gruppieren von Lernkarten
   - Karteikasten Funktion
+- Mindestanforderungen Backend:
+  - Backend-Repository eingerichtet
+  - Mindestens 1 Demo-Endpunkt implementiert
+  - Lokale Ausführung reicht aus
 - 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
 
 ## Finale Abgabe (Ende des zweiten Semesters, Termin folgt)
 
 - Komplett funktionsfähig mit persistenter Datenspeicherung
-- Details zum Backend (Persistierung, Accounts, API, ...) werden zu Beginn des zweiten Semesters bekannt gegeben
+- Mindestanforderungen Backend:
+  - Persistente Datenspeicherung
+    - Unabhängige Datenspeicherung für lokale Tests
+  - Deployment auf einem Server / Serverless
+  - Web-Security Best-Practices befolgt
+- Verbindung Frontend - Backend
 - Abgabe Quellcode + Dokumentation
 - 15 Minuten Präsentation pro Gruppe
 
@@ -136,16 +163,25 @@ Entwicklung einer klassischen Snake-Anwendung, bei der der Spieler Punkte sammel
 
 ## Zwischenstand 3 (Anfang des zweiten Semesters, Termin folgt)
 
-- Zusätzliche mindestanforderungen Frontend:
+- Zusätzliche Mindestanforderungen Frontend:
   - Spielmechaniken (z. B. Game Over bei Kollision)
   - Zusätzliche Features wie Hindernisse oder Level
   - Highscoreanzeige
+- Mindestanforderungen Backend:
+  - Backend-Repository eingerichtet
+  - Mindestens 1 Demo-Endpunkt implementiert
+  - Lokale Ausführung reicht aus
 - 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
 
 ## Finale Abgabe (Ende des zweiten Semesters, Termin folgt)
 
 - Komplett funktionsfähig mit persistenter Datenspeicherung.
-- Details zum Backend (Persistierung, Accounts, API, ...) werden zu Beginn des zweiten Semesters bekannt gegeben.
+- Mindestanforderungen Backend:
+  - Persistente Datenspeicherung
+    - Unabhängige Datenspeicherung für lokale Tests
+  - Deployment auf einem Server / Serverless
+  - Web-Security Best-Practices befolgt
+- Verbindung Frontend - Backend#
 - Abgabe Quellcode + Dokumentation
 - 15 Minuten Präsentation pro Gruppe
 
@@ -168,16 +204,25 @@ Umsetzung des Arcade-Klassikers Pac-Man, bei dem der Spieler durch ein Labyrinth
 
 ## Zwischenstand 3 (Anfang des zweiten Semesters, Termin folgt)
 
-- Zusätzliche mindestanforderungen Frontend:
+- Zusätzliche Mindestanforderungen Frontend:
   - Gegnerbewegung mit Kollisionserkennung
   - Spielmechaniken wie Power-Ups
   - Highscoreanzeige
+- Mindestanforderungen Backend:
+  - Backend-Repository eingerichtet
+  - Mindestens 1 Demo-Endpunkt implementiert
+  - Lokale Ausführung reicht aus
 - 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
 
 ## Finale Abgabe (Ende des zweiten Semesters, Termin folgt)
 
 - Komplett funktionsfähig mit persistenter Datenspeicherung.
-- Details zum Backend (Persistierung, Accounts, API, ...) werden zu Beginn des zweiten Semesters bekannt gegeben.
+- Mindestanforderungen Backend:
+  - Persistente Datenspeicherung
+    - Unabhängige Datenspeicherung für lokale Tests
+  - Deployment auf einem Server / Serverless
+  - Web-Security Best-Practices befolgt
+- Verbindung Frontend - Backend
 - Abgabe Quellcode + Dokumentation
 - 15 Minuten Präsentation pro Gruppe
 
@@ -200,15 +245,25 @@ Entwicklung eines Dashboards zur Visualisierung und Verwaltung von API-Daten (z.
 
 ## Zwischenstand 3 (Anfang des zweiten Semesters, Termin folgt)
 
-- Zusätzliche mindestanforderungen Frontend:
+- Zusätzliche Mindestanforderungen Frontend:
   - Interaktive Visualisierungen (z. B. Diagramme)
   - Interaktives Dashboard mit flexiblen Filter- und Anzeigeoptionen
   - Benutzerdefinierte Filter
+- Mindestanforderungen Backend:
+  - Backend-Repository eingerichtet
+  - Mindestens 1 Demo-Endpunkt implementiert
+  - Lokale Ausführung reicht aus
+
 - 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
 
 ## Finale Abgabe (Ende des zweiten Semesters, Termin folgt)
 
 - Komplett funktionsfähig mit persistenter Datenspeicherung.
-- Details zum Backend (Persistierung, Accounts, Export, API, ...) werden zu Beginn des zweiten Semesters bekannt gegeben.
+- Mindestanforderungen Backend:
+  - Persistente Datenspeicherung
+    - Unabhängige Datenspeicherung für lokale Tests
+  - Deployment auf einem Server / Serverless
+  - Web-Security Best-Practices befolgt
+- Verbindung Frontend - Backend
 - Abgabe Quellcode + Dokumentation
 - 15 Minuten Präsentation pro Gruppe
