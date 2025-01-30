@@ -150,7 +150,6 @@ Noch weitere, siehe [MDN/input#input_types](https://developer.mozilla.org/en-US/
 
 `value`-Attribut der gewählten Option wird als Wert für das Feld mit dem `name`-Attribut des `select`-Elements übertragen
 
-
 ## Eingafelder - Datei-Upload
 
 ```html
@@ -158,6 +157,7 @@ Noch weitere, siehe [MDN/input#input_types](https://developer.mozilla.org/en-US/
   <input type="file" name="file" />
 </form>
 ```
+
 ![](./media/HTML_file_upload.png)
 
 ## Eingabefelder - Datei-Upload
@@ -177,6 +177,7 @@ Noch weitere, siehe [MDN/input#input_types](https://developer.mozilla.org/en-US/
   - `type`-Attribut: `submit`, `reset`, `button`
   - Inhalt des Elements als Beschriftung
 - `<input>`-Element
+
   - `type`-Attribut: `submit`, `reset`
   - `value`-Attribut als Beschriftung
   - Automatische Lokalisierung der Beschriftung
@@ -185,12 +186,11 @@ Noch weitere, siehe [MDN/input#input_types](https://developer.mozilla.org/en-US/
 - `reset`: Formular zurücksetzen, alle Felder auf Standardwerte
 - `button`: Keine vordefinierte Funktion, über JavaScript nutzbar
 
-
 ## Formulare - Submit
 
 ```html
 <form method="post" action="">
-  <input type="submit" /><br>
+  <input type="submit" /><br />
   <button type="submit">Submit-Button</button>
 </form>
 ```
@@ -210,7 +210,7 @@ Verwendung des Button-Attributs ist außerdem semantisch korrekter.
 ```html
 <form method="post" action="">
   <label for="test">Test</label>
-  <input id="test" name="test"/>
+  <input id="test" name="test" />
   <input type="submit" />
 </form>
 ```
@@ -225,11 +225,11 @@ Verwendung des Button-Attributs ist außerdem semantisch korrekter.
   - Beschriftung für `<fieldset>`
 
 ```html
-<form method="post" action="" >
+<form method="post" action="">
   <fieldset>
     <legend>Kontaktdaten</legend>
-    <input name="vorname" placeholder="Vorname"/>
-    <input name="nachname" placeholder="Nachname"/>
+    <input name="vorname" placeholder="Vorname" />
+    <input name="nachname" placeholder="Nachname" />
   </fieldset>
 </form>
 ```
@@ -237,19 +237,3 @@ Verwendung des Button-Attributs ist außerdem semantisch korrekter.
 ## Formulare - Gruppierung
 
 ![](./media/HTML_fieldset.png)
-
-
-## Praxisübung HTML-Formulare
-
-- Erstellt ein HTML-Formular das die Eingabe folgender Daten ermöglicht und beschriftet die Eingabefelder entsprechend:
-  - Name (Vorname + Nachname)
-  - E-Mail-Adresse 
-  - Geburtsdatum
-  - Geschlecht
-  - Lieblingsfarbe 
-  - Profilbild
-  - Passwort
-  - Passwort wiederholen 
-- Wählt geeignete Eingabetypen und setzt andere Attribute wo sinnvoll
-
-**Hinweis**: `https://httpbin.org/post` kann als Ziel-URL verwendet werden, um die gesendeten Daten zu überprüfen.
