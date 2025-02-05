@@ -14,8 +14,7 @@ section-titles: true
 plantuml-format: svg
 ...
 
-
-# CSS - Grundlagen 
+# CSS - Grundlagen
 
 ## Grundlagen
 
@@ -35,7 +34,7 @@ plantuml-format: svg
   - `font-size: 12px;`
 - **Deklarationsblock**: Sammlung von zusammengehörigen Deklarationen
   ```css
-  {
+   {
     color: red;
     font-size: 12px;
   }
@@ -53,7 +52,7 @@ plantuml-format: svg
 - ID `#id` \rightarrow{} alle Elemente, bei denen das `id`-Attribut den Wert `id` hat
   - IDs sollten eindeutig pro HTML-Dokument sein
 
-## Selektoren 
+## Selektoren
 
 - Attribute `[attr]` \rightarrow{} alle Elemente, bei denen das Attribut `attr` existiert
 - Attribut mit Wert `[attr="value"]` \rightarrow{} alle Elemente, bei denen das Attribut `attr` exakt den Wert `value` hat
@@ -85,7 +84,6 @@ siehe auch [selfhtml.org](https://wiki.selfhtml.org/wiki/CSS/Tutorials/Selektore
   ```
   \rightarrow{} Alle Kind-Elemente des `body` (=gesamtes HTML Dokumente) bekommen standardmäßig roten Text
 
-
 # CSS nutzen
 
 ## Einbindung in HTML
@@ -104,18 +102,8 @@ siehe auch [selfhtml.org](https://wiki.selfhtml.org/wiki/CSS/Tutorials/Selektore
   ```
 - Externes Stylesheet: Verweis über `<link>`-Element im `<head>`
   ```html
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   ```
-
-
-## Praxisaufgabe 1
-
-Passt die in 03_HTML erstellte Nachrichtenseite mit CSS an:
-
-- Überschriften sollen besser hervorgehoben werden
-- Die Seite soll im Darkmode dargestellt werden
-- Artikel auf der Übersichtsseite sollen einen Rahmen bekommen
-  
 
 # CSS Fortgeschritten
 
@@ -131,24 +119,23 @@ Passt die in 03_HTML erstellte Nachrichtenseite mit CSS an:
 
 siehe auch [selfhtml.org](https://wiki.selfhtml.org/wiki/CSS/Tutorials/Selektoren/Kombinator)
 
-
 ## Pseudoklassen
 
 - Klassen, die nicht im HTML-Code angegeben werden, sondern vom Browser gesetzt werden
   - Werden direkt an Selektor angehängt (z.B. `p:hover`)
-- Wichtige Pseudoklassen 
+- Wichtige Pseudoklassen
   - `:hover` \rightarrow{} Mauszeiger ist aktuell über Element
   - `:active` \rightarrow{} Element wird aktuell angeklickt
   - `:focus` \rightarrow{} Element hat aktuell den Fokus (z.B. durch Tabulator-Taste oder Mausklick)
 
 ## Struktur-Pseudoklassen
+
 - Beziehen sich auf die Struktur des HTML-Dokuments
   - `:first-child` \rightarrow{} Element ist das erste Kind seines Elternelements
   - `:last-child` \rightarrow{} Element ist das letzte Kind seines Elternelements
   - `:nth-child(n)` \rightarrow{} Element ist das `n`-te Kind seines Elternelements
     - `n` kann auch als Formel angegeben werden: `2n+1` \rightarrow{} Alle ungeraden Kindelement
   - Analog für den Typ des Elements: `:first-of-type`, `:last-of-type`, `:nth-of-type(n)`
-
 
 ## Maßeinheiten
 
@@ -168,11 +155,10 @@ siehe auch [selfhtml.org](https://wiki.selfhtml.org/wiki/CSS/Tutorials/Selektore
   - Skalieren mit der Schriftgröße
   - Skalieren mit der Bildschirmgröße \rightarrow{} responsives Design, mobile Webseiten
 
-
 ## CSS Box-Modell
 
 - CSS betrachtet alle HTML-Elemente als rechteckige Boxen
-- Der Inhalt (Content) wird jeweils umschlossen von: 
+- Der Inhalt (Content) wird jeweils umschlossen von:
   - Padding: Abstand zum Rand
   - Border: Rahmen um das Element
   - Margin: Abstand zum Nachbarelement
@@ -203,7 +189,6 @@ siehe auch [selfhtml.org](https://wiki.selfhtml.org/wiki/CSS/Tutorials/Selektore
   - `scroll`: Scrollbalken wird angezeigt
   - `visible`: Inhalt wird über den Rand hinaus angezeigt
 
-
 ## CSS Box-Modell Rahmen
 
 - Kurzschreibweise `width style color` wie oben beschrieben
@@ -212,7 +197,6 @@ siehe auch [selfhtml.org](https://wiki.selfhtml.org/wiki/CSS/Tutorials/Selektore
   - `border-radius: 10px;` \rightarrow{} Alle Ecken werden mit einem Radius von 10px abgerundet
   - `border-radius: 10px 20px 30px 40px;` \rightarrow{} `top-left top-right bottom-right bottom-left`
 - `border-collapse`: benachbarte Rahmen zusammenfassen, Werte `collapse` und `separate`
-
 
 ## Positionierung - `position`
 
@@ -232,7 +216,7 @@ siehe auch [selfhtml.org](https://wiki.selfhtml.org/wiki/CSS/Tutorials/Selektore
 ## Positionierung - Flexbox
 
 - Layout-Modell, das Elemente in Zeilen/Spalten anordnet
-- Elemente können sich dynamisch anpassen 
+- Elemente können sich dynamisch anpassen
   - Wachsen (flex) bei verfügbarem Platz
   - Schrumpfen (shrink) bei zu wenig Platz
 - Macht responsive Layouts deutlich einfacher
@@ -241,10 +225,9 @@ siehe auch [selfhtml.org](https://wiki.selfhtml.org/wiki/CSS/Tutorials/Selektore
 
 ![Flexbox Grundlagen](https://css-tricks.com/wp-content/uploads/2018/11/00-basic-terminology.svg)
 
-
 ## Positionierung - Flexbox Containr
 
-- Wird die CSS-Eigenschaft `display` auf `flex` gesetzt, wird das Element zum **Flex-Container** und alle  Kind-Elemente zu **Flex-Items**
+- Wird die CSS-Eigenschaft `display` auf `flex` gesetzt, wird das Element zum **Flex-Container** und alle Kind-Elemente zu **Flex-Items**
 - Flex-Container selbst verhält sich gegenüber anderen Elementen wie ein Block-Element
   - `inline-flex`, damit der Container sich wie ein Inline-Element verhält
 
@@ -259,7 +242,6 @@ siehe auch [selfhtml.org](https://wiki.selfhtml.org/wiki/CSS/Tutorials/Selektore
 
 ![CSS-Tricks: A Complete Guide to Flexbox](https://css-tricks.com/wp-content/uploads/2018/10/justify-content.svg){height=90%}
 
-
 ## Positionierung - Flexbox Container
 
 - Eigenschaften für den Container
@@ -268,7 +250,6 @@ siehe auch [selfhtml.org](https://wiki.selfhtml.org/wiki/CSS/Tutorials/Selektore
 ## Positionierung - Flexbox Container `align-items`
 
 ![CSS-Tricks: A Complete Guide to Flexbox](https://css-tricks.com/wp-content/uploads/2018/10/align-items.svg){height=85%}
-
 
 ## Positionierung - Flexbox Items
 
@@ -293,14 +274,3 @@ siehe auch [selfhtml.org](https://wiki.selfhtml.org/wiki/CSS/Tutorials/Selektore
 
 - [CSS-Tricks: A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 - [MDN: Flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)
-
-## Praxisaufgabe 2
-
-Passt die in 03_HTML erstellte Nachrichtenseite mit CSS noch weiter an: 
-
-- Nutzt Flexbox um ein responsives Layout zu erstellen
-- Artikel auf der Übersichtsseite sollen Abstand voneinander haben
-- Die Artikel sollen abwechselnd farbig hinterlegt werden
-- Bilder in Artikeln sollen einen Rahmen mit abgerundeten Ecken bekommen
-- Einzelne Abschnitte im Artikel sollen besser voneinander unterscheidbar sein
-  
