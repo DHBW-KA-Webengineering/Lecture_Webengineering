@@ -78,7 +78,7 @@ Die Dokumentation muss einige Punkte zwingend enthalten, da sie einen wichtigen 
   - TypeScript verpflichtend
   - Framwork wählen aus: Angular, React, Vue, Svelte
 - Backend:
-  - Java, Node, C#,
+  - TypeScript oder C#
 
 # Bewertungskriterien
 

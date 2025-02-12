@@ -1,6 +1,6 @@
 ---
 title: "Vorlesung Webengineering 1 - Dynamische Webseiten Clientseitig"
-topic: "Webengineering_1_8"
+topic: "Webengineering_1_7"
 author: "Lukas Panni"
 theme: "Berlin"
 colortheme: "dove"
@@ -25,14 +25,12 @@ plantuml-format: svg
 ```html
 <!-- direkt -->
 <script>
-    // JavaScript-Code
+  // JavaScript-Code
 </script>
 
 <!-- extern, beliebige URL zu einer JavaScript-Datei -->
 <script src="script.js"></script>
 ```
-
-
 
 # Manipulation von HTML Dokumenten
 
@@ -89,10 +87,10 @@ Beispiel von [SelfHTML Wiki](https://wiki.selfhtml.org/wiki/Datei:DOM-1.svg), CC
 </article>
 ...
 ```
-```javascript
 
+```javascript
 const title = document.getElementById("title");
-console.log(title); // -> <h1 id="title"> 
+console.log(title); // -> <h1 id="title">
 console.log(title.innerHTML); // -> Artikelüberschrift
 ```
 
@@ -104,10 +102,11 @@ console.log(title.innerHTML); // -> Artikelüberschrift
 <article><section id="s-2" class="intro">...</section></article>
 ...
 ```
+
 ```javascript
 const intros = document.getElementsByClassName("intro");
 console.log(intros); // -> HTMLCollection {0: section#s-1.intro,
-                     // 1: section#s-2.intro, ...}
+// 1: section#s-2.intro, ...}
 console.log(intros[0]); // -> <section id="s-1" class="intro">
 ```
 
@@ -119,10 +118,11 @@ console.log(intros[0]); // -> <section id="s-1" class="intro">
 <article id="art-2">...</article>
 ...
 ```
+
 ```javascript
 const articles = document.getElementsByTagName("article");
-console.log(articles); // -> HTMLCollection {0: article#art-1, 
-                       // 1: article#art-2, ...}
+console.log(articles); // -> HTMLCollection {0: article#art-1,
+// 1: article#art-2, ...}
 console.log(articles[0]); // -> <article id="art-1">
 ```
 
@@ -131,11 +131,12 @@ console.log(articles[0]); // -> <article id="art-1">
 ```html
 ...
 <article>
-    <section id="s-1">...</section>
-    <section id="s-2">...</section>
-    <section id="s-3">...</section>
+  <section id="s-1">...</section>
+  <section id="s-2">...</section>
+  <section id="s-3">...</section>
 </article>
 ```
+
 ```javascript
 const s1 = document.querySelector("section:last-child");
 console.log(s1); // -> <section id="s-3">
@@ -146,23 +147,24 @@ console.log(s1); // -> <section id="s-3">
 ```html
 ...
 <article>
-    <h1 id="h-1"> ... </h1>
-    <section id="s-1">...</section>
-    <section id="s-2">...</section>
+  <h1 id="h-1">...</h1>
+  <section id="s-1">...</section>
+  <section id="s-2">...</section>
 </article>
 ```
+
 ```javascript
 const elements = document.querySelectorAll("article > *");
-console.log(elements); // -> NodeList {0: h1#h-1, 1: section#s-1, 
-                       // 2: section#s-2}
-                       // -> alle direkten Kinder von article
+console.log(elements); // -> NodeList {0: h1#h-1, 1: section#s-1,
+// 2: section#s-2}
+// -> alle direkten Kinder von article
 ```
 
 ## DOM Traversierung
 
 - DOM-Elemente sind miteinander verknüpft
   - Alle sind Nachfahren von `document`
-  - Jedes Element hat 1 Elternelement und 0..* Kindknoten
+  - Jedes Element hat 1 Elternelement und 0..\* Kindknoten
 - Zugriff auf
   - Kindknoten über `node.childNodes`
   - Elternknoten über `node.parentNode`
@@ -176,15 +178,16 @@ console.log(elements); // -> NodeList {0: h1#h-1, 1: section#s-1,
 ## DOM Manipulation Text
 
 Über `textContent` kann Text auch geändert werden
-  
+
 ```html
 ...
 <article>
-    <h1 id="h-1"> ... </h1>
-    <section id="s-1">...</section>
-    <section id="s-2">...</section>
+  <h1 id="h-1">...</h1>
+  <section id="s-1">...</section>
+  <section id="s-2">...</section>
 </article>
 ```
+
 ```javascript
 const h1 = document.getElementById("h-1");
 h1.textContent = "Neuer Text";
@@ -241,8 +244,7 @@ article.setAttribute("id", "art-1"); // == article.id = "art-1"
 document.getElementById("button").addEventListener("click", handler);
 ```
 
-
-## Event-Handler 
+## Event-Handler
 
 - Beim Auslösen des Events wird der Handler mit `event` Argument aufgerufen
   - `event.target` auslösendes Element
@@ -250,24 +252,23 @@ document.getElementById("button").addEventListener("click", handler);
 
 ```javascript
 function handler(event) {
-    console.log(event.target); // -> <button id="button">
-    console.log(event.type); // -> click
+  console.log(event.target); // -> <button id="button">
+  console.log(event.type); // -> click
 }
 ```
 
 ## Event-Handler setzen
 
 - Event-Handler können auch direkt im HTML-Code gesetzt werden
+
   - Attribute `onclick`, `onchange`, `onkeyup`, ...
   - `this` ist das auslösende Element
 
 - Solche Vermischung von HTML und JavaScript ist aber nicht empfehlenswert!
 
-
 ## Praxisaufgabe 1
 
 Erweitert die Nachrichtenseite um ein Formular zum Schreiben neuer Artikel (mit Titel, Bild und Text). Beim Absenden des Formulars soll ein neuer Artikel auf der Seite eingefügt werden und das Formular geleert werden.
-
 
 # `fetch` API
 
@@ -286,12 +287,11 @@ Erweitert die Nachrichtenseite um ein Formular zum Schreiben neuer Artikel (mit 
     - `method`, `headers`, `body`, ...
   - \rightarrow{} [Dokumentation](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
-
 ## `fetch` Beispiel: Abruf von Daten
-  
+
 ```javascript
 const websiteResponse = await fetch("https://lukaspanni.de/")
-console.log(await websiteResponse.text()); // -> HTML-Code 
+console.log(await websiteResponse.text()); // -> HTML-Code
 
 const apiResponse = await fetch("https://api.github.com
 				/users/lukaspanni")
@@ -309,9 +309,9 @@ console.log(data.location); // -> "Karlsruhe, Germany"
 
 ```json
 {
-    "name": "Lukas Panni",
-    "age": 23,
-    "location": "Karlsruhe, Germany",
+  "name": "Lukas Panni",
+  "age": 23,
+  "location": "Karlsruhe, Germany"
 }
 ```
 
@@ -325,20 +325,19 @@ console.log(data.location); // -> "Karlsruhe, Germany"
 ```javascript
 // httpbin.org spiegelt die empfangenen Daten zurück
 const response = await fetch("https://httpbin.org/post", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: 
-	JSON.stringify({ name: "Lukas Panni", location: "Karlsruhe" })
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ name: "Lukas Panni", location: "Karlsruhe" }),
 });
 
-console.log(await response.json()); 
+console.log(await response.json());
 ```
 
 ## `fetch` Beispiel: Fehlerbehandlung
 
 - `fetch` schlägt nur bei Netzwerkfehlern fehl
 - HTTP-Status muss manuell auf Erfolg geprüft werden
-  
+
 ```javascript
 const response = await fetch("https://httpbin.org/status/404");
 console.log(response.ok); // -> false

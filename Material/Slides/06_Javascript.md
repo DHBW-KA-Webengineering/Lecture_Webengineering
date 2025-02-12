@@ -1,6 +1,6 @@
 ---
 title: "Vorlesung Webengineering 1 - JavaScript"
-topic: "Webengineering_1_7"
+topic: "Webengineering_1_6"
 author: "Lukas Panni"
 theme: "Berlin"
 colortheme: "dove"
@@ -14,7 +14,6 @@ section-titles: true
 plantuml-format: svg
 ...
 
-
 # JavaScript Grundlagen
 
 ## Grundlagen
@@ -23,7 +22,6 @@ plantuml-format: svg
 - Kann in jedem modernen Browser ausgeführt werden
   - \rightarrow{} Clientseitige Programmierung
   - Wird heute auch häufig auf Serverseite eingesetzt (Node.js)
-
 
 ## Anwendungsfälle Clientseitig
 
@@ -38,7 +36,7 @@ plantuml-format: svg
 
 - Dynamisches Erzeugen von HTML-Dokumenten
 - Ausgabe von Daten in sonstigen Formaten (JSON, XML, ...) \rightarrow{} REST-APIs
-  - Zugriff auf Datenbanken 
+  - Zugriff auf Datenbanken
 - Vorteile durch gleiche Sprache auf Client- und Serverseite
   - Wiederverwendung von Code
   - Einfacher für Entwickler
@@ -73,7 +71,6 @@ plantuml-format: svg
 
 \rightarrow{} `let` und `const` sind vorzuziehen!
 
-
 ## Grundlegende Syntax - Variablen
 
 ```javascript
@@ -86,7 +83,6 @@ a = "Hallo"; // ok -> Typen sind dynamisch!!
 b = 4; // TypeError: invalid assignment to const 'b'
 
 let a = 4; // SyntaxError: redeclaration of let a
-var a = 4; // ok, Re-Deklaration würde nicht auffallen!
 ```
 
 ## Grundlegende Syntax - Datentypen
@@ -109,7 +105,6 @@ var a = 4; // ok, Re-Deklaration würde nicht auffallen!
 - Die automatische Typkonvertierung kann zu unerwarteten Ergebnissen führen:
 
 ```javascript
-
 let a = 1;
 let b = "2";
 
@@ -123,10 +118,10 @@ console.log(a / b); // 0.5
 
 - Operatoren wie in vielen anderen Sprachen auch (C/C++, Java, C#, ...)
   - Arithmetische Operatoren: `+`, `-`, `*`, `/`, `%`
-  - Vergleichsoperatoren: `==`, `!=`,  `>`, `<`, `>=`, `<=`
+  - Vergleichsoperatoren: `==`, `!=`, `>`, `<`, `>=`, `<=`
     - Besonderheit: `===` und `!==` vergleichen **ohne** automatische Typkonvertierung!
     - Ansonsten wird bei unterschiedlichen Typen immer in `number` konvertiert
- - Logische Operatoren: `&&`, `||`, `!`
+- Logische Operatoren: `&&`, `||`, `!`
 
 ## Grundlegende Synax - Strings (1)
 
@@ -140,7 +135,6 @@ console.log(a / b); // 0.5
   - `split(separator)`: Zerlegen an `separator`, ergibt Array
 - Interpolation mit Backticks: `` `Hallo ${name}` ``
   - Alles zwischen `${` und `}` wird als JavaScript-Code interpretiert und Ergebnis in String eingefügt
-
 
 ## Grundlegende Syntax - Schleifen
 
@@ -164,11 +158,13 @@ for (let i in arr) {
   console.log("in", i);
 }
 ```
+
 ### Ausgabe?
 
 ## Exkurs: `for ... of` vs. `for ... in`
 
 ### Ausgabe
+
 ```
 of 1
 of 2
@@ -184,10 +180,10 @@ in 4
 
 ### Warum?
 
-
 ## Exkurs: `for ... of` vs. `for ... in` Erklärung
 
 - In JavaScript ist ein Array ein **Objekt**, Indizes sind die Schlüssel!
+
   ```
   Array(5) [1, 2, 3, 4, 5]
     0: 1
@@ -208,14 +204,14 @@ in 4
   - Oder natürlich auch ohne Initialisierung: `let arr = [];` / `let arr = new Array();`
 - Zugriff auf Elemente: `arr[0]`
 - Länge des Arrays: `arr.length`
-- Typen der Elemente können unterschiedlich sein 
+- Typen der Elemente können unterschiedlich sein
 
 ## Grundlegende Syntax - If-Abfragen
 
 - If-Abfragen wie in vielen anderen Sprachen auch (C/C++, Java, C#, ...)
   - `if (condition) { ... }`
   - `if (condition) { ... } else { ... }`
- - `if (condition) { ... } else if (condition) { ... } else { ... }`
+- `if (condition) { ... } else if (condition) { ... } else { ... }`
 
 ## Grundlegende Syntax - Funktionen
 
@@ -224,10 +220,11 @@ in 4
 - Anzahl der Parameter muss nicht mit Anzahl der Argumente übereinstimmen
   - Zu viele Argumente werden ignoriert (bzw. in implizitem Parameter `arguments` gespeichert)
   - Zu wenige Argumente werden mit `undefined` aufgefüllt
+  - \rightarrow{} Kein Überladen von Funktionen möglich!
 - Funktionsnamen sind optional (anonyme Funktionen)
   - Alternativ speichern der Funktion als Variable
 
-## Grundlegende Syntax - Funktionen 
+## Grundlegende Syntax - Funktionen
 
 ```javascript
 // "Normale" Funktionsdeklaration
@@ -236,42 +233,41 @@ function add(a, b) {
 }
 
 // Anonyme Funktion
-const add2 = function(a, b) {
+const add2 = function (a, b) {
   return a + b;
-}
+};
 ```
 
-## Grundlegende Syntax - Funktionen 
+## Grundlegende Syntax - Funktionen
 
 ```javascript
 // Arrow-Function / Lambda
 const add3 = (a, b) => {
   return a + b;
-}
+};
 // Noch kürzer schreiben (nur für einzelne Ausdrücke):
 const add4 = (a, b) => a + b;
 ```
 
 Syntax ist weitgehend Geschmackssache, aber:
+
 - "Normale" Funktionsdeklarationen werden "gehoisted" (werden vom Interpreter an den Anfang des Scopes verschoben \rightarrow{} können vor der Deklaration aufgerufen werden)
 
 ## Grundlegende Syntax - Funktionen
 
 ```javascript
-
 add(1, 2); // ok
-add2(1, 2); // ReferenceError: can't access lexical declaration 
-            // 'add2' before initialization
+add2(1, 2); // ReferenceError: can't access lexical declaration
+// 'add2' before initialization
 
 function add(a, b) {
   return a + b;
 }
 
-const add2 = function(a, b) {
+const add2 = function (a, b) {
   return a + b;
-}
+};
 ```
-
 
 # Objektorientierung
 
@@ -285,20 +281,24 @@ const add2 = function(a, b) {
 ## Objekte erstellen
 
 Objekte können auf verschiedene Arten erstellt werden:
+
 ```javascript
-let obj = {a: 1, b: 2}; // Objekt-Literal
+let obj = { a: 1, b: 2 }; // Objekt-Literal
 let obj2 = new Object(); // Object-Konstruktor
 
 // Konstruktor-Funktion
-function Obj() { this.a = 1; this.b = 2; }
+function Obj() {
+  this.a = 1;
+  this.b = 2;
+}
 let obj3 = new Obj();
 ```
 
 ## Klassen
 
 Objekte können auch über Klassen erstellt werden:
-```javascript
 
+```javascript
 // Klasse (moderne JavaScript-Versionen)
 class Obj2 {
   constructor() {
@@ -332,11 +332,13 @@ let obj4 = new Obj2();
 ## Objekte verändern
 
 ```javascript
-let obj = {a: 1, b: 2};
+let obj = { a: 1, b: 2 };
 
 // Achtung: geht nicht mit Arrow-Functions
 // -> nutzen anderen Scope für `this`
-obj.sum = function() { this.c = this.a + this.b; }
+obj.sum = function () {
+  this.c = this.a + this.b;
+};
 obj.sum();
 console.log(obj.c); // 3
 ```
@@ -351,8 +353,9 @@ console.log(obj.c); // 3
   - \rightarrow{} "_In modern code, the class syntax should be preferred in any case._" (MDN)
 
 ## Vererbung
+
 ```javascript
-// class Obj { constructor(a,b); a; b; sum() { return a+b }; 
+// class Obj { constructor(a,b); a; b; sum() { return a+b };
 //             print() { console.log(this.sum()); } }
 
 class Obj2 extends Obj {
@@ -360,7 +363,7 @@ class Obj2 extends Obj {
     super(a, b); // Aufruf des Konstruktors der Elternklasse
     this.c = c;
   }
-  
+
   sum() {
     return super.sum() + this.c;
   }
@@ -368,6 +371,7 @@ class Obj2 extends Obj {
 ```
 
 ## Vererbung
+
 ```javascript
 ...
 
@@ -387,20 +391,21 @@ obj2.print(); // 6
 ## Destructuring
 
 - JavaScript kann Objekte und Arrays automatisch in ihre Einzelteile "zerlegen"
+
 ```javascript
-const obj = {a: 1, b: 2, c: 3};
+const obj = { a: 1, b: 2, c: 3 };
 const arr = [1, 2, 3];
 
 // komplett
-var {a, b, c} = obj; // a = 1, b = 2, c = 3
+var { a, b, c } = obj; // a = 1, b = 2, c = 3
 var [a, b, c] = arr; // a = 1, b = 2, c = 3
 
 // teilweise
-var {a, ...rest} = obj; // a = 1, rest = {b: 2, c: 3}
+var { a, ...rest } = obj; // a = 1, rest = {b: 2, c: 3}
 var [a, ...rest] = arr; // a = 1, rest = [2, 3]
 ```
-_Hier mit `var`, um alles in ein Beispiel zu packen, schlechter Stil!_
 
+_Hier mit `var`, um alles in ein Beispiel zu packen, schlechter Stil!_
 
 ## Higher-Order Functions
 
@@ -419,7 +424,7 @@ const sub = (a, b) => a - b;
 const calc = (a, b, op) => op(a, b);
 calc(1, 2, add); // 3
 calc(1, 2, sub); // -1
-``` 
+```
 
 ## `map` und `filter`
 
@@ -438,7 +443,7 @@ const isEvenFn = (x) => x % 2 == 0;
 const squares = arr.map(squareFn); // [1, 4, 9, 16, 25]
 const even = arr.filter(isEvenFn); // [2, 4]
 
-const squaresEven = arr.filter(isEvenFn).map(squareFn) // [4, 16]
+const squaresEven = arr.filter(isEvenFn).map(squareFn); // [4, 16]
 ```
 
 ## Weitere Higher-Order Functions
@@ -487,9 +492,9 @@ console.log("Hello");
 ## Promises - `async` und `await` - Beispiel
 
 ```javascript
-async function greeting(){
+async function greeting() {
   // setTimeout gibt kein Promise zurück! eigenes erzeugen
-  await new Promise(resolve => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   return "World!";
 }
 

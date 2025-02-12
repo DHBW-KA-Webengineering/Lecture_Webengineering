@@ -1,6 +1,6 @@
 ---
 title: "Vorlesung Webengineering 1 - Webdesign"
-topic: "Webengineering_1_6"
+topic: "Webengineering_1_8"
 author: "Lukas Panni"
 theme: "Berlin"
 colortheme: "dove"
@@ -16,7 +16,6 @@ numbersections: true
 plantuml-format: svg
 ...
 
-
 # Grundlagen
 
 ## Wichtige Aspekte im Webdesign
@@ -28,17 +27,13 @@ plantuml-format: svg
 
 \rightarrow{} Immer Kompromisse!
 
-
-
 ## Internationalisierung
 
 i18n = _internationalization_ (i + 18 Buchstaben + n)
 
 > [W3C](https://www.w3.org/International/questions/qa-i18n.de.html)
 >
->
 > "Design und der Entwicklung eines Produkts, einer Anwendung oder eines Dokuments, das leichte Lokalisierung für Zielgruppen, die in Kultur, Region oder Sprache variieren, ermöglicht"
-
 
 ## Internationalisierung
 
@@ -52,11 +47,8 @@ i18n = _internationalization_ (i + 18 Buchstaben + n)
 l10n = _localization_
 
 > [W3C](https://www.w3.org/International/questions/qa-i18n.de.html)
-> 
 >
 > "Angleichung eines Produkts, einer Anwendung oder eines Dokuments, um der Sprache, den kulturellen oder anderen Anforderungen eines bestimmten Zielmarktes (ein lokaler "Schauplatz") zu entsprechen."
-
-
 
 ## Lokalisierung
 
@@ -70,25 +62,19 @@ Anpassung von:
 
 Und natürlich Übersetzung!
 
-
 ## User Experience (UX)
 
 > **ISO 9241-210**
 >
-> 
 > "Wahrnehmungen und Reaktionen einer Person, die aus der tatsächlichen und/oder der erwarteten Benutzung eines Produkts, eines Systems oder einer Dienstleistung resultieren."
 
-
 \rightarrow{} Alle Aspekte bei der Interaktion eines Nutzers mit einem Produkt
-
 
 ## Usability
 
 > **ISO 9241-210**
-> 
-> 
+>
 > "Ausmaß, in dem ein System, ein Produkt oder eine Dienstleistung durch bestimmte Benut- zer in einem bestimmten Nutzungskontext genutzt werden kann, um festgelegte Ziele **effektiv**, **effizient** und **zufriedenstellend** zu erreichen."
-
 
 ## Usability
 
@@ -96,8 +82,7 @@ Und natürlich Übersetzung!
 - Effizienz: Aufgaben werden mit **minimalem Aufwand** erledigt
 - Zufriedenheit: Arbeiten mit Software wird nicht als **langweilig**, **Stress auslösend** oder **störend** empfunden
 
-+ Angenehme Erfahrung: Nutzung der Software wird als **angenehm** empfunden \rightarrow{} **positive User Experience**
-
+* Angenehme Erfahrung: Nutzung der Software wird als **angenehm** empfunden \rightarrow{} **positive User Experience**
 
 # Wahrnehmung
 
@@ -108,9 +93,6 @@ Und natürlich Übersetzung!
   - Kurze Verweildauer (wenige Sekunden)
 
 \rightarrow{} Geschickte Gruppierung zur Unterstützung von Chunking, Ablenkungen vermeiden, Fokus auf das Wesentliche
-
-
-
 
 ## Präattentive und Attentive Wahrnehmung
 
@@ -124,11 +106,9 @@ Attentive Wahrnehmung:
 - Bewusste Wahrnehmung von Objekten
   - \rightarrow{} Langsamer
 
-
 ## Präattentive Wahrnehmung Beispiel
 
 ![Präattentive Wahrnehmung](./media/pre_attentive_processing.png){height=75%}
-
 
 ## Gestaltgesetze
 
@@ -146,25 +126,22 @@ Objekte, die nah beieinander liegen, werden als zusammengehörig wahrgenommen (a
 Beispiel: [Amazon Einstellungen](https://www.amazon.de/gp/css/homepage.html?ref_=nav_AccountFlyout_ya)
 ![Gesetz der Nähe](./media/Gestaltgesetze_naehe.png){height=60%}
 
-
 ## Gesetz der Gleichheit
 
 Gleichheit von Form oder Farbe führt zu Wahrnehmung als zusammengehörig
 
 ![Gesetz der Gleichheit](./media/Gestaltgesetze_gleichheit.png){height=60%}
 
-
 ## Gestaltgesetze: weitere Beispiele
 
 - [achtung-designer.com](https://achtung-designer.com/gestaltgesetze-die-designs-besser-machen/)
 - [cmyktastic.ch](https://www.cmyktastic.ch/gestalterische-gesetze/)
 
-
 ## Wahrnehmung von Bewegung
 
 - Bewegung wird im gesamten Sichtfeld gut wahrgenommen
 - Kann Aufmerksamkeit auf sich ziehen
-  - \rightarrow{} Kann auch ablenken 
+  - \rightarrow{} Kann auch ablenken
 - Gleichzeitige Bewegungen können nur begrenzt wahrgenommen werden
 
 Einsatz:
@@ -173,7 +150,6 @@ Einsatz:
 - Veränderungen verständlich machen
   - Verkleinern, vergrößern von Fenstern
   - Auf- und Zuklappen von Elementen
-
 
 # Gestaltung
 
@@ -184,12 +160,12 @@ Affordances:
 - Eigenschaften eines Objekts, die eine bestimmte Nutzung nahelegen
   - z.B. Türklinke, Lichtschalter, Button auf Webseite
 - Design muss Affordances deutlich machen
+
   - z.B. Button muss wie ein Button aussehen, Cursor ändert sich beim Hover, ...
 
 - Probleme durch
   - Versteckte Affordances: Werden nicht erkannt
   - Falsche Affordances: Legen eine falsche Nutzung nahe
-
 
 ## Gestaltung von Bedienelementen (2)
 
@@ -201,8 +177,7 @@ Constraints:
   - Cursor verschwindet, wenn nicht geklickt werden darf
   - Form von Steckverbindungen
 
-Affordances & Constrains betreffen auch für physische Produkte (siehe [Video](https://youtu.be/yY96hTb8WgI)) 
-
+Affordances & Constrains betreffen auch für physische Produkte (siehe [Video](https://youtu.be/yY96hTb8WgI))
 
 ## Feedback
 
@@ -225,14 +200,12 @@ Affordances & Constrains betreffen auch für physische Produkte (siehe [Video](h
 
 ![Kombination visuell + textuell Microsoft Word](./media/Screenshot_word.png){height=75%}
 
-
 ## Entwurfsprinzip: Sichtbarkeit von Systemzuständen und möglichen Aktionen
 
 - Verschiedene Modi müssen unterscheidbar sein
 
 ![](./media/Screenshot_nvim.png){height=20%}
 ![](./media/Screenshot_nvim_2.png){height=20%}
-
 
 ## Entwurfsprinzip: Konsistenz
 
@@ -243,7 +216,6 @@ Affordances & Constrains betreffen auch für physische Produkte (siehe [Video](h
 - Konsistenz zwischen Programmen
   - Tastenkürzel, Menüstruktur
   - Beispiel: Microsoft Office, Standard-Tastenkürzel für Kopieren, Einfügen, ...
-
 
 ## Styleguides
 
@@ -262,14 +234,13 @@ Affordances & Constrains betreffen auch für physische Produkte (siehe [Video](h
 
 Empfehlungen:
 
-  - Beschränken auf wenige Farben
-  - Konsistenz!
-  - Kontrast von Text und Hintergrund beachten
+- Beschränken auf wenige Farben
+- Konsistenz!
+- Kontrast von Text und Hintergrund beachten
 
 ## Farbgestaltung Beispiel
 
 ![Farbgestaltung](./media/website_colorful.png){height=72%}
-
 
 ## Typografie
 
@@ -281,11 +252,10 @@ Empfehlungen:
 
 Empfehlungen:
 
-  - Beschränken auf wenige verschiedene Schriftarten
-  - Serifenlose Schrift als Hauptschrift bevorzugen (Serifen können oft verpixelt wirken)
-  - Wirkung von Schriftarten beachten
+- Beschränken auf wenige verschiedene Schriftarten
+- Serifenlose Schrift als Hauptschrift bevorzugen (Serifen können oft verpixelt wirken)
+- Wirkung von Schriftarten beachten
 
-  
 ## Typografie Beispiel
 
 ![Typografie](./media/typography.png){height=75%}
@@ -299,10 +269,10 @@ Empfehlungen:
 
 Empfehlungen:
 
-  - Verschiedene Geräte früh berücksichtigen
-  - Unterschiede bei Touch vs. Maus/Tastatur beachten
-    - Elemente brauchen mehr Platz
-    - Andere Interaktionen möglich
+- Verschiedene Geräte früh berücksichtigen
+- Unterschiede bei Touch vs. Maus/Tastatur beachten
+  - Elemente brauchen mehr Platz
+  - Andere Interaktionen möglich
 
 ## Responsive Design Beispiel
 
@@ -325,7 +295,7 @@ Empfehlungen:
 
 1. **Ideenfindung und Recherche**: Anforderungen, Zielgruppe, Konkurrenzanalyse, ...
 2. **Skizzen und Wireframes**: grundlegende Struktur und Funktionalität, "User Flow", keine Details
-3. **Designentwürfe**: _iterativ_ Designentwürfe erstellen, Feedback einholen 
+3. **Designentwürfe**: _iterativ_ Designentwürfe erstellen, Feedback einholen
 4. **Prototypen**: _iterativ_ interaktive Prototypen entwickeln (z.B. Figma, tatsächlicher Code), Feedback einholen
 5. **Umsetzung**: Design in tatsächliche Webseite umsetzen
 6. **Testen**: Nutzerfeedback einholen, ggf. Anpassungen vornehmen
@@ -337,12 +307,12 @@ Empfehlungen:
 - Konsistenz ist sehr wichtig
 - Weniger ist oft mehr, keine Angst vor Weißraum
 - Probiert verschiedene Designs aus
+
   - Ein gutes Design entwickelt sich iterativ!
   - Beginnt mit einfachen Skizzen, Wireframes und Prototypen
   - Nutzerfeedback ist wichtig
 
 - Es gibt nie das perfekte Design!
-
 
 ## Design Tools
 
@@ -351,7 +321,6 @@ Empfehlungen:
 - [Sketch](https://www.sketch.com/)
 - [Balsamiq](https://balsamiq.com/)
 - Stift und Papier
-
 
 ## Weiterführende Ressourcen
 
