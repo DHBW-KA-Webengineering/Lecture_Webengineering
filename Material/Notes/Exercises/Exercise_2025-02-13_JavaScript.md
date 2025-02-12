@@ -1,11 +1,11 @@
 ---
-title: Übungsaufgabe JavaScript Frameworks
+title: Übungsaufgabe JavaScript
 date: 2025-02-13
 lang: de-DE
 author: "Silas Schnurr"
 ...
 
-# Übungsaufgabe JavaScript Frameworks
+# Übungsaufgabe JavaScript
 
 ## Theoretische Fragen
 
