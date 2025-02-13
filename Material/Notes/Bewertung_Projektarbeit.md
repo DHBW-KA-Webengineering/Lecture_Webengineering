@@ -31,7 +31,7 @@ Das Projekt ist jedoch über beide Semester zu bearbeiten, nicht erst kurz vor d
 
 - Präsentation ca. 5 Minuten pro Gruppe (zeigen dass alles geforderte da ist und funktioniert)
 
-  2.⁠ ⁠Zwischenabgabe: Zwischenstand (vorgegeben je nach gewähltem Projekt, nur Frontend). Ende erstes Semester (Termin ca. 2 - 3 Wochen vor den Klausuren).
+  2.⁠ ⁠Zwischenabgabeam 13.03.2025: Zwischenstand (vorgegeben je nach gewähltem Projekt, nur Frontend).
 
 - Präsentation ca. 10 Minuten pro Gruppe
 
