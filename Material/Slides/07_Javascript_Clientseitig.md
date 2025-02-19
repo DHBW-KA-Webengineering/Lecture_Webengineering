@@ -266,10 +266,6 @@ function handler(event) {
 
 - Solche Vermischung von HTML und JavaScript ist aber nicht empfehlenswert!
 
-## Praxisaufgabe 1
-
-Erweitert die Nachrichtenseite um ein Formular zum Schreiben neuer Artikel (mit Titel, Bild und Text). Beim Absenden des Formulars soll ein neuer Artikel auf der Seite eingefügt werden und das Formular geleert werden.
-
 # `fetch` API
 
 ## Abruf externer Daten
@@ -344,12 +340,282 @@ console.log(response.ok); // -> false
 console.log(response.status); // -> 404
 ```
 
-## Praxisaufgabe 2
+# JavaScript Frameworks
 
-Erstellt eine neue Seite, die eine Zusammenfassung über Pokémon auf Basis der Pokédex-Nummer anzeigen kann. Die Daten sollen von der [PokéAPI](https://pokeapi.co/) abgerufen werden.
-Die Seite soll ein Suchfeld für die Pokédex-Nummer haben und nach Absenden mindestens folgende Informationen anzeigen:
+## Zielsetzung
 
-- Name
-- Bild(er)
-- Typen
-- Attacken (Auswahl)
+- Steigerung der Effizienz und Produktivität
+- Klare Anwendungsstruktur und Best Practices
+- Wiederverwendbarkeit und Wartbarkeit, vermeidung von Redundanzen
+- Leistungsoptimierung
+- Skalierbarkeit
+
+## Angular, React, Vue und Svelte - Gemeinsamkeiten
+
+- Komponentenbasierte Architektur: Sie alle nutzen Komponenten als Bausteine für die Benutzeroberfläche
+- Reaktivität: Jedes Framework bietet Mechanismen zur automatischen Aktualisierung der Benutzeroberfläche bei Datenänderungen
+- Virtual DOM oder ähnliche Optimierungen: Mit Ausnahme von Svelte verwenden alle eine Form des Virtual DOM oder ähnliche Techniken zur Leistungsoptimierung
+
+# JavaScript Frameworks - Angular
+
+## Angular - Allgemein
+
+- Entwickelt von Google
+- Umfassendes Framework mit einer steilen Lernkurve, aber großer Leistungsfähigkeit für komplexe Anwendungen
+- TypeScript als Hauptsprache
+- Architektur: Folgt dem MVC-Muster (Model-View-Controller)
+- Dependency Injection: Ein mächtiges Feature für die Verwaltung von Abhängigkeiten
+- Angular Signals: Reaktivität durch primitive Werte, die sich im Laufe der Zeit ändern können und automatisch die Benutzeroberfläche aktualisieren
+
+Angular ist ideal für große, komplexe Anwendungen
+
+## Angular - Reaktivität mit signals
+
+```typescript
+import { Component, signal } from "@angular/core";
+
+@Component({
+  selector: "app-counter",
+  template: ` <p>Count: {{ count() }}</p>
+    <button (click)="increment()">Increment</button>`,
+})
+export class CounterComponent {
+  count = signal(0);
+
+  increment() {
+    this.count.update((value) => value + 1);
+  }
+}
+```
+
+## Angular - Komponenten
+
+```typescript
+import { Component, signal } from "@angular/core";
+import { CustomComponent } from "./custom";
+
+@Component({
+  selector: "app-counter",
+  template: ` <p>Count: {{ count() }}</p>
+    <button (click)="increment()">Increment</button>
+    <app-custom-component></app-custom-component>`,
+})
+export class CounterComponent {
+  count = signal(0);
+
+  increment() {
+    this.count.update((value) => value + 1);
+  }
+}
+```
+
+## Angular - Dependency Injection
+
+### data.service.ts
+
+```typescript
+import { Injectable } from "@angular/core";
+
+@Injectable({
+  providedIn: "root",
+})
+export class DataService {
+  getData() {
+    return "Hallo vom DataService!";
+  }
+}
+```
+
+### hello.component.ts
+
+```typescript
+import { Component } from "@angular/core";
+import { DataService } from "./data.service";
+
+@Component({
+  selector: "app-hello",
+  template: `<h1>Hallo!</h1>`,
+})
+export class HelloComponent {
+  constructor(private service: DataService) {
+    console.log(this.service.getData());
+  }
+}
+```
+
+# JavaScript Frameworks - React
+
+## React - Allgemein
+
+- Entwickelt von Facebook, wirbt mit Flexibilität und großem Ökosystem
+- JavaScript Bibliothek, in Kombination mit Next.js ein vollwertiges Framework
+- JSX: Ermöglicht das Schreiben von HTML-ähnlichem Code in JavaScript
+- Hooks: Bieten eine mächtige Möglichkeit, Zustand und Nebeneffekte in funktionalen Komponenten zu verwalten
+- Ökosystem: Hat eine große Auswahl an Drittanbieter-Bibliotheken
+
+## React - Reaktivität mit Hooks
+
+```jsx
+import React, { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+```
+
+## React - Komponenten
+
+```jsx
+import React from "react";
+
+function SimpleComponent() {
+  const greeting = "Hallo, React!";
+
+  return (
+    <div>
+      <h1>{greeting}</h1>
+      <p>Dies ist eine einfache React-Komponente mit JSX.</p>
+    </div>
+  );
+}
+
+export default SimpleComponent;
+```
+
+## React - JSX
+
+```jsx
+import React, { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+```
+
+# JavaScript Frameworks - Vue
+
+## Vue - Allgemein
+
+- Wirbt mit Entwicklerfreundlichkeit durch Flexibilität
+- Template-Syntax: Verwendet eine HTML-basierte Template-Syntax
+- Reaktivität: Bietet ein einfaches, aber leistungsfähiges Reaktivitätssystem
+- Composition API: Ähnlich wie React Hooks, ermöglicht eine bessere Organisation von Logik in Komponenten
+
+## Vue - Reaktivität
+
+```vue
+<script setup>
+import { ref } from "vue";
+
+const count = ref(0);
+function increment() {
+  count.value++;
+}
+</script>
+
+<template>
+  <button @click="increment">
+    {{ count }}
+  </button>
+</template>
+```
+
+## Vue - Komponenten
+
+### Component.vue
+
+```vue
+<script setup>
+const emit = defineEmits(["response"]);
+emit("response", "hello from component");
+</script>
+
+<template>
+  <h2>Component</h2>
+</template>
+```
+
+### App.vue
+
+```vue
+<script setup>
+import { ref } from "vue";
+import Comp from "./Component.vue";
+
+const componentMsg = ref("No component msg yet");
+</script>
+
+<template>
+  <Comp @response="(msg) => (componentMsg = msg)" />
+  <p>{{ componentMsg }}</p>
+</template>
+```
+
+# JavaScript Frameworks - Svelte
+
+## Svelte - Allgemein
+
+- Wirbt mit Einfachheit und hoher Leistung
+- Relativ neues Framework, das sich durch seinen Compile-Zeit-Ansatz auszeichnet
+  - Wandelt Komponenten während des Builds in effizientes JavaScript um
+- Kein Virtual DOM: Manipuliert das DOM direkt, was zu besserer Performance führen kann
+- Einfache Syntax: Ähnelt stark standardmäßigem HTML, CSS und JavaScript
+- Svelte Runes: Syntax für reaktive Deklarationen und Lifecycle-Management
+
+## Svelte - Reaktivität mit Runes
+
+```svelte
+<script>
+  let count = $state(0);
+
+  const doubled = $derived(count * 2);
+
+  $effect(() => {
+    console.log(`Count wurde auf ${count} aktualisiert`);
+  });
+
+  function increment() {
+    count += 1;
+  }
+</script>
+
+<button on:click={increment}>
+  Klicks: {count}
+</button>
+
+<p>Doppelter Wert: {doubled}</p>
+```
+
+## Svelte - Komponenten
+
+```svelte
+<script>
+  let count = $state(0);
+  const doubled = $derived(count * 2);
+  $effect(() => console.log(`Count wurde auf ${count} aktualisiert`));
+
+  function increment() {
+    count += 1;
+  }
+</script>
+
+<button on:click={increment}>
+  Klicks: {count}
+</button>
+
+<p>Doppelter Wert: {doubled}</p>
+```
