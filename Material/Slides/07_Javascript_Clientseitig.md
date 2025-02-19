@@ -556,7 +556,7 @@ function Counter() {
 
 ## Svelte - Reaktivität mit Runes
 
-```svelte
+```html
 <script>
   let count = $state(0);
   const doubled = $derived(count * 2);
@@ -566,13 +566,13 @@ function Counter() {
     count += 1;
   }
 </script>
-<button on:click={increment}>Klicks: {count}</button>
+<button on:click="{increment}">Klicks: {count}</button>
 <p>Doppelter Wert: {doubled}</p>
 ```
 
 ## Svelte - Komponenten
 
-```svelte
+```html
 <script>
   let count = $state(0);
   const doubled = $derived(count * 2);
@@ -583,9 +583,7 @@ function Counter() {
   }
 </script>
 
-<button on:click={increment}>
-  Klicks: {count}
-</button>
+<button on:click="{increment}">Klicks: {count}</button>
 
 <p>Doppelter Wert: {doubled}</p>
 ```
