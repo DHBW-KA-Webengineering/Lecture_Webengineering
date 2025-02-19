@@ -1,6 +1,6 @@
 ---
 title: "Vorlesung Webengineering 1 - TypeScript"
-topic: "Webengineering_1_2_4"
+topic: "Webengineering_1_8"
 author: "Lukas Panni"
 theme: "Berlin"
 colortheme: "dove"
@@ -15,6 +15,16 @@ plantuml-format: svg
 ...
 
 # TypeScript - das bessere JavaScript
+
+## TypeScript
+
+- **Was haben ein Frauenmarathon und TypeScript gemeinsam?**
+-
+
+## TypeScript
+
+- **Was haben ein Frauenmarathon und TypeScript gemeinsam?**
+- Es gibt zur Laufzeit keine Typen.
 
 ## Probleme von JavaScript
 
@@ -85,7 +95,6 @@ console.log(add(null, 2));
   - Codevervollständigung
   - Refactoring
 
-
 ## TypeScript - Grundsätzliches
 
 - Erweiterung (Superset) von JavaScript: jedes JavaScript ist auch gültiges TypeScript
@@ -122,7 +131,6 @@ console.log(add(null, 2));
   - `include`: Dateien/Pattern, die kompiliert werden sollen
   - `exclude`: Dateien/Pattern, die nicht berücksichtigt werden sollen
   - `types`: Typdefinitionen für JavaScript-Bibliotheken (z.B. Standardmäßig alle NodeJS typen integrieren)
-
 
 ## TypeScript - Beispiel: Probleme von JavaScript
 
@@ -174,7 +182,6 @@ printMessage(result);
 
 Erstellt ein neues TypeScript projekt (z.B. auf Basis von vorherigen JavaScript Praxisaufgaben) und zeigt mindestens 3 Beispiele für Vorteile der TypeScript Implementierung auf. Das Projekt soll über den Befehl `npm run build` kompiliert werden und über `npm run start` gestartet werden können (nutzt dazu "scripts" in der `package.json`, siehe Doku falls erforderlich). Bereitet eine kurze Präsentation dazu vor.
 
-
 ## TypeScript Features - Klassen (1)
 
 - Mehr Klassenfeatures als in JavaScript (ECMAScript 6)
@@ -190,7 +197,6 @@ Erstellt ein neues TypeScript projekt (z.B. auf Basis von vorherigen JavaScript 
 ## TypeScript Features - Klassen (2)
 
 Beispiel [`typescript-classes.ts`](https://github.com/TINF23B5-Webengineering/Lecture_Code/blob/2025/23_Typescript/typescript-example/typescript-classes.ts)
-
 
 ## Exkurs: Interfaces in der Praxis - Repository Pattern (1)
 
@@ -213,8 +219,8 @@ export interface UserRepository {
   ...
 }
 // index.ts
-const userStore: UserRepository = new InMemoryUserRepository(); 
-app.get("/user/:id", (req, response) => { 
+const userStore: UserRepository = new InMemoryUserRepository();
+app.get("/user/:id", (req, response) => {
   response.json(userStore.getUserById(req.params.id));
 });
 ```
@@ -226,28 +232,28 @@ app.get("/user/:id", (req, response) => {
   - Parameter `userStore` wird je nach Konfiguration entsprechend initialisiert
   - \rightarrow{} Einfacher Austausch von Datenquellen anhand von z.B. Umgebungsvariablen
 
-
 ## TypeScript Features - weitere Typfeatures (1)
 
 - Definition von neuen Typen (Typalias), insbesondere für komplexe Typen
+
   - `type <name> = <typ>`
 
 - Kombination mehrerer Typen zu neuem komplexeren Typ
   - Union: `type1 | type2` \rightarrow{} Sowohl `type1` als auch `type2` erlaubt
   - String-Unions: `"text1" | "text2"` \rightarrow{} erlaubt nur bestimmte Strings als Werte
   - Intersection: `type1 & type2` \rightarrow{} Typ muss sowohl `type1` als auch `type2` erfüllen
-    - z.B. `type1 = {a: string}` und `type2 = {b: number}` \rightarrow{} `type1 & type2 => {a: string, b: number}` 
-  
+    - z.B. `type1 = {a: string}` und `type2 = {b: number}` \rightarrow{} `type1 & type2 => {a: string, b: number}`
+
 ## TypeScript Features - weitere Typfeatures (2)
 
-**Mapped Types**: dynamischer Typ aus bestehenden Typen,  häufiges Beispiel: Readonly-Typ (Achtung: nur Typprüfung, keine echte Immutability!)
+**Mapped Types**: dynamischer Typ aus bestehenden Typen, häufiges Beispiel: Readonly-Typ (Achtung: nur Typprüfung, keine echte Immutability!)
 
 ```typescript
 type Readonly<T> = {
-    // für alle Properties P in Typ T:
-    //  eine readonly Property mit gleichem Typ
-    readonly [P in keyof T]: T[P]; 
-}
+  // für alle Properties P in Typ T:
+  //  eine readonly Property mit gleichem Typ
+  readonly [P in keyof T]: T[P];
+};
 type ReadonlyPerson = Readonly<Person>;
 ```
 
@@ -262,7 +268,6 @@ export function isPerson(obj: any): obj is Person {
 ```
 
 - `isPerson(object) === true` \rightarrow{} danach kann `obj` wie vom Typ `Person` verwendet werden
-
 
 ## TypeScript Features - Komplexere Typangaben (4)
 
@@ -284,12 +289,11 @@ export function isPerson(obj: any): obj is Person {
 
 # TypeScript in der Praxis
 
-## express mit TypeScript 
+## express mit TypeScript
 
 - [`DefinitelyTyped`-Projekt](https://github.com/DefinitelyTyped/DefinitelyTyped) stellt Typdefinitionen für viele JavaScript-Bibliotheken bereit
 - Installation von typen für express
   - `npm install express @types/express`
-
 
 ## express mit TypeScript - Beispiel User Router (1)
 
@@ -302,7 +306,6 @@ const users: User[] = [
 router.get("/", (_, response) => {
   response.json(users);
 });
-
 ```
 
 ## express mit TypeScript - Beispiel User Router (2)
@@ -318,7 +321,6 @@ router.get("/:id", (request, response) => {
     response.status(404).json({ message: "User not found" });
   }
 });
-
 ```
 
 ## express mit TypeScript - Beispiel User Router (3)
@@ -328,16 +330,14 @@ router.get("/:id", (request, response) => {
 ## Praxisaufgabe 2
 
 Erweitert den User Router um eine Implementierung des Repository Pattern. Es sollen die klassischen CRUD Operationen implementiert werden. Als konkrete Implementierung des Repositories reicht ein In-Memory Speicher auf Basis eines Arrays aus.
-  
 
 ## express mit TypeScript - Beispiel Caching Middleware
 
 - Siehe [cache-middleware.ts](https://github.com/TINF23B5-Webengineering/Lecture_Code/blob/2025/23_Typescript/typescript-express/cache-middleware.ts)
 - Vorteile:
   - Stellt kompatible `getCacheKey` Funktion zur Entwicklungszeit sicher
-  - Typsicherheit bei Verwendung 
+  - Typsicherheit bei Verwendung
   - Allgemein bessere Developer Experience (DX)
-
 
 ## Input und Typ-Validierung zur Laufzeit mit zod
 
@@ -350,22 +350,20 @@ Erweitert den User Router um eine Implementierung des Repository Pattern. Es sol
 ## zod - Beispiel Strings
 
 ```typescript
-
 import { z } from "zod";
 
 // String mit Länge 1-20
-const helloWorldSchema = z.string().min(1).max(20); 
+const helloWorldSchema = z.string().min(1).max(20);
 const string1 = helloWorldSchema.parse("Hello, World!"); // ok
-const string2 = helloWorldSchema.parse(""); 
+const string2 = helloWorldSchema.parse("");
 // Error: { code: 'too_small', message: ... }
-const { success, data, error } = helloWorldSchema.safeParse(""); 
-// ok, success = false 
-
+const { success, data, error } = helloWorldSchema.safeParse("");
+// ok, success = false
 ```
 
 ## zod - Primitive Typen
 
-- [Primitive-Typen](https://zod.dev/?id=primitives) 
+- [Primitive-Typen](https://zod.dev/?id=primitives)
   - `z.string()`
   - `z.number()`
   - `z.boolean()`
@@ -390,7 +388,6 @@ const { success, data, error } = helloWorldSchema.safeParse("");
 
 ## zod - Einschränkungen für Primitive Typen (2)
 
-
 - [Strings](https://zod.dev/?id=strings) sehr viele Möglichkeiten, z.B.:
   - `min`, `max`: Länge
   - `email`: E-Mail-Adresse
@@ -404,7 +401,6 @@ const { success, data, error } = helloWorldSchema.safeParse("");
   - `toLowerCase`, `toUpperCase`: Groß-/Kleinschreibung
   - `date`: ISO-Datum
   - ...
-
 
 ## zod - Enums, optionale und undefinierte Werte
 
@@ -442,16 +438,13 @@ const userSchema = z.object({
 - zod Schema kann in TypeScript-Typ für Verwendung bei Parameter- und Rückgabetypen konvertiert werden
   - `type SchemaType = z.infer<typeof schema>`
 
-
 ## zod - Komplexe Typen (3)
 
 - Weitere komplexe Typen:
   - [Unions](https://zod.dev/?id=unions)
-  - [Discriminated Unions](https://zod.dev/?id=discriminated-unions) 
+  - [Discriminated Unions](https://zod.dev/?id=discriminated-unions)
   - [Records](https://zod.dev/?id=records)
   - [Maps](https://zod.dev/?id=maps)
-
-
 
 ## zod - Komplexe Typen (4)
 
@@ -460,7 +453,7 @@ const userSchema = z.object({
 
 ```typescript
 const userSchema = z.object({
-  ... 
+  ...
   emails: z.array(z.string().email()),
   address: z.object({
     street: z.string(),
@@ -470,16 +463,15 @@ const userSchema = z.object({
 });
 ```
 
-
 ## zod - Sonstiges
 
 - Viele weitere hilfreiche Funktionen:
+
   - `transform`: Transformation von Werten
   - `refine`: Benutzerdefinierte Validierungsfunktionen
   - ...
 
 - Wenn Input-Validierung benötigt wird, ist zod in der Regel einer eigenen Implementierung vorzuziehen!
-
 
 ## zod - Fehlerbehandlung
 
@@ -490,9 +482,8 @@ const userSchema = z.object({
   - `error`: `ZodError` bei Fehlern
 - `ZodError`: `issues` Array mit allen Fehlern in der Form
 - Siehe [zod Dokumentation zu Error Handling](https://zod.dev/ERROR_HANDLING)
-  
-
 
 ## Praxisaufgabe 3
+
 _
-Erweitert den User Router um eine Implementierung der Input-Validierung mit zod. Es sollen alle Daten, die vom Client kommen validiert werden. Gebt bei fehlerhaften Daten einen Statuscode _422 Unprocessable Entity_ mit Details zum Fehler und der erwarteten Eingabe zurück.
+Erweitert den User Router um eine Implementierung der Input-Validierung mit zod. Es sollen alle Daten, die vom Client kommen validiert werden. Gebt bei fehlerhaften Daten einen Statuscode \_422 Unprocessable Entity_ mit Details zum Fehler und der erwarteten Eingabe zurück.

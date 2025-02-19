@@ -1,6 +1,6 @@
 ---
 title: "Vorlesung Webengineering 1 - Webarchitekturen"
-topic: "Webengineering_1_9"
+topic: "Webengineering_1_10"
 author: "Lukas Panni"
 theme: "Berlin"
 colortheme: "dove"
@@ -343,7 +343,6 @@ Mehrere Anwendungen (Webserver-Instanzen) auf einem physischen Server?
   - _Vertikal_: Verschieben auf leistungsfähigere Hardware
   - _Horizontal_: Kopieren auf weitere Hardware
 
-
 ## Containerisierung
 
 - Leichtgewichtige Virtualisierung auf Prozessebene
@@ -353,7 +352,7 @@ Mehrere Anwendungen (Webserver-Instanzen) auf einem physischen Server?
   - Cgroups (Control Group): Beschränkung von Hardware-Ressourcen (CPU, RAM, ...)
   - \rightarrow{} Container voneinander isoliert, bringen eigene Umgebung (Binaries, Bibliotheken, Konfiguration, ...) mit
 
-## 
+##
 
 ![Deployment mit Containern](./media/Webserver_Containers.pdf){height=70%}
 
@@ -361,9 +360,9 @@ Mehrere Anwendungen (Webserver-Instanzen) auf einem physischen Server?
 
 - **Image**: "Vorlage" für Container
   - Basis-Image: Betriebssystem-Tools, Standard-Bibliotheken, ...
-  - + Dateien (Binaries, Konfiguration, Daten), die der Container benötigt
-  
+  - - Dateien (Binaries, Konfiguration, Daten), die der Container benötigt
 - **Container**: Instanz eines Images
+
   - Eigene, isolierte Umgebung
   - Kann alle Dateien des Images nutzen (Änderungen werden nicht im Image reflektiert)
   - Führt isolierte Prozesse aus (z.B. Webserver)
@@ -378,7 +377,7 @@ Mehrere Anwendungen (Webserver-Instanzen) auf einem physischen Server?
 - Geringerer Overhead
 - Flexible Skalierung: einfaches Verschieben auf andere Server, schnelle Bereitstellung neuer Instanzen
 
-## Nachteile 
+## Nachteile
 
 - Geringere Isolation
 - Kein anderes Betriebssystem möglich (außer in Kombination mit Virtualisierung, z.B. Docker unter Windows)
@@ -386,8 +385,6 @@ Mehrere Anwendungen (Webserver-Instanzen) auf einem physischen Server?
   - Komponenten einer Anwendung häufig als eigene Container
   - Interaktion muss konfiguriert werden
   - \rightarrow{} Orchestrierung z.B. mit _Kubernetes_, _Docker Compose_
-
-
 
 ## Content Delivery Networks (CDNs)
 
@@ -430,8 +427,7 @@ Mehrere Anwendungen (Webserver-Instanzen) auf einem physischen Server?
 - Jetpack (für WordPress-Websites)
 - Cloud-Provider (AWS CloudFront, Azure CDN, Google Cloud/Media CDN, ...)
 
-
-## Deployment in der Cloud 
+## Deployment in der Cloud
 
 - Deployment in der Cloud sehr einfach
   - Keine eigene/gemietete Hardware
@@ -439,16 +435,18 @@ Mehrere Anwendungen (Webserver-Instanzen) auf einem physischen Server?
   - Skalierbarkeit und Verfügbarkeit durch Cloud-Provider
   - CDN Funktionen integriert / einfach nutzbar
   - Security-Features
-\rightarrow{} Heute de facto Standard für viele Anwendungen
+    \rightarrow{} Heute de facto Standard für viele Anwendungen
 
 ## Deployment in der Cloud - Beispiel Azure Static Web Apps (1)
 
 ### Azure Static Web Apps
+
 0
+
 - Speziell für statische Webanwendungen
   - Standard: HTML, CSS, JS
   - Single Page Applications
-  - + einfache Backends über Azure Functions (Serverless Computing = meist einfache Funktionen, bei Anfrage ausgeführt)
+  - - einfache Backends über Azure Functions (Serverless Computing = meist einfache Funktionen, bei Anfrage ausgeführt)
 - Kostenloser Plan reicht für vieles bereits aus
 - Einfaches Deployment über GitHub-Actions oder Azure Pipelines
 

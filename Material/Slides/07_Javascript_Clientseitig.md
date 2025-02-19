@@ -32,7 +32,7 @@ plantuml-format: svg
 <script src="script.js"></script>
 ```
 
-# Manipulation von HTML Dokumenten
+# Manipulation von HTML
 
 ## Clientseitige Dynamik mit JavaScript
 
@@ -356,8 +356,6 @@ console.log(response.status); // -> 404
 - Reaktivität: Jedes Framework bietet Mechanismen zur automatischen Aktualisierung der Benutzeroberfläche bei Datenänderungen
 - Virtual DOM oder ähnliche Optimierungen: Mit Ausnahme von Svelte verwenden alle eine Form des Virtual DOM oder ähnliche Techniken zur Leistungsoptimierung
 
-# JavaScript Frameworks - Angular
-
 ## Angular - Allgemein
 
 - Entwickelt von Google
@@ -393,7 +391,6 @@ export class CounterComponent {
 ```typescript
 import { Component, signal } from "@angular/core";
 import { CustomComponent } from "./custom";
-
 @Component({
   selector: "app-counter",
   template: ` <p>Count: {{ count() }}</p>
@@ -402,16 +399,13 @@ import { CustomComponent } from "./custom";
 })
 export class CounterComponent {
   count = signal(0);
-
   increment() {
     this.count.update((value) => value + 1);
   }
 }
 ```
 
-## Angular - Dependency Injection
-
-### data.service.ts
+## Angular - Dependency Injection: data.service.ts
 
 ```typescript
 import { Injectable } from "@angular/core";
@@ -426,7 +420,7 @@ export class DataService {
 }
 ```
 
-### hello.component.ts
+## Angular - Dependency Injection: hello.component.ts
 
 ```typescript
 import { Component } from "@angular/core";
@@ -442,8 +436,6 @@ export class HelloComponent {
   }
 }
 ```
-
-# JavaScript Frameworks - React
 
 ## React - Allgemein
 
@@ -477,7 +469,6 @@ import React from "react";
 
 function SimpleComponent() {
   const greeting = "Hallo, React!";
-
   return (
     <div>
       <h1>{greeting}</h1>
@@ -485,7 +476,6 @@ function SimpleComponent() {
     </div>
   );
 }
-
 export default SimpleComponent;
 ```
 
@@ -506,8 +496,6 @@ function Counter() {
 }
 ```
 
-# JavaScript Frameworks - Vue
-
 ## Vue - Allgemein
 
 - Wirbt mit Entwicklerfreundlichkeit durch Flexibilität
@@ -517,46 +505,38 @@ function Counter() {
 
 ## Vue - Reaktivität
 
-```vue
+```html
 <script setup>
-import { ref } from "vue";
-
-const count = ref(0);
-function increment() {
-  count.value++;
-}
+  import { ref } from "vue";
+  const count = ref(0);
+  function increment() {
+    count.value++;
+  }
 </script>
-
 <template>
-  <button @click="increment">
-    {{ count }}
-  </button>
+  <button @click="increment">{{ count }}</button>
 </template>
 ```
 
-## Vue - Komponenten
+## Vue - Komponenten: Component.vue
 
-### Component.vue
-
-```vue
+```html
 <script setup>
-const emit = defineEmits(["response"]);
-emit("response", "hello from component");
+  const emit = defineEmits(["response"]);
+  emit("response", "hello from component");
 </script>
-
 <template>
   <h2>Component</h2>
 </template>
 ```
 
-### App.vue
+## Vue - Komponenten: App.vue
 
-```vue
+```html
 <script setup>
-import { ref } from "vue";
-import Comp from "./Component.vue";
-
-const componentMsg = ref("No component msg yet");
+  import { ref } from "vue";
+  import Comp from "./Component.vue";
+  const componentMsg = ref("No component msg yet");
 </script>
 
 <template>
@@ -564,8 +544,6 @@ const componentMsg = ref("No component msg yet");
   <p>{{ componentMsg }}</p>
 </template>
 ```
-
-# JavaScript Frameworks - Svelte
 
 ## Svelte - Allgemein
 
@@ -581,22 +559,14 @@ const componentMsg = ref("No component msg yet");
 ```svelte
 <script>
   let count = $state(0);
-
   const doubled = $derived(count * 2);
-
-  $effect(() => {
-    console.log(`Count wurde auf ${count} aktualisiert`);
-  });
+  $effect(() => console.log(`Count wurde auf ${count} aktualisiert`));
 
   function increment() {
     count += 1;
   }
 </script>
-
-<button on:click={increment}>
-  Klicks: {count}
-</button>
-
+<button on:click={increment}>Klicks: {count}</button>
 <p>Doppelter Wert: {doubled}</p>
 ```
 
