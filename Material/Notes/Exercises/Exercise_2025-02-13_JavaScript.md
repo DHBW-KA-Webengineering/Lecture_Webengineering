@@ -23,5 +23,5 @@ Bearbeiten Sie eines der folgenden interaktiven Tutorials, um die Verwendung von
 
 - [Interaktives Tutorial für Angular](https://angular.dev/tutorials/learn-angular)
 - [Interaktives Tutorial für Vue](https://vuejs.org/tutorial)
-- [Interaktives Tutorial für React (Next)](https://react-tutorial.app/)
+- [Interaktives Tutorial für React (Next)](https://react.dev/learn)
 - [Interaktives Tutorial für Svelte](https://svelte.dev/tutorial)
