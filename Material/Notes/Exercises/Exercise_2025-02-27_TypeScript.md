@@ -5,6 +5,8 @@ lang: de-DE
 author: "Silas Schnurr"
 ...
 
+\clearpage
+
 # Übungsaufgabe TypeScript
 
 In dieser Übung lernen Sie die Grundlagen von TypeScript kennen, integrieren es in ein kleines Projekt und vertiefen Ihr Wissen mit theoretischen Fragen. Dadurch gewinnen Sie ein erstes Verständnis für die Vorteile von TypeScript und dessen praktische Anwendung.
@@ -34,6 +36,8 @@ Beantworten Sie die folgenden Fragen mithilfe des bereitgestellten Vorlesungsskr
 
 Schreiben Sie Ihre Antworten in Stichpunkten oder kurzen Sätzen auf.
 
+\clearpage
+
 ## TypeScript in Gruppenprojekt einbauen
 
 1. Wählen Sie in Ihrem Gruppenprojekt eine bestehende JavaScript-Codebasis und erweitern Sie diese um TypeScript.
@@ -44,36 +48,45 @@ Schreiben Sie Ihre Antworten in Stichpunkten oder kurzen Sätzen auf.
 Hinweis: Falls Sie in Ihrem Projekt keine JavaScript Funktionen haben, da Sie z. B. Angular verwenden, könne Sie folgende Funktion als Grundlage für die Aufgaber verwenden:
 
 ```javaScript
-function TaskManager() {
-    this.tasks = [];
+function getDriversWithPlates(people) {
+    let drivers = [];
 
-    this.addTask = function(name, priority) {
-        const task = {
-            id: this.tasks.length + 1,
-            name: name,
-            priority: priority || 'normal',
-            completed: false
-        };
-        this.tasks.push(task);
-        console.log(`Aufgabe hinzugefügt: ${name}`);
-    };
+    for (let person of people) {
+        const initials = person.name.split(" ").map(n => n[0]).join("");
+        const birthDate = new Date(person.birthDate);
+        const birthYear = birthDate.getFullYear();
+        const birthMonth = (birthDate.getMonth() + 1).toString().padStart(2, '0');
+        const birthDay = birthDate.getDate().toString().padStart(2, '0');
 
-    this.completeTask = function(id) {
-        const task = this.tasks.find(t => t.id === id);
-        if (task) {
-            task.completed = true;
-            console.log(`Aufgabe ${task.name} abgeschlossen.`);
-        } else {
-            console.log(`Aufgabe mit ID ${id} nicht gefunden.`);
+        // Standard-Kennzeichenoptionen
+        let licensePlate1 = `KA-${initials}-${birthDay}${birthMonth}`;
+        let licensePlate2 = `KA-${initials}-${birthYear}`;
+
+        // H- oder E-Kennzeichen hinzufügen, falls angegeben
+        if (person.carType === "oldtimer") {
+            licensePlate1 += "H";
+            licensePlate2 += "H";
+        } else if (person.carType === "electric") {
+            licensePlate1 += "E";
+            licensePlate2 += "E";
         }
-    };
 
-    this.getTasks = function() {
-        return this.tasks;
-    };
+        const age = new Date().getFullYear() - birthYear - (new Date().setFullYear(new Date().getFullYear()) < birthDate ? 1 : 0);
 
-    this.getIncompleteTasks = function() {
-        return this.tasks.filter(task => !task.completed);
-    };
+        if (age >= 18) {
+            drivers.push({ name: person.name, licensePlates: [licensePlate1, licensePlate2] });
+        }
+    }
+
+    return drivers;
 }
+
+// Beispielnutzung
+const people = [
+    { name: "Max Mustermann", birthDate: "2003-05-15", carType: "oldtimer" },
+    { name: "Lisa Schmidt", birthDate: "2010-11-22" },
+    { name: "Hans Müller", birthDate: "1990-07-10", carType: "electric" }
+];
+
+console.log(getDriversWithPlates(people));
 ```
