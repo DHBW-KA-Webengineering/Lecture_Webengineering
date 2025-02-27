@@ -78,7 +78,8 @@ function getDriversWithPlates(people) {
       new Date().getFullYear() -
       birthYear -
       (birthMonth < new Date().getMonth() + 1
-      || (birthMonth == new Date().getMonth() + 1 && new Date().getDate() <= birthDay) ? 0 : 1);
+      || (birthMonth == new Date().getMonth() + 1
+      && new Date().getDate() <= birthDay) ? 0 : 1);
 
     if (age >= 18) {
       drivers.push({
