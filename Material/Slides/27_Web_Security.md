@@ -42,11 +42,12 @@ plantuml-format: svg
 ## Grundlagen Authentifizierung (1)
 
 - **Authentifizierung**: Zuordnung einer Identität zu einem Individuum (i.d.R. Benutzer)
-- **Autorisierung**: Festlegung von Rechten und Berechtigungen
 - Identität bestätigen durch:
   - Wissen (z.B. Passwörter)
   - Besitz (z.B. Sicherheitstoken)
   - Eigenschaft (z.B. Biometrie)
+- **Autorisierung**: Festlegung von Rechten und Berechtigungen
+
 
 ## Grundlagen Authentifizierung (2)
 
@@ -64,10 +65,121 @@ plantuml-format: svg
 
 - Eigene Implementierung meist keine gute Idee
   - Bei Security-relevanten Themen generell
+  - (gute) Authentifizierung ist schwierig 
 - Empfehlung: Etablierte Bibliotheken oder Frameworks nutzen
 - Noch besser: Wenn möglich externe Authentifizierungsdienste nutzen
   - Dienste müssen vertrauenswürdig sein!
   - Einheitliche Schnittstellen (z.B. OpenID Connect)
+
+## Authentifizierung im Web (1)
+
+HTTP ist **zustandslos**: Request-Response Paare sind unabhängig voneinander
+
+\rightarrow{} Authentifizierungsinformationen müssen bei jedem Request mitgeschickt werden!
+
+### HTTP Basic Auth
+
+- Einfachstes passwortbasiertes Verfahren
+- Benutzername und Passwort werden Base64-kodiert im `Authorization`-Header mitgeschickt
+
+```http
+GET / HTTP/1.1
+Host: example.com
+Authorization: Basic bHVrYXM6aW5zZWN1cmU=
+```
+
+## Authentifizierung im Web (2)
+
+### Probleme HTTP Basic Auth
+
+- Übertragung von Benutzername und Passwort im Klartext (Abhilfe: TLS)
+  - Gleicher String wird bei jedem Request gesendet, macht Angriffe auf verschlüsselte Verbindungen einfacher
+- Kein Logout
+- Caching von Benutzername und Passwort im Browser
+- Anfällig für CSRF (siehe unten)
+
+### Session-Tokens
+
+- Server generiert ein zufälliges Token (Session-Token)
+  - Idealerweise mit kurzer Lebensdauer
+- Token wird typischerweise als Cookie gespeichert
+  - Browser sendet Cookies automatisch bei jedem Request
+
+## Authentifizierung im Web (3)
+
+### Probleme Session-Tokens
+
+- JavaScript kann auf Cookies zugreifen (Abhilfe durch `HttpOnly`-Flag)
+- Ähnlich wie bei Basic-Auth hängt die Sicherheit von einem Secret ab, das bei jedem einzelnen Request mitgeschickt werden muss
+  - Explizite Logouts möglich
+  - Server kann Gültigkeitsdauer der Tokens steuern: je kürzer, desto besser
+  - Besserer Schutz gegen Brute-Force-Angriffe (Login-Formular ausgenommen!): Länge und Zufälligkeit des Tokens können vom Server definiert werden
+- Horizontale Skalierung komplex
+
+## Horizontale Skalierung und Session-Cookies (1)
+
+![Session Token ein Server](media/singe-server-auth-token.png){width=70%}
+
+## Horizontale Skalierung und Session-Cookies (2)
+
+![Session Token mit Load Balancing](media/load-balanced-auth-token.png){width=70%}
+
+## Horizontale Skalierung und Session-Cookies (3)
+
+![Problem bei Session Token mit Load Balancing](media/load-balanced-auth-token-problems.png){width=65%}
+
+
+## Horizontale Skalierung und Session-Cookies (4)
+
+- **Problem**: Session-Tokens sind erstmal server-spezifisch!
+  - Nur Server, der Token generiert hat, kennt das Token und kann es validieren
+- **Lösungsansätze**
+  - Token zentral speichern (z.B. zusätzliche (In-Memory)-Datenbank), aber: Single Point of Failure, Skalierbarkeit (insbesondere geografisch)
+  - Sticky Sessions: Requests eines Clients gehen immer an gleichen Server, aber: Ausfallsicherheit, Lastverteilung
+  - Public-Key-Kryptografie: Signaturen über Tokens, alle mit Public-Key können Token validieren, aber: Komplexität, Performance
+
+## JSON Web Tokens (JWT) (1)
+
+- Umsetzung des Signatur-Ansatzes ist mit JWTs möglich
+- JWT: Base64-kodiertes JSON-Objekt mit Signatur
+  - Header: Metadaten (Typ, Algorithmus)
+  - Payload: Nutzdaten "Claims", standardisierte und benutzerdefinierte  
+  - Signatur: Signatur der Header- und Payload-Daten mit Public-Key Verfahren oder Secret
+- Use-Case: Autorisierung
+  - Token kann weitere Informationen (Claims) über den Nutzer enthalten
+
+## JWT (2) 
+
+- Wichtige Standard-Claims ("registered Claims")
+  - `iss`: Issuer = Aussteller des Tokens
+  - `exp`: Expiration Time = Gültigkeitsdauer
+  - `sub`: Subject = wen betrifft das Token (z.B. User-ID)
+- Ansonsten z.B. Rolle, Username, E-Mail, ...
+  - Achtung: Daten sind nicht standardmäßig verschlüsselt, also nicht geheim!
+- JWT Tools: [jwt.io](https://jwt.io/)
+- JWT Bibliotheken für praktisch jede Sprache: [Libraries](https://jwt.io/libraries)
+
+## JWT (3)
+
+### Implementierung TypeScript
+
+...
+
+
+## Empfehlenswerte Authentifizierungs-Bibliotheken
+
+- Auth.js
+- ...
+
+
+## Empfehlenswerte Authentifizierungs-Services
+
+- Full-Service (Auth + User-Verwaltung + UI-Komponenten):
+  - Clerk
+  - StackAuth
+- Rein Auth:
+ ... 
+
 
 ## Transport Layer Security (TLS) (1)
 
