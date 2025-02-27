@@ -53,32 +53,32 @@ function getDriversWithPlates(people) {
 
   for (let person of people) {
     const initials = person.name
-      .split(" ")
+      .split(' ')
       .map((n) => n[0])
-      .join("");
+      .join('');
     const birthDate = new Date(person.birthDate);
     const birthYear = birthDate.getFullYear();
-    const birthMonth = (birthDate.getMonth() + 1).toString().padStart(2, "0");
-    const birthDay = birthDate.getDate().toString().padStart(2, "0");
+    const birthMonth = (birthDate.getMonth() + 1).toString().padStart(2, '0');
+    const birthDay = birthDate.getDate().toString().padStart(2, '0');
 
     // Standard-Kennzeichenoptionen
     let licensePlate1 = `KA-${initials}-${birthDay}${birthMonth}`;
     let licensePlate2 = `KA-${initials}-${birthYear}`;
 
     // H- oder E-Kennzeichen hinzufügen, falls angegeben
-    if (person.carType === "oldtimer") {
-      licensePlate1 += "H";
-      licensePlate2 += "H";
-    } else if (person.carType === "electric") {
-      licensePlate1 += "E";
-      licensePlate2 += "E";
+    if (person.carType === 'oldtimer') {
+      licensePlate1 += 'H';
+      licensePlate2 += 'H';
+    } else if (person.carType === 'electric') {
+      licensePlate1 += 'E';
+      licensePlate2 += 'E';
     }
 
-    const age = (new Date().getFullYear() - birthYear) -
-      ((birthMonth < (new Date().getMonth()+1))
-         || ((birthMonth == (new Date().getMonth()+1) && new Date().getDate() <= birthDay))
-       ? 0 : 1 )
-
+    const age =
+      new Date().getFullYear() -
+      birthYear -
+      (birthMonth < new Date().getMonth() + 1
+      || (birthMonth == new Date().getMonth() + 1 && new Date().getDate() <= birthDay) ? 0 : 1);
 
     if (age >= 18) {
       drivers.push({
@@ -93,9 +93,9 @@ function getDriversWithPlates(people) {
 
 // Beispielnutzung
 const people = [
-  { name: "Max Mustermann", birthDate: "2003-05-15", carType: "oldtimer" },
-  { name: "Lisa Schmidt", birthDate: "2010-11-22" },
-  { name: "Hans Müller", birthDate: "1990-07-10", carType: "electric" },
+  { name: 'Max Mustermann', birthDate: '2003-05-15', carType: 'oldtimer' },
+  { name: 'Lisa Schmidt', birthDate: '2010-11-22' },
+  { name: 'Hans Müller', birthDate: '1990-07-10', carType: 'electric' },
 ];
 
 console.log(getDriversWithPlates(people));
