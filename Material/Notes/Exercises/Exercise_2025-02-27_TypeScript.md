@@ -74,10 +74,11 @@ function getDriversWithPlates(people) {
       licensePlate2 += "E";
     }
 
-    const age =
-      new Date().getFullYear() -
-      birthYear -
-      (new Date().setFullYear(new Date().getFullYear()) < birthDate ? 1 : 0);
+    const age = (new Date().getFullYear() - birthYear) -
+      ((birthMonth < (new Date().getMonth()+1))
+         || ((birthMonth == (new Date().getMonth()+1) && new Date().getDate() <= birthDay))
+       ? 0 : 1 )
+
 
     if (age >= 18) {
       drivers.push({
