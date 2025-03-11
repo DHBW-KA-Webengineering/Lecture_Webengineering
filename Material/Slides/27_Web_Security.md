@@ -39,6 +39,41 @@ plantuml-format: svg
 - **Detection**: Erkennung von (aktuellen) Angriffen
 - **Recovery**: Wiederherstellung und Aufarbeitung nach einem Angriff
 
+## Exkurs: Grundlagen Kryptografie (1)
+
+- **Kryptografie**: Verschlüsselung / Entschlüsselung von Daten (Confidentiality)
+
+### Symmetrische Kryptografie
+
+- Mathematische Verfahren erlauben uns Daten (Plaintext) mit einem _Schlüssel_ ("Key") so zu verschlüsseln (ergibt Ciphertext), dass sie nur mit diesem wieder entschlüsselt werden können
+- Einfaches Beispiel: Rotations-Chiffren
+  - Verfahren: Buchstaben des Plaintext werden um bestimmte Anzahl rotiert
+  - Schlüssel: Anzahl der Rotationen
+  - Beispiel: Schlüssel 1 \rightarrow{} A wird zu B, B zu C, ... Z zu A
+  - Entschlüsselung: Rotiere in die andere Richtung
+
+## Exkurs: Grundlagen Kryptografie (2)
+
+### Asymmetrische Kryptografie
+
+- Weniger intuitiv, aber es gibt mathematische Verfahren, bei denen zwei Schlüssel zum Einsatz kommen (genannt Public und Private Key)
+- Wird mit dem Public Key verschlüsselt, kann nur mit dem Private Key entschlüsselt werden und umgekehrt
+- Wird der Public Key veröffentlicht (deshalb heißt er auch so) kann jeder Nachrichten für den Besitzer des Private Keys verschlüsseln, die nur dieser entschlüsseln kann
+  - Umgekehrt kann jeder eine Nachricht entschlüsseln, die mit diesem Private Key verschlüsselt wurde
+- Wie das funktioniert spielt in dieser Vorlesung keine Rolle
+
+## Exkurs: Grundlagen Kryptografie (3)
+
+### Signaturen mit asymmetrischer Kryptografie
+
+- Asymmetrische Verfahren können auch für Signaturen genutzt werden
+  - Signatur: Sicherstellen dass Daten nicht verändert wurden, und tatsächlich von bestimmtem Sender kommen (Integrity, kein Schutz der Confidentiality)
+- Zusätzlich zu den Daten wird eine Signatur generiert:
+  - Hashwert über die Daten (eine Art Fingerabdruck der Daten) 
+  - Verschlüsselt mit Private Key
+- Empfänger kann mit Public Key entschlüsseln und Hashwert über Daten berechnen
+  - Stimmt der Hashwert mit dem entschlüsselten Wert überein, sind Daten unverändert 
+
 ## Grundlagen Authentifizierung (1)
 
 - **Authentifizierung**: Zuordnung einer Identität zu einem Individuum (i.d.R. Benutzer)
@@ -218,7 +253,6 @@ const { payload: unparsed } = await jose.jwtVerify(token, key, {
 
 - Auth.js
 - ...
-
 
 ## Empfehlenswerte Authentifizierungs-Services
 
