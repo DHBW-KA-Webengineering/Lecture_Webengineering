@@ -48,7 +48,6 @@ plantuml-format: svg
   - Eigenschaft (z.B. Biometrie)
 - **Autorisierung**: Festlegung von Rechten und Berechtigungen
 
-
 ## Grundlagen Authentifizierung (2)
 
 ### Passwörter
@@ -65,7 +64,7 @@ plantuml-format: svg
 
 - Eigene Implementierung meist keine gute Idee
   - Bei Security-relevanten Themen generell
-  - (gute) Authentifizierung ist schwierig 
+  - (gute) Authentifizierung ist schwierig
 - Empfehlung: Etablierte Bibliotheken oder Frameworks nutzen
 - Noch besser: Wenn möglich externe Authentifizierungsdienste nutzen
   - Dienste müssen vertrauenswürdig sein!
@@ -128,7 +127,6 @@ Authorization: Basic bHVrYXM6aW5zZWN1cmU=
 
 ![Problem bei Session Token mit Load Balancing](media/load-balanced-auth-token-problems.png){width=65%}
 
-
 ## Horizontale Skalierung und Session-Cookies (4)
 
 - **Problem**: Session-Tokens sind erstmal server-spezifisch!
@@ -143,12 +141,12 @@ Authorization: Basic bHVrYXM6aW5zZWN1cmU=
 - Umsetzung des Signatur-Ansatzes ist mit JWTs möglich
 - JWT: Base64-kodiertes JSON-Objekt mit Signatur
   - Header: Metadaten (Typ, Algorithmus)
-  - Payload: Nutzdaten "Claims", standardisierte und benutzerdefinierte  
+  - Payload: Nutzdaten "Claims", standardisierte und benutzerdefinierte
   - Signatur: Signatur der Header- und Payload-Daten mit Public-Key Verfahren oder Secret
 - Use-Case: Autorisierung
   - Token kann weitere Informationen (Claims) über den Nutzer enthalten
 
-## JWT (2) 
+## JWT (2)
 
 - Wichtige Standard-Claims ("registered Claims")
   - `iss`: Issuer = Aussteller des Tokens
@@ -163,7 +161,57 @@ Authorization: Basic bHVrYXM6aW5zZWN1cmU=
 
 ### Implementierung TypeScript
 
-...
+- Bekannteste Bibliothek: [`jsonwebtoken`](https://github.com/auth0/node-jsonwebtoken)
+  - Wird aber nicht mehr weiterentwickelt, letzter Commit August 23
+  - Unterstützt nicht alle Algorithmen
+- Moderner Alternative: [`jose`](https://github.com/panva/jose)
+  - Aktive Entwicklung
+  - Unterstützt auch JWE (Verschlüsselung) und JWS (Signatur) von beliebigen Daten
+  - Installation:
+    - `npm install jose`
+
+## Jose Beispiel - Erstellen
+
+```typescript
+import * as jose from "jose";
+
+const keypair = await jose.generateKeyPair("EdDSA");
+// in der Praxis eher:
+// const keyString = readFileSync('private-key.pem', 'utf-8');
+// const privateKey = await jose.importPKCS8(keystring, "EdDSA");
+
+const jwt = await new jose.SignJWT({ someClaim: "someValue" })
+  .setProtectedHeader({ alg: "EdDSA" })
+  .setIssuedAt()
+  .setExpirationTime("1h")
+  .sign(keypair.privateKey);
+```
+
+## Jose Beispiel - Verifizieren
+
+```typescript
+import * as jose from 'jose';
+
+const keyString = readFileSync('public-key.pem', 'utf-8');
+const key = await jose.importSPKI(keyString, "EdDSA");
+const { payload: unparsed } = await jose.jwtVerify(token, key, {
+  issuer: "urn:issuer",
+});
+
+```
+
+- Dokumentation: [SignJWT](https://github.com/panva/jose/blob/main/docs/jwt/sign/classes/SignJWT.md)
+- Dokumentation: [jwtVerify](https://github.com/panva/jose/blob/main/docs/jwt/verify/functions/jwtVerify.md)
+
+## Zusammenfassung JWT
+
+- Besser als Session-Cookies: jeder mit public key kann validieren
+- Mächtig auch für Autorisierung (Claims)
+- **ABER**: Authentifizierung und Autorisierung trotzdem besser den Profis überlassen
+  - Grundprobleme bleiben bestehen: Passwörter, MFA, Passkeys
+    - JWT setzt erst **nach** initialer Authentifizierung an und bietet einen einfachen Weg den Authentifizirungsstatus zu übermitteln
+  - Session-Hijacking Gegenmaßnahmen (z.B. kurzlebige Tokens mit Refresh-Token) notwendig
+  - Schlüsselverwaltung + Rotation
 
 
 ## Empfehlenswerte Authentifizierungs-Bibliotheken
@@ -178,7 +226,7 @@ Authorization: Basic bHVrYXM6aW5zZWN1cmU=
   - Clerk
   - StackAuth
 - Rein Auth:
- ... 
+ ...
 
 
 ## Transport Layer Security (TLS) (1)
@@ -223,7 +271,7 @@ Beispiel: Selektion von allen Posts mit einem Suchbegriff:
 
 ```sql
 SELECT * FROM posts WHERE title LIKE '<Suchbegriff>';
-```
+````
 
 - Suchbegriff kommt z.B. aus einem Suchfeld und wird in Variable `search` gespeichert
 - JavaScript baut die SQL-Abfrage:
