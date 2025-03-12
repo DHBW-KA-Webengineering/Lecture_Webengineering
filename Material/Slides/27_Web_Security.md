@@ -14,7 +14,7 @@ section-titles: true
 plantuml-format: svg
 ...
 
-# Grundlagen (Web) Security
+# Grundlagen Security
 
 ## Was ist Security? (1)
 
@@ -74,6 +74,32 @@ plantuml-format: svg
 - Empfänger kann mit Public Key entschlüsseln und Hashwert über Daten berechnen
   - Stimmt der Hashwert mit dem entschlüsselten Wert überein, sind Daten unverändert 
 
+## Transport Layer Security (TLS) (1)
+
+- Verschlüsselte Kommunikation
+  - HTTPS = HTTP + TLS
+  - \rightarrow{} Schutz von Vertraulichkeit und Integrität
+
+- **Zertifikate**:
+  - Authentifizierung des Web-Servers gegenüber dem Browser
+  - Enthält: Inhaber (Vereinfacht: Domain), Gültigkeit, öffentlicher Schlüssel, Signatur
+  - Signatur: Certification Authority (CA) bestätigt die Echtheit des Zertifikat (Signatur mit Private Key der CA)
+  - Browser / Betriebssystem vertrauen bestimmten CAs (Root CAs)
+  - Im Browser leicht einsehbar
+
+## TLS (2)
+
+- **Handshake** (Vereinfacht):
+  - Browser und Server einigen sich auf TLS Version und Krypto-Algorithmen (Cipher-Suites)
+  - Server sendet Zertifikat um Identität zu bestätigen
+  - Aus ausgetauschten zufälligen Daten generieren Server und Client unabhängig voneinander einen temporären Sitzungsschlüssel
+  - Genauer Ablauf ist abhängig von TLS-Version und Cipher-Suites
+- Jeder HTTP Request wird mit dem Sitzungsschlüssel in einem symmetrischen Verfahren verschlüsselt übertragen
+- Github Pages, Cloudflare Pages, Netflify, Vercel, ... verschlüsseln ohne Konfiguration standardmäßig 
+- Kostenfreie TLS Zertifikate für Hosting auf eigenem Server: [Let's Encrypt](https://letsencrypt.org/)
+
+# Authentifizierung 
+
 ## Grundlagen Authentifizierung (1)
 
 - **Authentifizierung**: Zuordnung einer Identität zu einem Individuum (i.d.R. Benutzer)
@@ -92,6 +118,7 @@ plantuml-format: svg
 - **Best Practices**:
   - Passwort-Manager & Passwort-Genratoren
   - Kombination mit anderer Methode (Mehr-Faktor-Authentifizierung)
+  - Sichere Übertragung
   - Serverseitig: sichere Speicherung
     - [Anerkannte Empfehlungen](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html) beachten
 
@@ -101,6 +128,7 @@ plantuml-format: svg
   - Bei Security-relevanten Themen generell
   - (gute) Authentifizierung ist schwierig
 - Empfehlung: Etablierte Bibliotheken oder Frameworks nutzen
+  - Verschiedene Abstraktionslevel: siehe weiter unten
 - Noch besser: Wenn möglich externe Authentifizierungsdienste nutzen
   - Dienste müssen vertrauenswürdig sein!
   - Einheitliche Schnittstellen (z.B. OpenID Connect)
@@ -249,41 +277,41 @@ const { payload: unparsed } = await jose.jwtVerify(token, key, {
   - Schlüsselverwaltung + Rotation
 
 
-## Empfehlenswerte Authentifizierungs-Bibliotheken
+## Authentifizierung mit Bibliotheken und externen Services
 
-- Auth.js
-- ...
+- Übernehmen unterschiedlich viele Funktionen
+  - Bis hin zu kompletter User-Verwaltung mit fertiger Oberfläche
+  - Und alles dazwischen
+- **Vorteile**:
+  - Schnelle und Einfache Integration
+  - Professionelle Implementierung (hoffentlich)
+  - Login mit Social Media Accounts meist einfach einzurichten
 
-## Empfehlenswerte Authentifizierungs-Services
+## Beispiel-Bibliothek Auth.js
 
-- Full-Service (Auth + User-Verwaltung + UI-Komponenten):
-  - Clerk
-  - StackAuth
-- Rein Auth:
- ...
+- [Auth.js](http://www.authjs.dev/) 
+  - Unterstützt Authentifizierung über OAuth (Google, Apple, GitHub, ...), Magic Links, Benutzername/Passwort, WebAuthn
+  - Übernimmt neben Login und Session-Verwaltung auch die Verwaltung der User-Daten in eigener Datenbank
+    - Einfache Adapter für z.B. Drizzle ORM oder Prisma
+  - Verwendet standardmäßig JWTs über Cookies für Session-Management
+  - Kommt mit einfachen vorgefertigten Seiten für Login, Logout etc.
+  - [Quickstart mit express](https://authjs.dev/getting-started/installation?framework=express)
+- Vergleichbare Alternative [BetterAuth](https://better-auth.vercel.app)
+
+## Beispiel-Service Clerk
+
+- [Clerk](https://clerk.com/) ist eine komplette externe Authentifizierungslösung
+  - User-Verwaltung, Authentifizierung über OAuth, gute UI-Komponenten, ...
+  - Keine eigene Datenbank notwendig (ABER: weniger Kontrolle über User-Daten)
+  - Kostenlose Version reicht für viele Fälle aus (10k monatliche aktive Nutzer)
+    - im Dev-Mode sind auch alle Addons (z.B. MFA) kostenlos)
+- Open Source Alternative: [StackAuth](https://stack-auth.com)
+  - Noch nicht so ausgereift, aber grundsätzlich gleiche Features
+  - Auch hier sind erste 10k Nutzer kostenlos 
+    - Zusätzlich Self-Hosting, da vollständig Open Source
 
 
-## Transport Layer Security (TLS) (1)
-
-- Verschlüsselte Kommunikation
-  - HTTPS = HTTP + TLS
-  - \rightarrow{} Schutz von Vertraulichkeit und Integrität
-- Exkurs: Kryptografie
-  - Symmetrisch: gleicher Schlüssel für Verschlüsselung und Entschlüsselung
-  - Asymmetrisch: Schlüsselpaar (privater und öffentlicher Schlüssel)
-    - Was mit einem Schlüssel verschlüsselt wurde, kann nur mit dem anderen entschlüsselt werden (geht in beide Richtungen!)
-
-## TLS (2)
-
-- **Zertifikate**:
-  - Authentifizierung des Web-Servers gegenüber dem Browser
-  - Enthält: Inhaber (Vereinfacht: Domain), Gültigkeit, öffentlicher Schlüssel, Signatur
-  - Signatur: Certification Authority (CA) bestätigt die Echtheit des Zertifikat
-  - Browser / Betriebssystem vertrauen bestimmten CAs (Root CAs)
-  - Im Browser leicht einsehbar
-- Sicherer Austausch eines temporären symmetrischen Schlüssels
-  - Asymmetrische Verschlüsselung für Schlüsselaustausch
-  - Symmetrische Verschlüsselung für Datenübertragung (schneller, meist hardware-beschleunigt)
+# Web-spezifische Sicherheitslücken
 
 ## Injection Attacks
 
