@@ -209,7 +209,7 @@ type Readonly<T> = {
 type ReadonlyPerson = Readonly<Person>;
 ```
 
-## TypeScript Features - Komplexere Typangaben (3)
+## TypeScript Features - weitere Typfeatures (3)
 
 **Type Guards**: Typprüfung zur Laufzeit
 
@@ -221,7 +221,7 @@ export function isPerson(obj: any): obj is Person {
 
 - `isPerson(object) === true` \rightarrow{} danach kann `obj` wie vom Typ `Person` verwendet werden
 
-## TypeScript Features - Komplexere Typangaben (4)
+## TypeScript Features - weitere Typfeatures (4)
 
 [**Utility Types**](https://www.typescriptlang.org/docs/handbook/utility-types.html): vordefinierte, häufige Typtransformationen
 

@@ -14,49 +14,62 @@ section-titles: true
 plantuml-format: svg
 ...
 
-# Wiederholung
+# Wiederholung TypeScript
 
-## Interfaces
 
-## Interfaces in der Praxis - Repository Pattern (1)
+## Basics
 
-- Repository Pattern: Abstraktion von Datenzugriff
-  - Ermöglicht Austausch von Datenquellen (z.B. verschiedene Datenbanksysteme, Mock-Implementierungen)
-  - Entkoppelt Datenspeicherung von restlicher Logik
-  - \rightarrow{} Einfaches Testen von Daten-abhängiger Logik ohne echte Datenbank
+- Typprüfung zur Entwicklungszeit, keine Prüfung zur Laufzeit!
+- TypeScript ist ein Superset von JavaScript
+  - Gültiges JavaScript ist immer auch gültiges TypeScript
+  - Explizite Typangaben sind optional
+- TypeScript-Compiler `tsc` übersetzt TypeScript-Code in JavaScript-Code
+- Vorteile
+  - Vermeidung/Früherkennung von Fehlern
+  - Verbesserung der Codequalität
 
-## Interfaces in der Praxis - Repository Pattern (2)
 
-![repository pattern visualization](media/repository-visualization.png){height=80%}
+## Type Annotations
 
-## Interfaces in der Praxis - Repository Pattern (3)
+Explizite Typangaben für Variablen, Funktionen, Parameter, Rückgabewerte, etc.
 
 ```typescript
-// user-repository.ts
-export interface UserRepository {
-  getUserById(id: number): User | undefined;
-  addUser(user: User): void;
-  ...
+const message: string = "Hello, World!";
+
+function greet(name: string): string {
+  return `Hello, ${name}!`;
 }
-// index.ts
-const userStore: UserRepository = new InMemoryUserRepository();
-app.get("/user/:id", (req, response) => {
-  response.json(userStore.getUserById(req.params.id));
-});
 ```
+Type-Inferenz sorgt dafür, dass viele Typangaben nicht notwendig sind und Typsicherheit trotzdem gegeben ist.
 
-## Exkurs: Interfaces in der Praxis - Repository Pattern (3)
 
-- Realistischere Implementierung
-  - User-Routen werden z.B. über `createUserRouter(userStore: UserRepository)` erzeugt
-  - Parameter `userStore` wird je nach Konfiguration entsprechend initialisiert
-  - \rightarrow{} Einfacher Austausch von Datenquellen anhand von z.B. Umgebungsvariablen
+## Klassen und Interfaces 
 
-# TypeScript in der Praxis
+- Klassen und Interfaces auch zur Strukturierung von Code
+- Code-Beispiel: [`typescript-classes.ts`](https://github.com/TINF23B5-Webengineering/Lecture_Code/blob/2025/23_Typescript/typescript-example/typescript-classes.ts)
+- Generics: Typen als Parameter
+  - Beispiel: `class List<T> { ... }` zur Beschreibung einer Liste vom Typ `T`, der tatsächliche Typ (z.B. `number`) wird erst bei Instanziierung festgelegt (bzw. automatisch erkannt)
+  - Beispiel: `type Result<T> = { success: true, data: T } | { success: false, error: Error }`
+
+
+# TypeScript - Anwendung in der Praxis
+
+
+## TypeScript in der Praxis
+
+- Viele der TypeScript-Features sind in der Praxis sehr nützlich
+  - Insbesondere durch steigende Verbreitung von TypeScript in Bibliotheken und Frameworks
+- Es gibt aber auch praktische Probleme:
+  - Konfiguration `tsconfig.json` ist nicht immer einfach 
+    - Projekt-Templates helfen hier
+  - Zusätzlicher Build-Schritt notwendig 
+  - Typdefinitionen für Bibliotheken sind nicht immer vorhanden oder unvollständig
+
 
 ## express mit TypeScript
 
 - [`DefinitelyTyped`-Projekt](https://github.com/DefinitelyTyped/DefinitelyTyped) stellt Typdefinitionen für viele JavaScript-Bibliotheken bereit
+  - Viele Bibliotheken kommen inzwischen direkt mit TypeScript-Unterstützung
 - Installation von typen für express
   - `npm install express @types/express`
 
@@ -92,9 +105,6 @@ router.get("/:id", (request, response) => {
 
 ![Typsicherheit bei Pfad-Parametern](media/path-param-types-express.png)
 
-## Praxisaufgabe 1
-
-Erweitert den User Router um eine Implementierung des Repository Pattern. Es sollen die klassischen CRUD Operationen implementiert werden. Als konkrete Implementierung des Repositories reicht ein In-Memory Speicher auf Basis eines Arrays aus.
 
 ## express mit TypeScript - Beispiel Caching Middleware
 
@@ -103,6 +113,49 @@ Erweitert den User Router um eine Implementierung des Repository Pattern. Es sol
   - Stellt kompatible `getCacheKey` Funktion zur Entwicklungszeit sicher
   - Typsicherheit bei Verwendung
   - Allgemein bessere Developer Experience (DX)
+
+## Beispiel: Repository Pattern mit TypeScript (1)
+
+- Eventuell relevant für Projektarbeit!
+- Repository Pattern: Abstraktion von Datenzugriff
+  - Ermöglicht Austausch von Datenquellen (z.B. verschiedene Datenbanksysteme, Mock-Implementierungen)
+  - Entkoppelt Datenspeicherung von restlicher Logik
+  - \rightarrow{} Einfaches Testen von Daten-abhängiger Logik ohne echte Datenbank
+
+## Beispiel: Repository Pattern mit TypeScript (2)
+
+![repository pattern visualization](media/repository-visualization.png){height=80%}
+
+## Beispiel: Repository Pattern mit TypeScript (3)
+
+```typescript
+// user-repository.ts
+export interface UserRepository {
+  getUserById(id: number): User | undefined;
+  addUser(user: User): void;
+  ...
+}
+// index.ts
+const userStore: UserRepository = new InMemoryUserRepository();
+app.get("/user/:id", (req, response) => {
+  response.json(userStore.getUserById(req.params.id));
+});
+```
+
+## Beispiel: Repository Pattern mit TypeScript(4)
+
+- Realistischere Implementierung
+  - User-Routen werden z.B. über `createUserRouter(userStore: UserRepository)` erzeugt
+  - Parameter `userStore` wird je nach Konfiguration entsprechend initialisiert
+  - \rightarrow{} Einfacher Austausch von Datenquellen anhand von z.B. Umgebungsvariablen
+
+
+
+## Praxisaufgabe 1
+
+Erweitert den User Router um eine Implementierung des Repository Pattern. Es sollen die klassischen CRUD Operationen implementiert werden. Als konkrete Implementierung des Repositories reicht ein In-Memory Speicher auf Basis eines Arrays aus.
+
+
 
 ## Input und Typ-Validierung zur Laufzeit mit zod
 
@@ -250,5 +303,5 @@ const userSchema = z.object({
 
 ## Praxisaufgabe 2
 
-_
-Erweitert den User Router um eine Implementierung der Input-Validierung mit zod. Es sollen alle Daten, die vom Client kommen validiert werden. Gebt bei fehlerhaften Daten einen Statuscode \_422 Unprocessable Entity_ mit Details zum Fehler und der erwarteten Eingabe zurück.
+
+Erweitert den User Router um eine Implementierung der Input-Validierung mit zod. Es sollen alle Daten, die vom Client kommen validiert werden. Gebt bei fehlerhaften Daten einen Statuscode _422 Unprocessable Entity_ mit Details zum Fehler und der erwarteten Eingabe zurück.
