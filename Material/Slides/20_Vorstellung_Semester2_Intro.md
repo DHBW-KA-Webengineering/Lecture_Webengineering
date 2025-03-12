@@ -60,33 +60,36 @@ plantuml-format: svg
 
 ### Projektarbeit:
 
-- Entwicklung einer (kleinen) Webanwendung mit hier gelernten Technologien
-- Gruppenarbeit möglich (3 - 5 Studierende)
-- Bewertung mit Vorlesung Projektmanagement (Hr. Merkel)
+- Sollte aus 1. Semester bekannt sein, in diesem Semester: Backend für euer Frontend
   - Note Webengineering: 
     - Konzept & Umsetzung der Webanwendungen
     - Einhaltung vorgestellter Best-Practices
     - Regelmäßige Vorstellung aktueller Zwischenstände
-  - Note Projektmanagement: Projektmanagement, mehr dazu von Hr. Merkel
 
-\rightarrow{} **Aufgabe bis in 2 Wochen (22.01.): Gruppen bilden & Thema überlegen** + kurze Präsentation (~3 min) 
+### Klausur:
 
-## Projektarbeit - mögliche Themen
+- Klausur (60 min) am Ende des Semseters über alle Themen
 
-- TODO-App
-- Zeiterfassung ("Stechuhr")
-- Karteikarten-Anwendung ("Anki")
-- einfaches Spiel (Snake, Pac-Man, ...)
-- Dashboard für Daten von einer APIs (GitHub, deps.dev, ...)
-  - [verschiedene Daten öffentlicher Stellen](https://github.com/bundesAPI) 
-- eigene Ideen
+### Note Webengineering:
+
+- Kombinierte Prüfung:
+  - 50 % Projekt (Details siehe Notes/Bewertung_Projektarbeit)
+  - 50 % Klausur (60 min)
+
+## Klausurvorbereitung
+
+- Plan: Fragestunde in letztem Termin vor Klausur
+- Programmieraufgaben und Theoriefragen aus Folien (und Excercise-Dokumenten) sind gute Vorbereitung
+- Beste Vorbereitung: Aufpassen in der Vorlesung & regelmäßige Arbeit am Projekt
+
 
 # Vorlesungsinhalt & Lernziele
 
 ## Ziele der Vorlesung
 
-- Was ist eine "Webanwendung" und wie funktioniert sie? \rightarrow{} Fokus auf Backend
+- Was ist eine "Webanwendung" und wie funktioniert sie? \rightarrow{} In diesem Semester Fokus auf Backend
 - Erstellen einfacher Backends mit verschiedenen Technologien
+  - Fokus auf TypeScript
 - Anbindung von Datenbanken & Crashkurs SQL
 - Grundlagen & Best-Practices Web-Security
 
@@ -104,5 +107,7 @@ plantuml-format: svg
 - Grundlagen ASP.NET Core
 - Deployment von Webanwendungen
   - Docker, CI/CD
+- Wenn noch Zeit ist: Wunschthema der Studierenden
+  - z.B. Server-Side-Rendering, Go-Backends, Webassembly, ...
 
 Nicht unbedingt in dieser Reihenfolge 
