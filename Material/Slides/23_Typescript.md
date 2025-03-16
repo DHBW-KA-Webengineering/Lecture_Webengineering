@@ -149,13 +149,11 @@ app.get("/user/:id", (req, response) => {
   - Parameter `userStore` wird je nach Konfiguration entsprechend initialisiert
   - \rightarrow{} Einfacher Austausch von Datenquellen anhand von z.B. Umgebungsvariablen
 
-
-
 ## Praxisaufgabe 1
 
 Erweitert den User Router um eine Implementierung des Repository Pattern. Es sollen die klassischen CRUD Operationen implementiert werden. Als konkrete Implementierung des Repositories reicht ein In-Memory Speicher auf Basis eines Arrays aus.
 
-
+# Typ-Validierung mit zod
 
 ## Input und Typ-Validierung zur Laufzeit mit zod
 
@@ -164,6 +162,15 @@ Erweitert den User Router um eine Implementierung des Repository Pattern. Es sol
 - Erlaubt Validierung von primitiven Typen und komplexen Objekten zur Laufzeit
 - Erzeugt aus Schema TypeScript-Typen zur statischen Typisierung zur Entwicklungszeit
 - Installation: `npm install zod`
+
+## Warum Typ-Validierung zur Laufzeit?
+
+- TypeScript bietet statische Typisierung **nur** zur Entwicklungszeit
+- Code interagiert zur Laufzeit häufig mit externen Datenquellen (APIs, User-Input, Dateisystem, ...)
+  - Daten externer Datenquellen sind immer als _untrusted input_ anzusehen!
+  - Man kann sich nicht auf die Datentypen verlassen
+- Typ-Validierung hilft, unerwartete Daten zu erkennen und entsprechend zu behandeln
+  - \rightarrow{} Vermeidung von Laufzeitfehlern
 
 ## zod - Beispiel Strings
 
@@ -243,7 +250,6 @@ const { success, data, error } = helloWorldSchema.safeParse("");
 
 - Definition von [Objekten](https://zod.dev/?id=objects) mit `z.object()`
   - `z.object({ key1: <zodSchema>, key2: ... })`
-- Beispiel:
 
 ```typescript
 const userSchema = z.object({
@@ -255,6 +261,7 @@ const userSchema = z.object({
 
 - zod Schema kann in TypeScript-Typ für Verwendung bei Parameter- und Rückgabetypen konvertiert werden
   - `type SchemaType = z.infer<typeof schema>`
+- Durch Type-Inference oft nicht nötig
 
 ## zod - Komplexe Typen (3)
 
@@ -306,8 +313,15 @@ const userSchema = z.object({
 
 Erweitert den User Router um eine Implementierung der Input-Validierung mit zod. Es sollen alle Daten, die vom Client kommen validiert werden. Gebt bei fehlerhaften Daten einen Statuscode _422 Unprocessable Entity_ mit Details zum Fehler und der erwarteten Eingabe zurück.
 
+## Theoretische Fragen
 
-# Entwicklungstools
+- Welche Aufgabe(n) erfüllt die Bibliothek _zod_?
+- Erstellen Sie ein einfaches _zod_-Schema für _Message_-Objekte. Jedes Objekt hat eine positive Ganzzahl als _id_ einen nichtleeren Text (_content_) optional einen Liste von Autor-Namen (_authors_) und ein Erstellungsdatum (_createdAt_), das als string übermittelt wird.
+- Warum sollten trotz Verwendung von TypeScript die Datentypen zur Laufzeit validiert werden?
+- Für welche Art von Daten ist Typ-Validierung zur Laufzeit besonders wichtig?
+- Wie kann ein _zod_-Schema in einen TypeScript-Typen umgewandelt werden?
+
+# Hilfreiche Entwicklungstools
 
 ## ESLint - Grundlagen
 
@@ -359,7 +373,8 @@ Erweitert den User Router um eine Implementierung der Input-Validierung mit zod.
 
 ### Grundlagen Testing
 
-- Automatisierte Tests sind essentiell für Softwarequalität
+- Automatisierte Tests sind essenziell für Softwarequalität
+- Früherkennung von Fehlern und Sicherstellen der Funktionalität
 - Verschiedene Testarten:
   - Unit Tests: Einzelne Funktionen/Komponenten
   - Integration Tests: Zusammenspiel mehrerer Komponenten
@@ -441,3 +456,29 @@ test('should read file', () => {
   - Installation: `npm install --save-dev @vitest/ui`
   - Starten `vitest --ui`
 - Weitere Infos siehe [Vitest UI](https://vitest.dev/guide/ui.html)
+
+## Theoretische Fragen
+
+- Nennen Sie Vorteile beim Einsatz eines Linters.
+- Nennen Sie Vorteile von automatisierten Tests.
+- Warum schlägt folgender Test fehl? Was müsste geändert werden?
+- Bonus: Welches Pattern wird beim Schreiben von Unit-Tests häufig verwendet?
+
+## Beispiel Code-Aufgabe: Testing Basics
+
+```typescript
+class UserService {
+  private idCounter = 0;
+  public createUser(userData: { name: string }) {
+    return { id: ++this.idCounter, ...userData };
+  }
+}
+
+test('should create new user', () => {
+  const userService = new UserService();
+  const userData = { name: 'Test User' };
+  const newUser = userService.createUser(userData);
+  const expectedUser = { id: 1, name: 'Test User' };
+  expect(newUser).toBe(expectedUser);
+});
+```

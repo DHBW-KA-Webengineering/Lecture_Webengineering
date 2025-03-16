@@ -68,7 +68,7 @@ plantuml-format: svg
 
 ### Klausur:
 
-- Klausur (60 min) am Ende des Semseters über alle Themen
+- Klausur (60 min) am Ende des Semesters über alle Themen
 
 ### Note Webengineering:
 
@@ -79,7 +79,8 @@ plantuml-format: svg
 ## Klausurvorbereitung
 
 - Plan: Fragestunde in letztem Termin vor Klausur
-- Programmieraufgaben und Theoriefragen aus Folien (und Excercise-Dokumenten) sind gute Vorbereitung
+- Programmieraufgaben und theoretischen Fragen aus Folien (und Excercise-Dokumenten) sind gute Vorbereitung
+  - Code-Aufgaben z.B.: Fehler in Beispiel-Code finden, Beispiel-Code ergänzen (einzelne Zeilen)
 - Beste Vorbereitung: Aufpassen in der Vorlesung & regelmäßige Arbeit am Projekt
 
 

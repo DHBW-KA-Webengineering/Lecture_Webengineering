@@ -96,8 +96,6 @@ const server = Bun.serve({
   - Bundler: `bun build`, Unterstützt Browser und Server-Bundles
   
 
-
-
 ## Fazit Alternative Runtimes
 
 - Alle Runtimes entwickeln sich ständig weiter
@@ -105,6 +103,10 @@ const server = Bun.serve({
 - Bun etabliert sich aktuell immer mehr
 
 \rightarrow{} Gerne alles ausprobieren und eigene Meinung bilden!
+
+## Theoretische Fragen
+
+- Nennen Sie zwei Runtimes für JavaScript/TypeScript auf dem Server.
 
 # Bun als moderne TypeScript-Runtime
 
@@ -262,3 +264,8 @@ app.get("/stream", async function* () {
 ```
 
 Achtung: curl buffert standardmäßig, um Streaming zu testen: `curl -N http://localhost:3000/stream`
+
+
+## Theoretische Fragen
+
+- Nennen Sie drei Vorteile von Bun gegenüber Node.js.

@@ -16,7 +16,15 @@ plantuml-format: svg
 
 # Node.js
 
-## Node.js
+## Node.js (1)
+
+### Wie können wir JavaScript außerhalb des Browsers ausführen?
+
+- JavaScript wird nicht kompiliert, sondern zur Laufzeit interpretiert
+- \rightarrow{} Server kann JavaScript nicht direkt ausführen
+
+
+## Node.js (2)
 
 - Open Source (MIT) JavaScript Runtime
   - Ausführung von JavaScript außerhalb des Browsers
@@ -120,7 +128,7 @@ Ende synchron
 ## Node.js Non-Blocking I/O mit Promises (1)
 
 - Callbacks sind nicht ideal
-  - Verschachtelete Callbacks sind schwer zu lesen
+  - Verschachtelte Callbacks sind schwer zu lesen
   - Fehlerbehandlung ist schwierig
   - \rightarrow{} Promises sind eine bessere Alternative
 - Ab Node.js 10 ist für `fs` auch eine Promise-basierte API verfügbar
@@ -185,6 +193,11 @@ Achtet auf die richtigen _Content-Types_ und _Status-Codes_!
 
 Argumente von `createServer`: `request`: [http.IncomingMessage](https://nodejs.org/api/http.html#class-httpincomingmessage), `response`: [http.ServerResponse](https://nodejs.org/api/http.html#class-httpserverresponse)
 
+## Theoretische Fragen
+
+- Was ist Node.js und wofür wird es verwendet?
+- Erläutern Sie den Unterschied zwischen Blocking und Non-Blocking I/O. Welche Vorteile ergeben sich bei Non-Blocking I/O?
+
 # Modules und Pakckages
 
 ## Module in Node.js
@@ -193,6 +206,7 @@ Argumente von `createServer`: `request`: [http.IncomingMessage](https://nodejs.o
 - Ein Modul ist eine abgeschlossene Einheit mit **wiederverwendbarer Funktionalität**
   - Bessere Strukturierung von Code
   - Wird inzwischen auch in Browsern unterstützt
+    - Bundling oft trotzdem notwendig/sinnvoll
 - Historisch mehrere Modulsysteme für Node.js:
   - CommonJS (CJS)
   - ECMAScript Modules (ESM)
@@ -257,12 +271,13 @@ export default data;
   - Standard-Registry: [npmjs.com](https://www.npmjs.com/)
   - Installation in `node_modules`-Ordner und Eintrag in `package.json`
   - Installation aller Abhängigkeiten
+- Veröffentlichung eigener Packages
 - Funktionen von Packages können über `require()` (CJS) oder `import` (ESM) importiert werden
 
 ## Arbeit mit npm
 
 - Projekt initialisieren: `npm init`
-  - Erstellt `package.json` mit Basisinformationen
+  - Erstellt `package.json` mit Basisinformationen über das Projekt (Name, Version, ...)
 - Package installieren: `npm install <package>` (kurz `npm i <package>`)
   - `--save-prod (-P)`: Package in `package.json` unter `dependencies` eintragen (default)
   - `--save-dev (-D)`: Package in `package.json` unter `devDependencies` eintragen
@@ -271,16 +286,28 @@ export default data;
 
 ## Risiken bei Verwendung von npm
 
-- Packages können beliebigen Code ausführen (Zur Laufzeit und bei der Installation)
+- Packages können beliebigen Code ausführen (Zur Laufzeit **und** bei der Installation)
   - \rightarrow{} Sicherheitsrisiko!
 - Packages können beliebige Abhängigkeiten haben
-  - Kein Überblick über verwendeten Code
+  - Kein (einfacher) Überblick über verwendeten Code
   - \rightarrow{} Erhöht das Sicherheitsrisiko: sogenannte Lieferkettenangriffe (Supply Chain Attacks)
 - Lizenzrisiken
   - Packages können beliebige Lizenzen haben
-  - Bei **Auslieferung** von Software (auch Bereitstellung im Internet) müssen Bedingungen beachtet werden
-  - \rightarrow{} rechtliche Folgen möglich!
+  - Bei **Auslieferung** von Software (auch Bereitstellung im Internet)! müssen Bedingungen beachtet werden
+  - \rightarrow{} rechtliche Folgen möglich, bis hin zu Verbreitungsverboten und Schadensersatzforderungen
 - \rightarrow{} Packages nur von vertrauenswürdigen Quellen installieren!
+
+## Best-Practices bei der Installation von npm Packages
+
+- Nur vertrauenswürdige Quellen verwenden: npm-Registry, GitHub, firmeninterne Registries
+  - ABER: jeder kann Packages in öffentliche Registries hochladen
+- Package-Namen und -Versionen prüfen \rightarrow{} Vermeidung von Tippfehlern (sogenanntes _typosquatting_)
+- Vertrauenswürdige Packages bevorzugen: komplexes Thema!
+  - Popularität: Download-Zahlen, GitHub-Stars
+  - Aktivität: Commits, Issues, Pull Requests, ... in den letzten Wochen/Monaten
+    - Insbesondere Achtung vor Packages, die seit Jahren nicht mehr aktualisiert wurden
+  - Bekante Schwachstellen: [npm audit](https://docs.npmjs.com/cli/v7/commands/npm-audit), [OSV](https://osv.dev/)
+
 
 ## npm Alternativen
 
@@ -292,6 +319,14 @@ export default data;
     - Schneller
     - Weniger Speicherplatzverbrauch durch Teilen von Packages zwischen Projekten
     - Guter Monorepo support
+
+## Theoretische Fragen
+
+- Was ist ein _Module_ im Node.js Kontext?
+- Was ist ein _Package_ im Node.js Kontext?
+- Nennen Sie Vorteile bei der Verwendung von _Packages_ und _Modules_.
+- Nennen Sie 2 Risiken bei der Verwendung von _npm_.
+- Nennen Sie einen alternativen Package Manager zu npm und nennen Sie einen Vorteil gegenüber npm.
 
 # express
 
@@ -398,8 +433,8 @@ Grundkonzept in express: **Request Handler** für bestimmte **Routen**
 - `response.write` schreibt Daten in den Antwort-Body (sendet direkt an Client!)
 - `response.end` sendet die Antwort, danach kein `response.write` mehr möglich
 - `response.send` = `response.write` + `response.end`
-  - - automatisches setzen von `Content-Type` und `Content-Length`-Header
-  - - automatisches konvertieren von Objekten und Arrays zu JSON
+  - automatisches setzen von `Content-Type` und `Content-Length`-Header
+  - automatisches Konvertieren von Objekten und Arrays zu JSON
   - \rightarrow{} `response.send` zu bevorzugen
 
 ## Mehrere Request Handler (1)
@@ -446,7 +481,7 @@ app.get(
 - `response.send` im letzen Request Handler, danach kann die Antwort nicht mehr verändert werden
   - Setzt Header automatisch und sendet Antwort an Client
 - \rightarrow{} Besserer Ansatz, wenn Antwort schrittweise aufgebaut wird und kein Response streaming gewünscht ist.
-  - Streaming (Antwort schrittweise senden) erfordert eventuell Anpassungen auf Client-Seite, kann aber vorteilhaft sein (z.B. wenn nicht alle Daten sofort verfügbar sind)
+  - Streaming (Antwort schrittweise senden) erfordert eventuell Anpassungen auf Client-Seite, kann aber vorteilhaft sein (z.B. wenn nicht alle Daten sofort verfügbar sind, bestes Beispiel: KI-Chat-Apps)
 
 ## express Request Handler - Header (1)
 
@@ -544,6 +579,40 @@ Die Funktionalität soll gleich bleiben.
 Setzt den Server-Root auf einen Unterordner `public`, nur Dateien aus diesem Ordner sollen ausgeliefert werden können!
 Ohne Dateiendung soll automatisch nach einem Unterordner mit dem angefragten Namen und einer Datei `index.html` gesucht werden.
 
+## Theoretische Fragen 
+
+- Was ist _express_ und wofür wird es verwendet?
+- Was ist eine Route im Kontext eines _express_ Webservers? (Welche Komponenten identifizieren ein Route?)
+- Gegeben folgende Route: `app.get("groups/:groupid/members/:user?", (request, response) => ...)` und folgender HTTP Request `GET /groups/1/members?username=lukas`. Welche URL-Parameter und Query-Parameter sind verfügbar, welche Werte haben sie und wie kann im Request Handler darauf zugegriffen werden?
+- Was muss beim Zugriff auf Query-Parameter generell beachtet werden?
+
+## Beispiel Code-Aufgabe: express Code-Beispiel (1)
+
+Gegeben folgender Code:
+```javascript
+import express from "express";
+
+const app = express();
+app.get("/health", (request, response) => {
+  response.send('{ "healthy": true }');
+});
+app.listen(8080);
+```
+Der Code wird lokal auf Ihrem Rechner ausgeführt.
+Welche Antwort erwarten Sie bei folgendem HTTP-Request: `GET localhost/health`?
+
+## Beispiel Code-Aufgabe: express Code-Beispiel (2)
+
+Gegeben folgender Code-Ausschnitt aus einem express-Server:
+```javascript
+app.get("users/:userid/", async (request, response) => {
+  const user = await db.getUserById(request.params.userid)
+  response.send(user);
+});
+```
+Die Funktion `db.getUserById` erwartet eine User-ID (Zahl) und gibt ein User-Objekt zurück.
+Nennen Sie zwei mögliche Verbesserungen für diesen Code-Ausschnitt.
+Hinweis: Denken Sie auch an korrekte Verwendung von HTTP.
 
 # express Middleware
 
@@ -614,7 +683,7 @@ app.listen(80, () => {
   - Ermöglicht Cross-Origin Resource Sharing (CORS)
   - Konfiguration: [Express cors middleware](https://expressjs.com/en/resources/middleware/cors.html)
 
-## Exkurs: Cross-Origin Resource Sharing (CORS)
+## Cross-Origin Resource Sharing (CORS)
 
 - Same-Origin-Policy: JavaScript auf Website kann nur auf Ressourcen mit gleichem Origin zugreifen
   - Same Origin: gleiches **Protokoll**, gleicher **Port** und gleiche **Domain**
@@ -675,4 +744,12 @@ router.get("/", (request, response) => {
 });
 ```
 
+## Theoretische Fragen
 
+- Was versteht man unter Middleware im Kontext von _express_?
+  - Wann wird Middleware im Vergleich zu Request Handlern ausgeführt?
+- Was sagt die _Same-Origin-Policy_ aus?
+- Was versteht man unter _Same Origin_? (Was macht den Origin aus?)
+- Für was steht das Akronym _CORS_? Und was versteht man darunter?
+- Wie wird CORS gesteuert? (Welche HTTP-Header sind relevant?)
+- Was sind _express Router_ und wofür werden sie verwendet?
