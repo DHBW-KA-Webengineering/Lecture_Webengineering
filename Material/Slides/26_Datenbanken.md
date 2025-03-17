@@ -366,6 +366,14 @@ Erstellt ein Drizzle Schema für die Datenbank aus Praxisaufgabe 1 mit allen Bez
 Tipp: `drizzle-kit` bringt eine [Web-UI](https://orm.drizzle.team/drizzle-studio/overview) mit, die es deutlich erleichtert die Datenbank zu verwalten und Abfragen (SQL und Drizzle-Syntax) zu testen. Dazu einfach `npx drizzle-kit studio` ausführen.
 
 
+## Theoretische Fragen
+
+- Erläutern Sie warum in Webanwendungen Datenbanken zur Speicherung von Daten verwendet werden.
+  - Welche Vorteile bieten Datenbanken im Vergleich zur Speicherung von Daten im Dateisystem?
+- Was versteht man unter dem Begriff _ORM_?
+- Warum sind _ORM_ Bibliotheken in der Regel einer direkten Anbindung an die Datenbank (und dem manuellen Schreiben von SQL-Abfragen) vorzuziehen?
+- Wie werden Beziehungen in relationalen Datenbanken abgebildet?
+
 # Exkurs: Vercel mit Neon Serverless PostgreSQL
 
 ## Motivation

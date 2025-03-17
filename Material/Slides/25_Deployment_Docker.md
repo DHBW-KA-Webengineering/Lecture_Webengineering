@@ -29,7 +29,7 @@ plantuml-format: svg
 
 (klassisches) Frontend:
 
-- Statische Dateien (HTML, CSS, JS) und Assets (Bilder, Videos, ...)
+- **Statische Dateien** (HTML, CSS, JS) und Assets (Bilder, Videos, ...)
 - Auslieferung der Dateien über klassischen Webserver (Nginx, Apache2, ...) oder CDN
 - Noch einfachere Lösung: Bereitstellung über Object-Storage (z.B. AWS S3)
 - Skalierbarkeit vergleichsweise einfach über Replikation der Daten und Caching mit CDNs
@@ -37,10 +37,11 @@ plantuml-format: svg
 
 
 ## Unterschiede Frontend- und Backend-Deployment (2)
+
 Backend:
 
 - Antwort auf HTTP-Requests, Verarbeitung von Daten, Zugriff auf Datenbanken, ...
-- \rightarrow{} dynamische Inhalte und Logik
+- \rightarrow{} **dynamische Inhalte** und Logik
 - Skalierbarkeit komplexer, reine Replikation und Caching reichen nicht aus bzw. sind komplexer
   - Load-Balancing muss Konsistenz sicherstellen (z.B. Login-Zustand etc.)
   - Sollte von Anfang an in der Architektur berücksichtigt werden
@@ -48,7 +49,7 @@ Backend:
 ## Continuous Integration, Continuous Delivery / Deployment (CI/CD)
 
 - **Continuous Integration (CI)**: Häufiges zusammenführen von Code, Verifikation durch automatisierte Builds und Tests
-- **Continuous Delivery (CD)**: Software so zu entwickeln, dass sie jederzeit ausgeliefert werden kann (erfordert u.A. CI mit automatisierten Tests)
+- **Continuous Delivery (CD)**: Software so entwickeln, dass sie jederzeit ausgeliefert werden kann (erfordert u.A. CI mit automatisierten Tests)
 - **Continuous Deployment (CD)**: Software wird kontinuierlich automatisiert ausgeliefert (nach erfolgreichen Tests, eventuellen Staging-Umgebungen etc.)
 
 - Vorteile: Schnellere Entwicklungszyklen, geringe Deployment-Risiken, schnelles User-Feedback, ...
@@ -71,7 +72,7 @@ Backend:
 - Abrechnung nach Nutzung, keine Fixkosten
 - Automatische Skalierung
 - Viele Services bieten auch CI/CD Integration
-- Beispiele für Webanwendungen: Netlify, Vercel
+  - Beispiele für Webanwendungen: Netlify, Vercel
 
 ## Serverless Deployment Node.js + express Backend - Netlify (1)
 
@@ -156,6 +157,15 @@ Erstellen einer `netlify.toml`-Konfigurationsdatei im Projekt-Root:
 - Für euer Projekt bedeutet das: In-Memory Datenhaltung zum Testen funktioniert nur lokal, nicht in der Serverless-Umgebung!
   - Falls nötig gibt es [VercelKV](https://vercel.com/docs/storage/vercel-kv), [Netlify Blobs](https://docs.netlify.com/blobs/overview/)
   - Für die finale Abgabe ist sowieso eine Datenbank-Integration notwendig, auch hierfür gibt es Serverless-Lösungen (z.B. [Vercel Postgres](https://vercel.com/integrations/postgres) über [Neon](https://neon.tech/) Integration)
+
+
+## Theoretische Fragen
+
+- Was versteht man unter dem Begriff _Deployment_?
+- Erläutern Sie den größten Unterschied zwischen dem Deployment von reinen Web-Frontends und einem Backend-Deployment.
+- Erläutern Sie den Begriff _Serverless_.
+  - Welche Vorteile gibt es bei Serverless-Deployments im Umfeld von Webanwendungen?
+  - Welche Nachteile/Einschränkungen gibt es bei Serverless-Deployments im Umfeld von Webanwendungen?
 
 
 # Grundlagen Docker
@@ -382,3 +392,7 @@ COPY package.json src /app/
 
 CMD ["bun", "run", "."]
 ```
+
+## Theoretische Fragen
+
+- Nennen Sie drei Vorteile beim Einsatz von Docker für das Deployment von Webanwendungen.

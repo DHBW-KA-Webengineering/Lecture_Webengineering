@@ -39,7 +39,7 @@ plantuml-format: svg
 - **Detection**: Erkennung von (aktuellen) Angriffen
 - **Recovery**: Wiederherstellung und Aufarbeitung nach einem Angriff
 
-## Exkurs: Grundlagen Kryptografie (1)
+## Grundlagen Kryptografie (1)
 
 - **Kryptografie**: Verschlüsselung / Entschlüsselung von Daten (Confidentiality)
 
@@ -52,7 +52,7 @@ plantuml-format: svg
   - Beispiel: Schlüssel 1 \rightarrow{} A wird zu B, B zu C, ... Z zu A
   - Entschlüsselung: Rotiere in die andere Richtung
 
-## Exkurs: Grundlagen Kryptografie (2)
+## Grundlagen Kryptografie (2)
 
 ### Asymmetrische Kryptografie
 
@@ -62,7 +62,7 @@ plantuml-format: svg
   - Umgekehrt kann jeder eine Nachricht entschlüsseln, die mit diesem Private Key verschlüsselt wurde
 - Wie das funktioniert spielt in dieser Vorlesung keine Rolle
 
-## Exkurs: Grundlagen Kryptografie (3)
+## Grundlagen Kryptografie (3)
 
 ### Signaturen mit asymmetrischer Kryptografie
 
@@ -97,6 +97,16 @@ plantuml-format: svg
 - Jeder HTTP Request wird mit dem Sitzungsschlüssel in einem symmetrischen Verfahren verschlüsselt übertragen
 - Github Pages, Cloudflare Pages, Netflify, Vercel, ... verschlüsseln ohne Konfiguration standardmäßig 
 - Kostenfreie TLS Zertifikate für Hosting auf eigenem Server: [Let's Encrypt](https://letsencrypt.org/)
+
+## Theoretische Fragen
+
+- Nennen Sie die drei zentralen Sicherheitsziele.
+  - Erklären Sie den Begriff _Confidentiality_ / _Integrity_ / _Availability_.
+- Was ist der Unterschied zwischen Threat und Attack?
+- Nennen Sie die drei zentralen Sicherheitsmechanismen.
+  - Erklären Sie den Begriff _Prevention_ / _Detection_ / _Recovery_.
+- Was ist der Unterschied zwischen symmetrischer und asymmetrischer Kryptografie?
+
 
 # Authentifizierung 
 
@@ -311,6 +321,13 @@ const { payload: unparsed } = await jose.jwtVerify(token, key, {
     - Zusätzlich Self-Hosting, da vollständig Open Source
 
 
+## Theoretische Fragen
+
+- Erklären Sie den Unterschied zwischen _Authentifizierung_ und _Autorisierung_?
+- Welche besondere Herausforderung gibt es bei der Authentifizierung im Web durch das HTTP-Protokoll?
+- Erläutern Sie welche Probleme bei der Authentifizierung mit Session-Cookies bei horizontaler Skalierung auftreten können.
+
+
 # Web-spezifische Sicherheitslücken
 
 ## Injection Attacks
@@ -401,10 +418,10 @@ db.execute(query, [search]);
 
 **Funktionsweise**: Anwendung fügt Nutzereingaben ungeprüft in HTML, JavaScript (oder CSS, SVG) ein
 
-- Verschiedene Arten:
+Verschiedene Arten:
 - Reflected: Eingabe wird vom Server an Nutzer zurückgegeben, aber nicht gespeichert
-  - Stored: Eingabe wird gespeichert und später ausgegeben
-  - DOM-Based: Eingabe wird durch JavaScript fehlerhaft verarbeitet
+- Stored: Eingabe wird gespeichert und später ausgegeben
+- DOM-Based: Eingabe wird durch JavaScript fehlerhaft verarbeitet
 
 ## XSS Einführung (2)
 
@@ -455,7 +472,7 @@ Einfaches Beispiel: `<script>alert('XSS')</script>` als Suchbegriff
   - Eingabe wird nicht an Server gesendet, sondern direkt im Browser verarbeitet
   - z.B. `element.innerHTML`, `eval()` verwendet
 
-## XSS Schutz (1)
+## XSS Schutz
 
 - **Grundlegend**: **niemals** Nutzereingaben ungeprüft in HTML einfügen
 - **Input Validation**: Prüfen, ob Eingaben den erwarteten Formaten entsprechen
@@ -550,6 +567,21 @@ Zeigt, wie sich diese mit Hilfe von curl ausnutzen lässt und injiziert ein Scri
 - Weitere Einschränkungen: nur Scripte mit bestimmten Hashes erlauben
   - Kann auch inline-Scripte wieder erlauben
 - Mehr Informationen bei [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
+
+
+## Theoretische Fragen
+
+- Erklären Sie den Begriff _Injection Attack_.
+  - Nennen Sie zwei Beispiele für Injection Attacks.
+- Nennen Sie zwei Beispiele für _Untrusted Input_.
+- Worin besteht das grundlegende Problem, das zur Möglichkeit einer SQL Injection führt?
+- Was muss unbedingt vermieden werden, um SQL-Injections zu verhindern?
+- Nennen Sie eine Schutzmaßnahme gegen SQL-Injections.
+- Was versteht man unter dem Begriff _XSS_?
+- Nennen Sie zwei Arten von XSS-Angriffen.
+- Was kann ein Angreifer durch einen XSS-Angriff erreichen?
+- Erklären Sie den Begriff _Content Security Policy_ und nennen Sie den Hauptvorteil der sich daraus ergibt.
+
 
 # OWASP Top 10
 
