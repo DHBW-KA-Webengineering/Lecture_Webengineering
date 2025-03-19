@@ -232,9 +232,37 @@ Auch nicht frei von Problemen:
   - Keine Verben \rightarrow{} HTTP-Methoden für Auswahl der Funktion nutzen!
   - Keine Dateiendungen
 
-# Aktuelle Entwicklungen
+# Webanwendungsmodelle
 
-## Single Page Applications
+## Static Site Generation (SSG)
+
+- Statische Webseiten, welche beim Build-Prozess generiert werden
+- Keine serverseitige Verarbeitung bei der Anfrage
+- Schnell und ressourcenschonend
+- HTML-Dateien werden direkt vom Server oder CDN ausgeliefert
+- Kein Warten auf Datenbankanfragen oder API-Aufrufe
+
+**Ziele / Einsatzszenarien**
+
+- SEO-optimierte Webseiten (Google kann fertiges HTML crawlen)
+- Sehr schnelle Ladezeiten durch statische Dateien
+- Geringe Serverlast, da keine dynamische Generierung notwendig ist
+- Eignet sich besonders für Blogs, Dokumentationen, Unternehmensseiten
+
+## Server-Side Renderung (SSR)
+
+- HTML wird für jede Anfrage auf dem Server generiert
+- Ähnlich wie klassische mehrseitige Anwendungen, aber mit moderner Technologie
+- Kombination aus statischen und dynamischen Inhalten möglich
+- Server liefert fertiges HTML aus
+
+**Ziele / Einsatzszenarien**
+
+- Bessere SEO als SPA, weil Inhalte sofort, ohne dass JavaScript ausfegührt werden muss, gerendert vorliegen
+- Schnellere Ladezeit als klassische mehrseitige Anwendungen, weil weniger Daten übertragen werden müssen
+- Gute Wahl für Content-lastige Webanwendungen, z. B. Nachrichtenseiten, Shops
+
+## Single Page Applications (SPA)
 
 - Eine einzige HTML-Seite ("Single Page")
   - Dynamisches Nachladen von Inhalten, DOM wird auf Client erzeugt
@@ -249,7 +277,22 @@ Auch nicht frei von Problemen:
 - Skalierbarkeit durch Verlagerung der Anwendungslogik auf Client
 - Offlinefähigkeit einfacher umsetzbar
 
-## Progressive Web Apps (PWAs)
+## Multi Page Applications (MPA)
+
+- Klassische Webanwendungen mit mehreren HTML-Seiten
+- Jede Seite ist eine eigene Datei und benötigt einen vollständigen Seitenwechsel
+- Jede Navigation sendet eine neue Anfrage an den Server
+- Client lädt bei jedem Wechsel eine neue Seite vom Server
+- Geringere Speicherbelastung für den Client
+- Server verarbeitet jede Anfrage individuell
+
+**Ziele / Einsatzszenarien**
+
+- SEO und Barrierefreiheit optimal (da jede Seite eigenständig ist)
+- Einfachere Wartung und Entwicklung als bei SPAs
+- Ideal für klassische Webseiten, Blogs, Unternehmensseiten
+
+## Progressive Web Apps (PWA)
 
 - "Weiterentwicklung" von Single Page Applications
 - Webanwendungen, die wie native Apps wirken
@@ -436,28 +479,3 @@ Mehrere Anwendungen (Webserver-Instanzen) auf einem physischen Server?
   - CDN Funktionen integriert / einfach nutzbar
   - Security-Features
     \rightarrow{} Heute de facto Standard für viele Anwendungen
-
-## Deployment in der Cloud - Beispiel Azure Static Web Apps (1)
-
-### Azure Static Web Apps
-
-0
-
-- Speziell für statische Webanwendungen
-  - Standard: HTML, CSS, JS
-  - Single Page Applications
-  - - einfache Backends über Azure Functions (Serverless Computing = meist einfache Funktionen, bei Anfrage ausgeführt)
-- Kostenloser Plan reicht für vieles bereits aus
-- Einfaches Deployment über GitHub-Actions oder Azure Pipelines
-
-## Deployment in der Cloud - Beispiel Azure Static Web Apps (2)
-
-### Ablauf
-
-- Azure Account anlegen und konfigurieren
-- Installation [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps)
-- Anlegen neuer Static Web App über Extension, Dialog führt durch Konfiguration
-- GitHub-Actions Workflow automatisch erstellt
-- Push in GitHub-Repository startet Deployment \rightarrow{} Rest geht automatisch
-
-\rightarrow{} Mit vorhandenem Azure Account und fertiger Webanwendung in < 10 Minuten eingerichtet!
