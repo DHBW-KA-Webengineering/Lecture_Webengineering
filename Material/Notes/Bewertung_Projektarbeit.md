@@ -31,16 +31,16 @@ Das Projekt ist jedoch über beide Semester zu bearbeiten, nicht erst kurz vor d
 
 - Präsentation ca. 5 Minuten pro Gruppe (zeigen dass alles geforderte da ist und funktioniert)
 
-  2.⁠ ⁠Zwischenabgabeam 13.03.2025: Zwischenstand (vorgegeben je nach gewähltem Projekt, nur Frontend).
+2.⁠ ⁠Zwischenabgabeam 13.03.2025: Zwischenstand (vorgegeben je nach gewähltem Projekt, nur Frontend).
 
 - Präsentation ca. 10 Minuten pro Gruppe
 
-  3.⁠ ⁠Zwischenabgabe: Zwischenstand (vorgegeben je nach gewähltem Projekt). Anfang des zweiten Semesters (Termin folgt).
+3.⁠ ⁠Zwischenabgabe: Zwischenstand (vorgegeben je nach gewähltem Projekt). Anfang des zweiten Semesters (26.05).
 
 - Präsentation ca. 10 Minuten pro Gruppe
 - Festlegen der Backend Technologien
 
-  4.⁠ Finale Präsentation und Abgabe Quellcode + Dokumentation (15 Minuten pro Gruppe)
+4.⁠ Finale Präsentation und Abgabe Quellcode + Dokumentation (15 Minuten pro Gruppe), genauer Termin folgt, Klausurwoche
 
 ## Abzugebende Artefakte
 
