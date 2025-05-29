@@ -163,6 +163,15 @@ Erweitert den User Router um eine Implementierung des Repository Pattern. Es sol
 - Erzeugt aus Schema TypeScript-Typen zur statischen Typisierung zur Entwicklungszeit
 - Installation: `npm install zod`
 
+## zod - Version
+
+- Aktuell Umstellung von Major-Version 3 auf 4
+- In der Umstellungsphase sind beide Versionen parallel verfügbar (Version > 3.25)
+  - Import von `zod` importiert Version 3
+  - Import von Version 4 über `zod/v4`
+- Alle hier gezeigten Beispiele sind auch mit Version 4 kompatibel
+  - Einige Funktionen sind in Version 4 aber als `deprecated` markiert! 
+
 ## Warum Typ-Validierung zur Laufzeit?
 
 - TypeScript bietet statische Typisierung **nur** zur Entwicklungszeit
@@ -226,6 +235,12 @@ const { success, data, error } = helloWorldSchema.safeParse("");
   - `toLowerCase`, `toUpperCase`: Groß-/Kleinschreibung
   - `date`: ISO-Datum
   - ...
+
+## zod - Einschränkungen für Primitive Typen (3)
+
+- Einige string Einschränkungen sind in Version 4 `deprecated`
+- Stattdessen gibt es jetzt die Funktionen `z.email()`, `z.url()`
+- Siehe [zod v4 Dokumentation](https://zod.dev/v4?id=top-level-string-formats) für Details
 
 ## zod - Enums, optionale und undefinierte Werte
 
