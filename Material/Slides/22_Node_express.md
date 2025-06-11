@@ -530,7 +530,7 @@ app.get("users/:userid/items/:itemid?", (request, response) => {
 - URL-Parameter werden über `:PARAMETERNAME` definiert
   - express parst die aufgerufene URL und extrahiert die Parameter
   - Zugriff im Handler über `request.params.PARAMETERNAME` als string
-- Wenn Parameter optional sein sollen: `:PARAMETERNAME?`
+- Wenn Parameter optional sein sollen: `{:PARAMETERNAME}`
   - Ansonsten bei fehlendem Parameter: `404` (Not Found), da keine Route passt
   - Wenn nicht gesetzt: `undefined`
   
@@ -543,18 +543,6 @@ app.get("users/:userid/items/:itemid?", (request, response) => {
   - **Best-Practice**: Nicht von Vorhandensein der Parameter ausgehen
     - Vorhandensein mit `PARAMETERNAME in request.query` prüfen
     - Wert mit `request.query.PARAMETERNAME || DEFAULTWERT` auslesen
-
-## express Route-Wildcards
-
-- Wildcards in Routen zur Abdeckung mehrerer Pfade mit einem Request Handler
-  - `*`: Beliebige Zeichenkette (`/users/*` matcht `/users/`, `/users/1`, `/users/1/test`, ...)
-  - `?`: Vorheriges Zeichen optional (`/users?` matcht `/users` und `/user`)
-  - `+`: Vorheriges Zeichen mindestens 1 mal
-  - `()`: Gruppierung von Zeichen
-- Auch _reguläre Ausdrücke_ erlaubt: `/REGEX/`, zwischen `/` und `/`, **ohne** Anführungszeichen!
-
-- Zugriff auf aufgerufenen Pfad über `request.path` (`request.url` für Pfad inkl. Query-Parameter)
-
 
 ## express Dateien ausliefern (1)
 
@@ -583,7 +571,7 @@ Ohne Dateiendung soll automatisch nach einem Unterordner mit dem angefragten Nam
 
 - Was ist _express_ und wofür wird es verwendet?
 - Was ist eine Route im Kontext eines _express_ Webservers? (Welche Komponenten identifizieren ein Route?)
-- Gegeben folgende Route: `app.get("groups/:groupid/members/:user?", (request, response) => ...)` und folgender HTTP Request `GET /groups/1/members?username=lukas`. Welche URL-Parameter und Query-Parameter sind verfügbar, welche Werte haben sie und wie kann im Request Handler darauf zugegriffen werden?
+- Gegeben folgende Route: `app.get("groups/:groupid/members/{:user}", (request, response) => ...)` und folgender HTTP Request `GET /groups/1/members?username=lukas`. Welche URL-Parameter und Query-Parameter sind verfügbar, welche Werte haben sie und wie kann im Request Handler darauf zugegriffen werden?
 - Was muss beim Zugriff auf Query-Parameter generell beachtet werden?
 
 ## Beispiel Code-Aufgabe: express Code-Beispiel (1)
@@ -723,7 +711,7 @@ app.listen(80, () => {
   - Schachtelung von Routern möglich
   - Registrieren von Middleware auf Router-Ebene möglich
 - Erstellen eines Routers: `const router = express.Router();`
-  - Registrieren von Middleware und Request Handlern: `router.use(PATH?, MIDDLEWARE)`, `router.METHOD(PATH, HANDLER)`
+  - Registrieren von Middleware und Request Handlern: `router.use(PATH, MIDDLEWARE)`, `router.METHOD(PATH, HANDLER)`
 - Registrieren von Router: `app.use(PATH, ROUTER)`
 
 ## express Router Beispiel
