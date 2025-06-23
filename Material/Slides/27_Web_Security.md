@@ -419,9 +419,10 @@ db.execute(query, [search]);
 **Funktionsweise**: Anwendung fügt Nutzereingaben ungeprüft in HTML, JavaScript (oder CSS, SVG) ein
 
 Verschiedene Arten:
-- Reflected: Eingabe wird vom Server an Nutzer zurückgegeben, aber nicht gespeichert
-- Stored: Eingabe wird gespeichert und später ausgegeben
-- DOM-Based: Eingabe wird durch JavaScript fehlerhaft verarbeitet
+
+  - Reflected: Eingabe wird vom Server an Nutzer zurückgegeben, aber nicht gespeichert
+  - Stored: Eingabe wird gespeichert und später ausgegeben
+  - DOM-Based: Eingabe wird durch JavaScript fehlerhaft verarbeitet
 
 ## XSS Einführung (2)
 
