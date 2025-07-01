@@ -69,14 +69,15 @@ plantuml-format: svg
 - Asymmetrische Verfahren können auch für Signaturen genutzt werden
   - Signatur: Sicherstellen dass Daten nicht verändert wurden, und tatsächlich von bestimmtem Sender kommen (Integrity, kein Schutz der Confidentiality)
 - Zusätzlich zu den Daten wird eine Signatur generiert:
-  - Hashwert über die Daten (eine Art Fingerabdruck der Daten) 
+  - Hashwert über die Daten (eine Art Fingerabdruck der Daten)
   - Verschlüsselt mit Private Key
 - Empfänger kann mit Public Key entschlüsseln und Hashwert über Daten berechnen
-  - Stimmt der Hashwert mit dem entschlüsselten Wert überein, sind Daten unverändert 
+  - Stimmt der Hashwert mit dem entschlüsselten Wert überein, sind Daten unverändert
 
 ## Transport Layer Security (TLS) (1)
 
 - Verschlüsselte Kommunikation
+
   - HTTPS = HTTP + TLS
   - \rightarrow{} Schutz von Vertraulichkeit und Integrität
 
@@ -95,7 +96,7 @@ plantuml-format: svg
   - Aus ausgetauschten zufälligen Daten generieren Server und Client unabhängig voneinander einen temporären Sitzungsschlüssel
   - Genauer Ablauf ist abhängig von TLS-Version und Cipher-Suites
 - Jeder HTTP Request wird mit dem Sitzungsschlüssel in einem symmetrischen Verfahren verschlüsselt übertragen
-- Github Pages, Cloudflare Pages, Netflify, Vercel, ... verschlüsseln ohne Konfiguration standardmäßig 
+- Github Pages, Cloudflare Pages, Netflify, Vercel, ... verschlüsseln ohne Konfiguration standardmäßig
 - Kostenfreie TLS Zertifikate für Hosting auf eigenem Server: [Let's Encrypt](https://letsencrypt.org/)
 
 ## Theoretische Fragen
@@ -107,8 +108,7 @@ plantuml-format: svg
   - Erklären Sie den Begriff _Prevention_ / _Detection_ / _Recovery_.
 - Was ist der Unterschied zwischen symmetrischer und asymmetrischer Kryptografie?
 
-
-# Authentifizierung 
+# Authentifizierung
 
 ## Grundlagen Authentifizierung (1)
 
@@ -263,14 +263,13 @@ const jwt = await new jose.SignJWT({ someClaim: "someValue" })
 ## Jose Beispiel - Verifizieren
 
 ```typescript
-import * as jose from 'jose';
+import * as jose from "jose";
 
-const keyString = readFileSync('public-key.pem', 'utf-8');
+const keyString = readFileSync("public-key.pem", "utf-8");
 const key = await jose.importSPKI(keyString, "EdDSA");
 const { payload: unparsed } = await jose.jwtVerify(token, key, {
   issuer: "urn:issuer",
 });
-
 ```
 
 - Dokumentation: [SignJWT](https://github.com/panva/jose/blob/main/docs/jwt/sign/classes/SignJWT.md)
@@ -286,7 +285,6 @@ const { payload: unparsed } = await jose.jwtVerify(token, key, {
   - Session-Hijacking Gegenmaßnahmen (z.B. kurzlebige Tokens mit Refresh-Token) notwendig
   - Schlüsselverwaltung + Rotation
 
-
 ## Authentifizierung mit Bibliotheken und externen Services
 
 - Übernehmen unterschiedlich viele Funktionen
@@ -299,7 +297,7 @@ const { payload: unparsed } = await jose.jwtVerify(token, key, {
 
 ## Beispiel-Bibliothek Auth.js
 
-- [Auth.js](http://www.authjs.dev/) 
+- [Auth.js](http://www.authjs.dev/)
   - Unterstützt Authentifizierung über OAuth (Google, Apple, GitHub, ...), Magic Links, Benutzername/Passwort, WebAuthn
   - Übernimmt neben Login und Session-Verwaltung auch die Verwaltung der User-Daten in eigener Datenbank
     - Einfache Adapter für z.B. Drizzle ORM oder Prisma
@@ -317,16 +315,14 @@ const { payload: unparsed } = await jose.jwtVerify(token, key, {
     - im Dev-Mode sind auch alle Addons (z.B. MFA) kostenlos)
 - Open Source Alternative: [StackAuth](https://stack-auth.com)
   - Noch nicht so ausgereift, aber grundsätzlich gleiche Features
-  - Auch hier sind erste 10k Nutzer kostenlos 
+  - Auch hier sind erste 10k Nutzer kostenlos
     - Zusätzlich Self-Hosting, da vollständig Open Source
-
 
 ## Theoretische Fragen
 
 - Erklären Sie den Unterschied zwischen _Authentifizierung_ und _Autorisierung_?
 - Welche besondere Herausforderung gibt es bei der Authentifizierung im Web durch das HTTP-Protokoll?
 - Erläutern Sie welche Probleme bei der Authentifizierung mit Session-Cookies bei horizontaler Skalierung auftreten können.
-
 
 # Web-spezifische Sicherheitslücken
 
@@ -350,13 +346,16 @@ Beispiel: Selektion von allen Posts mit einem Suchbegriff:
 
 ```sql
 SELECT * FROM posts WHERE title LIKE '<Suchbegriff>';
-````
+```
 
-- Suchbegriff kommt z.B. aus einem Suchfeld und wird in Variable `search` gespeichert
+- Suchbegriff kommt z.B. aus einem Suchfeld und wird über Query-Parameter `query` übergeben
 - JavaScript baut die SQL-Abfrage:
 
 ```javascript
-const query = `SELECT * FROM posts WHERE posts.title LIKE '${req.query.query}'`;
+const query = request.query.query;
+const sql = `SELECT * FROM posts 
+             WHERE posts.title 
+             LIKE '%${query}%'`;
 ```
 
 ## SQLi Einführung (2)
@@ -410,7 +409,7 @@ db.execute(query, [search]);
 
 ## Praxisaufgabe 1
 
-1. Probiert die SQL-Injection im Beispiel-Code in `27_Web_Security/injections` wie zu triggern, um alle posts abzurufen. (_Hinweis_: ist in diesem Beispiel sogar noch einfacher)
+1. Probiert die SQL-Injection im Beispiel-Code in `27_Web_Security/injections` wie zu triggern, um alle posts abzurufen.
 2. Ruft zusätzlich die IDs und Namen aller Autoren ab (_Hinweis_: `UNION SELECT` und füll-Felder ;) )
 3. Fixt die SQL-Injection im Beispiel-Code mit Hilfe der Doku: [https://www.npmjs.com/package/sqlite](https://www.npmjs.com/package/sqlite)
 
@@ -420,9 +419,9 @@ db.execute(query, [search]);
 
 Verschiedene Arten:
 
-  - Reflected: Eingabe wird vom Server an Nutzer zurückgegeben, aber nicht gespeichert
-  - Stored: Eingabe wird gespeichert und später ausgegeben
-  - DOM-Based: Eingabe wird durch JavaScript fehlerhaft verarbeitet
+- Reflected: Eingabe wird vom Server an Nutzer zurückgegeben, aber nicht gespeichert
+- Stored: Eingabe wird gespeichert und später ausgegeben
+- DOM-Based: Eingabe wird durch JavaScript fehlerhaft verarbeitet
 
 ## XSS Einführung (2)
 
@@ -486,8 +485,8 @@ Einfaches Beispiel: `<script>alert('XSS')</script>` als Suchbegriff
 ## Praxisaufgabe 2
 
 Die Anwendung aus Praxisaufgabe 1 hat auch eine Stored XSS Lücke.
-Zeigt, wie sich diese mit Hilfe von curl ausnutzen lässt und injiziert ein Script, dass den Hintergrund der Seite ändert.
-(_Hinweis_: da das JavaScript der Suche den Code dynamisch einbindet, probiert es mit inline Event-Handlern in HTML Attributen oder javascript URLs)
+Zeigt, wie sich ein Script injizieren lässt, dass den Hintergrund der Seite ändert.
+(_Hinweis_:  Zum Speichern wird der Endpunkt `/post` benötigt. Da das JavaScript der Suche den Code dynamisch einbindet, probiert es mit inline Event-Handlern (`onclick` etc.) in HTML Attributen oder javascript URLs)
 
 ## Cross-Site Request Forgery (CSRF)
 
@@ -569,7 +568,6 @@ Zeigt, wie sich diese mit Hilfe von curl ausnutzen lässt und injiziert ein Scri
   - Kann auch inline-Scripte wieder erlauben
 - Mehr Informationen bei [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
 
-
 ## Theoretische Fragen
 
 - Erklären Sie den Begriff _Injection Attack_.
@@ -582,7 +580,6 @@ Zeigt, wie sich diese mit Hilfe von curl ausnutzen lässt und injiziert ein Scri
 - Nennen Sie zwei Arten von XSS-Angriffen.
 - Was kann ein Angreifer durch einen XSS-Angriff erreichen?
 - Erklären Sie den Begriff _Content Security Policy_ und nennen Sie den Hauptvorteil der sich daraus ergibt.
-
 
 # OWASP Top 10
 
