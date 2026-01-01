@@ -41,12 +41,8 @@ plantuml-format: svg
 
 ### Ihr
 
-- Name
-- Firma
-- Vorkenntnisse
-  - Programmiersprachen
-  - Webengineering
-  - Tools: git, docker, VSCode, ...
+- Name und Firma
+- Vorkenntnisse: Programmiersprachen, Webengineering, Tools: git, docker, VSCode, ...
 - Erwartungen & Wünsche
 
 ## Ablauf
@@ -92,7 +88,7 @@ plantuml-format: svg
   - Circa 30% Fragen zur gesamten Vorlesung
   - Circa 30% Transfer zur gesamten Vorlesung
 
-### Note Webengineering:
+## Prüfungsleistungen: Note Webengineering:
 
 - Kombinierte Prüfung:
   - 50 % Projekt (Details siehe Notes/Bewertung_Projektarbeit)
