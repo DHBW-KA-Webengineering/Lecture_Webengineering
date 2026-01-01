@@ -30,18 +30,23 @@ plantuml-format: svg
 
 ### Dozent Semester 1: Silas Schnurr
 
-- 2018: Ausbildung Fachinformatiker Anwendungsentwicklung
-- 2021: _B.Sc._ Informatik - DHBW Karlsruhe
-- 2023: _M.Sc._ Informatik - HKA
-- Seit 2015 bei PeakAvenue (ehemals iqs Software GmbH) in Bühl
-  - aktuell Softwarearchitekt & Teamleiter Softwareentwicklung
+- 2015 - 2025 bei PeakAvenue in Bühl
+  - 2015 - 2018: Ausbildung Fachinformatiker Anwendungsentwicklung
+  - 2018 - 2021: _B.Sc._ Informatik - DHBW Karlsruhe
+  - 2021 - 2023: _M.Sc._ Informatik - HKA
+  - 2023 - 2025: Softwarearchitekt & Teamleiter Softwareentwicklung
+- Seit Dezember 2025 IT-Berater/Lead Developer bei PTA IT-Beratung
+
+(E-Mail-Adresse findet ihr in Moodle)
 
 ### Ihr
 
+- Name
 - Firma
-- Programmiersprachen?
-- Vorkenntnisse Webengineering?
-  - Vorkenntnisse Tools: git, docker, VSCode?
+- Vorkenntnisse
+  - Programmiersprachen
+  - Webengineering
+  - Tools: git, docker, VSCode, ...
 - Erwartungen & Wünsche
 
 ## Ablauf
@@ -49,12 +54,12 @@ plantuml-format: svg
 - Vorlesung: 66 Vorlesungseinheiten (VE)
 
   - Dieses Semester: 11 Termine, je 3 VE = 33 VE
-    - Donnerstag 8:00 - 10:30 Uhr (3 VE + 15 Minuten Pause)
+    - Dienstag 8:30 - 11:00 Uhr (3 VE + 15 Minuten Pause)
   - Rest (33 VE) im nächsten Semester bei Hr. Panni
 
 - Vorlesung mit Programmieraufgaben
   - Keine Vorkenntnisse erforderlich
-  - Tools: Texteditor, Browser, Terminal, Git, (evtl. Container-Tools, i.e. Docker)
+  - Tools: Texteditor, Browser, Terminal, Git, (evtl. Container-Tools wie Docker)
     - Empfehlung: [VSCode](https://code.visualstudio.com/) / [WebStorm](https://www.jetbrains.com/de-de/webstorm/) (kostenlos für Studenten), Firefox, Docker-Desktop
   - kleine Hausaufgaben
 
@@ -64,7 +69,7 @@ plantuml-format: svg
 - Vorlesungsnotizen (gemeinsam Erarbeitetes) \rightarrow{} Notes
 - Sonstiges (Anleitungen, Zusatzmaterial) \rightarrow{} Extra
 
-\rightarrow{} alles auf GitHub [(DHBW-KA-Webengineering/Lecture_Webengineering_2025)](https://github.com/DHBW-KA-Webengineering/Lecture_Webengineering)
+\rightarrow{} alles auf GitHub [(DHBW-KA-Webengineering/Lecture_Webengineering_2026)](https://github.com/DHBW-KA-Webengineering/Lecture_Webengineering)
 
 \rightarrow{} separates Repo für Code [(DHBW-KA-Webengineering/Lecture_Code)](https://github.com/DHBW-KA-Webengineering/Lecture_Code)
 
@@ -73,15 +78,19 @@ plantuml-format: svg
 ### Projektarbeit:
 
 - Entwicklung einer (kleinen) Webanwendung mit hier gelernten Technologien
-- Gruppenarbeit verpflichtend (3 - 5 Studierende)
-- Bewertung mit Vorlesung Projektmanagement (Hr. Darwish)
-- Note Projektmanagement: Projektmanagement, mehr dazu von Hr. Darwish
+- Gruppenarbeit verpflichtend (4 - 7 Studierende)
+- Bewertung mit Vorlesung Projektmanagement (Hr. Göller)
+- Note Projektmanagement: Projektmanagement, mehr dazu von Hr. Göller
 
-\rightarrow{} **Aufgabe bis 23.01.25: Gruppen bilden & Thema aussuchen**
+\rightarrow{} **Aufgabe bis 20.01.25: Gruppen bilden & Thema aussuchen**
 
 ### Klausur:
 
 - Klausur (60 min) am Ende von Semester 2 über die Themen **beider** Semester
+  - Circa 10% theoretische Fragen
+  - Circa 30% Transfer zu den theoretischen Fragen
+  - Circa 30% Fragen zur gesamten Vorlesung
+  - Circa 30% Transfer zur gesamten Vorlesung
 
 ### Note Webengineering:
 

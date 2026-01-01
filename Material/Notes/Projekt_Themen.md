@@ -27,7 +27,7 @@ Folgende Themen stehen zur Auswahl:
 
 Entwicklung einer webbasierten Anwendung, die es Nutzern ermöglicht, Aufgaben zu erstellen, zu verwalten und zu organisieren. Features können z. B. Kategorien, Fälligkeitsdaten, Priorisierungen oder Filterfunktionen umfassen.
 
-## Zwischenstand 1 (Termin: 30.01.2025)
+## Zwischenstand 1 (Termin: 10.02.2025)
 
 - Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages (oder einem Äquivalent)
 - 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
@@ -68,7 +68,7 @@ Entwicklung einer webbasierten Anwendung, die es Nutzern ermöglicht, Aufgaben z
 
 Entwicklung einer Anwendung, die Arbeitszeiten erfasst, speichert und auswertet. Nutzer können Start- und Endzeiten eintragen oder durch Buttons automatisch erfassen lassen.
 
-## Zwischenstand 1 (Termin: 30.01.2025)
+## Zwischenstand 1 (Termin: 10.02.2025)
 
 - Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages (oder einem Äquivalent)
 - 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
@@ -109,7 +109,7 @@ Entwicklung einer Anwendung, die Arbeitszeiten erfasst, speichert und auswertet.
 
 Umsetzung einer Anwendung, die das Lernen mit Karteikarten erleichtert. Nutzer können Karteikarten erstellen, bearbeiten, löschen und durch die Karten blättern / damit lernern.
 
-## Zwischenstand 1 (Termin: 30.01.2025)
+## Zwischenstand 1 (Termin: 10.02.2025)
 
 - Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages (oder einem Äquivalent)
 - 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
@@ -148,7 +148,7 @@ Umsetzung einer Anwendung, die das Lernen mit Karteikarten erleichtert. Nutzer k
 
 Entwicklung einer klassischen Snake-Anwendung, bei der der Spieler Punkte sammelt und die Schlange verlängert.
 
-## Zwischenstand 1 (Termin: 30.01.2025)
+## Zwischenstand 1 (Termin: 10.02.2025)
 
 - Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages (oder einem Äquivalent)
 - 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
@@ -189,7 +189,7 @@ Entwicklung einer klassischen Snake-Anwendung, bei der der Spieler Punkte sammel
 
 Umsetzung des Arcade-Klassikers Pac-Man, bei dem der Spieler durch ein Labyrinth navigiert, Punkte sammelt und Gegnern ausweicht.
 
-## Zwischenstand 1 (Termin: 30.01.2025)
+## Zwischenstand 1 (Termin: 20.02.2025)
 
 - Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages (oder einem Äquivalent)
 - 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
@@ -230,7 +230,7 @@ Umsetzung des Arcade-Klassikers Pac-Man, bei dem der Spieler durch ein Labyrinth
 
 Entwicklung eines Dashboards zur Visualisierung und Verwaltung von API-Daten (z. B. Wetter, Finanzen, etc.).
 
-## Zwischenstand 1 (Termin: 30.01.2025)
+## Zwischenstand 1 (Termin: 20.02.2025)
 
 - Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages (oder einem Äquivalent)
 - 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
@@ -250,6 +250,7 @@ Entwicklung eines Dashboards zur Visualisierung und Verwaltung von API-Daten (z.
   - Interaktives Dashboard mit flexiblen Filter- und Anzeigeoptionen
   - Benutzerdefinierte Filter
 - Mindestanforderungen Backend:
+
   - Backend-Repository eingerichtet
   - Mindestens 1 Demo-Endpunkt implementiert
   - Lokale Ausführung reicht aus
