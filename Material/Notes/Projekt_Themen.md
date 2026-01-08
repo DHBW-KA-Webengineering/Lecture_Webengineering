@@ -19,20 +19,17 @@ Folgende Themen stehen zur Auswahl:
 - Thema 1: TODO-App
 - Thema 2: Zeiterfassung ("Stechuhr")
 - Thema 3: Karteikarten-Anwendung ("Anki")
-- Thema 4: Snake
-- Thema 5: Pac-Man
-- Thema 6: API Dashboard
 
 # Thema 1: TODO-App
 
 Entwicklung einer webbasierten Anwendung, die es Nutzern ermöglicht, Aufgaben zu erstellen, zu verwalten und zu organisieren. Features können z. B. Kategorien, Fälligkeitsdaten, Priorisierungen oder Filterfunktionen umfassen.
 
-## Zwischenstand 1 (Termin: 10.02.2025)
+## Zwischenstand 1 
 
 - Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages (oder einem Äquivalent)
 - 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
 
-## Zwischenstand 2 (ca. 2 - 3 Wochen vor den Klausuren Semester 1, Termin folgt)
+## Zwischenstand 2 
 
 - Mindestanforderungen Frontend:
   - Listenansicht der Aufgaben
@@ -41,7 +38,7 @@ Entwicklung einer webbasierten Anwendung, die es Nutzern ermöglicht, Aufgaben z
   - Interaktionen, wie Hinzufügen und Markieren von Aufgaben als “erledigt”
 - 10 Minuten Präsentation pro Gruppe (Zwischenstand, Ideen, Probleme)
 
-## Zwischenstand 3 (Anfang des zweiten Semesters, Termin folgt)
+## Zwischenstand 3 
 
 - Zusätzliche Mindestanforderungen Frontend:
   - Vollständige CRUD-Operationen: Aufgaben können erstellt, bearbeitet und gelöscht werden
@@ -52,7 +49,7 @@ Entwicklung einer webbasierten Anwendung, die es Nutzern ermöglicht, Aufgaben z
   - Lokale Ausführung reicht aus
 - 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
 
-## Finale Abgabe (Ende des zweiten Semesters, Termin folgt)
+## Finale Abgabe
 
 - Komplett funktionsfähig mit persistenter Datenspeicherung
 - Mindestanforderungen Backend:
@@ -68,12 +65,12 @@ Entwicklung einer webbasierten Anwendung, die es Nutzern ermöglicht, Aufgaben z
 
 Entwicklung einer Anwendung, die Arbeitszeiten erfasst, speichert und auswertet. Nutzer können Start- und Endzeiten eintragen oder durch Buttons automatisch erfassen lassen.
 
-## Zwischenstand 1 (Termin: 10.02.2025)
+## Zwischenstand 1
 
 - Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages (oder einem Äquivalent)
 - 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
 
-## Zwischenstand 2 (ca. 2 - 3 Wochen vor den Klausuren Semester 1, Termin folgt)
+## Zwischenstand 2
 
 - Mindestanforderungen Frontend:
   - Grundlayout mit Eingabefeldern für Arbeitszeiten
@@ -82,7 +79,7 @@ Entwicklung einer Anwendung, die Arbeitszeiten erfasst, speichert und auswertet.
   - Anzeige der berechneten Arbeitszeit in einer Tabelle
 - 10 Minuten Präsentation pro Gruppe (Zwischenstand, Ideen, Probleme)
 
-## Zwischenstand 3 (Anfang des zweiten Semesters, Termin folgt)
+## Zwischenstand 3
 
 - Zusätzliche Mindestanforderungen Frontend:
   - Hinweise zu Arbeitszeitüberschreitungen
@@ -93,7 +90,7 @@ Entwicklung einer Anwendung, die Arbeitszeiten erfasst, speichert und auswertet.
   - Lokale Ausführung reicht aus
 - 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
 
-## Finale Abgabe (Ende des zweiten Semesters, Termin folgt)
+## Finale Abgabe
 
 - Komplett funktionsfähig mit persistenter Datenspeicherung.
 - Mindestanforderungen Backend:
@@ -109,19 +106,19 @@ Entwicklung einer Anwendung, die Arbeitszeiten erfasst, speichert und auswertet.
 
 Umsetzung einer Anwendung, die das Lernen mit Karteikarten erleichtert. Nutzer können Karteikarten erstellen, bearbeiten, löschen und durch die Karten blättern / damit lernern.
 
-## Zwischenstand 1 (Termin: 10.02.2025)
+## Zwischenstand 1 
 
 - Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages (oder einem Äquivalent)
 - 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
 
-## Zwischenstand 2 (ca. 2 - 3 Wochen vor den Klausuren Semester 1, Termin folgt)
+## Zwischenstand 2 
 
 - Mindestanforderungen Frontend:
   - Verwaltung, Erstellung und Bearbeitung von Karten
   - Lernmodus, bei welchem man "Abgefragt" wird
 - 10 Minuten Präsentation pro Gruppe (Zwischenstand, Ideen, Probleme)
 
-## Zwischenstand 3 (Anfang des zweiten Semesters, Termin folgt)
+## Zwischenstand 3 
 
 - Zusätzliche mindestanforderungen Frontend:
   - Gruppieren von Lernkarten
@@ -132,7 +129,7 @@ Umsetzung einer Anwendung, die das Lernen mit Karteikarten erleichtert. Nutzer k
   - Lokale Ausführung reicht aus
 - 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
 
-## Finale Abgabe (Ende des zweiten Semesters, Termin folgt)
+## Finale Abgabe 
 
 - Komplett funktionsfähig mit persistenter Datenspeicherung
 - Mindestanforderungen Backend:
@@ -144,127 +141,3 @@ Umsetzung einer Anwendung, die das Lernen mit Karteikarten erleichtert. Nutzer k
 - Abgabe Quellcode + Dokumentation
 - 15 Minuten Präsentation pro Gruppe
 
-# Thema 4: Snake
-
-Entwicklung einer klassischen Snake-Anwendung, bei der der Spieler Punkte sammelt und die Schlange verlängert.
-
-## Zwischenstand 1 (Termin: 10.02.2025)
-
-- Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages (oder einem Äquivalent)
-- 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
-
-## Zwischenstand 2 (ca. 2 - 3 Wochen vor den Klausuren Semester 1, Termin folgt)
-
-- Mindestanforderungen Frontend:
-  - Anzeige eines Spielfelds mit einer Schlange
-  - Bewegungslogik für die Schlange
-  - Grundlegendes Punktesystem
-- 10 Minuten Präsentation pro Gruppe (Zwischenstand, Ideen, Probleme)
-
-## Zwischenstand 3 (Anfang des zweiten Semesters, Termin folgt)
-
-- Zusätzliche Mindestanforderungen Frontend:
-  - Spielmechaniken (z. B. Game Over bei Kollision)
-  - Zusätzliche Features wie Hindernisse oder Level
-  - Highscoreanzeige
-- Mindestanforderungen Backend:
-  - Backend-Repository eingerichtet
-  - Mindestens 1 Demo-Endpunkt implementiert
-  - Lokale Ausführung reicht aus
-- 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
-
-## Finale Abgabe (Ende des zweiten Semesters, Termin folgt)
-
-- Komplett funktionsfähig mit persistenter Datenspeicherung.
-- Mindestanforderungen Backend:
-  - Persistente Datenspeicherung
-    - Unabhängige Datenspeicherung für lokale Tests
-  - Deployment auf einem Server / Serverless
-  - Web-Security Best-Practices befolgt
-- Verbindung Frontend - Backend#
-- Abgabe Quellcode + Dokumentation
-- 15 Minuten Präsentation pro Gruppe
-
-# Thema 5: Pac-Man
-
-Umsetzung des Arcade-Klassikers Pac-Man, bei dem der Spieler durch ein Labyrinth navigiert, Punkte sammelt und Gegnern ausweicht.
-
-## Zwischenstand 1 (Termin: 20.02.2025)
-
-- Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages (oder einem Äquivalent)
-- 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
-
-## Zwischenstand 2 (ca. 2 - 3 Wochen vor den Klausuren Semester 1, Termin folgt)
-
-- Mindestanforderungen Frontend:
-  - Darstellung des Spielfelds und der Pac-Man-Figur.
-  - Bewegungslogik für Pac-Man
-  - Grundlegendes Punktesystem
-- 10 Minuten Präsentation pro Gruppe (Zwischenstand, Ideen, Probleme)
-
-## Zwischenstand 3 (Anfang des zweiten Semesters, Termin folgt)
-
-- Zusätzliche Mindestanforderungen Frontend:
-  - Gegnerbewegung mit Kollisionserkennung
-  - Spielmechaniken wie Power-Ups
-  - Highscoreanzeige
-- Mindestanforderungen Backend:
-  - Backend-Repository eingerichtet
-  - Mindestens 1 Demo-Endpunkt implementiert
-  - Lokale Ausführung reicht aus
-- 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
-
-## Finale Abgabe (Ende des zweiten Semesters, Termin folgt)
-
-- Komplett funktionsfähig mit persistenter Datenspeicherung.
-- Mindestanforderungen Backend:
-  - Persistente Datenspeicherung
-    - Unabhängige Datenspeicherung für lokale Tests
-  - Deployment auf einem Server / Serverless
-  - Web-Security Best-Practices befolgt
-- Verbindung Frontend - Backend
-- Abgabe Quellcode + Dokumentation
-- 15 Minuten Präsentation pro Gruppe
-
-# Thema 6: API Dashboard
-
-Entwicklung eines Dashboards zur Visualisierung und Verwaltung von API-Daten (z. B. Wetter, Finanzen, etc.).
-
-## Zwischenstand 1 (Termin: 20.02.2025)
-
-- Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages (oder einem Äquivalent)
-- 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
-
-## Zwischenstand 2 (ca. 2 - 3 Wochen vor den Klausuren Semester 1, Termin folgt)
-
-- Mindestanforderungen Frontend:
-  - Seite mit Layout
-  - Abruf und Anzeige von API-Daten (z. B. über Fetch)
-  - Grundlegende Filter- und Sortiermöglichkeiten
-- 10 Minuten Präsentation pro Gruppe (Zwischenstand, Ideen, Probleme)
-
-## Zwischenstand 3 (Anfang des zweiten Semesters, Termin folgt)
-
-- Zusätzliche Mindestanforderungen Frontend:
-  - Interaktive Visualisierungen (z. B. Diagramme)
-  - Interaktives Dashboard mit flexiblen Filter- und Anzeigeoptionen
-  - Benutzerdefinierte Filter
-- Mindestanforderungen Backend:
-
-  - Backend-Repository eingerichtet
-  - Mindestens 1 Demo-Endpunkt implementiert
-  - Lokale Ausführung reicht aus
-
-- 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
-
-## Finale Abgabe (Ende des zweiten Semesters, Termin folgt)
-
-- Komplett funktionsfähig mit persistenter Datenspeicherung.
-- Mindestanforderungen Backend:
-  - Persistente Datenspeicherung
-    - Unabhängige Datenspeicherung für lokale Tests
-  - Deployment auf einem Server / Serverless
-  - Web-Security Best-Practices befolgt
-- Verbindung Frontend - Backend
-- Abgabe Quellcode + Dokumentation
-- 15 Minuten Präsentation pro Gruppe
