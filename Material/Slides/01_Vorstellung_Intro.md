@@ -74,8 +74,6 @@ plantuml-format: svg
 - Bewertung mit Vorlesung Projektmanagement (Hr. Göller)
 - Note Projektmanagement: Projektmanagement, mehr dazu von Hr. Göller
 
-\rightarrow{} **Aufgabe bis 20.01.25: Gruppen bilden & Thema aussuchen**
-
 ### Klausur:
 
 - Klausur (60 min) am Ende von Semester 2 über die Themen **beider** Semester
