@@ -1,7 +1,8 @@
 ---
 title: Themen Projektarbeit
+date: 2026-01-12
 lang: de-DE
-author: "Silas Schnurr"
+author: "Lukas Panni & Silas Schnurr"
 ...
 
 \clearpage
@@ -24,12 +25,12 @@ Folgende Themen stehen zur Auswahl:
 
 Entwicklung einer webbasierten Anwendung, die es Nutzern ermöglicht, Aufgaben zu erstellen, zu verwalten und zu organisieren. Features können z. B. Kategorien, Fälligkeitsdaten, Priorisierungen oder Filterfunktionen umfassen.
 
-## Zwischenstand 1 
+## Zwischenstand 1
 
 - Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages (oder einem Äquivalent)
 - 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
 
-## Zwischenstand 2 
+## Zwischenstand 2
 
 - Mindestanforderungen Frontend:
   - Listenansicht der Aufgaben
@@ -38,7 +39,7 @@ Entwicklung einer webbasierten Anwendung, die es Nutzern ermöglicht, Aufgaben z
   - Interaktionen, wie Hinzufügen und Markieren von Aufgaben als “erledigt”
 - 10 Minuten Präsentation pro Gruppe (Zwischenstand, Ideen, Probleme)
 
-## Zwischenstand 3 
+## Zwischenstand 3
 
 - Zusätzliche Mindestanforderungen Frontend:
   - Vollständige CRUD-Operationen: Aufgaben können erstellt, bearbeitet und gelöscht werden
@@ -53,8 +54,7 @@ Entwicklung einer webbasierten Anwendung, die es Nutzern ermöglicht, Aufgaben z
 
 - Komplett funktionsfähig mit persistenter Datenspeicherung
 - Mindestanforderungen Backend:
-  - Persistente Datenspeicherung
-    - Unabhängige Datenspeicherung für lokale Tests
+  - Persistente Datenspeicherung, unabhängige Datenspeicherung für lokale Tests
   - Deployment auf einem Server / Serverless
   - Web-Security Best-Practices befolgt
 - Verbindung Frontend - Backend
@@ -94,8 +94,7 @@ Entwicklung einer Anwendung, die Arbeitszeiten erfasst, speichert und auswertet.
 
 - Komplett funktionsfähig mit persistenter Datenspeicherung.
 - Mindestanforderungen Backend:
-  - Persistente Datenspeicherung
-    - Unabhängige Datenspeicherung für lokale Tests
+  - Persistente Datenspeicherung, unabhängige Datenspeicherung für lokale Tests
   - Deployment auf einem Server / Serverless
   - Web-Security Best-Practices befolgt
 - Verbindung Frontend - Backend
@@ -106,19 +105,19 @@ Entwicklung einer Anwendung, die Arbeitszeiten erfasst, speichert und auswertet.
 
 Umsetzung einer Anwendung, die das Lernen mit Karteikarten erleichtert. Nutzer können Karteikarten erstellen, bearbeiten, löschen und durch die Karten blättern / damit lernern.
 
-## Zwischenstand 1 
+## Zwischenstand 1
 
 - Git Repository mit funktionierender CI/CD-Pipeline und GitHub Pages (oder einem Äquivalent)
 - 5 Minuten Präsentation pro Gruppe (Repository zeigen, Pipeline demonstrieren, Grundidee anhand von simplen Mockups erläutern)
 
-## Zwischenstand 2 
+## Zwischenstand 2
 
 - Mindestanforderungen Frontend:
   - Verwaltung, Erstellung und Bearbeitung von Karten
   - Lernmodus, bei welchem man "Abgefragt" wird
 - 10 Minuten Präsentation pro Gruppe (Zwischenstand, Ideen, Probleme)
 
-## Zwischenstand 3 
+## Zwischenstand 3
 
 - Zusätzliche mindestanforderungen Frontend:
   - Gruppieren von Lernkarten
@@ -129,15 +128,13 @@ Umsetzung einer Anwendung, die das Lernen mit Karteikarten erleichtert. Nutzer k
   - Lokale Ausführung reicht aus
 - 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
 
-## Finale Abgabe 
+## Finale Abgabe
 
 - Komplett funktionsfähig mit persistenter Datenspeicherung
 - Mindestanforderungen Backend:
-  - Persistente Datenspeicherung
-    - Unabhängige Datenspeicherung für lokale Tests
+  - Persistente Datenspeicherung, unabhängige Datenspeicherung für lokale Tests
   - Deployment auf einem Server / Serverless
   - Web-Security Best-Practices befolgt
 - Verbindung Frontend - Backend
 - Abgabe Quellcode + Dokumentation
 - 15 Minuten Präsentation pro Gruppe
-

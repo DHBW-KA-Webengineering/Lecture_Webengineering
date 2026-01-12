@@ -1,8 +1,8 @@
 ---
 title: Bewertung Projektarbeit
-date: 2024-01-08
+date: 2026-01-12
 lang: de-DE
-author: "Lukas Panni"
+author: "Lukas Panni & Silas Schnurr"
 ...
 
 \clearpage
@@ -29,11 +29,11 @@ Für die Bewertung sind die folgenden Punkte relevant (Details siehe unten):
 
 # Abgabe
 
-Die finale Abgabe erfolgt am Ende des zweiten Theoriesemesters (Juli/August). Ein genauer Termin wird noch bekanntgegeben (mindestens 3 Wochen im Voraus).
+Die finale Abgabe erfolgt am Ende des zweiten Theoriesemesters (Juli/August). Ein genauer Termin wird noch bekanntgegeben (mindestens 3 Wochen im Voraus). Alle Termine (auch die für Zwischenabgaben) werden im Moodle als Ankündigung bekannt gegeben.
 
 Das Projekt ist über beide Semester zu bearbeiten, nicht erst kurz vor der Abgabe. Daher gibt es folgende Zwischenabgaben, welche in die Bewertung mit einfließen. Die jeweiligen Termine werden ebenfalls rechtzeitig bekanntgegeben:
 
-1.⁠ ⁠Zwischenabgabe am 03.02.2025
+1.⁠ ⁠Zwischenabgabe (ca. 2 - 3 Wochen nach dem Start der Vorlesung)
 1.1 Projektidee, GitHub Repository mit (leerem) Projekt, funktionierender GitHub Action für den Build und GitHub Pages (oder einem Äquivalent).
 1.2 Kurz die Idee / das Konzept der Anwendung mit Mockups, Wireframes, Zeichnungen vorstellen
 1.3 Präsentation ca. 5 - 10 Minuten pro Gruppe (zeigen dass alles geforderte da ist und funktioniert)
