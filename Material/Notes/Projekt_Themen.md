@@ -21,6 +21,8 @@ Folgende Themen stehen zur Auswahl:
 - Thema 2: Zeiterfassung ("Stechuhr")
 - Thema 3: Karteikarten-Anwendung ("Anki")
 
+\pagebreak
+
 # Thema 1: TODO-App
 
 Entwicklung einer webbasierten Anwendung, die es Nutzern ermöglicht, Aufgaben zu erstellen, zu verwalten und zu organisieren. Features können z. B. Kategorien, Fälligkeitsdaten, Priorisierungen oder Filterfunktionen umfassen.
@@ -61,6 +63,8 @@ Entwicklung einer webbasierten Anwendung, die es Nutzern ermöglicht, Aufgaben z
 - Abgabe Quellcode + Dokumentation
 - 15 Minuten Präsentation pro Gruppe
 
+\pagebreak
+
 # Thema 2: Zeiterfassung ("Stechuhr")
 
 Entwicklung einer Anwendung, die Arbeitszeiten erfasst, speichert und auswertet. Nutzer können Start- und Endzeiten eintragen oder durch Buttons automatisch erfassen lassen.
@@ -100,6 +104,8 @@ Entwicklung einer Anwendung, die Arbeitszeiten erfasst, speichert und auswertet.
 - Verbindung Frontend - Backend
 - Abgabe Quellcode + Dokumentation
 - 15 Minuten Präsentation pro Gruppe
+
+\pagebreak
 
 # Thema 3: Karteikarten-Anwendung ("Anki")
 

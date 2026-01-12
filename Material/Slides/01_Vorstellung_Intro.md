@@ -100,13 +100,13 @@ plantuml-format: svg
 
 ## Vorstellung Studis
 
-1. Gruppen für Projekt bilden und Gruppenname festlegen
+- Gruppen für Projekt bilden und Gruppenname festlegen
 
-2. Vorstellung
-   2.1 Name und Firma
-   2.2 Welche Projektgruppe
-   2.3 Vorkenntnisse: Programmiersprachen, Webengineering, Tools: git, docker, VSCode, ...
-   2.4 Erwartungen & Wünsche
+- Vorstellung
+  - Name und Firma
+  - Welche Projektgruppe
+  - Vorkenntnisse: Programmiersprachen, Webengineering, Tools: git, docker, VSCode, ...
+  - Erwartungen & Wünsche
 
 # Vorlesungsinhalt & Lernziele
 

@@ -27,39 +27,43 @@ Für die Bewertung sind die folgenden Punkte relevant (Details siehe unten):
 - Einhaltung vorgestellter Best-Practices
 - Regelmäßige Vorstellung aktueller Zwischenstände
 
+\pagebreak
+
 # Abgabe
 
 Die finale Abgabe erfolgt am Ende des zweiten Theoriesemesters (Juli/August). Ein genauer Termin wird noch bekanntgegeben (mindestens 3 Wochen im Voraus). Alle Termine (auch die für Zwischenabgaben) werden im Moodle als Ankündigung bekannt gegeben.
 
 Das Projekt ist über beide Semester zu bearbeiten, nicht erst kurz vor der Abgabe. Daher gibt es folgende Zwischenabgaben, welche in die Bewertung mit einfließen. Die jeweiligen Termine werden ebenfalls rechtzeitig bekanntgegeben:
 
-1.⁠ ⁠Zwischenabgabe (ca. 2 - 3 Wochen nach dem Start der Vorlesung)
-1.1 Projektidee, GitHub Repository mit (leerem) Projekt, funktionierender GitHub Action für den Build und GitHub Pages (oder einem Äquivalent).
-1.2 Kurz die Idee / das Konzept der Anwendung mit Mockups, Wireframes, Zeichnungen vorstellen
-1.3 Präsentation ca. 5 - 10 Minuten pro Gruppe (zeigen dass alles geforderte da ist und funktioniert)
+- 1.⁠ ⁠Zwischenabgabe (ca. 2 - 3 Wochen nach dem Start der Vorlesung)
 
-2.⁠ ⁠Zwischenabgabe am Ende des ersten Semesters
-2.1 Inhalt ist je nach gewähltem Projekt vorgegeben (nur Frontend)
-2.2 Präsentation ca. 10 Minuten pro Gruppe
+  - Projektidee, GitHub Repository mit (leerem) Projekt, funktionierender GitHub Action für den Build und GitHub Pages (oder einem Äquivalent).
+  - Kurz die Idee / das Konzept der Anwendung mit Mockups, Wireframes, Zeichnungen vorstellen
+  - Präsentation ca. 5 - 10 Minuten pro Gruppe (zeigen dass alles geforderte da ist und funktioniert)
 
-3.⁠ ⁠Zwischenabgabe am Anfang des zweiten Semesters
-3.1 Inhalt ist je nach gewähltem Projekt vorgegeben (nur Frontend)
-3.2 Festlegen der Backend Technologien (Typescript ist Pflicht)
-3.3 Präsentation ca. 10 Minuten pro Gruppe
+- 2.⁠ ⁠Zwischenabgabe am Ende des ersten Semesters
 
-4.⁠ Finale Präsentation und Abgabe Quellcode + Dokumentation (15 Minuten pro Gruppe), genauer Termin folgt, Klausurwoche
+  - Inhalt ist je nach gewähltem Projekt vorgegeben (nur Frontend)
+  - Präsentation ca. 10 Minuten pro Gruppe
+
+- 3.⁠ ⁠Zwischenabgabe am Anfang des zweiten Semesters
+
+  - Inhalt ist je nach gewähltem Projekt vorgegeben (nur Frontend)
+  - Festlegen der Backend Technologien (Typescript ist Pflicht)
+  - Präsentation ca. 10 Minuten pro Gruppe
+
+- Finale Präsentation und Abgabe Quellcode + Dokumentation (15 Minuten pro Gruppe), genauer Termin folgt, Klausurwoche
 
 ## Abzugebende Artefakte
 
 Die Bewertung im Fach Webengineering bezieht sich nur auf die technischen Aspekte der Umsetzung.
 Dazu ist das **vollständige Git-Repository** abzugeben.
-Die Abgabe erfolgt entweder als Zip/Tar per Mail oder per Freischaltung der Accounts `lukaspanni` und `pa-ssch` für das Repository auf GitHub (Leserechte reichen aus).
-Bei Abgabe per GitHub bitte trotzdem eine kurze Mail zur Erinnerung.
+Die Abgabe erfolgt entweder als Zip/Tar im Moodle oder per Freischaltung der Accounts `lukaspanni` und `pa-ssch` für das Repository auf GitHub (Leserechte reichen aus).
+Bei Abgabe per GitHub muss trotzdem die Abgabe im Moodle gemacht werden.
 Für die Bewertung brauchen wir nur eure Matrikelnummern - keine Namen.
-Ihr müsst eure Klarnamen nicht über Usernamen auf GitHub oder Namen + E-Mail Adressen der Committer in der Git-History preisgeben.
-Solange wir nachvollziehen können, welche Matrikelnummer zu welchem Commit und welchem Code gehört reicht das.
+Klarnamen werden nicht benötigt und müssen daher nicht über Usernamen auf GitHub oder Namen + E-Mail Adressen der Committer in der Git-History preisgegeben werden. Solange wir nachvollziehen können, welche Matrikelnummer zu welchem Commit und welchem Code gehört reicht das.
 
-Hinweis: ihr könnt bei Commits gerne mehrere Autoren angeben (siehe [Doku](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)), solange noch genügend Code/Commits einer einzigen Person zugeordnet werden kann.
+Hinweis: Man kann bei Commits auch gerne mehrere Autoren angeben (siehe [Doku](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)).
 
 Das Repository muss enthalten:
 
@@ -69,7 +73,7 @@ Das Repository muss enthalten:
 Die Dokumentation muss einige Punkte zwingend enthalten, da sie zentraler Bestandteil der Bewertung ist. Grundsätzlich bewerten wir zuerst die Dokmumentation und prüfen dann, abhängig davon, ob das Projekt wirklich so wie beschrieben funktioniert. Das heißt: **Nur was in der Dokumentation beschrieben ist wird bewertet**. Wenn eine Anforderung im Projekt erfüllt, jedoch nicht in der Dokumentation beschrieben wurde, kann dieser Aspekt leider nicht mit in die Bewertung einfliesen.
 
 - Kurze Dokumentation, was die Anwendung kann und wie sie zu verwenden / bedienen ist (z. B. mit Screenshots und kurzen Beschreibungen dazu)
-- Anweisungen zur Vorbereitung der Entwicklungsumgebung: ihr könnt nicht davon ausgehen, dass wir alle Tools bereits installiert haben.
+- Anweisungen zur Vorbereitung der Entwicklungsumgebung: Alles was installiert / gestartet werden mus, damit das Projekt lokal ausführbar ist.
   - Daher ist zunächst zu dokumentieren welche Tools benötigt werden und wie diese installiert werden können (am besten Setup-Skript bereitstellen)
   - Folgende Tools können vorausgesetzt werden und dürfen in einem Setup-Skript genutzt werden: `docker, node, npm, bash/Powershell-Core`
   - Die Anwendung darf nicht von einem konkreten Betriebssystem abhängen
@@ -79,6 +83,8 @@ Die Dokumentation muss einige Punkte zwingend enthalten, da sie zentraler Bestan
 - Dokumentation der Eigenleistung: Jede Person muss eine Funktion Ende-zu-Ende (gesmater Frontend + Backend-Code) umsetzen und entsprechend dokumentieren.
   - Der Umfang einer "Funktion" ist abhängig vom konkreten Projekt, z.B. für ToDo-Anwendung: Login/Logout, Erstellen von ToDo's, Anzeige von ToDo's (z.B. auch verschiedene Oberflächen), ...
   - Die Dokumentation umfasst die Beschreibung der Funktion, die Einbindung in das Gesamtprojekt, die Angabe des entwickelten Codes, die zugrundeliegenden Ideen und die Funktionsweise, Entscheidungen, die bei der Entwicklung getroffen wurden, ...
+
+\pagebreak
 
 # Technologische Vorgaben
 
