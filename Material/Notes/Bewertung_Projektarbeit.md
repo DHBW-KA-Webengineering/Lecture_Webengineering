@@ -29,25 +29,25 @@ Für die Bewertung sind die folgenden Punkte relevant (Details siehe unten):
 
 # Abgabe
 
-Die finale Abgabe erfolgt am Ende des zweiten Theoriesemesters (Juli/August).
-Ein genauer Termin wird noch bekanntgegeben (mindestens 3 Wochen im Voraus).
+Die finale Abgabe erfolgt am Ende des zweiten Theoriesemesters (Juli/August). Ein genauer Termin wird noch bekanntgegeben (mindestens 3 Wochen im Voraus).
 
-Das Projekt ist jedoch über beide Semester zu bearbeiten, nicht erst kurz vor der Abgabe. Daher gibt es folgende Zwischenabgaben, welche in die Bewertung mit einfließen. Die jeweiligen Termine werden ebenfalls rechtzeitig bekanntgegeben:
+Das Projekt ist über beide Semester zu bearbeiten, nicht erst kurz vor der Abgabe. Daher gibt es folgende Zwischenabgaben, welche in die Bewertung mit einfließen. Die jeweiligen Termine werden ebenfalls rechtzeitig bekanntgegeben:
 
-1.⁠ ⁠Zwischenabgabe am 03.02.2025: GitHub Repository mit (leerem) Projekt, funktionierender GitHub Action für den Build und GitHub Pages (oder einem Äquivalent).
+1.⁠ ⁠Zwischenabgabe am 03.02.2025
+1.1 Projektidee, GitHub Repository mit (leerem) Projekt, funktionierender GitHub Action für den Build und GitHub Pages (oder einem Äquivalent).
+1.2 Kurz die Idee / das Konzept der Anwendung mit Mockups, Wireframes, Zeichnungen vorstellen
+1.3 Präsentation ca. 5 - 10 Minuten pro Gruppe (zeigen dass alles geforderte da ist und funktioniert)
 
-- Präsentation ca. 5 Minuten pro Gruppe (zeigen dass alles geforderte da ist und funktioniert)
+2.⁠ ⁠Zwischenabgabe am Ende des ersten Semesters
+2.1 Inhalt ist je nach gewähltem Projekt vorgegeben (nur Frontend)
+2.2 Präsentation ca. 10 Minuten pro Gruppe
 
-  2.⁠ ⁠Zwischenabgabe: Zwischenstand (vorgegeben je nach gewähltem Projekt, nur Frontend). Ende des ersten Semesters
+3.⁠ ⁠Zwischenabgabe am Anfang des zweiten Semesters
+3.1 Inhalt ist je nach gewähltem Projekt vorgegeben (nur Frontend)
+3.2 Festlegen der Backend Technologien (Typescript ist Pflicht)
+3.3 Präsentation ca. 10 Minuten pro Gruppe
 
-- Präsentation ca. 10 Minuten pro Gruppe
-
-  3.⁠ ⁠Zwischenabgabe: Zwischenstand (vorgegeben je nach gewähltem Projekt). Anfang des zweiten Semesters.
-
-- Präsentation ca. 10 Minuten pro Gruppe
-- Festlegen der Backend Technologien
-
-  4.⁠ Finale Präsentation und Abgabe Quellcode + Dokumentation (15 Minuten pro Gruppe), genauer Termin folgt, Klausurwoche
+4.⁠ Finale Präsentation und Abgabe Quellcode + Dokumentation (15 Minuten pro Gruppe), genauer Termin folgt, Klausurwoche
 
 ## Abzugebende Artefakte
 
@@ -82,9 +82,9 @@ Die Dokumentation muss einige Punkte zwingend enthalten, da sie zentraler Bestan
 
 # Technologische Vorgaben
 
-- Frontend: TypeScript und React
-- Backend: TypeScript oder C# (wird anfang des zweiten Semesters festgelegt)
-- Weitere Technologien und Bibliotheken nur nach Absprache
+- Frontend: TypeScript und React/Next.js
+- Backend: TypeScript
+- Weitere Technologien und Bibliotheken immer nur nach Absprache
 
 # Bewertungskriterien
 

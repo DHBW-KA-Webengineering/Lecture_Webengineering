@@ -1,6 +1,7 @@
 ---
 title: "Vorlesung Webengineering 1 - Webdesign"
-topic: "Webengineering_1_9"
+topic: "Webengineering_1_2"
+date: 2026-01-13
 author: "Lukas Panni"
 theme: "Berlin"
 colortheme: "dove"

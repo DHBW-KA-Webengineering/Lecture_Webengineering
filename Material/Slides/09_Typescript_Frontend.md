@@ -1,6 +1,6 @@
 ---
 title: "Vorlesung Webengineering 1 - TypeScript"
-topic: "Webengineering_1_8"
+topic: "Webengineering_1_9"
 author: "Lukas Panni"
 theme: "Berlin"
 colortheme: "dove"
@@ -14,7 +14,7 @@ section-titles: true
 plantuml-format: svg
 ...
 
-# TypeScript - das bessere JavaScript
+# TypeScript im Frontend
 
 ## Probleme von JavaScript
 

@@ -1,7 +1,7 @@
 ---
 title: "Vorlesung Webengineering I - HTTP & REST"
-topic: "Webengineering_1_2"
-date: 2025-01-16
+topic: "Webengineering_1_3"
+date: 2026-01-20
 author: "Lukas Panni / Silas Schnurr"
 theme: "Berlin"
 colortheme: "dove"

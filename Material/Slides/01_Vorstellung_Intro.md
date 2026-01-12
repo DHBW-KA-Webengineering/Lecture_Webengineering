@@ -2,6 +2,7 @@
 title: "Vorlesung Webengineering I - Einführung"
 topic: "Webengineering_1_1"
 author: "Lukas Panni"
+date: 2026-01-13
 theme: "Berlin"
 colortheme: "dove"
 fonttheme: "structurebold"
@@ -30,20 +31,15 @@ plantuml-format: svg
 
 ### Dozent Semester 1: Silas Schnurr
 
+- Per Du
+- E-Mail-Adresse: schnurr.silas@edu.dhbw-karlsruhe.de
+
 - 2015 - 2025 bei PeakAvenue in Bühl
   - 2015 - 2018: Ausbildung Fachinformatiker Anwendungsentwicklung
   - 2018 - 2021: _B.Sc._ Informatik - DHBW Karlsruhe
   - 2021 - 2023: _M.Sc._ Informatik - HKA
   - 2023 - 2025: Softwarearchitekt & Teamleiter Softwareentwicklung
 - Seit Dezember 2025 IT-Berater/Lead Developer bei PTA IT-Beratung
-
-(E-Mail-Adresse findet ihr in Moodle)
-
-### Ihr
-
-- Name und Firma
-- Vorkenntnisse: Programmiersprachen, Webengineering, Tools: git, docker, VSCode, ...
-- Erwartungen & Wünsche
 
 ## Ablauf
 
@@ -57,7 +53,7 @@ plantuml-format: svg
   - Keine Vorkenntnisse erforderlich
   - Tools: Texteditor, Browser, Terminal, Git, (evtl. Container-Tools wie Docker)
     - Empfehlung: [VSCode](https://code.visualstudio.com/) / [WebStorm](https://www.jetbrains.com/de-de/webstorm/) (kostenlos für Studenten), Firefox, Docker-Desktop
-  - kleine Hausaufgaben
+  - Hausaufgaben
 
 ## Material
 
@@ -99,11 +95,18 @@ plantuml-format: svg
 - TODO-App
 - Zeiterfassung ("Stechuhr")
 - Karteikarten-Anwendung ("Anki")
-- Snake
-- Pac-Man
-- API Dashboard
 
-\rightarrow{} siehe [Projekt Themen](https://github.com/DHBW-KA-Webengineering/Lecture_Webengineering/blob/2025/Material/Notes/Projekt_Themen.md)
+\rightarrow{} siehe [Projekt Themen](https://github.com/DHBW-KA-Webengineering/Lecture_Webengineering/blob/2026/Material/Notes/Projekt_Themen.md)
+
+## Vorstellung Studis
+
+1. Gruppen für Projekt bilden und Gruppenname festlegen
+
+2. Vorstellung
+   2.1 Name und Firma
+   2.2 Welche Projektgruppe
+   2.3 Vorkenntnisse: Programmiersprachen, Webengineering, Tools: git, docker, VSCode, ...
+   2.4 Erwartungen & Wünsche
 
 # Vorlesungsinhalt & Lernziele
 
@@ -114,20 +117,13 @@ plantuml-format: svg
 - Erstellen einfacher Webanwendungen
 - Grundlagen Webdesign & Mobile Webdesign
 
-## Vorlesungsinhalt / Agenda (vorläufig)
+## Vorlesungsinhalte Semester 1
 
-- Grundlagen "Web" & Webanwendungen \rightarrow{} _ab heute_
-  - HTTP & REST
-- Einfache Webanwendungen
-  - HTML
-  - CSS
-- Einführung Webdesign
-- Dynamische Webanwendungen
-  - JavaScript + Intro TypeScript
-  - Interaktion Client/Server
-- Fortgeschrittene Themen
-  - Architektur moderner Webanwendungen
-  - Security: Angriffe, Best-Practices
+1. Einführung & Webdesign \rightarrow{} _heute_
+2. Grundlagen Internet & Webanwendungen: HTTP & REST
+3. Einfache Webanwendungen: HTML & CSS
+4. Dynamische Webanwendungen (JavaScript, React/Next.js, Typescript)
+5. Architektur moderner Webanwendungen
 
 # Einführung: Webanwendungen
 
@@ -172,3 +168,4 @@ plantuml-format: svg
   - Antwort: 200 OK, HTML-Code, CSS-Code
 
 - Was passiert bei komplexeren Websites?
+- Gibt es noch weitere "Haltestellen" bei einem Webseitenaufruf?
