@@ -1,6 +1,6 @@
 ---
 title: Übungsaufgabe HTTP
-date: 2025-02-03
+date: 2025-01-20
 lang: de-DE
 author: "Silas Schnurr"
 ...
@@ -59,6 +59,31 @@ Beschreiben Sie für jede Ressource:
   - Wie könnte eine typische Response aussehen?
 
 Es reicht aus, vereinfachte Beispiel-Payloads anzugeben.
+
+## Aufgabe 3
+
+### HTTP als zustandsloses Protokoll
+
+Erläutern Sie, was es bedeutet, dass HTTP ein zustandsloses Protokoll ist.
+Welche Vorteile ergeben sich daraus für die Skalierbarkeit von Webanwendungen und welche Probleme entstehen dadurch für typische Anwendungsfälle wie Authentifizierung?
+
+### REST-Architekturstil
+
+Beschreiben Sie ausführlich die grundlegenden Prinzipien des REST-Architekturstils.
+Gehen Sie dabei jeweils darauf ein, was jedes Prinzip bedeutet und warum es
+wichtig ist.
+
+### Zustandsverwaltung in REST
+
+Vergleichen Sie die drei im Skript beschriebenen Möglichkeiten zur Realisierung von Zustand in REST-Architekturen (Zustand im Client, Zustand im Server, Zustand als Ressource).
+Diskutieren Sie jeweils Vor- und Nachteile im Hinblick auf Fehlertoleranz und horizontale Skalierung.
+
+### REST vs. Alternativen
+
+Wählen Sie eine der vorgestellten REST-Alternativen (gRPC, GraphQL, WebSockets oder Server-Sent Events) und vergleichen Sie diese mit REST.
+Gehen Sie dabei auf typische Einsatzszenarien ein und begründen Sie, warum die gewählte Alternative dort besser geeignet ist als REST.
+
+### Theoretische Fragen
 
 ## Information: Einordnung in die Softwareentwicklung
 
