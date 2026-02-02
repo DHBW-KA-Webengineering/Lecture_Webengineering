@@ -1,6 +1,6 @@
 ---
 title: Übungsaufgabe HTTP
-date: 2025-01-20
+date: 2026-01-20
 lang: de-DE
 author: "Silas Schnurr"
 ...
@@ -82,8 +82,6 @@ Diskutieren Sie jeweils Vor- und Nachteile im Hinblick auf Fehlertoleranz und ho
 
 Wählen Sie eine der vorgestellten REST-Alternativen (gRPC, GraphQL, WebSockets oder Server-Sent Events) und vergleichen Sie diese mit REST.
 Gehen Sie dabei auf typische Einsatzszenarien ein und begründen Sie, warum die gewählte Alternative dort besser geeignet ist als REST.
-
-### Theoretische Fragen
 
 ## Information: Einordnung in die Softwareentwicklung
 

@@ -1,6 +1,6 @@
 ---
 title: Aufgabe Webdesign
-date: 2025-02-13
+date: 2026-02-13
 lang: de-DE
 author: "Silas Schnurr"
 ...

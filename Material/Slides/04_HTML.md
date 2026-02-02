@@ -1,7 +1,7 @@
 ---
 title: "Vorlesung Webengineering I - HTML"
 topic: "Webengineering_1_4"
-date: 2025-01-23
+date: 2026-02-03
 author: "Lukas Panni"
 theme: "Berlin"
 colortheme: "dove"
@@ -136,7 +136,6 @@ plantuml-format: svg
 ## Elemente: Zeilenumbruch + Trennlinie
 
 - `<br>` (br = break)
-
   - Zeilenumbruch, nachfolgende Elemente in nächster Zeile
 
 - `<hr>` (hr = horizontal ruler)
