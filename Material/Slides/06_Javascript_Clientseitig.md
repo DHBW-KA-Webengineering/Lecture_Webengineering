@@ -1,6 +1,6 @@
 ---
 title: "Vorlesung Webengineering 1 - Dynamische Webseiten Clientseitig"
-topic: "Webengineering_1_7"
+topic: "Webengineering_1_6"
 author: "Lukas Panni"
 theme: "Berlin"
 colortheme: "dove"
@@ -260,7 +260,6 @@ function handler(event) {
 ## Event-Handler setzen
 
 - Event-Handler können auch direkt im HTML-Code gesetzt werden
-
   - Attribute `onclick`, `onchange`, `onkeyup`, ...
   - `this` ist das auslösende Element
 

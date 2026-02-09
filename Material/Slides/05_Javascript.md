@@ -1,6 +1,7 @@
 ---
 title: "Vorlesung Webengineering 1 - JavaScript"
-topic: "Webengineering_1_6"
+topic: "Webengineering_1_5"
+date: 2026-02-10
 author: "Lukas Panni"
 theme: "Berlin"
 colortheme: "dove"

@@ -1,6 +1,6 @@
 ---
 title: "Vorlesung Webengineering 1 - Next.js"
-topic: "Webengineering_1_8"
+topic: "Webengineering_1_7"
 author: "Silas Schnurr"
 theme: "Berlin"
 colortheme: "dove"

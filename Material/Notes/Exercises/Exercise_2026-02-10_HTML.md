@@ -1,6 +1,6 @@
 ---
 title: Übungsaufgabe HTML
-date: 2026-02-03
+date: 2026-02-10
 lang: de-DE
 author: "Silas Schnurr"
 ...
