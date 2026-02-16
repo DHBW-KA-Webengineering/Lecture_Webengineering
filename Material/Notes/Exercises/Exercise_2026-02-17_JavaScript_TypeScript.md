@@ -1,9 +1,11 @@
 ---
-title: Übungsaufgabe JavaScript
+title: Übungsaufgabe JavaScript und TypeScript
 date: 2026-02-16
 lang: de-DE
 author: "Silas Schnurr"
 ...
+
+\clearpage
 
 # Übungsaufgabe JavaScript
 
