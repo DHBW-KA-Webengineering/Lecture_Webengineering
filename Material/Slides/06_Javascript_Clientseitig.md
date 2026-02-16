@@ -1,6 +1,7 @@
 ---
 title: "Vorlesung Webengineering 1 - Dynamische Webseiten Clientseitig"
 topic: "Webengineering_1_6"
+date: 2026-02-17
 author: "Lukas Panni"
 theme: "Berlin"
 colortheme: "dove"

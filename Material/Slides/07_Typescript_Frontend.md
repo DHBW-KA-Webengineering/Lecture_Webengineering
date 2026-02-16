@@ -1,6 +1,7 @@
 ---
 title: "Vorlesung Webengineering 1 - TypeScript"
-topic: "Webengineering_1_9"
+topic: "Webengineering_1_7"
+date: 2026-02-17
 author: "Lukas Panni"
 theme: "Berlin"
 colortheme: "dove"
@@ -187,7 +188,6 @@ Beispiel [`typescript-classes.ts`](https://github.com/TINF23B5-Webengineering/Le
 ## TypeScript Features - weitere Typfeatures (1)
 
 - Definition von neuen Typen (Typalias), insbesondere für komplexe Typen
-
   - `type <name> = <typ>`
 
 - Kombination mehrerer Typen zu neuem komplexeren Typ

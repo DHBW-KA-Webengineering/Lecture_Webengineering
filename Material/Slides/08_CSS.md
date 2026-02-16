@@ -1,6 +1,7 @@
 ---
 title: "Vorlesung Webengineering 1 - CSS"
 topic: "Webengineering_1_8"
+date: 2026-02-18
 author: "Lukas Panni"
 theme: "Berlin"
 colortheme: "dove"

@@ -1,6 +1,7 @@
 ---
 title: "Vorlesung Webengineering 1 - HTML Formulare"
-topic: "Webengineering_1_10"
+topic: "Webengineering_1_9"
+date: 2026-02-18
 author: "Lukas Panni"
 theme: "Berlin"
 colortheme: "dove"
@@ -177,7 +178,6 @@ Noch weitere, siehe [MDN/input#input_types](https://developer.mozilla.org/en-US/
   - `type`-Attribut: `submit`, `reset`, `button`
   - Inhalt des Elements als Beschriftung
 - `<input>`-Element
-
   - `type`-Attribut: `submit`, `reset`
   - `value`-Attribut als Beschriftung
   - Automatische Lokalisierung der Beschriftung
