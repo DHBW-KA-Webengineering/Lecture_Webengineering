@@ -350,11 +350,11 @@ console.log(response.status); // -> 404
 - Leistungsoptimierung
 - Skalierbarkeit
 
-## Angular, React, Vue und Svelte - Gemeinsamkeiten
+## Angular, React und Vue - Gemeinsamkeiten
 
 - Komponentenbasierte Architektur: Sie alle nutzen Komponenten als Bausteine für die Benutzeroberfläche
 - Reaktivität: Jedes Framework bietet Mechanismen zur automatischen Aktualisierung der Benutzeroberfläche bei Datenänderungen
-- Virtual DOM oder ähnliche Optimierungen: Mit Ausnahme von Svelte verwenden alle eine Form des Virtual DOM oder ähnliche Techniken zur Leistungsoptimierung
+- Virtual DOM oder ähnliche Optimierungen: alle Frameworks verwenden eine Form des Virtual DOM oder ähnliche Techniken zur Leistungsoptimierung
 
 ## Angular - Allgemein
 
