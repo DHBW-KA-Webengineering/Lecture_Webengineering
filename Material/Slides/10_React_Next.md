@@ -49,6 +49,7 @@ plantuml-format: svg
 - `npm run dev` im Projektverzeichnis ausführen
 
 > Hinweis: Node muss installiert sein.
+
 > [Referenz von nextjs.org](https://nextjs.org/docs/app/getting-started/installation)
 
 ## Projektstruktur
@@ -76,13 +77,11 @@ Eine Komponente ist eine JavaScript-Funktion, die props (Eigenschaften) als Argu
 
 ```jsx
 import React from "react";
-
 function SimpleComponent() {
-  const greeting = "Hallo, React!";
+  const greeting = "Hallo, React! ";
   return (
     <div>
-      <h1>{greeting}</h1>
-      <p>Dies ist eine einfache React-Komponente mit JSX.</p>
+      <h1>{greeting}</h1> Dies ist eine einfache React-Komponente mit JSX.
     </div>
   );
 }
@@ -101,11 +100,7 @@ export default SimpleComponent;
 
 ```jsx
 import SimpleComponent from "./simple";
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
   return (
     <html lang="de">
       <body>
@@ -114,7 +109,6 @@ export default function RootLayout({
     </html>
   );
 }
-
 ```
 
 ## Props und State
@@ -181,6 +175,8 @@ Die Außenwelt kann zum Beispiel sein:
 Normalerweise kümmert sich React nur um das Darstellen der Oberfläche.
 Mit einem Effekt kann eine Komponente zusätzlich etwas außerhalb von React machen.
 
+## Hooks (5): useEffect
+
 ```jsx
 function ChatRoom({ roomId }) {
   useEffect(() => {
@@ -221,6 +217,8 @@ $primary-color: olive;
 }
 ```
 
+## Styling mit SASS - Beispiel
+
 ```css
 /* CSS */
 .button {
@@ -233,12 +231,16 @@ $primary-color: olive;
 
 # Navigation
 
-## Dateibasiertes Routing
+## Dateibasiertes Routing (1)
 
 - Next.js nutzt dateibasierte Routen: Dateien im app- bzw. pages-Verzeichnis definieren automatisch URL-Routen.
 - Beispiel: Die Datei app/page.tsx (index-Seite) erzeugt die Route /. Darin exportiert man eine React-Komponente als Standard-Export:
 - Layouts (z.B. app/layout.tsx) definieren gemeinsame UI-Elemente (Header, Footer, etc.) für alle oder mehrere Seiten. Layouts behalten beim Navigieren ihren Zustand bei.
-- Unterordner im app-Verzeichnis erzeugen verschachtelte Routen. Beispiel: app/blog/page.tsx entspricht der Route /blog.
+- Unterordner im app-Verzeichnis erzeugen verschachtelte Routen.
+
+## Dateibasiertes Routing (2)
+
+Beispiel: app/blog/page.tsx entspricht der Route /blog.
 
 - app/
   - page.tsx → Route: "/"
@@ -271,12 +273,11 @@ export default function BlogPost({ params }) {
 
 ## Navigation zwischen Seiten
 
-- Zur Navigation zwischen Seiten nutzt man in Next.js die Link-Komponente aus next/link.
+- Zur Navigation zwischen Seiten nutzt man in Next.js die Link-Komponente.
 - Link erweitert das HTML-a-Tag um clientseitiges Routing und Prefetching (im Hintergrund vorgeladene Links).
 
 ```jsx
 import Link from "next/link";
-
 export default function Navbar() {
   return (
     <nav>
@@ -295,10 +296,8 @@ export default function Navbar() {
 
 ```jsx
 import { useRouter } from "next/router";
-
 export default function ReadMore() {
   const router = useRouter();
-
   return (
     <button onClick={() => router.push("/about")}>
       Click here to read more
