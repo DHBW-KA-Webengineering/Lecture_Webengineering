@@ -344,7 +344,7 @@ Problem:
 - HTML bietet nur Standard-Elemente (div, p, button, …)
 - Wiederverwendbare UI-Komponenten nur mit Frameworks (React, Angular, Vue)
 
-\rightArrow{} Frage: Wie können wir wiederverwendbare, gekapselte Komponenten ohne Framework erstellen?
+\rightarrow{} Frage: Wie können wir wiederverwendbare, gekapselte Komponenten ohne Framework erstellen?
 
 ## Definition
 
@@ -487,7 +487,7 @@ Bei großen Single Page Applications:
 - Hohe Abhängigkeiten innerhalb des Frontends
 - Komplexe Deployments
 
-\rightArrow{} Ähnliche Probleme wie beim Backend-Monolithen!
+\rightarrow{} Ähnliche Probleme wie beim Backend-Monolithen!
 
 Idee: Aufteilung des Frontends in kleinere, unabhängige Einheiten.
 
