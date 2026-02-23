@@ -90,7 +90,7 @@ Und natürlich Übersetzung!
 ## Kognitive Grundlagen
 
 - Arbeitsgedächtnis (Kurzzeitgedächtnis)
-  - Geringe Kapazität (7 +/- 2 Chunks)
+  - Geringe Kapazität (4 Chunks)
   - Kurze Verweildauer (wenige Sekunden)
 
 \rightarrow{} Geschickte Gruppierung zur Unterstützung von Chunking, Ablenkungen vermeiden, Fokus auf das Wesentliche
@@ -161,7 +161,6 @@ Affordances:
 - Eigenschaften eines Objekts, die eine bestimmte Nutzung nahelegen
   - z.B. Türklinke, Lichtschalter, Button auf Webseite
 - Design muss Affordances deutlich machen
-
   - z.B. Button muss wie ein Button aussehen, Cursor ändert sich beim Hover, ...
 
 - Probleme durch
@@ -308,7 +307,6 @@ Empfehlungen:
 - Konsistenz ist sehr wichtig
 - Weniger ist oft mehr, keine Angst vor Weißraum
 - Probiert verschiedene Designs aus
-
   - Ein gutes Design entwickelt sich iterativ!
   - Beginnt mit einfachen Skizzen, Wireframes und Prototypen
   - Nutzerfeedback ist wichtig
