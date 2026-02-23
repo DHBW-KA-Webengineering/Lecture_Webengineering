@@ -129,13 +129,11 @@ Klassische Aufgabenverteilung:
 ## MVC Komponenten und Verantwortlichkeiten
 
 - **Model**
-
   - Umfasst Anwendungsdaten (und eventuell Logik zur Änderung dieser)
   - Unabhängig von View und Controller
   - Benachrichtigung der View über Änderungen über Observer-Pattern
 
 - **View**
-
   - Anzeige der Daten
   - Minimale Logik, Fokus auf Präsentation
 
@@ -147,7 +145,6 @@ Klassische Aufgabenverteilung:
 ## MVC in Webanwendungen (1)
 
 - Einfache Zuordnung von MVC-Komponenten zu Schichten
-
   - Model: Datenbank
   - View: HTML-Seite im Browser
   - Controller: Webserver
@@ -338,6 +335,236 @@ Auch nicht frei von Problemen:
 - **Alternative**: Frameworks für hybride Apps (Mix aus nativer App und Webanwendung)
   - Capacitor, Cordova, React Native, ...
 
+# Webcomponents
+
+## Motivation
+
+Problem:
+
+- HTML bietet nur Standard-Elemente (div, p, button, …)
+- Wiederverwendbare UI-Komponenten nur mit Frameworks (React, Angular, Vue)
+
+\rightArrow{} Frage: Wie können wir wiederverwendbare, gekapselte Komponenten ohne Framework erstellen?
+
+## Definition
+
+Web Components sind ein Webstandard zur Erstellung eigener HTML-Elemente.
+
+Basierend auf:
+
+- Custom Elements
+- Shadow DOM
+- HTML Templates
+- ES Modules
+
+## Custom Elements
+
+Ermöglichen es, eigene HTML-Tags zu definieren:
+
+**Registrierung in JavaScript**
+
+```javaScript
+class MyProductCard extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = "<p>Produkt</p>";
+  }
+}
+customElements.define("my-product-card", MyProductCard);
+```
+
+**Verwendung in HTML**
+
+```HTML
+<my-product-card></my-product-card>
+```
+
+## Shadow DOM
+
+Probleme beim erstellen von Komponenten mit Standard-HTML:
+
+- CSS ist global
+- Namenskonflikte möglich
+
+Lösung: Verwendung des Shadow DOM
+
+- Starke Isolation einer Komponente durch Kapselung von:
+  - HTML
+  - CSS
+  - JavaScript
+  - Keine Beeinflussung von außen
+
+## Eigenschaften von Web Components
+
+- Framework-unabhängig
+- Standardisiert
+- Wiederverwendbar
+- Kapselbar
+
+## Vorteile
+
+- Kein Framework-Zwang
+- Gute Wiederverwendbarkeit
+- Integration in Microfrontends möglich
+- Technologieneutral
+
+## Nachteile
+
+- Mehr Boilerplate-Code
+- Komplexere Zustandsverwaltung
+- Weniger Komfort als moderne Frameworks
+
+## Einordnung
+
+Web Components sind:
+
+- Eine technische Modularisierungsmöglichkeit
+- Keine vollständige Architektur
+- Häufig Baustein in Microfrontend-Architekturen (dazu später mehr)
+
+# Frontend Build-Prozess und Bundler
+
+## Problemstellung
+
+Moderne Frontends bestehen aus:
+
+- Hunderten JavaScript-Dateien
+- CSS-Dateien
+- Bildern
+- Abhängigkeiten (Libraries - Package.json)
+
+Browser kann zwar ES-Module laden, aber:
+
+- Viele HTTP-Requests
+- Große Datenmengen
+- Langsame Ladezeiten
+
+## Bundler
+
+Bundler sind Werkzeuge, die:
+
+- Quellcode analysieren
+- Abhängigkeiten auflösen
+- Dateien zusammenführen (Bundling)
+- Optimierungen durchführen
+
+## Typische Aufgaben eines Bundlers
+
+- Zusammenfassen von Dateien
+- Minifizierung (Entfernen von Leerzeichen, Kommentaren)
+- Tree Shaking (Entfernen ungenutzten Codes)
+- Code Splitting
+- Transpilierung (z. B. modernes JS → älteres JS)
+- Asset-Optimierung
+
+## Bekannte Bundler
+
+- Webpack
+- Vite
+- Rollup
+
+## Bundling-Prozess (vereinfacht)
+
+1. Einstiegspunkt definieren (z. B. main.js)
+2. Abhängigkeiten analysieren
+3. Abhängigkeitsgraph erstellen
+4. Optimieren
+5. Produktions-Bundle erzeugen
+
+## Code Splitting als Optimierung
+
+Nicht alles auf einmal laden!
+• Aufteilung in mehrere Bundles
+• Dynamisches Nachladen bei Bedarf
+• Wichtig für SPAs und Microfrontends
+
+## Exkurs Microfrontends (1) - Motivation
+
+Bei großen Single Page Applications:
+
+- Sehr große Codebasis
+- Viele Teams
+- Lange Build-Zeiten
+- Hohe Abhängigkeiten innerhalb des Frontends
+- Komplexe Deployments
+
+\rightArrow{} Ähnliche Probleme wie beim Backend-Monolithen!
+
+Idee: Aufteilung des Frontends in kleinere, unabhängige Einheiten.
+
+## Exkurs Microfrontends (2) - Definition
+
+Microfrontends übertragen das Microservice-Prinzip auf das Frontend.
+
+- Zerlegung einer Weboberfläche in mehrere autonome Frontend-Module
+- Jedes Modul hat
+  - eine eigene Codebasis
+  - ein eigenes Deployment
+  - ein eigenes Team
+
+## Exkurs Microfrontends (3) - Architekturprinzip
+
+Analog zu Microservices:
+
+- Lose Kopplung
+- Klare Schnittstellen
+- Unabhängige Deployments
+- Technologische Freiheit möglich
+
+Beispiel:
+
+- Warenkorb-Modul
+- Produktkatalog-Modul
+- Benutzerkonto-Modul
+
+## Exkurs Microfrontends (4) - Integrationsansätze
+
+**Serverseitige Integration**
+
+- Webserver setzt HTML-Fragmente zusammen
+- Klassischer Ansatz (ähnlich MPA)
+
+**Clientseitige Integration**
+
+- JavaScript lädt Module dynamisch nach
+- Häufig bei SPAs
+
+**Edge-/CDN-basierte Integration**
+
+- Zusammensetzung nahe am Nutzer (z. B. CDN)
+
+## Exkurs Microfrontends (5) - Vorteile
+
+- Skalierbarkeit von Entwicklungsteams
+- Kleinere, verständlichere Codebasen
+- Unabhängige Releases
+- Technologiemischung möglich
+
+## Exkurs Microfrontends (6) - Nachteile
+
+- Höhere Komplexität
+- Abstimmung von UI/UX notwendig
+- Gemeinsame Zustandsverwaltung schwierig
+- Performance-Risiken durch Mehrfachladen von Abhängigkeiten
+
+## Exkurs Microfrontends (7) - Sinnvolle Einsatzbereiche
+
+- Großen Organisationen
+- Langlebigen Produkten
+- Mehreren unabhängigen Teams
+- Für kleine Projekte meist überdimensioniert.
+
+## Zusammenhang zwischen Bundler und Deployment
+
+Bundler erzeugen:
+
+- Produktionsoptimierte Artefakte
+- Statische Dateien für:
+  - CDN
+  - Cloud Deployment
+  - Container
+
+siehe Static Site Generation, CDN, Containerisierung
+
 # Deployment
 
 ## Klassisches Deployment
@@ -405,7 +632,6 @@ Mehrere Anwendungen (Webserver-Instanzen) auf einem physischen Server?
   - Basis-Image: Betriebssystem-Tools, Standard-Bibliotheken, ...
   - - Dateien (Binaries, Konfiguration, Daten), die der Container benötigt
 - **Container**: Instanz eines Images
-
   - Eigene, isolierte Umgebung
   - Kann alle Dateien des Images nutzen (Änderungen werden nicht im Image reflektiert)
   - Führt isolierte Prozesse aus (z.B. Webserver)
