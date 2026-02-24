@@ -346,7 +346,7 @@ plantuml-format: svg
   - Browser muss URL abrufen können, URL darf auf andere Webseite verweisen
   - `crossorigin`-Attribut zur Steuerung, inwiefern eventuell benötigte Anmeldedaten mit dem Request gesendet werden
   - \rightarrow{} mehr dazu in einer weiteren Vorlesung, Stichwort: CORS
-- Attribute `width` und `heigth` zur Angabe von Breite / Höhe
+- Attribute `width` und `height` zur Angabe von Breite / Höhe
 
 ## Sonderzeichen
 
