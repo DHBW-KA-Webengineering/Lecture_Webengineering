@@ -387,9 +387,10 @@ Bundler sind Werkzeuge, die:
 ## Code Splitting als Optimierung
 
 Nicht alles auf einmal laden!
-• Aufteilung in mehrere Bundles
-• Dynamisches Nachladen bei Bedarf
-• Wichtig für SPAs und Microfrontends
+
+- Aufteilung in mehrere Bundles
+- Dynamisches Nachladen bei Bedarf
+- Wichtig für SPAs und Microfrontends
 
 ## Exkurs Microfrontends (1) - Motivation
 
@@ -446,25 +447,27 @@ Beispiel:
 
 - Zusammensetzung nahe am Nutzer (z. B. CDN)
 
-## Exkurs Microfrontends (5) - Vorteile
+## Exkurs Microfrontends (5) - Vor- und Nachteile
+
+Vorteile
 
 - Skalierbarkeit von Entwicklungsteams
 - Kleinere, verständlichere Codebasen
 - Unabhängige Releases
 - Technologiemischung möglich
 
-## Exkurs Microfrontends (6) - Nachteile
+Nachteile
 
 - Höhere Komplexität
 - Abstimmung von UI/UX notwendig
 - Gemeinsame Zustandsverwaltung schwierig
 - Performance-Risiken durch Mehrfachladen von Abhängigkeiten
 
-## Exkurs Microfrontends (7) - Sinnvolle Einsatzbereiche
+## Exkurs Microfrontends (6) - Sinnvolle Einsatzbereiche
 
-- Großen Organisationen
-- Langlebigen Produkten
-- Mehreren unabhängigen Teams
+- Große Organisationen
+- Langlebige Produkte
+- Mehrere unabhängigen Teams
 - Für kleine Projekte meist überdimensioniert.
 
 ## Zusammenhang zwischen Bundler und Deployment
