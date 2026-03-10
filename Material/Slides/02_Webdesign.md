@@ -177,7 +177,7 @@ Constraints:
   - Cursor verschwindet, wenn nicht geklickt werden darf
   - Form von Steckverbindungen
 
-Affordances & Constrains betreffen auch für physische Produkte (siehe [Video](https://youtu.be/yY96hTb8WgI))
+Affordances & Constraints betreffen auch für physische Produkte (siehe [Video](https://youtu.be/yY96hTb8WgI))
 
 ## Feedback
 
