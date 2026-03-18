@@ -17,9 +17,9 @@ plantuml-format: svg
 # Wiederholung TypeScript
 
 
-## Basics
+## Grundlagen
 
-- Typprüfung zur Entwicklungszeit, keine Prüfung zur Laufzeit!
+- Typprüfung zur Entwicklungszeit, keine Prüfung zur Laufzeit
 - TypeScript ist ein Superset von JavaScript
   - Gültiges JavaScript ist immer auch gültiges TypeScript
   - Explizite Typangaben sind optional
@@ -43,9 +43,9 @@ function greet(name: string): string {
 Type-Inferenz sorgt dafür, dass viele Typangaben nicht notwendig sind und Typsicherheit trotzdem gegeben ist.
 
 
-## Klassen und Interfaces 
+## Klassen und Interfaces
 
-- Klassen und Interfaces auch zur Strukturierung von Code
+- Klassen und Interfaces dienen auch zur Strukturierung von Code
 - Code-Beispiel: [`typescript-classes.ts`](https://github.com/TINF23B5-Webengineering/Lecture_Code/blob/2025/23_Typescript/typescript-example/typescript-classes.ts)
 - Generics: Typen als Parameter
   - Beispiel: `class List<T> { ... }` zur Beschreibung einer Liste vom Typ `T`, der tatsächliche Typ (z.B. `number`) wird erst bei Instanziierung festgelegt (bzw. automatisch erkannt)
@@ -68,9 +68,9 @@ Type-Inferenz sorgt dafür, dass viele Typangaben nicht notwendig sind und Typsi
 
 ## express mit TypeScript
 
-- [`DefinitelyTyped`-Projekt](https://github.com/DefinitelyTyped/DefinitelyTyped) stellt Typdefinitionen für viele JavaScript-Bibliotheken bereit
+- Das [`DefinitelyTyped`-Projekt](https://github.com/DefinitelyTyped/DefinitelyTyped) stellt Typdefinitionen für viele JavaScript-Bibliotheken bereit
   - Viele Bibliotheken kommen inzwischen direkt mit TypeScript-Unterstützung
-- Installation von typen für express
+- Installation von Typen für express
   - `npm install express @types/express`
 
 ## express mit TypeScript - Beispiel User Router (1)
@@ -116,7 +116,7 @@ router.get("/:id", (request, response) => {
 
 ## Beispiel: Repository Pattern mit TypeScript (1)
 
-- Eventuell relevant für Projektarbeit!
+- Eventuell relevant für die Projektarbeit
 - Repository Pattern: Abstraktion von Datenzugriff
   - Ermöglicht Austausch von Datenquellen (z.B. verschiedene Datenbanksysteme, Mock-Implementierungen)
   - Entkoppelt Datenspeicherung von restlicher Logik
@@ -153,7 +153,7 @@ app.get("/user/:id", (req, response) => {
 
 Erweitert den User Router um eine Implementierung des Repository Pattern. Es sollen die klassischen CRUD Operationen implementiert werden. Als konkrete Implementierung des Repositories reicht ein In-Memory Speicher auf Basis eines Arrays aus.
 
-# Typ-Validierung mit zod
+# Typvalidierung mit zod
 
 ## Input und Typ-Validierung zur Laufzeit mit zod
 
@@ -165,7 +165,7 @@ Erweitert den User Router um eine Implementierung des Repository Pattern. Es sol
 
 ## zod - Version
 
-- Aktuell Umstellung von Major-Version 3 auf 4
+- Aktuell erfolgt der Übergang von Major-Version 3 auf 4
 - In der Umstellungsphase sind beide Versionen parallel verfügbar (Version > 3.25)
   - Import von `zod` importiert Version 3
   - Import von Version 4 über `zod/v4`
@@ -238,7 +238,7 @@ const { success, data, error } = helloWorldSchema.safeParse("");
 
 ## zod - Einschränkungen für Primitive Typen (3)
 
-- Einige string Einschränkungen sind in Version 4 `deprecated`
+- Einige String-Einschraenkungen sind in Version 4 `deprecated`
 - Stattdessen gibt es jetzt die Funktionen `z.email()`, `z.url()`
 - Siehe [zod v4 Dokumentation](https://zod.dev/v4?id=top-level-string-formats) für Details
 
@@ -274,7 +274,7 @@ const userSchema = z.object({
 });
 ```
 
-- zod Schema kann in TypeScript-Typ für Verwendung bei Parameter- und Rückgabetypen konvertiert werden
+- Ein zod-Schema kann in einen TypeScript-Typ fuer Parameter- und Rueckgabetypen umgewandelt werden
   - `type SchemaType = z.infer<typeof schema>`
 - Durch Type-Inference oft nicht nötig
 
@@ -311,7 +311,7 @@ const userSchema = z.object({
   - `refine`: Benutzerdefinierte Validierungsfunktionen
   - ...
 
-- Wenn Input-Validierung benötigt wird, ist zod in der Regel einer eigenen Implementierung vorzuziehen!
+- Wenn Input-Validierung benoetigt wird, ist zod in der Regel einer eigenen Implementierung vorzuziehen
 
 ## zod - Fehlerbehandlung
 
@@ -330,7 +330,7 @@ Erweitert den User Router um eine Implementierung der Input-Validierung mit zod.
 
 ## Theoretische Fragen
 
-- Welche Aufgabe(n) erfüllt die Bibliothek _zod_?
+- Welche Aufgabe(n) erfuellt die Bibliothek _zod_?
 - Erstellen Sie ein einfaches _zod_-Schema für _Message_-Objekte. Jedes Objekt hat eine positive Ganzzahl als _id_ einen nichtleeren Text (_content_) optional einen Liste von Autor-Namen (_authors_) und ein Erstellungsdatum (_createdAt_), das als string übermittelt wird.
 - Warum sollten trotz Verwendung von TypeScript die Datentypen zur Laufzeit validiert werden?
 - Für welche Art von Daten ist Typ-Validierung zur Laufzeit besonders wichtig?
@@ -355,7 +355,7 @@ Erweitert den User Router um eine Implementierung der Input-Validierung mit zod.
 - Ausführen von ESLint: `npx eslint .`
 - Tipp: Script in `package.json` hinzufügen:
   - `"lint": "eslint --fix"` (`--fix` kann bestimmte Probleme direkt lösen) \rightarrow{} `npm run lint`
-- Konfiguration von Regeln und Verahlten in `eslint.config.js` (oder `.mjs`)
+- Konfiguration von Regeln und Verhalten in `eslint.config.js` (oder `.mjs`)
   - Abhängig von Angaben aus dem Setup-Dialog
 
 ## ESLint - Konfiguration TypeScript + Node
@@ -363,7 +363,7 @@ Erweitert den User Router um eine Implementierung der Input-Validierung mit zod.
 - Automatisch erzeugte Konfiguration ist gut für den Einstieg
 - Erweiterte TypeScript-Regeln nutzen tiefergreifende Typ-Informationen von Typescript
   - Sind dadurch mächtiger, aber auch langsamer
-  - Weitere Informationen und Setup: [Doku](https://typescript-eslint.io/getting-started/typed-linting/)
+- Weitere Informationen und Setup: [Doku](https://typescript-eslint.io/getting-started/typed-linting/)
 - Auch hilfreich ist die Config `eslint-config-prettier`, um Probleme bei der Verwendung von `prettier` zur Code-Formatierung zu vermeiden
 - Eine gute Basiskonfiguration (mit passender `tsconfig.json`) ist auch in [Template_Node_Express](https://github.com/DHBW-KA-Webengineering/Template_Node_Express) zu finden
 
@@ -406,8 +406,8 @@ Erweitert den User Router um eine Implementierung der Input-Validierung mit zod.
 - [Vitest](https://vitest.io/) ist ein Test-Framework für JavaScript und TypeScript
   - Einfach und intuitiv zu benutzen
   - Kompatibel mit eventuell schon bekannter Jest-Syntax
-- Installation: `npm install --save-dev vitest` (Installation als Dev-Dependency, da nur zur Entwicklungszeit benötigt)
-  - Ausfürhen von Tests: `npx vitest`
+- Installation: `npm install --save-dev vitest` (als Dev-Dependency, da nur zur Entwicklungszeit benoetigt)
+  - Ausfuehren von Tests: `npx vitest`
     - Standardmäßig werden Tests bei Änderungen automatisch neu ausgeführt
   - Auch hier ein Script in `package.json` sinnvoll: `"test": "vitest"`
     - eventuell kommen weitere flags dazu

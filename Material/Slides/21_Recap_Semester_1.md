@@ -16,20 +16,20 @@ plantuml-format: svg
 
 # Rückblick 1. Semester
 
-# Behandelte Themen
+## Behandelte Themen
 
 ## Was ist eine Webanwendung?
 
-> Eine **Webanwendung** ist eine Anwendung, die Web-Technologien (_HTML_, _CSS_, _JavaScript_) verwendet
+> Eine **Webanwendung** ist eine Anwendung, die Web-Technologien wie _HTML_, _CSS_ und _JavaScript_ verwendet.
 
-Einfache und ausreichende Definition.
+Eine einfache und für den Rückblick ausreichende Definition.
 
 ## Grundlagen Web: HTTP
 
 - = Hypertext Transfer Protocol (HTTP)
-- Übertragung von Daten zwischen Browser & Webserver
+- Übertragung von Daten zwischen Browser und Webserver
 - Zustandslosigkeit / Request-Response-Prinzip: Jede Anfrage ist unabhängig von vorherigen Anfragen
-- Textbasiertes Protokoll, Struktur: Header (mehrere Key-Value Paare) + Body (beliebiger Text)
+- Textbasiertes Protokoll mit Headern (mehrere Key-Value-Paare) und optionalem Body
 
 ## Grundlagen Web: HTTP Request - Response
 
@@ -94,7 +94,7 @@ Content-Type: text/html; charset=utf-8
   - Links und Hypermedia als Steuerungselemente
   - Einheitliche, generische Schnittstellen
   - Möglichkeit verschiedener Repräsentationen
-  - Zustanslose Kommunikation der Komponenten
+- Zustandslose Kommunikation der Komponenten
 
 ## Grundlagen Web: HTML
 
@@ -102,7 +102,7 @@ Content-Type: text/html; charset=utf-8
 - Auszeichnungssprache: beschreibt **Struktur** und **Inhalt**
 - Komponenten: **Elemente** (Tags: `<X> ... </X>`) und **Attribute** (`X="Y"`)
 - Gliederung in _Head_ (Metadaten, `<head>`) und _Body_ (Inhalt `<body>`)
-- Semantische Elemente (z.B. `<header>`, `<footer>`, `<nav>`, `<article>`, `<section>`, `<aside>`, `<main>`) sollten genutzt werden, um Semantik zu verdeutlichen
+- Semantische Elemente (z.B. `<header>`, `<footer>`, `<nav>`, `<article>`, `<section>`, `<aside>`, `<main>`) sollten genutzt werden, um die Bedeutung von Inhalten zu verdeutlichen
 
 ## Grundlagen Web: HTML - Wichtige allgemeine Tags
 
@@ -146,7 +146,7 @@ Content-Type: text/html; charset=utf-8
   - Was wird zusammengehörig wahrgenommen?
   - Wie können Gesetzmäßigkeiten im Design genutzt werden?
 - Gestaltung von Bedienelementen
-  - Affordances & Constraings \rightarrow{} welche Nutzung wird nahegelegt? (sieh Norman-Doors)
+  - Affordances & Constraints \rightarrow{} Welche Nutzung wird nahegelegt? (siehe Norman Doors)
   - Feedback: Sinnvolle Rückmeldungen bei Nutzerinteraktionen
 - Entwurfsprinzipien
 
@@ -184,7 +184,7 @@ Content-Type: text/html; charset=utf-8
 
 <!-- TODO: Webarchitekturen recap -->
 
-# Organisatorisches 2. Semester
+## Organisatorisches 2. Semester
 
 ## Vorlesung
 
@@ -192,10 +192,10 @@ Content-Type: text/html; charset=utf-8
   - i.d.R. 3x 45 min. + 15 min. Pause 
 
 - Vorlesung mit Programmieraufgaben
-  - Keine Vorkenntnisse erforderlich
-  - Tools: Texteditor, Browser, Terminal, Git, (evtl. Container-Tools, i.e. Docker)
-    - Empfehlung: [VSCode](https://code.visualstudio.com/) / [WebStorm](https://www.jetbrains.com/de-de/webstorm/) (kostenlos für Studenten), Firefox, Docker-Desktop
-  - kleine Hausaufgaben
+  - Grundlagen aus dem 1. Semester werden vorausgesetzt
+  - Tools: Texteditor oder IDE, Browser, Terminal, Git und ggf. Container-Tools wie Docker
+    - Empfehlung: [VSCode](https://code.visualstudio.com/) oder [WebStorm](https://www.jetbrains.com/de-de/webstorm/) (kostenlos für Studierende)
+  - Kleine Hausaufgaben zur Vertiefung
 
 ## Material
 
@@ -209,19 +209,19 @@ Content-Type: text/html; charset=utf-8
 
 ## Prüfungsleistungen
 
-### Projektarbeit:
+### Projektarbeit
 
-- Entwicklung einer (kleinen) Webanwendung mit hier gelernten Technologien
-- Gruppenarbeit verpflichtend (3 - 5 Studierende)
-- Dieses Semester: Umsetzung Backend, Frontend sollte bereits vorhanden sein
+- Entwicklung einer kleineren Webanwendung mit den in der Vorlesung behandelten Technologien
+- Gruppenarbeit (3 bis 5 Studierende)
+- In diesem Semester: Umsetzung des Backends, ein Frontend sollte bereits vorhanden sein
 
 
-### Klausur:
+### Klausur
 
 - Klausur (60 min) am Ende dieses Semesters über die Themen **beider** Semester!
 - Beispielaufgaben in Moodle verfügbar
 
-### Note Webengineering:
+### Note Webengineering
 
 - Kombinierte Prüfung:
   - 50 % Projekt (Details siehe [Notes/Bewertung_Projektarbeit](https://github.com/DHBW-KA-Webengineering/Lecture_Webengineering/tree/2025/Material/Notes/Bewertung_Projektarbeit.md))

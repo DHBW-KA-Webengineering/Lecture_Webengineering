@@ -1,5 +1,5 @@
 ---
-title: "Vorlesung Webengineering 1 - Serverseitiges JavaScript mit NodeJS"
+title: "Vorlesung Webengineering 1 - Serverseitiges JavaScript mit Node.js"
 topic: "Webengineering_1_2_3"
 author: "Lukas Panni"
 theme: "Berlin"
@@ -20,15 +20,15 @@ plantuml-format: svg
 
 ### Wie können wir JavaScript außerhalb des Browsers ausführen?
 
-- JavaScript wird nicht kompiliert, sondern zur Laufzeit interpretiert
-- \rightarrow{} Server kann JavaScript nicht direkt ausführen
+- JavaScript wird zur Laufzeit ausgefuehrt
+- \rightarrow{} Dazu wird eine JavaScript-Runtime benötigt
 
 
 ## Node.js (2)
 
-- Open Source (MIT) JavaScript Runtime
+- Open-Source-JavaScript-Runtime (MIT)
   - Ausführung von JavaScript außerhalb des Browsers
-  - \rightarrow{} z.B. Webserver, Desktop
+  - \rightarrow{} z.B. für Webserver, Skripte oder Desktop-Anwendungen
 - Basiert auf V8-Engine des Chromium-Projekts
 - Gut geeignet für Webanwendungen
   - Eventbasiert
@@ -77,24 +77,24 @@ Test-File Line 2
 
 ### Erklärung
 
-- Modul `fs` (File System) wird über require eingebunden und ist über Variable `fs` verfügbar
+- Modul `fs` (File System) wird über `require` eingebunden und ist über die Variable `fs` verfügbar
   - Mehr zu Modulen später
 - Ausgabe `console.log("Start")` wird sofort ausgeführt
 - `fs.readFile` wird mit einer Callback-Funktion aufgerufen
   - Datei lesen ist aufwändig, daher standardmäßig asynchron
-  - Aufgabe wird an Betriebssystem übergeben \rightarrow{} Node.js kann nächste Aufgaben bearbeiten!
-  - Sobald Betriebssystem fertig ist, wird Callback-Funktion mit den Ergebnissen aufgerufen
+  - Aufgabe wird an das Betriebssystem übergeben \rightarrow{} Node.js kann weitere Aufgaben bearbeiten
+  - Sobald das Betriebssystem fertig ist, wird die Callback-Funktion mit den Ergebnissen aufgerufen
 - Ausgabe `console.log("Ende")` wird sofort ausgeführt
 
 ## Node.js Non-Blocking I/O (4)
 
-- Standard-Module für File System, Netzwerk, Timer, ... sind asynchron
+- Viele Standardmodule für Dateisystem, Netzwerk, Timer usw. bieten asynchrone APIs
   - Ähnliche API wie bei `readFile` gezeigt
   - Beim Aufruf wird eine Callback-Funktion übergeben
   - Callback-Funktion wird aufgerufen, sobald die Aufgabe erledigt ist
 - Meist zusätzlich auch synchroner Aufruf möglich
   - z.B. `fs.readFileSync` statt `fs.readFile`
-  - \rightarrow{} Blockiert Node.js bis Aufgabe erledigt ist
+  - \rightarrow{} Blockiert Node.js, bis die Aufgabe erledigt ist
   - \rightarrow{} Am besten vermeiden!
 
 ## Node.js Blocking I/O (1)
@@ -133,7 +133,7 @@ Ende synchron
   - \rightarrow{} Promises sind eine bessere Alternative
 - Ab Node.js 10 ist für `fs` auch eine Promise-basierte API verfügbar
   - Import über `const fs = require("fs").promises;`
-  - Um `await` zu nutzen, muss der Code in einem `async`-Block stehen oder in der `package.json`, `{"type": "module"}` gesetzt werden (dann import über `import { promises } from "fs";`)
+  - Um `await` zu nutzen, muss der Code in einem `async`-Kontext stehen oder als ES-Modul ausgeführt werden (z.B. über `{"type": "module"}` in `package.json`)
 
 ## Node.js Non-Blocking I/O mit Promises (2)
 
@@ -167,7 +167,7 @@ Ende Promise
 ## Node.js HTTP-Server
 
 ```javascript
-import createServer from "http";
+import { createServer } from "node:http";
 
 createServer((request, response) => {
   response.writeHead(200, {
@@ -183,7 +183,7 @@ createServer((request, response) => {
 
 ## Praxisaufgabe 1
 
-Schreibt einen einfachen HTTP-Server, der HTML, CSS und JavaScript-Dateien ausliefern kann.
+Schreibt einen einfachen HTTP-Server, der HTML-, CSS- und JavaScript-Dateien ausliefern kann.
 Der Server soll auf Port 80 laufen und bei einem Aufruf der URL `http://localhost/` oder `http://localhost/index.html` die Datei `index.html` ausliefern.
 Bei einem Aufruf der URL `http://localhost/style.css` soll die Datei `style.css` ausgeliefert werden.
 Analog auch für `/script.js`.
@@ -198,7 +198,7 @@ Argumente von `createServer`: `request`: [http.IncomingMessage](https://nodejs.o
 - Was ist Node.js und wofür wird es verwendet?
 - Erläutern Sie den Unterschied zwischen Blocking und Non-Blocking I/O. Welche Vorteile ergeben sich bei Non-Blocking I/O?
 
-# Modules und Pakckages
+# Module und Packages
 
 ## Module in Node.js
 
@@ -213,7 +213,7 @@ Argumente von `createServer`: `request`: [http.IncomingMessage](https://nodejs.o
 
 ## CommonJS vs. ECMAScript Modules (1)
 
-**CJS**: Standard in Node.js (bei Extension `.js`)
+**CJS**: Historisch lange Standard in Node.js
 
 - Import über `require()` Funktion
   - Import zur Laufzeit möglich (dynamisch)
@@ -221,10 +221,10 @@ Argumente von `createServer`: `request`: [http.IncomingMessage](https://nodejs.o
 
 ## CommonJS vs. ECMAScript Modules (2)
 
-**ESM**: In Node.js über Extension `.mjs` oder `package.json`-Einstellung `{"type": "module"}` aktivierbar
+**ESM**: In Node.js über die Endung `.mjs` oder `{"type": "module"}` in `package.json` aktivierbar
 
 - Import über `import XY` Statement
-  - Kein dynamischer Import
+  - Statische `import`-Syntax; zusätzlich existiert `import()` für dynamische Importe
   - Import einzelner Teile möglich (z.B. `import { readFileSync } from "fs";`)
 - Export über `export` Statement
   - Benannter Export möglich (z.B. `export function XY ...`)
@@ -332,10 +332,10 @@ export default data;
 
 ## express
 
-- Open Source (MIT) Webframework für Node.js
+- Open-Source-Webframework (MIT) für Node.js
   - Leichtgewichtig, flexibel, erweiterbar
   - Weit verbreitet (> 30.000.000 Downloads/Woche)
-  - Besonders für APIs genutzt, kann aber auch als einfacher HTTP-Server genutzt werden
+  - Besonders für APIs genutzt, kann aber auch als einfacher HTTP-Server verwendet werden
 
 Ressourcen:
 
@@ -400,7 +400,7 @@ $ node simple-express-server.js
 
 ```bash
 $ curl localhost
-> Sever funktioniert!
+> Server funktioniert!
 ```
 
 ## express Minimalbeispiel mit ESM (4)
@@ -415,18 +415,18 @@ Grundkonzept in express: **Request Handler** für bestimmte **Routen**
   - `app.METHOD(PATH, HANDLER)`, z.B. `app.get("/", ...)` oder `app.post("/users", ...)`
   - `METHOD`: HTTP-Methode (`GET`, `POST`, `PUT`, `DELETE`, ...)
   - `PATH`: relativer Pfad (`/`, `/users`, ...)
-  - `HANDLER`: Funktion, die aufgerufen wird, wenn die Route aufgerufen wird
+  - `HANDLER`: Funktion, die ausgefuehrt wird, wenn die Route aufgerufen wird
 
 ## express Request Handler (2)
 
 - Parameter für Request Handler:
 
-  - `request`: Anfrage-Objekt (enthält z.B. URL-Pfad, HTTP-Methode, Anfrage-Body, ...)
-  - `response`: Antwort-Objekt (festlegen von z.B. Status-Code, Header, Antwort-Body)
-  - `next`: Nächsten Request Handler ausführen
+  - `request`: Anfrageobjekt (enthält z.B. URL-Pfad, HTTP-Methode und Request-Body)
+  - `response`: Antwortobjekt (legt z.B. Status-Code, Header und Response-Body fest)
+  - `next`: Führt den nächsten Request Handler aus
 
-- \rightarrow{} Mehrere Request Handler für eine Route möglich
-  - Explizit mit `next()` nächsten Request Handler aufrufen
+- \rightarrow{} Mehrere Request Handler pro Route sind möglich
+  - Mit `next()` wird explizit an den nächsten Handler weitergegeben
 
 ## express Request Handler - Antwort erzeugen
 
@@ -478,7 +478,7 @@ app.get(
 - Antwort in `response.locals` speichern
   - Zugriff durch alle Request Handler
   - \rightarrow{} Schrittweiser Aufbau der Antwort
-- `response.send` im letzen Request Handler, danach kann die Antwort nicht mehr verändert werden
+- `response.send` im letzten Request Handler, danach kann die Antwort nicht mehr verändert werden
   - Setzt Header automatisch und sendet Antwort an Client
 - \rightarrow{} Besserer Ansatz, wenn Antwort schrittweise aufgebaut wird und kein Response streaming gewünscht ist.
   - Streaming (Antwort schrittweise senden) erfordert eventuell Anpassungen auf Client-Seite, kann aber vorteilhaft sein (z.B. wenn nicht alle Daten sofort verfügbar sind, bestes Beispiel: KI-Chat-Apps)
@@ -570,7 +570,7 @@ Ohne Dateiendung soll automatisch nach einem Unterordner mit dem angefragten Nam
 ## Theoretische Fragen 
 
 - Was ist _express_ und wofür wird es verwendet?
-- Was ist eine Route im Kontext eines _express_ Webservers? (Welche Komponenten identifizieren ein Route?)
+- Was ist eine Route im Kontext eines _express_-Webservers? Welche Komponenten identifizieren eine Route?
 - Gegeben folgende Route: `app.get("groups/:groupid/members/{:user}", (request, response) => ...)` und folgender HTTP Request `GET /groups/1/members?username=lukas`. Welche URL-Parameter und Query-Parameter sind verfügbar, welche Werte haben sie und wie kann im Request Handler darauf zugegriffen werden?
 - Was muss beim Zugriff auf Query-Parameter generell beachtet werden?
 

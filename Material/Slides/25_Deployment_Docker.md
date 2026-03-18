@@ -48,9 +48,9 @@ Backend:
 
 ## Continuous Integration, Continuous Delivery / Deployment (CI/CD)
 
-- **Continuous Integration (CI)**: Häufiges zusammenführen von Code, Verifikation durch automatisierte Builds und Tests
-- **Continuous Delivery (CD)**: Software so entwickeln, dass sie jederzeit ausgeliefert werden kann (erfordert u.A. CI mit automatisierten Tests)
-- **Continuous Deployment (CD)**: Software wird kontinuierlich automatisiert ausgeliefert (nach erfolgreichen Tests, eventuellen Staging-Umgebungen etc.)
+- **Continuous Integration (CI)**: Häufiges Zusammenführen von Code, verifiziert durch automatisierte Builds und Tests
+- **Continuous Delivery (CD)**: Software so entwickeln, dass sie jederzeit ausgeliefert werden kann (erfordert u.a. CI mit automatisierten Tests)
+- **Continuous Deployment (CD)**: Software wird nach erfolgreichen Tests und ggf. Staging automatisch ausgeliefert
 
 - Vorteile: Schnellere Entwicklungszyklen, geringe Deployment-Risiken, schnelles User-Feedback, ...
 
@@ -68,7 +68,7 @@ Backend:
 ## Serverless Deployment
 
 - **Serverless**: Abstraktion von Servern, Load-Balancing, CDN, ...
-- Keine Verwaltung von Servern, Service übernimmt Infrastruktur 
+- Keine Verwaltung von Servern, der Dienst übernimmt die Infrastruktur
 - Abrechnung nach Nutzung, keine Fixkosten
 - Automatische Skalierung
 - Viele Services bieten auch CI/CD Integration
@@ -80,7 +80,7 @@ Backend:
 - Einfacher Import von Git-Repositories von GitHub, GitLab, Azure Repos, ...
 - Automatischer Build und Deployment bei Änderungen im Repository
 - Keine Verwaltung von Server, Load-Balancing, CDN etc. notwendig
-- Abrechung nach Nutzung, kostenloser Tarif für kleine Projekte ausreichend
+- Abrechnung nach Nutzung, kostenloser Tarif für kleine Projekte meist ausreichend
 
 ## Serverless Deployment Node.js + express Backend - Netlify (2)
 
@@ -122,7 +122,7 @@ Erstellen einer `netlify.toml`-Konfigurationsdatei im Projekt-Root:
 ## Serverless Deployment Node.js + express Backend - Vercel (1)
 
 - [Vercel](https://vercel.com/): Service für Serverless-Deployment für Webanwendungen
-- Viele Features ähnlich zu Netlify: Automatischer Build und Deployment bei Git-Änderungen, keine Server-Verwaltung, ...
+- Viele Features ähnlich zu Netlify: automatischer Build und Deployment bei Git-Änderungen, keine Server-Verwaltung usw.
 - Bessere Integration in GitHub: Deployment-Status einfach im Repository sichtbar, gute Integration in Pull-Requests, ...
 - Kostenloser Tarif reicht auch hier für kleine Projekt aus
 
@@ -139,7 +139,7 @@ Erstellen einer `netlify.toml`-Konfigurationsdatei im Projekt-Root:
 
 ```
 
-## CI / CD für Node.js + express Backend - Vercel (3)
+## Deployment für Node.js + express Backend - Vercel (3)
 
 - Deployment über Web-UI oder Vercel CLI einrichten
   - In Web-UI GitHub-Repository verknüpfen, fertig
@@ -178,7 +178,7 @@ Erstellen einer `netlify.toml`-Konfigurationsdatei im Projekt-Root:
 
 ## Containervirtualisierung Recap (1)
 
-- Grundlagen bekannt aus Kapitel Webarchitekturen - Deployment
+- Grundlagen bekannt aus dem Kapitel Webarchitekturen - Deployment
 - **Container** sind isolierte Umgebungen für Anwendungen
   - Enthalten Anwendungscode, Abhängigkeiten, Laufzeitumgebung
   - Laufen auf einem Host-Betriebssystem
@@ -193,7 +193,7 @@ Erstellen einer `netlify.toml`-Konfigurationsdatei im Projekt-Root:
 ### Installation
 
 - Docker Desktop für [Windows](https://docs.docker.com/desktop/install/windows-install/), [macOS](https://docs.docker.com/desktop/install/mac-install/) und [Linux](https://docs.docker.com/desktop/install/linux-install/)
-  - GUI für Arbeit mit Docker, einfachster Weg Docker (auch CLI) zu installieren
+  - GUI für die Arbeit mit Docker, einfachster Weg, Docker inklusive CLI zu installieren
   - Kommerzielle Nutzung kostenpflichtig!
   - Alternativen: Podman Desktop, Rancher Desktop
 
@@ -247,7 +247,7 @@ CMD ["cat", "test.txt"]
 - Häufige Optionen
   - `-d`: Container im Hintergrund starten
   - `-p <host-port>:<container-port>`: Portweiterleitung
-  - `-v <host-path>:<container-path>`: Volumen-Mounting, Dateien des Hosts im Container verfügbar machen -> Container kann Daten so persistent speichern
+  - `-v <host-path>:<container-path>`: Volume-Mounting, Dateien des Hosts im Container verfuegbar machen -> Container kann Daten so persistent speichern
   - `--rm`: Container nach Beenden automatisch löschen
   - `-it`: Interaktiver Modus, z.B. für Shell-Zugriff / Debugging
 - COMMAND: Befehl, der im Container ausgeführt wird, z.B. `bash` für Shell-Zugriff 
@@ -257,7 +257,7 @@ CMD ["cat", "test.txt"]
 - Docker ermöglicht Containervirtualisierung
 - **Images** sind Vorlagen für **Container**, **Dockerfiles** beschreiben **Images**
 - Docker CLI für Interaktion mit Docker (Bauen, Starten, Stoppen, ...)
-- Vorgefertigte Images aus dem [Docker Hub](https://hub.docker.com/) können genutzt werden
+- Vorgefertigte Images aus dem [Docker Hub](https://hub.docker.com/) koennen genutzt werden
 
 # Deployment von Webanwendungen mit Docker
 
@@ -329,7 +329,7 @@ COPY static/ /usr/share/nginx/html
 
 ## Deployment von REST-APIs (3)
 
-### Dockerfile für REST-API mit Node.js
+### Dockerfile fuer REST-API mit Node.js
 
 ```dockerfile
 FROM node:lts
@@ -341,7 +341,7 @@ CMD ["node", "src/index.js"]
 
 - `node:lts` als Basisimage, bringt Node.js mit
 - `COPY . /app`: Kopiert den Inhalt des aktuellen Verzeichnisses in das Image-Verzeichnis `/app`
-  - Voraussetzung: `npm install` wurde vorher ausgeführt
+  - Voraussetzung: `npm install` wurde vorher ausgefuehrt
 
 ## Deployment von REST-APIs (4)
 
@@ -364,7 +364,7 @@ CMD ["node", "index.js"]
 
 ## Deployment von REST-APIs (5)
 
-### Multi-Stage-Dockerfile - Erklärung
+### Multi-Stage-Dockerfile - Erklaerung
 
 - Trennung von Build- und Laufzeitumgebung
   - Build: Installation von Abhängigkeiten (hier: `express`)

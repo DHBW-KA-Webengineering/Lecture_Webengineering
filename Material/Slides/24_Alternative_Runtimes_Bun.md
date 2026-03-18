@@ -22,7 +22,7 @@ plantuml-format: svg
 
 - Runtime für JavaScript und TypeScript
 - Basiert wie Node.js auf V8-Engine
-- idR. Performanter als Node.js
+- In der Regel performanter als Node.js
 - Standardfunktionalität bereits eingebaut (z.B. HTTP-Server)
 - Direkte Unterstützung von TypeScript
 - Empfehlung: [VSCode-Plugin](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno)
@@ -44,11 +44,11 @@ Ausführen: `deno run --allow-net server.ts`
 
 ## Deno Security
 
-- Least Privilege Principle: Standardmäßig kein Zugriffe auf Dateisystem, Netzwerk, etc.
+- Least-Privilege-Prinzip: standardmäßig keine Zugriffe auf Dateisystem, Netzwerk usw.
   - Benötigte Berechtigungen müssen explizit freigegeben werden
   - Dateisystemzugriff kann auch auf Pfade begrenzt werden
 - Macht Ausnutzen von Schwachstellen für Angreifer schwieriger
-- Nur als zusätzliche Maßnahme, kein Ersatz für Entsicklung von sicherer Software
+- Nur als zusätzliche Maßnahme, kein Ersatz für die Entwicklung sicherer Software
 
 ## Deno Tools
 
@@ -90,7 +90,7 @@ const server = Bun.serve({
 
 ## Bun Tools
 
-- Auch bun hat einige Funktionen direkt integriert:
+- Auch Bun bringt einige Funktionen direkt mit:
   - Package Manager: `bun install/remove`
   - Test-Runner: `bun test`, oft trotzdem bekannte Testframeworks sinnvoll
   - Bundler: `bun build`, Unterstützt Browser und Server-Bundles
@@ -112,20 +112,20 @@ const server = Bun.serve({
 
 ## Warum Bun?
 
-- Für neue TypeScript Projekte häufig sinnvoll
+- Für neue TypeScript-Projekte häufig sinnvoll
   - Keine Kompilation mit `tsc` notwendig
   - In Kombination mit `bun --watch` Funktionalität sehr angenehm für schnelle Iteration
   - Eigener Bundler und Test-Runner
 - Performance-Gewinne können für größere Projekte relevant sein
 
-## Bun TypeScript Projekt setup (1)
+## Bun TypeScript Projekt-Setup (1)
 
 ![bun init](media/bun-init.png){height=70%}
 
-## Bun TypeScript Projekt setup (2)
+## Bun TypeScript Projekt-Setup (2)
 
 - Erstellt automatisch alle nötigen Dateien
-  - `package.json` mit metadaten
+  - `package.json` mit Metadaten
   - `tsconfig.json` für TypeScript-Konfiguration \rightarrow{} erlaubt spätere Kompilation und IDE-Unterstützung
 - `src/index.ts` als Einstiegspunkt
 
@@ -139,9 +139,9 @@ const server = Bun.serve({
   - Viele Funktionen out-of-the-box, weniger zusätzliche Pakete nötig
 - Läuft auch unter Node.js, ist aber nicht unbedingt zu empfehlen
 
-## Elysia setup
+## Elysia Setup
 
-- Neues Projekt auf Basis von offiziellem Template: `bun create elysia app`
+- Neues Projekt auf Basis des offiziellen Templates: `bun create elysia app`
 - Code Beispiel in [`elysia-sample`](https://github.com/TINF23B5-Webengineering/Lecture_Code/tree/2025/24_Alternative_Runtimes/elysia-sample)
 
 ## Sample Server Code
@@ -232,7 +232,7 @@ app.get("/typesafe-id/:id", ({ params: { id } }) => id, {
 - Query-Parameter sind vom Typ `string | undefined`, also nicht immer vorhanden
 
 ```typescript
-app.get("/hello", ({ query }: { name }) => {
+app.get("/hello", ({ query: { name } }) => {
   return `Hello ${name}`;
 });
 ```

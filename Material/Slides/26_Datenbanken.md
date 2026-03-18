@@ -52,7 +52,7 @@ plantuml-format: svg
 
 ## Einfache lokale Datenbank: SQLite
 
-- [SQLite](https://www.sqlite.org/index.html): Einfache relationale Datenbank ohne Server
+- [SQLite](https://www.sqlite.org/index.html): einfache relationale Datenbank ohne separaten Server
 - Daten werden in einer Datei gespeichert, erlaubt einfache Verwaltung von vielen einzelnen Datenbanken
 - Erstellen neuer Datenbank: `sqlite3 mydatabase.db`
   - Noch einfacher mit GUI-Tools wie [DB Browser for SQLite](https://sqlitebrowser.org/)
@@ -130,7 +130,7 @@ Schreibt einige SQL-Abfragen für die oben erstellte Datenbank:
   - Direkt über SQL-Abfragen
   - Über ORM (Object-Relational Mapping) Bibliotheken
 
-- Wenn möglich, sind ORM Bibliotheken zu bevorzugen
+- Wenn möglich, sind ORM-Bibliotheken zu bevorzugen
   - Abstraktion von Datenbank-Details \rightarrow{} DB leichter austauschbar
   - Weitgehender Schutz vor SQL-Injection
   - Definition von Datenmodellen im Code statt in SQL
@@ -158,7 +158,7 @@ Schreibt einige SQL-Abfragen für die oben erstellte Datenbank:
 
 - Siehe [Dokumentation](https://orm.drizzle.team/docs/get-started/bun-sqlite-new)
 - Bun hat eigenen performanten sqlite-Client, der in Drizzle verwendet werden kann
-- Installation benötigter Packages: `bunn add drizzle-orm; bun add -D drizzle-kit @types/bun`
+- Installation benötigter Packages: `bun add drizzle-orm; bun add -D drizzle-kit @types/bun`
 - Ansonsten analog zum Node-Setup, einziger Unterschied ist `import { drizzle } from 'drizzle-orm/bun-sqlite'`
 - Für bun immer zu empfehlen
 
@@ -202,7 +202,7 @@ export default defineConfig({
 
 ## Drizzle - Konfigurationsdatei drizzle.config.ts (2)
 
-- Ort des Datenbank-Schemas (Tabellenstruktur)
+- Ort des Datenbankschemas (Tabellenstruktur)
 - Angabe des Datenbanktyps (hier SQLite) und Verbindungsdetails
 - Konfiguration wird für Drizzle Kit benötigt
   - Tool für Datenbankmigrationen und direkter Interaktion mit der Datenbank
@@ -211,7 +211,7 @@ export default defineConfig({
 
 ## Drizzle Schema - Beziehungen
 
-- Drizzle unterscheidet zwischen One-to-One, One-to-Many und Many-to-Many Beziehungen
+- Drizzle unterscheidet zwischen One-to-One-, One-to-Many- und Many-to-Many-Beziehungen
 - Alle Beziehungsarten können über die `relations` Methode definiert werden
   - `relations` sind keine klassischen Fremdschlüsselbeziehungen, sondern ORM-Beziehungen!
   - Höhere Abstraktionsebene, erlauben einfachere Abfragen
@@ -300,8 +300,8 @@ export const userGroupRelations = relations(userGroup, ({ one }) => ({
 
 ## Drizzle - Abfragen
 
-- Drizzle hat 2 Wege Abfragen zu erstellen
-  - `query` Query-Builder für relationale Abfragen, gut für mehrfach verschachtelte Abfragen
+- Drizzle bietet zwei Wege, Abfragen zu erstellen
+  - `query`-Query-Builder fuer relationale Abfragen, gut fuer mehrfach verschachtelte Abfragen
     - Gut für komplexe Objektstrukturen
     - Stark von SQL abstrahiert
   - SQL-nahe Syntax mit `.select()`, `.insert()`, `.update()`, `.delete()` etc.
