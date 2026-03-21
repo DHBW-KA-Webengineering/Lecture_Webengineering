@@ -7,12 +7,11 @@
     - Datenbank-Anbindung: SQL, ORMs
     - Deployment: Server, Container, Serverless 
     - Web-Security
-- [ ] Ausarbeitung Backend Grundlagen
+- [ ] Ausarbeitung Backend Grundlagen -> 22_Backend_Grundlagen.md
   Warum, Kommunikationswege)
   -> Architektonische Trennung, Wiederholung HTTP, REST. Mocking von Backend für Frontend-Entwicklung
-- [ ] Zusammenfassung Node + alternative Runtimes
-  Inhalte aus Foliensätzen zusammenziehen, Express aus Node trennen
-  Code-Aufgaben für reine Node + Bun Verwendung
+- [ ] Zusammenfassung Node + alternative Runtimes -> 23_Node_Bun.md
+  -> Code-Aufgaben für reine Node + Bun Verwendung
   Fokus auf Bun -> TypeScript Unterstützung, einfacher für Code-Aufgaben
 - [ ] Zusammenfassen und Ausbau Server-Frameworks 
   Input Validierung mit Zod umziehen
