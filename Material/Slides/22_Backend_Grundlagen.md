@@ -268,7 +268,7 @@ Fokus auf CRUD Operationen.
   - Einfacher für Clients
   - Beispiel: Filtern `/users?role=admin` anstatt von `/admins`
   - \rightarrow{} kleiner Unterschied, was als Ressource angesehen wird!
-- Verschiedene queries können kombiniert werden, z.B. `/users?role=admin&loggedIn=true`
+- Verschiedene Queries können kombiniert werden, z.B. `/users?role=admin&loggedIn=true`
 
 ## Nutzung von Query Parametern
 
@@ -370,19 +370,33 @@ Fokus auf CRUD Operationen.
 - Versionierung macht Implementierung deutlich komplexer!
   - Ein gutes API Design im Voraus minimiert spätere Breaking Changes
 
-## Limitierungen von Standard REST APIs
+## Limitierungen von klassischen REST APIs
 
--> Nur Synchrone Kommunikation, Request-Response
-Sammeln was nicht geht, bzw. nicht so gut unterstützt wird
+- Basiert auf **Request-Response Kommunikation**
+  - Client sendet Request \rightarrow{} Server antwortet \rightarrow{} Verbindung endet
+- Typische Limitierungen:
+  - Keine Echtzeit-Updates (z.B. Chat, Live-Daten)
+    - Bzw. ineffizient bei häufigen Updates (Polling notwendig)
+  - Overfetching / Underfetching von Daten, insbesondere bei komplexen Ressourcen
+  - Schwierige Abbildung komplexer Abfragen über Query-Parameter
 
-## Fortgeschrittene HTTP Konzepte
 
-- Streaming (z.B. LLM), Server-Sent Events, CORS, CSP
+## Fortgeschrittene Kommunikations-Konzepte
 
-## Alternative Kommunikationswege
+- HTTP bietet mehr als nur klassisches Request-Response!
+  - Streaming: Antwort kommt nicht auf einmal, sondern Stück für Stück. z.B. LLM Responses
+  - Server-Sent Events (SSE): Server kann einseitig Updates über offen gehaltene Verbindung schicken
+- Websockets
+- GraphQL
 
-- WebSockets (ist eigentlich auch ein HTTP Feature)
-- GraphQL, gRPC
+\rightarrow{} Siehe auch erstes Semester
+
+## Theoretische Fragen
+
+- Erläutere die Nutzung und die Vorteile von Query Parametern im Design von REST APIs.
+- Erkläre, wie große Datenmengen (z.B. viele User) über eine REST API idealerweise bereitgestellt werden sollten.
+- Erläutere verschiedene Wege zur Abbildung von Beziehungen zwischen Ressourcen in REST APIs.
+- Warum ist Versionierung bei APIs sinnvoll?
 
 # Praxis
 
