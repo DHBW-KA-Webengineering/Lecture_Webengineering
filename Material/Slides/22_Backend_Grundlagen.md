@@ -259,14 +259,116 @@ Fokus auf CRUD Operationen.
 
 3 Minuten alleine, dann 3 Minuten Austausch mit Partner, dann gemeinsam sammeln.
 
-# ...
+# Fortgeschrittene Themen API Design
 
-## Fortgeschrittene Themen API Design
+## Spezifischere Anfragen mit Query Parameter
 
-- Pagination, Query parameter (Filter, Suche)
-- Ressourcen Repräsentationen -> JSON, XML, Wiederholung Content Negotiation
-- Abbildung von nicht-hierarchischen Beziehungen
-  - URL-Links vs Nesting vs ID-Referenzen
+- Query Parameter (in URL nach `?`, getrennt durch `&`) erlauben flexiblere Abfragen
+- Erweiterung bestehender Endpunkte anstatt Einführung spezialisierter Endpunkte
+  - Einfacher für Clients
+  - Beispiel: Filtern `/users?role=admin` anstatt von `/admins`
+  - \rightarrow{} kleiner Unterschied, was als Ressource angesehen wird!
+- Verschiedene queries können kombiniert werden, z.B. `/users?role=admin&loggedIn=true`
+
+## Nutzung von Query Parametern
+
+- Filterung: (siehe oben) `/users?role=admin`
+- Suche: `/products?search=macbook`
+  - Üblicherweise weniger streng als Filter (erzwingt keine exakte Übereinstimmung)
+- Sortierung: `/users?sort=createdAt` / `/users?sort=createdAt&direction=desc`
+- Kombination macht eine API sehr flexibel, erhöht aber auch den Implementierungsaufwand im Backend!
+
+
+## Umgang mit großen Datenmengen - Pagination
+
+- Große Collections sollten nicht auf einmal übertragen werden
+  - z.B. fiktiver `/users` bei Instagram \rightarrow{} ~3 Milliarden aktive User
+- Stattdessen kommt **Pagination** zum Einsatz
+  - Daten werden in kleinere Teilmengen (_pages_) aufgeteilt
+  - Umsetzung über Query Parameter z.B. oft `page`, `limit`
+
+## Pagination Beispiel Request/Response
+
+`GET /users?page=1&limit=10`
+
+```json
+{
+  "items": [...],
+  "meta": {
+    "page": 1,
+    "limit": 10,
+    "total": 200
+  }
+}
+```
+
+## Pagination Umsetzung
+
+- Häufig werden bei Pagination zusätzlich zu den Daten (`items` im Beispiel) Metadaten übergeben
+  - Damit kann der Client abschätzen, wie viele Requests er machen muss, um alle abzufragen
+- Ist aber nicht zwingend notwendig
+- Andere Parameter und Ansätze sind möglich, z.B. `count` + `offset`
+
+## Abbildung von Beziehungen (1)
+
+- Beziehungen die auf Hierarchien gemappt werden können: Darstellung über verschachtelte Pfade
+  - `/users/123/orders/815/products/XYZ`
+  - Zugehörigkeit von Produkt zu Bestellung und Bestellung zu User eindeutig
+  - Unübersichtlich bei tiefen Hierarchien
+  - Funktioniert gut bei klaren Zugehörigkeiten 
+  - Schwer für n:m Beziehungen, z.B. User - Role
+
+## Abbildung von Beziehungen (2)
+
+- Für n:m Beziehungen gibt es keine klare Abbildung
+  - Eigene Ressource: `/user-roles` \rightarrow{} passt gut zu REST, nicht intuitiv
+  - Hierarchien: `/users/123/role` & `/roles/1/users` \rightarrow{} keine klare Richtung
+  - Referenz: `/users/123`: `... "roles": [1] ...` \rightarrow{} einfach, kein direkter Zugriff auf andere Ressource!
+- Auch hierarchische Beziehungen werden häufig auch über Referenzen abgebildet:
+  - `users/123`: `... "orders": [815, ...] ...`
+  - `orders/815`: `... "products": [...]`
+  - \rightarrow{} Limitierung der Hierarchie-Tiefe
+
+
+## Abbildung von Beziehungen (3)
+
+- HATEOAS = Hypermedia as the engine of application state
+  - 100% REST, in der Praxis aber wenig verbreitet
+  - Client kann Endpunkte dynamisch discovern und muss sie nicht im Voraus kennen
+
+`/users/123`
+
+```json
+{
+  "id": 123, ...
+  "links": {
+    "orders": "/users/123/orders"
+    ...
+  }
+```
+
+## Wichtige HTTP Status Codes
+
+- Grundlagen sollten bekannt sein
+- Wichtige Erfolgs-Codes außer `200 OK`:
+  - `201 Created`: Ressource erstellt
+  - `204 No Content`: Erfolgreich, aber keine Antwort-Daten
+- Wichtige Error-Codes:
+  - `400 Bad Request`: Ungültige Anfrage (ohne genauen Grund)
+  - `404 Not Found`: Ressource nicht gefunden
+  - `500 Internal Server Error`: Serverfehler (ohne genauen Grund)
+- [Viele weitere Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status)
+  - Standards nutzen, wo möglich!
+
+## Versionierung von APIs
+
+- Software entwickelt sich stetig weiter
+- Nicht immer sind alle Änderungen kompatibel zu älteren Versionen
+- Komplexere APIs sollten versioniert werden!
+  - Typischerweise über URL Pfad: `/v1/users/` und `/v2/users/`
+  - Oder über Query-Parameter: `/users?apiVersion=1`
+- Versionierung macht Implementierung deutlich komplexer!
+  - Ein gutes API Design im Voraus minimiert spätere Breaking Changes
 
 ## Limitierungen von Standard REST APIs
 
