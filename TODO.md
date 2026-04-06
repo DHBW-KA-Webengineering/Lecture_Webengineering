@@ -13,12 +13,14 @@
 - [ ] Zusammenfassung Node + alternative Runtimes -> 23_Node_Bun.md
   -> Code-Aufgaben für reine Node + Bun Verwendung
   Fokus auf Bun -> TypeScript Unterstützung, einfacher für Code-Aufgaben
+
+
 - [ ] Zusammenfassen und Ausbau Server-Frameworks 
   Input Validierung mit Zod umziehen
   Grundlagen klarstellen
   API Strukturen wiederholen -> REST; Datenstrukturen; Error Handling
-- [ ] Überarbeitung Datenbanken
-- [ ] Überarbeitung Deployment
+- [ ] Überarbeitung Datenbanken
+- [ ] Überarbeitung Deployment
   Auslieferung von Frontend, verschwimmende Grenzen zwischen Frontend und Backend mit Server-Rendering, Server Functions etc. 
   Kurze Historie: Multi-Page-Apps, Single-Page-Apps, Server-Rendering
 - [ ] Überarbeitung Web-Security

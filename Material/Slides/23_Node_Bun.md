@@ -464,3 +464,11 @@ const server = Bun.serve({
   - `package.json` mit Metadaten
   - `tsconfig.json` für TypeScript-Konfiguration \rightarrow{} erlaubt spätere Kompilation und IDE-Unterstützung
 - `src/index.ts` als Einstiegspunkt
+
+
+## TODO:
+
+- Simpler Bun Server (https://bun.com/docs/runtime/http/server), Absolutes Basic Backend. Gute Überleitung zu nächster Einheit Backendframeworks
+- Bundling mit Bun (https://bun.com/docs/bundler)
+  - Backend -> TODO
+  - Fullstack -> Siehe 22_Backend_Grundlagen Code Beispiel
