@@ -1,4 +1,4 @@
-- [ ] Reihenfolge: TypeScript Konzepte immer parallel mitziehen, praktische Übungen nicht vergessen! 
+- [x] Reihenfolge: TypeScript Konzepte immer parallel mitziehen, praktische Übungen nicht vergessen! 
     - Wiederholung 
     - Backend Grundlagen 
     - Node + alternative Runtimes, Fokus Bun
@@ -7,7 +7,7 @@
     - Datenbank-Anbindung: SQL, ORMs
     - Deployment: Server, Container, Serverless 
     - Web-Security
-- [ ] Ausarbeitung Backend Grundlagen -> 22_Backend_Grundlagen.md
+- [x] Ausarbeitung Backend Grundlagen -> 22_Backend_Grundlagen.md
   Warum, Kommunikationswege)
   -> Architektonische Trennung, Wiederholung HTTP, REST. Mocking von Backend für Frontend-Entwicklung
 - [ ] Zusammenfassung Node + alternative Runtimes -> 23_Node_Bun.md

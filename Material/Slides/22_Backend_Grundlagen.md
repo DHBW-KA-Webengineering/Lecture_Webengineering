@@ -400,6 +400,49 @@ Fokus auf CRUD Operationen.
 
 # Praxis
 
-## Mocking von Backend für Frontend-Entwicklung
+## Mocking von Backend für Frontend-Entwicklung (1)
 
-## OpenAPI / Swagger
+- Problem:
+  - Frontend und Backend werden oft parallel entwickelt
+  - Backend ist noch nicht fertig oder instabil
+- Lösung:
+  - API Mocks → simuliertes Backend
+- Unabhängige Entwicklung Frontend/Backend
+- Schnellere Iteration durch früheres Testen des Frontends
+
+## Mocking von Backend für Frontend-Entwicklung (2)
+
+- Meist statische Mock-Daten \rightarrow{} JSON-Dateien mit Beispiel-Daten
+  - Bereitstellung über Mock-Server
+  - Bereitstellung direkt im Frontend
+- Datenstrukturen und API Design müssen vorhanden sein
+
+## Mocking von Backend für Frontend-Entwicklung (3)
+
+### Repository Pattern
+
+- Abstraktion von Datenzugriff
+  - Alle Datenzugriffe gegen ein zentrales _Repository_ mit CRUD Operationen
+  - Entkoppelt Datenspeicherung von restlicher Logik
+  - Ermöglicht Austausch der Implementierung: Mock zu realer DB, verschiedene DBs ...
+- Siehe auch Code-Beispiel im Code Repo
+
+## Beispiel: Repository Pattern mit TypeScript (1)
+
+![repository pattern visualization](media/repository-visualization.png){height=80%}
+
+
+## OpenAPI / Swagger (1)
+
+- API ist die Schnittstelle zwischen Frontend + Backend
+  - API muss gut dokumentiert sein, insbesondere, wenn verschiedene Teams beteiligt sind
+- **OpenAPI** als standardisierte API-Beschreibung
+  - Endpunkte, Methoden, Parameter, Datenstrukturen
+  - Gängige Backend Frameworks können OpenAPI Beschreibungen exportieren
+- **Swagger** ist das Tooling für die praktische OpenAPI Nutzung
+  - UI + Editor
+
+## OpenAPI / Swagger (2)
+
+Beispiel Swagger UI: [https://petstore.swagger.io](https://petstore.swagger.io)
+![swagger UI sample](media/swagger-ui-petstore.png){height=60%}
