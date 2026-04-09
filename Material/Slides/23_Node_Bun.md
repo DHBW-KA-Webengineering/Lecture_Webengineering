@@ -255,7 +255,7 @@ In diesem Beispiel ist der Unterschied noch nicht so groß, aber der Trend ist k
 
 
 
-## Praxisaufgabe 1
+## Aufgabe 1
 
 Schreibt einen einfachen HTTP-Server, der HTML-, CSS- und JavaScript-Dateien ausliefern kann.
 Der Server soll auf Port 80 laufen und bei einem Aufruf der URL `http://localhost/` oder `http://localhost/index.html` die Datei `index.html` ausliefern.
@@ -420,20 +420,9 @@ export default data;
 ## Bun (2)
 
 - [Installation](https://bun.sh/docs/installation):
-
   - MacOS/Linux: `curl -fsSL https://bun.sh/install | bash`
   - Windows: `powershell -c "irm bun.sh/install.ps1|iex"`
 
-- Einfacher Webserver:
-
-```typescript
-const server = Bun.serve({
-  port: 8000,
-  fetch(request) {
-    return new Response("Welcome to Bun!");
-  },
-});
-```
 
 ## Bun (3)
 
@@ -443,7 +432,6 @@ const server = Bun.serve({
   - Bundler: `bun build`, Unterstützt Browser und Server-Bundles
     - Erlaubt auch die Erstellung von ausführbaren Dateien, die ohne separate Runtime genutzt werden können
 - Inzwischen aufgekauft von Anthropic, Bun ist die Basis für die Claude Code CLI
-
 
 
 ## Warum Bun?
@@ -465,10 +453,85 @@ const server = Bun.serve({
   - `tsconfig.json` für TypeScript-Konfiguration \rightarrow{} erlaubt spätere Kompilation und IDE-Unterstützung
 - `src/index.ts` als Einstiegspunkt
 
+## Bun HTTP Server (1)
 
-## TODO:
+```typescript
+Bun.serve({
+  port: 8000,
+  fetch(request) {
+    return new Response("Welcome to Bun!");
+  },
+});
+```
+Ganz einfacher HTTP Server. 
+`GET http://localhost:8000/` -> `HTTP/1.1 200 OK`
+`Welcome to Bun!`
 
-- Simpler Bun Server (https://bun.com/docs/runtime/http/server), Absolutes Basic Backend. Gute Überleitung zu nächster Einheit Backendframeworks
-- Bundling mit Bun (https://bun.com/docs/bundler)
-  - Backend -> TODO
-  - Fullstack -> Siehe 22_Backend_Grundlagen Code Beispiel
+## Bun HTTP Server (2)
+
+Ab Bun 1.2.3 bietet `Bun.serve` auch Unterstützung für Request-Handler für verschiedene Routen:
+
+```typescript
+Bun.serve({
+  routes: {
+    "/api/status": new Response("OK"),
+    "/api/users/:id": req => {
+      return new Response(`Hello User ${req.params.id}!`);
+    },
+...
+```
+
+## Bun HTTP Server (3)
+
+Und auch Unterstützung für verschiedene HTTP-Methoden:
+```typescript
+    "/api/posts": {
+      GET: () => new Response("List posts"),
+      POST: async req => {
+        const body = await req.json();
+        return Response.json({ created: true, ...body });
+      },
+    },
+```
+## Bun HTTP Server (4)
+
+- Reicht aus für einfache APIs
+  - Route definiert als (vereinfacht): `Response | Function<Response> | Record<HTTPMethod, Response | Function<Response>>`
+  - Pfad-Parameter werden über `:<VAR>` definiert und sind über `request.params.VAR` abrufbar
+
+## Aufgabe 2
+
+Schreibt einen HTTP-Server mit Bun, der eine einfache `count` API bereitstellt:
+- GET `/api/count`: aktuelle Zahl (initial 0)
+- POST `/api/count`: Zahl um 1 erhöhen und neue Zahl zurückgeben
+- DELETE `/api/count`: Zahl auf 0 zurücksetzen und neue Zahl zurückgeben
+- PUT `/api/count`: Zahl auf übergebenen Wert setzen und neue Zahl zurückgeben (z.B. `{"value": 42}`)
+
+Zeit: 20 min.
+
+## Bun HTML Server
+
+- Über `Bun.serve` können auch HTML Dateien einfach ausgeliefert werden
+- Unterstützt _Hot Module Replacement (HMR)_ für Entwicklung
+  - Änderungen an HTML, CSS oder JavaScript Dateien werden automatisch erkannt und die Seite im Browser aktualisiert
+- Import von HTML Dateien als Module: `import page from "./index.html";`
+  - Direkt in route ausliefern: `"/": page`
+- Erlaubt auch komplexere Setups, z.B. bereitstellen einer React-Anwendung
+  - Schon gesehen bei [Repository Pattern](./22_Backend_Grundlagen.md#repository-pattern) in der letzten Einheit
+
+## Bun Bundler (1)
+
+- Frontend Frameworks und die Verwendung von TypeScript im Backend erfordern einen Build-Step damit sie im Browser oder in Node.js lauffähig sind
+- Buns Bundler unterstützt sowohl Browser- als auch Server-Bundles (und auch Full-Stack Bundles)
+  - TypeScript zu JavaScript Transpilation
+  - Import-Auflösung (TypeScript-Module, npm Packages, ...)
+  - Minifikation 
+  - Auflösung von Bun spezifischen APIs für die Zielumgebung (nicht notwendig, wenn Ziel-Runtime=Bun)
+- Erlaubt bundeln der Bun Runtime (`--compile`) \rightarrow{} ergibt standalone executable
+
+## Bun Bundler (2)
+
+- Einfaches bundeln `bun build src/index.ts --outdir dist`
+  - Entrypoint `src/index.ts` wird gebaut und Ergebnisse (potenziell mehrere Dateien) im Ordner `dist` abgelegt
+- Nur eine Ausgabedatei: `bun build src/index.ts --outfile dist/index.js`
+- Kompilieren in ausführbare Datei: `bun build src/index.ts --outfile dist/index --compile`

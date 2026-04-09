@@ -10,7 +10,7 @@
 - [x] Ausarbeitung Backend Grundlagen -> 22_Backend_Grundlagen.md
   Warum, Kommunikationswege)
   -> Architektonische Trennung, Wiederholung HTTP, REST. Mocking von Backend für Frontend-Entwicklung
-- [ ] Zusammenfassung Node + alternative Runtimes -> 23_Node_Bun.md
+- [x] Zusammenfassung Node + alternative Runtimes -> 23_Node_Bun.md
   -> Code-Aufgaben für reine Node + Bun Verwendung
   Fokus auf Bun -> TypeScript Unterstützung, einfacher für Code-Aufgaben
 
@@ -31,3 +31,7 @@
   - Theme
   - Fonts, Schriftgrößen
   - Zeilenabstände
+
+
+
+  opencode -s ses_2fe2528e0ffeiwqwLKjXEF6DVb
