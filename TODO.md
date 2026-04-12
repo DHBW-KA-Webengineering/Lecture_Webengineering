@@ -19,6 +19,7 @@
   Input Validierung mit Zod umziehen
   Grundlagen klarstellen
   API Strukturen wiederholen -> REST; Datenstrukturen; Error Handling
+
 - [ ] Überarbeitung Datenbanken
 - [ ] Überarbeitung Deployment
   Auslieferung von Frontend, verschwimmende Grenzen zwischen Frontend und Backend mit Server-Rendering, Server Functions etc. 

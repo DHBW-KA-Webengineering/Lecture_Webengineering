@@ -51,6 +51,10 @@ plantuml-format: svg
 - Modularisierung und Strukturierung
   - Aufteilung in Module, z.B. für verschiedene Ressourcen oder Funktionalitäten
 
+## TODO: 
+- Wiederholung REST Konventionen API Design mit express Aufgabe
+- Input Validation mit Zod
+- Response Formate, Wiederholung Content Negotiation, Error Handling
 
 ## Beispiel Backend-Frameworks
 
@@ -351,8 +355,6 @@ Die Funktion `db.getUserById` erwartet eine User-ID (Zahl) und gibt ein User-Obj
 Nennen Sie zwei mögliche Verbesserungen für diesen Code-Ausschnitt.
 Hinweis: Denken Sie auch an korrekte Verwendung von HTTP.
 
-# HIER WEITER
-
 ## express Middleware
 
 ## Middleware (1)
@@ -377,7 +379,7 @@ Siehe dazu auch diese Antwort auf Stack Overflow: [a/58925330](https://stackover
 
 ## Middleware (3)
 
-```javascript
+```typescript
 app.use((request, response, next) => {
   console.log("Middleware aufgerufen");
   ...
@@ -391,7 +393,7 @@ app.use((request, response, next) => {
 
 ## static Middleware (1)
 
-```javascript
+```typescript
 import express from "express";
 import { fileURLToPath } from "url";
 
@@ -405,7 +407,7 @@ app.listen(80, () => {
 
 ## static Middleware (2)
 
-- Erfüllt Praxisaufgabe 2
+- Erfüllt Aufgabe 1
 - Built-In Middleware zur Auslieferung statischer Dateien
   - Kann auf bestimmten Request-Pfad beschränkt werden
 - `express.static` liefert Dateien aus, wenn sie im angegebenen Ordner gefunden werden
@@ -424,12 +426,32 @@ app.listen(80, () => {
 
 ## Cross-Origin Resource Sharing (CORS)
 
-- Same-Origin-Policy: JavaScript auf Website kann nur auf Ressourcen mit gleichem Origin zugreifen
+- **Same-Origin-Policy**: JavaScript auf Website kann nur auf Ressourcen mit gleichem Origin zugreifen
   - Same Origin: gleiches **Protokoll**, gleicher **Port** und gleiche **Domain**
   - z.B. JavaScript-Code von `https://example.com` darf nicht auf Ressourcen von `https://example.org` zugreifen
-- CORS: Möglichkeit, Same-Origin-Policy (beschränkt) aufzuweichen
+- **CORS**: Möglichkeit, Same-Origin-Policy (beschränkt) aufzuweichen
   - Angefragter Server kann Zugriff erlauben
   - Steuerung über HTTP-Header `Access-Control-Allow-*`
+
+## Same Origin Policy - Beispiel (1)
+
+![Same Origin Policy](./media/same-origin-base.png){height=80%}
+
+## Same Origin Policy - Beispiel (2)
+
+![Same Origin Policy](./media/same-origin-results-1.png){height=80%}
+
+## Same Origin Policy - Beispiel (3)
+
+![Same Origin Policy](./media/same-origin-results-2.png){height=80%}
+
+## Same Origin Policy Anwendung
+
+- Findet nicht für jeder Interaktion zwischen Origins Anwendung
+  - Links, Redirects, Formulare sind nicht betroffen
+  - Einbettung von Ressourcen (z.B. `<img>`, `<link rel="stylesheet">`, `<video>`) ist i.d.R. nicht betroffen
+
+Siehe auch [Same Origin Policy - MDN](https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Same-origin_policy#cross-origin_network_access)
 
 ## CORS Header (1)
 
@@ -445,12 +467,27 @@ app.listen(80, () => {
   - Auf Client Seite (`fetch`-API) muss zusätzlich `credentials: "include"` gesetzt werden
   - Gefahr von [CSRF](https://developer.mozilla.org/en-US/docs/Glossary/CSRF)-Angriffen \rightarrow{} **vorsichtig einsetzen**
 
+## express CORS Middleware
 
-## express Middleware Beispiel (1)
+```typescript
+import cors from "cors";
+...
+// Access-Control-Allow-Origin: *
+app.use(cors())
+
+// Besser: explizite Konfiguration
+app.use(cors({
+  origin: "https://example.com",
+  methods: ["GET", "POST"],
+  credentials: true,
+}))
+```
+
+## express mehrere Middlewares (1)
 
 ![express Middleware Beispiel](./media/express_middleware.pdf){height=80%}
 
-## express Middleware Beispiel (2)
+## express mehrere Middlewares (2)
 
 ![express Middleware Visualisierung](./media/express_middleware_visualization.pdf){height=80%}
 
@@ -458,23 +495,23 @@ app.listen(80, () => {
 ## express Router
 
 - express Router ermöglichen das Gruppieren von Routen
-  - Router können in eigenen Dateien definiert werden\rightarrow{} bessere Code-Struktur
+  - Router können in eigenen Dateien definiert werden 
   - Schachtelung von Routern möglich
-  - Registrieren von Middleware auf Router-Ebene möglich
+  - Registrieren von Middleware auf Router-Ebene möglich 
 - Erstellen eines Routers: `const router = express.Router();`
   - Registrieren von Middleware und Request Handlern: `router.use(PATH, MIDDLEWARE)`, `router.METHOD(PATH, HANDLER)`
-- Registrieren von Router: `app.use(PATH, ROUTER)`
+- Registrieren von Router in App: `app.use(PATH, ROUTER)`
 
 ## express Router Beispiel
 
-app-router.js
-```javascript
+app-router.ts
+```typescript
 import { router as userRouter } from "./user-router.js";
 app.use("/users", userRouter);
 ```
 
-user-router.js
-```javascript
+user-router.ts
+```typescript
 import express from "express";
 export const router = express.Router();
 
@@ -482,6 +519,26 @@ router.get("/", (request, response) => {
    response.send([{ id: 1, name: "Lukas" }, ...]);
 });
 ```
+
+## express Router Vorteile
+
+- Bessere Strukturierung & Trennung von Verantwortlichkeiten
+- Skalierbarkeit
+  - Neue Features lassen sich einfacher hinzufügen, ohne bestehende Logik zu verändern
+- Middleware auf Gruppen anwenden
+  - Gemeinsame Logik (z.B. Logging, Authentifizierung) nur einmal definieren
+  - Nicht notwendige Middleware für andere Routen weglassen \rightarrow{} bestimmte Routen authentifizieren, andere nicht
+
+## Best Practices für express Router
+
+- Klare Trennung nach Domänen
+  - z.B. `user-router`, `product-router`
+  - Jeder Router sollte nur eine Verantwortlichkeit haben
+- Fehlerbehandlung zentralisieren
+  - Gemeinsame Error-Handler verwenden
+- Einheitliche Pfadstruktur \rightarrow{} Konsistente API-Designs & REST-Konventionen einhalten
+- Validierung auslagern
+  - Request-Validierung in Middleware oder separate Module verschieben
 
 ## Theoretische Fragen
 
@@ -493,22 +550,77 @@ router.get("/", (request, response) => {
 - Wie wird CORS gesteuert? (Welche HTTP-Header sind relevant?)
 - Was sind _express Router_ und wofür werden sie verwendet?
 
+## Fastify (1)
+
+- Web-Framework mit Fokus auf Geschwindigkeit
+- Ähnliche Konzepte wie Express
+  - Routing
+  - Middleware (Hooks)
+- Starke TypeScript-Unterstützung
+- Eingebaute Features:
+  - JSON-Schema-basierte Input-Validierung
+  - Logging
+  - ...
+
+## Fastify (2)
+
+```typescript
+import Fastify from "fastify";
+const app = Fastify({logger: true});
+
+app.get("/users", async (request, reply) => {
+  return [{ id: 1, name: "Lukas" }];
+});
+```
+
+## Hono (1)
+
+- Leichtgewichtiges Framework mit Fokus auf Performance und Web Standards
+- Läuft auf verschiedenen Plattformen
+  - Node.js, Deno, Bun, Cloudflare Workers
+- Starke TypeScript-Unterstützung
+- Integrierte Middlewares für häufige Aufgaben (z.B. CORS, Authentifizierung, Cookies, ...)
+
+## Hono (2)
+
+```typescript
+import { Hono } from "hono";
+import { cors } from "hono/cors";
+
+const app = new Hono();
+app.use("*", cors()); // CORS-Middleware für alle Routen
+app.get("/users", (c) => {
+  return c.json([{ id: 1, name: "Lukas" }]);
+});
+```
+
+## Vergleich mit express
+
+- Alternative Frameworks nutzen sehr ähnliche Syntax und vergleichbare Grundkonzepte
+- Verbesserungen in Performance, Typsicherheit, integrierten Funktionen, ...
+  - auf Kosten geringerer Popularität und kleinerem Ökosystem
+- Wahl des Frameworks stark von individuellen Anforderungen und Präferenzen abhängig
+  - z.B. Plattform, benötigte Funktionen, Erfahrung mit bestimmten Frameworks, ...
+
+Alle hier vorgestellten Frameworks sind gut für die Praxis geeignet.
+
+# TODO: Input Validation mit Zod/sonstigen Bibliotheken
 
 
-## Elysia - express Alternative für Bun
+# Elysia - express Alternative für Bun
 
 - express lässt sich in Bun genauso nutzen wie in Node.js
 - [Elysia](https://elysiajs.com/) nutzt Bun-APIs und Features um eine performantere Alternative zu express zu bieten
   - Einfache API
-  - Bessere Typsicherheit und TypeScript-Unterstützung
+  - Sehr gute TypeScript-Unterstützung
   - Bessere Performance
   - Viele Funktionen out-of-the-box, weniger zusätzliche Pakete nötig
-- Läuft auch unter Node.js, ist aber nicht unbedingt zu empfehlen
+- Läuft auch unter Node.js, diese Kombination ist aber nicht unbedingt zu empfehlen
 
 ## Elysia Setup
 
 - Neues Projekt auf Basis des offiziellen Templates: `bun create elysia app`
-- Code Beispiel in [`elysia-sample`](https://github.com/TINF23B5-Webengineering/Lecture_Code/tree/2025/24_Alternative_Runtimes/elysia-sample)
+- Code Beispiel in [`elysia-sample`](https://github.com/DHBW-Webengineering/Lecture_Code/tree/2026/Backend/24_Backend_Frameworks/elysia-sample)
 
 ## Sample Server Code
 
@@ -516,7 +628,7 @@ router.get("/", (request, response) => {
 import { Elysia } from "elysia";
 
 const app = new Elysia()
-  .get("/", () => "Hello Elysia") // Siehe Route Handler bei express
+  .get("/", () => "Hello Elysia") 
   .listen(3000);
 
 console.log(`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`);
@@ -526,10 +638,11 @@ console.log(`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.por
 
 - Syntax ist allgemein sehr ähnlich zu express
   - Pfad-Parameter mit `:param`
-  - HTTP-Methoden als Methoden des App-Objekts
+  - HTTP-Methoden als Methoden des App-Objekts (erstellt hier mit `new Elysia()`)
 - Verschiedene Verbesserungen
   - Pfad-Parameter sind Parameter der Route-Handler-Funktion
-  - Einfacher Streaming-Support über generator Functions
+  - Einfacher Streaming-Support über generator-Functions
+- Input Validation built in
 - Typsicherheit allgemein besser
   - z.B. bei Pfad-Parametern
 
@@ -567,10 +680,22 @@ app.get("/hello/:name", ({ params: { name } }) => {
 });
 ```
 
+## Serialisierung
+
+- Elysia serialisiert Return-Values automatisch
+  - String, Primitive Typen (z.B. `number`, `boolean`), Objekte, Arrays, ...
+  - Auch für Dateien
+
+```typescript
+new Elysia()
+  .get("/string", () => "Hello World")
+  .get("/object", () => ({ message: "Hello World" }))
+  .get("/file", () => file('test.txt'))
+```
+
 ## Input-Validierung (1)
 
-- Elysia unterstützt Input-Validierung mit [TypeBox](https://github.com/sinclairzx81/typebox)
-  - allgemein ähnlich zu `zod`
+- Elysia unterstützt Input-Validierung mit [TypeBox](https://github.com/sinclairzx81/typebox) und allen Bibliotheken, die die [StandardSchema](https://standardschema.dev) Spezifikation erfüllen (z.B. Zod)
 
 ```typescript
 import { t } from "elysia";
@@ -582,7 +707,19 @@ app.get("/typesafe-id/:id", ({ params: { id } }) => id, {
 })
 ```
 
-## Input-Validierung (2)
+## Input Validierung (2)
+
+```typescript
+import { z } from "zod";
+
+.get("/typesafe-id-zod/:id", ({ params: { id } }) => id, {
+    params: z.object({
+      id: z.number().int(),
+    }),
+  })
+```
+
+## Input-Validierung (3)
 
 - Typen werden automatisch konvertiert
   - In diesem Beispiel: `id` von `string` zu `number`
@@ -619,7 +756,8 @@ app.get("/hello", ({ query: { name } }) => {
 ## Einfaches Response-Streaming
 
 - Response-Streaming bei express: `res.write()` (mehrfach), `res.end()`
-- Bei Elysia: (asynchrone) Generator-Funktionen
+- Bei Elysia: (asynchrone) Generator-Funktionen (JavaScript Feature)
+  - Jedes `yield` sendet Daten direkt an Client, beendet aber den Handler noch nicht
 
 ```typescript
 app.get("/stream", async function* () {
@@ -627,4 +765,56 @@ app.get("/stream", async function* () {
   await new Promise((resolve) => setTimeout(resolve, 1000)); // Pause für 1 Sekunde
   yield "World!";
 })
+```
+
+## Integrierter Websocket-Support
+
+- Mit `app.ws(PATH, HANDLER)` können Websocket-Endpunkte definiert werden
+- `message` callback wird bei jeder eingehenden Nachricht aufgerufen
+
+```typescript
+app.ws("/realtime", {
+    message(ws, message) {
+      ws.send("got:" + message);
+    },
+  })
+```
+
+## OpenAPI Generierung
+
+- Integrierte OpenAPI Middleware
+- Dokumentation verfügbar unter `/openapi`
+
+```typescript
+import { openapi, fromTypes } from '@elysiajs/openapi'
+
+app.use(
+		openapi({
+			references: fromTypes()
+		})
+	)
+```
+
+## Exkurs: Fullstack Type Safety
+
+- Elysia bietet mit `Eden` einen Frontend-Client, der sich typsicher mit einem Elysia-Backend verbinden kann
+  - Ermöglicht typsichere Remote Procedure Calls (RPC) über "Eden Treaty" oder eine typsichere REST über "Eden Fetch"
+- Erfordert im Frontend Zugriff auf die Typdefinitionen des Backends
+  - \rightarrow{} Ideal in Monorepos
+- Vermeidet Typfehler bei der Kommunikation zwischen Frontend und Backend komplett
+- Macht parsen von Return-Values im Frontend überflüssig!
+
+## Eden Fetch Beispiel
+
+```typescript
+import { edenFetch } from "@elysiajs/eden";
+import { type App } from "../elysia-sample/src/index";
+
+const fetch = edenFetch<App>("http://localhost:3000");
+
+const { data: id } = await fetch("/typesafe-id-zod/:id", {
+  params: {
+    id: 42,
+  },
+});
 ```
