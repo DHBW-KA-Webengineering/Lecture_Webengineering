@@ -51,10 +51,31 @@ plantuml-format: svg
 - Modularisierung und Strukturierung
   - Aufteilung in Module, z.B. für verschiedene Ressourcen oder Funktionalitäten
 
-## TODO: 
-- Wiederholung REST Konventionen API Design mit express Aufgabe
-- Input Validation mit Zod
-- Response Formate, Wiederholung Content Negotiation, Error Handling
+## Routing
+
+**Route**: HTTP-Methode + Pfad  
+**Handler**: Funktion, die ausgeführt wird, wenn Route aufgerufen wird
+- Framework erleichtert Zuordnung von Route zu Handler, erzwingt aber noch nicht die Einhaltung von REST-Konventionen!
+- Struktur der Routen sollte auf Ressourcen-zentriertem Design aufbauen
+
+## Response Formate (1)
+
+- Moderne APIs nutzen typischerweise JavaScript Object Notation (JSON) als Response-Format
+  - Format sollte bekannt sein
+  - Hauptgrund für Nutzung: sehr einfach in JavaScript/TypeScript zu nutzen
+  - Für die meisten Anwendungsfälle gut geeignet
+- **Wichtig**: HTTP korrekt nutzen
+  - Content-Type Header setzen
+  - Idealerweise: Content Negotiation unterstützen
+
+## Response Formate (2)
+
+- HTTP Content Negotiation (siehe 1. Semester) ermöglicht Client und Server das optimale Format auszuhandeln
+  - Ermöglicht REST-Prinzip _Multiple Representations_
+- Nur wenn ein Client im _Accept_ Header `application/json` angibt, soll eine API JSON zurückliefern
+  - Server sollte sich nach Client richten wo möglich
+  - z.B. Fehlerseite in HTML wenn Client kein JSON akzeptiert und API nur JSON ausgeben kann
+
 
 ## Beispiel Backend-Frameworks
 
@@ -263,7 +284,7 @@ app.get("/test", (request, response) => {
 
 - Setzen mit `response.status`, bevor `response.send` / `response.end` aufgerufen wird
 - Standard-Status-Code ist `200` (OK)
-  - Bei Exception: `500` (Internal Server Error) 
+  - Bei Exception automatisch `500` (Internal Server Error) 
 
 
 ## express Request Handler - Request-Parameter
@@ -311,6 +332,7 @@ import { fileURLToPath } from "url";
 const folderPath = fileURLToPath(new URL(".", import.meta.url));
 ```
 
+
 ## Aufgabe 1
 
 Überarbeitet euren HTTP-Server aus letzten [Vorlesungseinheit (Aufgabe 1)](./23_Node_Bun.md#aufgabe-1), sodass er express nutzt.
@@ -318,7 +340,22 @@ Die Funktionalität soll gleich bleiben.
 Setzt den Server-Root auf einen Unterordner `public`, nur Dateien aus diesem Ordner sollen ausgeliefert werden können!
 Ohne Dateiendung soll automatisch nach einem Unterordner mit dem angefragten Namen und einer Datei `index.html` gesucht werden.
 
-Zeit: 20 min.
+**Zeit**: 20 min.
+
+## Aufgabe 2
+
+Implementiert die API aus der [vorletzten Vorlesungseinheit (Aufgabe 2)](./22_Backend_Grundlagen.md#aufgabe-2) mit express.
+Nutzt ein lokales Array zur Speicherung von Objekten, Persistenz ist nicht notwendig.
+
+**Zeit**: 20 min.
+
+## Besprechung Aufgabe 2
+
+- Tabelle mit Endpunkt, HTTP-Methode & Aktion sollte die Implementierung mit express erleichtern
+  - Pfad + Methode sind schon bekannt
+  - Aktion ist klar, muss nur noch in Code übersetzt werden
+- \rightarrow{} Gute Planung erleichtert Implementierung enorm
+  - Tabelle kann direkt express-Syntax für Pfad-Parameter nutzen, z.B. `users/:userid`, dann ist die Implementierung noch einfacher
 
 ## Theoretische Fragen 
 
@@ -540,6 +577,13 @@ router.get("/", (request, response) => {
 - Validierung auslagern
   - Request-Validierung in Middleware oder separate Module verschieben
 
+## Aufgabe 3
+
+Baut eure Lösung von [Aufgabe 2](#aufgabe-2) um, damit alle `/users` routen in einem _User Router_ in einer separaten Datei implementiert sind.
+
+**Zeit**: 10 Minuten.
+
+
 ## Theoretische Fragen
 
 - Was versteht man unter Middleware im Kontext von _express_?
@@ -549,6 +593,202 @@ router.get("/", (request, response) => {
 - Für was steht das Akronym _CORS_? Und was versteht man darunter?
 - Wie wird CORS gesteuert? (Welche HTTP-Header sind relevant?)
 - Was sind _express Router_ und wofür werden sie verwendet?
+
+# Input Validierung mit Zod
+
+
+## Input und Typ-Validierung zur Laufzeit mit zod
+
+- [zod](https://zod.dev/) ist eine Bibliothek zur Input-Validierung
+- Validierung basiert auf erwartetem _Schema_
+- Erlaubt Validierung von primitiven Typen und komplexen Objekten zur Laufzeit
+- Erzeugt aus Schema TypeScript-Typen zur statischen Typisierung zur Entwicklungszeit
+- Installation: `npm install zod` / `bun add zod` / `pnpm install zod`
+
+## Warum Typ-Validierung zur Laufzeit?
+
+- TypeScript bietet statische Typisierung **nur** zur Entwicklungszeit
+- Code interagiert zur Laufzeit häufig mit externen Datenquellen (APIs, User-Input, Dateisystem, ...)
+  - Daten externer Datenquellen sind immer als _untrusted input_ anzusehen!
+  - Man kann sich nicht auf die Datentypen verlassen
+- Typ-Validierung hilft, unerwartete Daten zu erkennen und entsprechend zu behandeln
+  - \rightarrow{} Vermeidung von Laufzeitfehlern
+
+## zod - Beispiel Strings
+
+```typescript
+import { z } from "zod";
+
+// String mit Länge 1-20
+const helloWorldSchema = z.string().min(1).max(20);
+const string1 = helloWorldSchema.parse("Hello, World!"); // ok
+const string2 = helloWorldSchema.parse("");
+// Error: { code: 'too_small', message: ... }
+const { success, data, error } = helloWorldSchema.safeParse("");
+// ok, success = false
+```
+
+## zod - Primitive Typen
+
+- [Primitive-Typen](https://zod.dev/?id=primitives)
+  - `z.string()`
+  - `z.number()`
+  - `z.boolean()`
+  - ...
+- Zusätzlich mit Support für Typumwandlung (Coercion) zur Laufzeit
+  - `z.coerce.number().parse("1")`
+  - Keine vorherige Umwandlung von User-Input (strings) nötig
+
+## zod - Einschränkungen für Primitive Typen (1)
+
+- Einfache Einschränkungen für Wertebereiche möglich
+- [Zahlen](https://zod.dev/?id=numbers)
+  - Beispiel `z.number().gt(0).lte(100)` \rightarrow{} Zahl > 0 und <= 100
+  - `gt`: greater than \rightarrow{} >
+  - `gte`: greater than or equal \rightarrow{} >= alias `min`
+  - `lt`: less than \rightarrow{} <
+  - `lte`: less than or equal \rightarrow{} <= alias `max`
+  - `int`: integer
+  - `multipleOf`: Vielfaches von Zahl
+  - `positive`, `negative`, `nonpositive`, `nonnegative` ...
+
+## zod - Einschränkungen für Primitive Typen (2)
+
+- [Strings](https://zod.dev/api?id=strings) sehr viele Möglichkeiten, z.B.:
+  - `min`, `max`: Länge
+   - `regex`: Validierung anhand von Regex
+  - `includes`: String muss bestimmten Substring enthalten
+  - `startsWith`, `endsWith`: String muss mit bestimmtem Substring beginnen/endigen
+  - `trim`: Leerzeichen entfernen
+  - `toLowerCase`, `toUpperCase`: Groß-/Kleinschreibung
+- Spezielle Strings (direkt auf `z` Objekt seit zod v4)
+  - `email`: E-Mail-Adresse
+  - `url`: URL
+  - `uuid`: UUID
+  - `ipv4`: IP-Adressen
+  - `iso.date`: ISO-Datum
+ 
+## zod - Enums, optionale und undefinierte Werte
+
+- Feste Wertemengen mit `z.enum()`
+  - `z.enum(["red", "green", "blue"])`
+- Bei schon vorhandenem Enum-Typ: `z.nativeEnum(MyEnum)`
+- Optionale Werte mit `z.optional()` und `schema.optional()`
+  - `z.optional(z.string())` \rightarrow{} = `z.string().optional()`
+
+## zod - Komplexe Typen (1)
+
+- Arrays mit `z.array()`
+  - `min`, `max`: Minimale / Maximale Länge
+  - `length`: Exakte Länge
+  - `nonempty`: Nicht leer
+- Tupel mit `z.tuple()`
+  - `z.tuple([...])`
+  - Feste Anzahl von Elementen
+  - Typen der Elemente können unterschiedlich sein
+
+## zod - Komplexe Typen (2)
+
+- Definition von [Objekten](https://zod.dev/?id=objects) mit `z.object()`
+  - `z.object({ key1: <zodSchema>, key2: ... })`
+
+```typescript
+const userSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  email: z.string().email(),
+});
+```
+
+- Ein zod-Schema kann in einen TypeScript-Typ fuer Parameter- und Rueckgabetypen umgewandelt werden
+  - `type SchemaType = z.infer<typeof schema>`
+- Durch Type-Inference oft nicht nötig
+
+## zod - Komplexe Typen (3)
+
+- Weitere komplexe Typen:
+  - [Unions](https://zod.dev/?id=unions)
+  - [Discriminated Unions](https://zod.dev/?id=discriminated-unions)
+  - [Records](https://zod.dev/?id=records)
+  - [Maps](https://zod.dev/?id=maps)
+
+## zod - Komplexe Typen (4)
+
+- Komplexe zod Schemata können verschachtelt werden
+- Beispiel:
+
+```typescript
+const userSchema = z.object({
+  ...
+  emails: z.array(z.email()),
+  address: z.object({
+    street: z.string(),
+    city: z.string(),
+  }),
+
+});
+```
+
+## zod - Sonstiges
+
+- Viele weitere hilfreiche Funktionen:
+
+  - `transform`: Transformation von Werten
+  - `refine`: Benutzerdefinierte Validierungsfunktionen
+  - ...
+
+- Wenn Input-Validierung benoetigt wird, ist zod in der Regel einer eigenen Implementierung vorzuziehen
+
+## zod - Fehlerbehandlung
+
+- `.parse()` wirft bei Fehlern Exceptions vom Typ `ZodError`
+- `.safeParse()` gibt ein Objekt zurück mit Feldern `success`, `data` und `error`
+  - `success`: `true` bei Erfolg, `false` bei Fehlern
+  - `data`: Geparste Daten bei Erfolg
+  - `error`: `ZodError` bei Fehlern
+- `ZodError`: `issues` Array mit allen Fehlern in der Form
+- Siehe [zod Dokumentation zu Error Handling](https://zod.dev/ERROR_HANDLING)
+
+## zod in express (1)
+
+- Jede API Route, die Daten vom User annimmt **muss** diese Validieren
+  - zod ist nur eine von vielen Optionen. Alternativen wie `typebox` oder `joi` sind auch nutzbar
+- Validierung kann direkt im Request Handler oder in Middleware erfolgen
+  - Middleware ermöglicht Wiederverwendbarkeit und saubere Trennung von Validierungs- und Anwendungslogik
+  - z.B. eine Middleware-Funktion für alle Routen, die User-Input annehmen
+
+## zod in express (2)
+
+```typescript
+const userSchema = z.object({
+  name: z.string(),
+  email: z.string().email(),
+});
+
+app.post("/users", (request, response) => {
+  const { success, data, error } = userSchema.safeParse(request.body);
+  if (!success) {
+    return response.status(400).json({ error: error.issues });
+  }
+  // Weiterverarbeitung von validierten Daten in `data`
+});
+```
+
+## Aufgabe 4
+
+Erweitert den User Router Input-Validierung mit zod. Es sollen _alle_ Daten, die vom Client kommen validiert werden. Gebt bei fehlerhaften Daten den Statuscode _422 Unprocessable Entity_ mit Details zum Fehler und der erwarteten Eingabe zurück.
+
+**Zeit**: 20 Minuten.
+
+## Theoretische Fragen
+
+- Welche Aufgabe(n) erfuellt die Bibliothek _zod_?
+- Erstellen Sie ein einfaches _zod_-Schema für _Message_-Objekte. Jedes Objekt hat eine positive Ganzzahl als _id_ einen nichtleeren Text (_content_) optional einen Liste von Autor-Namen (_authors_) und ein Erstellungsdatum (_createdAt_), das als string übermittelt wird.
+- Warum sollten trotz Verwendung von TypeScript die Datentypen zur Laufzeit validiert werden?
+- Für welche Art von Daten ist Typ-Validierung zur Laufzeit besonders wichtig?
+- Wie kann ein _zod_-Schema in einen TypeScript-Typen umgewandelt werden?
+
+# express Alternativen
 
 ## Fastify (1)
 
@@ -603,8 +843,6 @@ app.get("/users", (c) => {
   - z.B. Plattform, benötigte Funktionen, Erfahrung mit bestimmten Frameworks, ...
 
 Alle hier vorgestellten Frameworks sind gut für die Praxis geeignet.
-
-# TODO: Input Validation mit Zod/sonstigen Bibliotheken
 
 
 # Elysia - express Alternative für Bun

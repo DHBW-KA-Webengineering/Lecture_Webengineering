@@ -189,18 +189,6 @@ Dokumentiert in Kleingruppen (2-3 Personen) die grundlegenden Informationen für
 
 ## Ressourcen auf HTTP Endpunkte abbilden (3)
 
-### Aufgabe 2 (10 min):
-
-Füllt die folgende Tabelle für eure Benutzerverwaltung aus:
-| **Aktion** | **HTTP Methode** | **Endpunkt** |
-| ------------ | ----------------- | ------------ |
-| Alle Benutzer abrufen | `GET` | `/users` |
-| ... | ... | ... |
-
-Fokus auf CRUD Operationen.
-
-## Ressourcen auf HTTP Endpunkte abbilden (4)
-
 - Erstellen einer neuen Ressource: `POST /users`
   - ID ist vor Erstellung noch nicht bekannt, wird vom Server generiert
   - Es gibt eine implizite Collection, API Consumer können keine neue Collection erstellen
@@ -229,6 +217,18 @@ Fokus auf CRUD Operationen.
 - Auch bei `GET` kann der Server Seiteneffekte ausführen, z.B. logging
   - Unterscheidung zwischen _fachlichen_ und _technischen_ Seiteneffekten
 - Retry-Mechanismen bei Implementierung beachten
+
+## Aufgabe 2
+
+Füllt die folgende Tabelle für eure Benutzerverwaltung aus:
+| **Aktion** | **HTTP Methode** | **Endpunkt** |
+| ------------ | ----------------- | ------------ |
+| Alle Benutzer abrufen | `GET` | `/users` |
+| ... | ... | ... |
+
+Fokus auf CRUD Operationen.
+
+**Zeit**: 10 Minuten.
 
 ## Theoretische Fragen
 
@@ -278,7 +278,6 @@ Fokus auf CRUD Operationen.
 - Sortierung: `/users?sort=createdAt` / `/users?sort=createdAt&direction=desc`
 - Kombination macht eine API sehr flexibel, erhöht aber auch den Implementierungsaufwand im Backend!
 
-
 ## Umgang mit großen Datenmengen - Pagination
 
 - Große Collections sollten nicht auf einmal übertragen werden
@@ -315,7 +314,7 @@ Fokus auf CRUD Operationen.
   - `/users/123/orders/815/products/XYZ`
   - Zugehörigkeit von Produkt zu Bestellung und Bestellung zu User eindeutig
   - Unübersichtlich bei tiefen Hierarchien
-  - Funktioniert gut bei klaren Zugehörigkeiten 
+  - Funktioniert gut bei klaren Zugehörigkeiten
   - Schwer für n:m Beziehungen, z.B. User - Role
 
 ## Abbildung von Beziehungen (2)
@@ -328,7 +327,6 @@ Fokus auf CRUD Operationen.
   - `users/123`: `... "orders": [815, ...] ...`
   - `orders/815`: `... "products": [...]`
   - \rightarrow{} Limitierung der Hierarchie-Tiefe
-
 
 ## Abbildung von Beziehungen (3)
 
@@ -380,7 +378,6 @@ Fokus auf CRUD Operationen.
   - Overfetching / Underfetching von Daten, insbesondere bei komplexen Ressourcen
   - Schwierige Abbildung komplexer Abfragen über Query-Parameter
 
-
 ## Fortgeschrittene Kommunikations-Konzepte
 
 - HTTP bietet mehr als nur klassisches Request-Response!
@@ -430,7 +427,6 @@ Fokus auf CRUD Operationen.
 ## Beispiel: Repository Pattern mit TypeScript (1)
 
 ![repository pattern visualization](media/repository-visualization.png){height=80%}
-
 
 ## OpenAPI / Swagger (1)
 

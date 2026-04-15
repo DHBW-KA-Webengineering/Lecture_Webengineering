@@ -13,12 +13,12 @@
 - [x] Zusammenfassung Node + alternative Runtimes -> 23_Node_Bun.md
   -> Code-Aufgaben für reine Node + Bun Verwendung
   Fokus auf Bun -> TypeScript Unterstützung, einfacher für Code-Aufgaben
-
-
-- [ ] Zusammenfassen und Ausbau Server-Frameworks 
+- [x] Zusammenfassen und Ausbau Server-Frameworks 
   Input Validierung mit Zod umziehen
   Grundlagen klarstellen
   API Strukturen wiederholen -> REST; Datenstrukturen; Error Handling
+
+
 
 - [ ] Überarbeitung Datenbanken
 - [ ] Überarbeitung Deployment
