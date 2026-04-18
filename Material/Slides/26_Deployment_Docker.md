@@ -65,16 +65,15 @@ plantuml-format: svg
     - Auch unfertige Features werden deployed, aber sind noch nicht aktiviert
   - **Monitoring**: Überwachung der Anwendung, z.B. mit Sentry, PostHog, Grafana, ...
 
+## Klassisches Deployment
 
-
-## TODO
-
-- Klassisches Backend-Deployment auf eigenem Server
-  - Aufwändig, Verantwortung für Infrastruktur, Installation von Komponenten, Wartung HW + SW etc.
-  - Verbesserung: managed Server/VM, Dann Docker
--> Noch einfacher für Entwickler: Serverless-Deployment
-
-
+- ganz klassisch: Deployment auf eigenem Server in eigenem Rechenzentrum
+  - Komplette Kontrolle über Hardware und Software
+  - Verwaltung aller Komponenten: Betriebssystem, Runtimes, Libraries, ...
+  - Verantwortlich für Wartungsarbeiten, Upgrades, etc.
+- Flexibler durch Virtualisierung 
+  - oft gemietete VMs, reduziert eigenen Aufwand weiter
+- Weitere Flexibilisierung durch Containerisierung & Serverless-Deployments
 
 # Exkurs: Grundlagen Docker
 
@@ -332,9 +331,9 @@ CMD ["app"]
 - Nennen Sie drei Vorteile beim Einsatz von Docker für das Deployment von Webanwendungen.
 
 
+# Serverless Deployment
 
-
-## Serverless Deployment
+## Grundlagen Serverless
 
 - **Serverless**: Abstraktion von Servern, Load-Balancing, CDN, ...
 - Keine Verwaltung von Servern, der Anbieter übernimmt die Infrastruktur-Verwaltung
@@ -437,7 +436,7 @@ Erstellen einer `netlify.toml`-Konfigurationsdatei im Projekt-Root:
   - Welche Nachteile/Einschränkungen gibt es bei Serverless-Deployments im Umfeld von Webanwendungen?
 
 
-# TODO
+# Aktuelle Entwicklungen
 
 - Verschwimmende Grenzen Frontend/Backend -> Server-Rendering, Server-Functions etc.
 - SPA, MPA etc.
