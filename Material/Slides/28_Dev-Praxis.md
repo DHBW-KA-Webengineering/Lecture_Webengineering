@@ -176,3 +176,13 @@ test('should create new user', () => {
   expect(newUser).toBe(expectedUser);
 });
 ```
+
+# AI in der Entwicklung
+
+- AI Autocomplete a la Copilot
+- Copilot für Studenten, VSCode Integration
+
+- Agentic Development
+  - Claude Code + OpenCode
+  - Best Practices
+  - Guardrails: AGENTS.md, typecheck, lint, test
