@@ -1,6 +1,6 @@
 ---
 title: "Vorlesung Webengineering 1 - Datenbanken"
-topic: "Webengineering_1_2_7"
+topic: "Webengineering_1_2_6"
 author: "Lukas Panni"
 theme: "Berlin"
 colortheme: "dove"
@@ -57,11 +57,13 @@ plantuml-format: svg
 - Erstellen neuer Datenbank: `sqlite3 mydatabase.db`
   - Noch einfacher mit GUI-Tools wie [DB Browser for SQLite](https://sqlitebrowser.org/)
 
-## Praxisaufgabe 1
+## Aufgabe 1
 
 Installiert den SQLite-Browser und erstellt eine neue Datenbank mit den oben gezeigten Tabellen.
 Falls ihr schon SQL Kenntnisse habt, könnt ihr die Datenbank auch über SQL-Befehle erstellen.
 Erstellt zusätzlich eine Tabelle `comment`, die zu jedem Post Kommentare speichert.
+
+**Zeit**: 15 min.
 
 ## SQL (1)
 
@@ -101,7 +103,7 @@ Erstellt zusätzlich eine Tabelle `comment`, die zu jedem Post Kommentare speich
   WHERE user.id = post.author;
   ```
 
-## Praxisaufgabe 2
+## Aufgabe 2
 
 Schreibt einige SQL-Abfragen für die oben erstellte Datenbank:
 
@@ -109,18 +111,28 @@ Schreibt einige SQL-Abfragen für die oben erstellte Datenbank:
 - Ausgabe aller Kommentare zu einem Post.
 - Ausgabe aller Kommentare zu Posts eines bestimmten Autors.
 
+**Zeit**: 20 min.
+
+## Ressourcen zum Lernen
+
+- **Hinweis**: schreiben von SQL-Abfragen wird nicht Teil der Klausur sein
+- Falls ihr euch für die Projektarbeit weiter mit SQL auseinandersetzen wollt:
+  - [SQLZoo](https://www.sqlzoo.net/wiki/SQL_Tutorial)
+  - [W3Schools](https://www.w3schools.com/sql/default.asp)
+
+
 # Datenbanken in Webanwendungen
 
 ## Motivation
 
 - Datenbanken erlauben eine effiziente und strukturierte Speicherung von Daten
 - Trennung von Daten und Anwendungslogik ist grundsätzlich sinnvoll
-- Wie bei Serverless-Deployment gesehen: Anwendung braucht einen Weg, Daten persistent zu speichern
-  - Ermöglicht auch mehrere Instanzen der Anwendung
+- Anwendung braucht einen Weg, Daten persistent zu speichern
+  - Ermöglicht auch mehrere Instanzen der Anwendung, synchronisiert über einen gemeinsamen Speicher
 
 **Viele Backend-APIs sind nur ein dünner Wrapper um eine Datenbank**
 
-- Mapping von HTTP-Requests auf SQL-Abfragen + ein bisschen Logik und Validierung
+- Mapping von HTTP-Requests auf SQL-Abfragen + ein bisschen Validierung und Logik 
 - Eure Projekt-Backends sind vermutlich auch simpel
 
 ## Anbindung von Datenbanken
@@ -134,7 +146,7 @@ Schreibt einige SQL-Abfragen für die oben erstellte Datenbank:
   - Abstraktion von Datenbank-Details \rightarrow{} DB leichter austauschbar
   - Weitgehender Schutz vor SQL-Injection
   - Definition von Datenmodellen im Code statt in SQL
-  - Arbeit mit Objekten oft einfacher als SQL-Abfragen
+  - Arbeit mit Objekten für Entwickler oft intuitiver als SQL-Abfragen
 
 ## Drizzle ORM für TypeScript
 
@@ -298,10 +310,22 @@ export const userGroupRelations = relations(userGroup, ({ one }) => ({
   - Sichergestellt, dass Änderungen auch korrekt in referenzierten Tabellen durchgeführt werden
 
 
+## Aufgabe 3
+
+Erstellt eine Drizzle-Schema mit Beziehungen für das folgende Datenmodell für eine Benutzerverwaltung: 
+- _User_ haben einen vollen Namen, eine E-Mail Adresse, ein Passwort-Hash und ein Salt
+- _Roles_ haben einen Namen und eine Beschreibung
+- _Permissions_ haben einen Namen und eine Beschreibung
+Beziehungen:
+- Benutzer haben genau eine Rolle
+- Rollen haben beliebig viele Berechtigungen
+
+**Zeit**: 20 min.
+
 ## Drizzle - Abfragen
 
 - Drizzle bietet zwei Wege, Abfragen zu erstellen
-  - `query`-Query-Builder fuer relationale Abfragen, gut fuer mehrfach verschachtelte Abfragen
+  - `query`-Query-Builder fuer relationale Abfragen, gut für mehrfach verschachtelte Abfragen
     - Gut für komplexe Objektstrukturen
     - Stark von SQL abstrahiert
   - SQL-nahe Syntax mit `.select()`, `.insert()`, `.update()`, `.delete()` etc.
@@ -359,12 +383,13 @@ db.query.user.findMany({
   - Nur die Filter über `.where` sind etwas anders: Methoden `eq`, `gt`, `lt`, `like` etc., müssen von Drizzle importiert werden
 
 
-## Praxisaufgabe 3
+## Aufgabe 4
 
-Erstellt ein Drizzle Schema für die Datenbank aus Praxisaufgabe 1 mit allen Beziehungen. Übertragt dann die SQL-Abfragen aus Praxisaufgabe 2 in Drizzle-Abfragen entweder über den Query-Builder oder die SQL-nahe Syntax.
+Erstellt ein Drizzle Schema für die Datenbank aus Aufgabe 1 mit allen Beziehungen. Übertragt dann die SQL-Abfragen aus Aufgabe 2 in Drizzle-Abfragen entweder über den Query-Builder oder die SQL-nahe Syntax.
 
 Tipp: `drizzle-kit` bringt eine [Web-UI](https://orm.drizzle.team/drizzle-studio/overview) mit, die es deutlich erleichtert die Datenbank zu verwalten und Abfragen (SQL und Drizzle-Syntax) zu testen. Dazu einfach `npx drizzle-kit studio` ausführen.
 
+**Zeit**: 20 min.
 
 ## Theoretische Fragen
 

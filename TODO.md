@@ -17,22 +17,16 @@
   Input Validierung mit Zod umziehen
   Grundlagen klarstellen
   API Strukturen wiederholen -> REST; Datenstrukturen; Error Handling
+- [x] Überarbeitung Datenbanken
 
-
-
-- [ ] Überarbeitung Datenbanken
 - [ ] Überarbeitung Deployment
   Auslieferung von Frontend, verschwimmende Grenzen zwischen Frontend und Backend mit Server-Rendering, Server Functions etc. 
   Kurze Historie: Multi-Page-Apps, Single-Page-Apps, Server-Rendering
 - [ ] Überarbeitung Web-Security
   OWASP Top 10 vereinfachen
-
+- Dev Tools (Lint, Test) irgendwo einbringen
 
 - [ ] Visuelle Überarbeitung
   - Theme
   - Fonts, Schriftgrößen
   - Zeilenabstände
-
-
-
-  opencode -s ses_2fe2528e0ffeiwqwLKjXEF6DVb
