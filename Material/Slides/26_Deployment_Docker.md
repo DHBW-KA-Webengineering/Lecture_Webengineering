@@ -436,7 +436,57 @@ Erstellen einer `netlify.toml`-Konfigurationsdatei im Projekt-Root:
   - Welche Nachteile/Einschränkungen gibt es bei Serverless-Deployments im Umfeld von Webanwendungen?
 
 
-# Aktuelle Entwicklungen
+# Exkurs: Verschwimmende Grenzen zwischen Frontend und Backend
 
-- Verschwimmende Grenzen Frontend/Backend -> Server-Rendering, Server-Functions etc.
-- SPA, MPA etc.
+## Aktuelle Entwicklungen (1)
+
+- Typisch war lange die klare Trennung zwischen Frontend und Backend
+  - Separate Code-Basis, oft verschiedene Programmiersprachen, verschiedene Deployment-Strategien, ...
+- Durch neue Technologien und Architekturen verschwimmen diese Grenzen zunehmend
+  - z.B. React Server Components, Server Functions, Next.js API Routes, ...
+
+## Aktuelle Entwicklungen (2)
+
+- Weiterentwicklung von TypeScript als Sprache für das Backend
+  - Vorteile durch Teilen von Code und eingeschränkte Typsicherheit über Frontend und Backend hinweg
+- Trotzdem noch klare, nicht typischere REST-Schnittstelle
+  - \rightarrow{} Ziel: Typsichere Schnittstellen, gemeinsame Datenstrukturen
+  - Tools wie tRPC können helfen
+- Full-Stack Frameworks wie Next.js gehen den nächsten Schritt und führen Frontend und Backend in einer Deployment-Unit zusammen
+
+## Aktuelle Entwicklungen (3)
+
+- Serverless Deployment-Modelle der Full-Stack Frameworks ermöglichen trotz gemeinsamem Deployment eine gute Skalierbarkeit
+  - Vereinfacht: jede Server Function ist strengenommen separat deployt, unabhängig von anderen Funktionen
+  - Für User: einfach wie ein monolithisches Deployment, aber mit Skalierbarkeit von verteilten Architekturen
+
+## React Server Components (1)
+
+- Rendern von React-Komponenten auf dem Server
+  - Zur Buildzeit: bei statischen Daten, z.B. aus lokalen Markdown-Files
+  - Zur Laufzeit: bei dynamischen Daten, z.B. aus Datenbanken oder APIs
+- Vorteile
+  - Frontend-Bundles können kleinr werden
+  - Zugriff auf Datenbanken etc. ohne separates Backend
+  - Bei Kombination mit _Server-Side-Rendering (SSR)_: Browser muss nur HTML darstellen, keine React-Komponenten rendern
+
+## React Server Components (2)
+
+- Beispiele: [React Doku](https://react.dev/reference/rsc/server-components)
+- Sehr mächtig, ermöglicht auch sehr einfaches Streaming von ganzen Komponenten vom Server
+  - Seite kann schon aufgebaut werden, während noch nicht alle Daten vorhanden sind
+  - Oft besser als reines Laden vom Frontend aus über fetch, da Laden schon viel früher beginnen kann
+
+## React Server Functions 
+
+- Funktionen gekennzeichnet mit `"use server"` directive
+- Werden auf dem Server ausgeführt, wie genau hängt vom Deployment ab
+- React kümmert sich um HTTP-Requests etc. wenn Server Function aus Client-Komponente aufgerufen wird
+- Siehe [React Doku](https://react.dev/reference/rsc/server-functions) 
+
+## Risiken React Server Functions
+
+- Komplette abstraktion von HTTP-Request 
+  - Ein einfacher Funktionsaufruf kann theoretisch mehrere serielle HTTP-Requests bewirken
+  - Versteckt potenzielle Performance-Probleme
+  - Potenzial für Security-Issues: Endpunkt für Server Function ist im Frontend bundle enthalten, jeder kann diesen aufrufen. Server Function darf Daten von Aufrufen nicht automatisch vertrauen!
