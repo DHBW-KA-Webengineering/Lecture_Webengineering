@@ -3,12 +3,11 @@ title: "Vorlesung Webengineering 1 - React & Next"
 topic: "Webengineering_1_10"
 date: 2026-02-18
 author: "Silas Schnurr"
-theme: "Berlin"
-colortheme: "dove"
+theme: "metropolis"
 fonttheme: "structurebold"
 fontsize: 12pt
-urlcolor: olive
-linkstyle: boldslanted
+urlcolor: BrickRed
+linkcolor: BrickRed
 aspectratio: 169
 lang: de-DE
 section-titles: true

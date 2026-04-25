@@ -2,12 +2,11 @@
 title: "Vorlesung Webengineering 1 - Web Security"
 topic: "Webengineering_1_2_8"
 author: "Lukas Panni"
-theme: "Berlin"
-colortheme: "dove"
+theme: "metropolis"
 fonttheme: "structurebold"
 fontsize: 12pt
-urlcolor: olive
-linkstyle: boldslanted
+urlcolor: BrickRed
+linkcolor: BrickRed
 aspectratio: 169
 lang: de-DE
 section-titles: true
@@ -125,12 +124,14 @@ plantuml-format: svg
 
 - Weit verbreitet, aber nicht optimal
 - Größte Schwäche: Mensch
-- **Best Practices**:
+
+**Best Practices**:  
+
 - Passwort-Manager und Passwort-Generatoren
-  - Kombination mit anderer Methode (Mehr-Faktor-Authentifizierung)
-  - Sichere Übertragung
-  - Serverseitig: sichere Speicherung
-    - [Anerkannte Empfehlungen](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html) beachten
+- Kombination mit anderer Methode (Mehr-Faktor-Authentifizierung)
+- Sichere Übertragung
+- Serverseitig: sichere Speicherung
+  - [Anerkannte Empfehlungen](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html) beachten
 
 ## Grundlagen Authentifizierung (3)
 

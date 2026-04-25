@@ -3,12 +3,11 @@ title: "Vorlesung Webengineering I - HTTP & REST"
 topic: "Webengineering_1_3"
 date: 2026-01-20
 author: "Lukas Panni / Silas Schnurr"
-theme: "Berlin"
-colortheme: "dove"
+theme: "metropolis"
 fonttheme: "structurebold"
 fontsize: 12pt
-urlcolor: olive
-linkstyle: boldslanted
+urlcolor: BrickRed
+linkcolor: BrickRed
 aspectratio: 169
 lang: de-DE
 section-titles: true

@@ -2,13 +2,11 @@
 title: "Vorlesung Webengineering 1 - Deployment"
 topic: "Webengineering_1_2_7"
 author: "Lukas Panni"
-theme: "Berlin"
-colortheme: "dove"
+theme: "metropolis"
 fonttheme: "structurebold"
 fontsize: 12pt
-urlcolor: olive
-linkstyle: boldslanted
-aspectratio: 169
+urlcolor: BrickRed
+linkcolor: BrickRedaspectratio: 169
 lang: de-DE
 section-titles: true
 plantuml-format: svg

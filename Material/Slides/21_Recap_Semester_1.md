@@ -2,12 +2,11 @@
 title: "Vorlesung Webengineering 1 - Recap 1. Semester"
 topic: "Webengineering_1_2_2"
 author: "Lukas Panni"
-theme: "Berlin"
-colortheme: "dove"
+theme: "metropolis"
 fonttheme: "structurebold"
 fontsize: 12pt
-urlcolor: olive
-linkstyle: boldslanted
+urlcolor: BrickRed
+linkcolor: BrickRed
 aspectratio: 169
 lang: de-DE
 section-titles: true
