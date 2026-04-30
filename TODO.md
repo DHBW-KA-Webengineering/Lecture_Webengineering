@@ -20,12 +20,13 @@
 - [x] Überarbeitung Datenbanken
 - [x] Überarbeitung Deployment
   Auslieferung von Frontend, verschwimmende Grenzen zwischen Frontend und Backend mit Server-Rendering, Server Functions etc. 
-  
-- [ ] Überarbeitung Web-Security
-  OWASP Top 10 vereinfachen
-- Dev Tools (Lint, Test) irgendwo einbringen
-
-- [ ] Visuelle Überarbeitung
+- [x] Überarbeitung Web-Security
+- [x] Visuelle Überarbeitung
   - Theme
   - Fonts, Schriftgrößen
   - Zeilenabstände
+
+
+
+- [ ] Dev Tools (Lint, Test) & Dev Praxis überarbeiten
+
