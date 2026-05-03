@@ -176,12 +176,16 @@ test('should create new user', () => {
 });
 ```
 
+## Tailwind CSS
+
 # AI in der Entwicklung
+
+_TODO_
 
 - AI Autocomplete a la Copilot
 - Copilot für Studenten, VSCode Integration
 
 - Agentic Development
-  - Claude Code + OpenCode
+  - Claude Code, OpenCode, MCP (z.B. Chrome)
   - Best Practices
   - Guardrails: AGENTS.md, typecheck, lint, test

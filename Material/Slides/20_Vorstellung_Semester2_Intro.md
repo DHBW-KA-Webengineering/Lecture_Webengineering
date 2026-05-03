@@ -118,12 +118,12 @@ plantuml-format: svg
 
 ## Vorlesungsinhalt / Agenda (vorläufig) [2]
 
+- Deployment von Webanwendungen
+  - Container, Serverless/Cloud
 - Datenbank-Anbindung
   - Crashkurs SQL & ORMs
 - Web-Security
   - Angriffe & Best-Practices
-- Deployment von Webanwendungen
-  - Container, Serverless/Cloud
 - Wenn noch Zeit ist: Wunschthema der Studierenden
   - z.B. Server-Side-Rendering, Webassembly, ...
 
