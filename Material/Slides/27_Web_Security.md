@@ -2,12 +2,11 @@
 title: "Vorlesung Webengineering 1 - Web Security"
 topic: "Webengineering_1_2_8"
 author: "Lukas Panni"
-theme: "Berlin"
-colortheme: "dove"
+theme: "metropolis"
 fonttheme: "structurebold"
 fontsize: 12pt
-urlcolor: olive
-linkstyle: boldslanted
+urlcolor: BrickRed
+linkcolor: BrickRed
 aspectratio: 169
 lang: de-DE
 section-titles: true
@@ -28,8 +27,8 @@ plantuml-format: svg
 
 ### Bedrohung (Threat) und Angriff (Attack)
 
-- **Threat**: Mögliche Verletzung eines Sicherheitsziels
-- **Attack**: Versuch, Sicherheitsziele zu verletzen
+- **Threat**: mögliche Verletzung eines Sicherheitsziels
+- **Attack**: konkreter Versuch, Sicherheitsziele zu verletzen
 
 ## Was ist Security? (3)
 
@@ -41,7 +40,7 @@ plantuml-format: svg
 
 ## Grundlagen Kryptografie (1)
 
-- **Kryptografie**: Verschlüsselung / Entschlüsselung von Daten (Confidentiality)
+- **Kryptografie**: Verschlüsselung und Entschlüsselung von Daten (Confidentiality)
 
 ### Symmetrische Kryptografie
 
@@ -58,7 +57,7 @@ plantuml-format: svg
 
 - Weniger intuitiv, aber es gibt mathematische Verfahren, bei denen zwei Schlüssel zum Einsatz kommen (genannt Public und Private Key)
 - Wird mit dem Public Key verschlüsselt, kann nur mit dem Private Key entschlüsselt werden und umgekehrt
-- Wird der Public Key veröffentlicht (deshalb heißt er auch so) kann jeder Nachrichten für den Besitzer des Private Keys verschlüsseln, die nur dieser entschlüsseln kann
+- Wird der Public Key veröffentlicht, kann jeder Nachrichten für den Besitzer des Private Keys verschlüsseln, die nur dieser entschlüsseln kann
   - Umgekehrt kann jeder eine Nachricht entschlüsseln, die mit diesem Private Key verschlüsselt wurde
 - Wie das funktioniert spielt in dieser Vorlesung keine Rolle
 
@@ -112,7 +111,7 @@ plantuml-format: svg
 
 ## Grundlagen Authentifizierung (1)
 
-- **Authentifizierung**: Zuordnung einer Identität zu einem Individuum (i.d.R. Benutzer)
+- **Authentifizierung**: Zuordnung einer Identität zu einem Individuum, in der Regel einem Benutzer
 - Identität bestätigen durch:
   - Wissen (z.B. Passwörter)
   - Besitz (z.B. Sicherheitstoken)
@@ -125,12 +124,14 @@ plantuml-format: svg
 
 - Weit verbreitet, aber nicht optimal
 - Größte Schwäche: Mensch
-- **Best Practices**:
-  - Passwort-Manager & Passwort-Genratoren
-  - Kombination mit anderer Methode (Mehr-Faktor-Authentifizierung)
-  - Sichere Übertragung
-  - Serverseitig: sichere Speicherung
-    - [Anerkannte Empfehlungen](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html) beachten
+
+**Best Practices**:  
+
+- Passwort-Manager und Passwort-Generatoren
+- Kombination mit anderer Methode (Mehr-Faktor-Authentifizierung)
+- Sichere Übertragung
+- Serverseitig: sichere Speicherung
+  - [Anerkannte Empfehlungen](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html) beachten
 
 ## Grundlagen Authentifizierung (3)
 
@@ -281,7 +282,7 @@ const { payload: unparsed } = await jose.jwtVerify(token, key, {
 - Mächtig auch für Autorisierung (Claims)
 - **ABER**: Authentifizierung und Autorisierung trotzdem besser den Profis überlassen
   - Grundprobleme bleiben bestehen: Passwörter, MFA, Passkeys
-    - JWT setzt erst **nach** initialer Authentifizierung an und bietet einen einfachen Weg den Authentifizirungsstatus zu übermitteln
+- JWT setzt erst **nach** der initialen Authentifizierung an und bietet einen einfachen Weg, den Authentifizierungsstatus zu übermitteln
   - Session-Hijacking Gegenmaßnahmen (z.B. kurzlebige Tokens mit Refresh-Token) notwendig
   - Schlüsselverwaltung + Rotation
 
@@ -330,10 +331,10 @@ const { payload: unparsed } = await jose.jwtVerify(token, key, {
 
 - _Untrusted Input_ wird als Teil von Befehlen oder Abfragen interpretiert und ausgeführt
 - Untrusted Input: alles, was nicht vom System selbst (oder einem vertrauenswürdigen System) stammt
-- Kaum eine Web-Anwendung ohne
+- Kaum eine Webanwendung kommt ohne solche Stellen aus
   - SQL-Abfragen
   - Ausgabe von Nutzereingaben in HTML / JavaScript / CSS
-- Problem: Benutzereingabe wird an Interpreter (z.B. DB, JS-Engine) weitergegeben
+- Problem: Benutzereingabe wird an einen Interpreter (z.B. DB oder JS-Engine) weitergegeben
 - Wichtige Typen:
   - SQL Injection (SQLi)
   - Cross-Site Scripting (XSS)
@@ -409,7 +410,7 @@ db.execute(query, [search]);
 
 ## Praxisaufgabe 1
 
-1. Probiert die SQL-Injection im Beispiel-Code in `27_Web_Security/injections` wie zu triggern, um alle posts abzurufen.
+1. Probiert, die SQL-Injection im Beispiel-Code in `27_Web_Security/injections` so zu triggern, dass alle Posts abgerufen werden.
 2. Ruft zusätzlich die IDs und Namen aller Autoren ab (_Hinweis_: `UNION SELECT` und füll-Felder ;) )
 3. Fixt die SQL-Injection im Beispiel-Code mit Hilfe der Doku: [https://www.npmjs.com/package/sqlite](https://www.npmjs.com/package/sqlite)
 
@@ -492,7 +493,7 @@ Zeigt, wie sich ein Script injizieren lässt, dass den Hintergrund der Seite än
 
 - Ähnlich wie XSS
   - XSS täuscht den Nutzer, CSRF täuscht in erster Linie den Server
-  - Angreifers sorgt dafür, dass der Browser einen Request an den angegriffenen Server sendet
+- Der Angreifer sorgt dafür, dass der Browser einen Request an den angegriffenen Server sendet
   - Server hält den Request für legitim, da er von einem authentifizierten Nutzer kommt
 - Angriffsvektoren
   - Aufbauend auf XSS
@@ -547,7 +548,7 @@ Zeigt, wie sich ein Script injizieren lässt, dass den Hintergrund der Seite än
 
 ## Content Security Policy (CSP) (1)
 
-- **Ziel**: Schutz XSS-Angriffen durch Trennung von Code und Daten
+- **Ziel**: Schutz vor XSS-Angriffen durch Trennung von Code und Daten
 - Browser kann bei aktiver XSS-Lücke nicht unterscheiden, welcher Code von der Anwendung stammt und welcher von einem Angreifer
 
   - Script des Angreifers wird wie jedes andere auch ausgeführt
@@ -607,7 +608,7 @@ Zeigt, wie sich ein Script injizieren lässt, dass den Hintergrund der Seite än
 
 ### [A03:2021 - Injection](https://owasp.org/Top10/A03_2021-Injection/)
 
-- Untrusted Input wird unzureichend geporüft an einen Interpreter übergeben \rightarrow{} SQL-Injection, Cross-site Scripting (XSS), ...
+- Untrusted Input wird unzureichend geprueft an einen Interpreter uebergeben \rightarrow{} SQL-Injection, Cross-Site Scripting (XSS) usw.
 
 ## A04 - A06
 

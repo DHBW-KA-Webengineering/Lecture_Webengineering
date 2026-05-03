@@ -2,12 +2,11 @@
 title: "Vorlesung Webengineering 1 - Recap 1. Semester"
 topic: "Webengineering_1_2_2"
 author: "Lukas Panni"
-theme: "Berlin"
-colortheme: "dove"
+theme: "metropolis"
 fonttheme: "structurebold"
 fontsize: 12pt
-urlcolor: olive
-linkstyle: boldslanted
+urlcolor: BrickRed
+linkcolor: BrickRed
 aspectratio: 169
 lang: de-DE
 section-titles: true
@@ -16,20 +15,20 @@ plantuml-format: svg
 
 # Rückblick 1. Semester
 
-# Behandelte Themen
+## Behandelte Themen
 
-## Was ist eine Webanwendung?
+### Was ist eine Webanwendung?
 
-> Eine **Webanwendung** ist eine Anwendung, die Web-Technologien (_HTML_, _CSS_, _JavaScript_) verwendet
+> Eine **Webanwendung** ist eine Anwendung, die Web-Technologien wie _HTML_, _CSS_ und _JavaScript_ verwendet.
 
-Einfache und ausreichende Definition.
+Eine einfache und für den Rückblick ausreichende Definition.
 
 ## Grundlagen Web: HTTP
 
-- = Hypertext Transfer Protocol (HTTP)
-- Übertragung von Daten zwischen Browser & Webserver
+- **HTTP** = Hypertext Transfer Protocol
+- Übertragung von Daten zwischen Browser und Webserver
 - Zustandslosigkeit / Request-Response-Prinzip: Jede Anfrage ist unabhängig von vorherigen Anfragen
-- Textbasiertes Protokoll, Struktur: Header (mehrere Key-Value Paare) + Body (beliebiger Text)
+- Textbasiertes Protokoll mit Headern (mehrere Key-Value-Paare) und optionalem Body
 
 ## Grundlagen Web: HTTP Request - Response
 
@@ -88,21 +87,21 @@ Content-Type: text/html; charset=utf-8
 
 ## Grundlagen Web: REST
 
-- = Representational State Transfer
+- **REST** = Representational State Transfer
 - Architekturstil verteilter Systeme
   - Eindeutig identifizierbare Ressourcen im Mittelpunkt
   - Links und Hypermedia als Steuerungselemente
   - Einheitliche, generische Schnittstellen
   - Möglichkeit verschiedener Repräsentationen
-  - Zustanslose Kommunikation der Komponenten
+- Zustandslose Kommunikation der Komponenten
 
 ## Grundlagen Web: HTML
 
-- = Hypertext Markup Language
+- **HTML** = Hypertext Markup Language
 - Auszeichnungssprache: beschreibt **Struktur** und **Inhalt**
 - Komponenten: **Elemente** (Tags: `<X> ... </X>`) und **Attribute** (`X="Y"`)
 - Gliederung in _Head_ (Metadaten, `<head>`) und _Body_ (Inhalt `<body>`)
-- Semantische Elemente (z.B. `<header>`, `<footer>`, `<nav>`, `<article>`, `<section>`, `<aside>`, `<main>`) sollten genutzt werden, um Semantik zu verdeutlichen
+- Semantische Elemente (z.B. `<header>`, `<footer>`, `<nav>`, `<article>`, `<section>`, `<aside>`, `<main>`) sollten genutzt werden, um die Bedeutung von Inhalten zu verdeutlichen
 
 ## Grundlagen Web: HTML - Wichtige allgemeine Tags
 
@@ -123,7 +122,7 @@ Content-Type: text/html; charset=utf-8
 
 ## Grundlagen Web: CSS
 
-- = Cascading Style Sheets
+- **CSS** = Cascading Style Sheets
 - Beschreibung der **Darstellung** von HTML-Elementen
 - Ruleset: `Selektor { Eigenschaft: Wert; ... }`
   - **Selektoren**: Universal (`*`), Element (`p`), Klasse (`.class`), ID (`#id`), Attribut (`[attr]`), Kombinationen (`div p`, `div > p`, `div + p`, ...), Pseudoklassen (`:hover`, `:nth-child()`, ...)
@@ -146,7 +145,7 @@ Content-Type: text/html; charset=utf-8
   - Was wird zusammengehörig wahrgenommen?
   - Wie können Gesetzmäßigkeiten im Design genutzt werden?
 - Gestaltung von Bedienelementen
-  - Affordances & Constraings \rightarrow{} welche Nutzung wird nahegelegt? (sieh Norman-Doors)
+  - Affordances & Constraints \rightarrow{} Welche Nutzung wird nahegelegt? (siehe Norman Doors)
   - Feedback: Sinnvolle Rückmeldungen bei Nutzerinteraktionen
 - Entwurfsprinzipien
 
@@ -164,7 +163,7 @@ Content-Type: text/html; charset=utf-8
 
 ## Grundlagen Web: JavaScript - DOM
 
-- = Document Object Model
+- **DOM** = Document Object Model
 - Repräsentation der HTML-Struktur als Baum
 - Zugriff auf und Veränderung von HTML-Elementen über JavaScript
   - Ändern von Inhalt (`innerText`, `textContent`)
@@ -182,20 +181,62 @@ Content-Type: text/html; charset=utf-8
   - `options`: Konfiguration (Methode, Body, Header, ...)
   - `Promise<Response>`: Asynchrones Ergebnis
 
-<!-- TODO: Webarchitekturen recap -->
+## React
 
-# Organisatorisches 2. Semester
+- JavaScript-Bibliothek für Benutzeroberflächen
+- Komponentenbasiert: UI in wiederverwendbare Komponenten aufteilen
+  - Funktion die props annimmt und JSX zurückgibt
+- JSX: Erweiterung von JavaScript für HTML-ähnliche Syntax
 
-## Vorlesung
+## React Komponenten
+
+```jsx
+import React from "react";
+function SimpleComponent() {
+  const greeting = "Hallo, React! ";
+  return (
+    <div>
+      <h1>{greeting}</h1> Dies ist eine einfache React-Komponente mit JSX.
+    </div>
+  );
+}
+export default SimpleComponent;
+```
+
+## React Hooks und State
+
+- Seiteneffekte, wie Daten-Abruf, Zustand etc. werden in React über _Hooks_ verwaltet
+- `useState`:  lokaler Zustand, bleibt über Renderzyklen erhalten \rightarrow{} `const [state, setState] = useState(initialValue);`
+- `useEffect`:  Seiteneffekte, z.B. Daten-Abruf, Aktualisierung von DOM, ... \rightarrow{} `useEffect(() => { ... }, [dependencies]);`
+
+## Webarchitekturen
+
+- Schichtenarchitektur: Präsentation. Anwendung, Daten
+  - Klare Aufgabenverteilung, klare Schnittstellen immer nur nach unten
+- Model-View-Controller Pattern: Trennung von Daten Darstellung und Logik 
+- Verteilung der Anwendungslogik
+  - Gut für Performance, Skalierbarkeit, Nutzerfreundlichkeit ...
+
+## Webanwendungsmodelle
+
+- _Multi-Page-Application_: traditionelles Modell, jede Seite ist eine HTML Datei (oder wird auf dem Server generiert), jede Navigation ist ein neuer Request
+- _Single-Page Application_: Gesamte Anwendung in einer HTML-Seite, Navigation und UI größtenteils über JavaScript, Großteil der Anwendungslogik im Browser, Kommunikation mit Backend über klar definierte APIs
+- _Static Site Generation_: alles statisch vorgerendert, schnelle Ladezeiten, keine Server-Last zur Laufzeit
+- _Server-Side Rendering_: HTML für jede Anfrage auf Server generiert ähnlich wie traditionelle Multi-Page-Applications, aber mit modernen Features wie Streaming
+
+## Organisatorisches 2. Semester
+
+### Vorlesung
 
 - 33 Vorlesungseinheiten
   - i.d.R. 3x 45 min. + 15 min. Pause 
+  - Vorschlag: verlängern auf 4x 45 min. + 15 min. Pause, dafür weniger Termine
 
 - Vorlesung mit Programmieraufgaben
-  - Keine Vorkenntnisse erforderlich
-  - Tools: Texteditor, Browser, Terminal, Git, (evtl. Container-Tools, i.e. Docker)
-    - Empfehlung: [VSCode](https://code.visualstudio.com/) / [WebStorm](https://www.jetbrains.com/de-de/webstorm/) (kostenlos für Studenten), Firefox, Docker-Desktop
-  - kleine Hausaufgaben
+  - Grundlagen aus dem 1. Semester werden vorausgesetzt
+  - Tools: Texteditor oder IDE, Browser, Terminal, Git und ggf. Container-Tools wie Docker
+    - Empfehlung: [VSCode](https://code.visualstudio.com/) oder [WebStorm](https://www.jetbrains.com/de-de/webstorm/) (kostenlos für Studierende)
+  - Kleine Hausaufgaben zur Vertiefung
 
 ## Material
 
@@ -209,20 +250,20 @@ Content-Type: text/html; charset=utf-8
 
 ## Prüfungsleistungen
 
-### Projektarbeit:
+### Projektarbeit
 
-- Entwicklung einer (kleinen) Webanwendung mit hier gelernten Technologien
-- Gruppenarbeit verpflichtend (3 - 5 Studierende)
-- Dieses Semester: Umsetzung Backend, Frontend sollte bereits vorhanden sein
+- Entwicklung einer kleineren Webanwendung mit den in der Vorlesung behandelten Technologien
+- Gruppenarbeit (3 bis 5 Studierende)
+- In diesem Semester: Umsetzung des Backends, ein Frontend sollte bereits vorhanden sein
+- Voraussichtlich: 23.07. Vorstellung der Ergebnisse, Abgabe der Dokumentation bis 09.08. (1 Woche nach Klausurenphase)
 
+### Klausur
 
-### Klausur:
-
-- Klausur (60 min) am Ende dieses Semesters über die Themen **beider** Semester!
+- 29.07. Klausur (60 min) über die Themen **beider** Semester!
 - Beispielaufgaben in Moodle verfügbar
 
-### Note Webengineering:
+## Note Webengineering
 
 - Kombinierte Prüfung:
-  - 50 % Projekt (Details siehe [Notes/Bewertung_Projektarbeit](https://github.com/DHBW-KA-Webengineering/Lecture_Webengineering/tree/2025/Material/Notes/Bewertung_Projektarbeit.md))
+  - 50 % Projekt (Details siehe [Notes/Bewertung_Projektarbeit](https://github.com/DHBW-KA-Webengineering/Lecture_Webengineering/tree/2026/Material/Notes/Bewertung_Projektarbeit.md))
   - 50 % Klausur (60 min)
