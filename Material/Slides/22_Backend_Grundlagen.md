@@ -15,10 +15,6 @@ plantuml-format: svg
 
 # Grundlagen Backend
 
-## Unterscheidung Frontend - Backend
-
-- Architekturmuster: Layer
-  -> Warum Aufteilung? Aufteilung der Aufgaben
 
 ## Gruppenarbeit Online Shop
 
