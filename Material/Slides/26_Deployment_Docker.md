@@ -6,7 +6,8 @@ theme: "metropolis"
 fonttheme: "structurebold"
 fontsize: 12pt
 urlcolor: BrickRed
-linkcolor: BrickRedaspectratio: 169
+linkcolor: BrickRed
+aspectratio: 169
 lang: de-DE
 section-titles: true
 plantuml-format: svg

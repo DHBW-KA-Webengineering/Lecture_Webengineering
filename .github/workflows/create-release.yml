@@ -3,7 +3,7 @@ name: Create Release on Push to current year branch
 on:
   push:
     branches:
-      - 2026
+      - "2026"
   workflow_dispatch:
 
 jobs:
