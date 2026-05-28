@@ -52,6 +52,7 @@ plantuml-format: svg
 - Nutzt Non-blocking I/O und Eventbasierte Architektur für hohe Skalierbarkeit
 
 **Event-Loop** Konzept: Schleife die auf Ereignisse (Events) wartet und sie zur Verarbeitung verteilt
+
 - Neue Events werden einer Warteschlange (Queue) hinzugefügt und vom Loop abgearbeitet
 - Ersteller eines Events registriert eine Callback-Funktion, die aufgerufen wird, wenn das Event verarbeitet wurde
 
@@ -266,6 +267,8 @@ Bei allen anderen Anfragen soll ein Fehler ausgegeben werden.
 Achtet auf die richtigen _Content-Types_ und _Status-Codes_!
 
 Argumente von `createServer`: `request`: [http.IncomingMessage](https://nodejs.org/api/http.html#class-httpincomingmessage), `response`: [http.ServerResponse](https://nodejs.org/api/http.html#class-httpserverresponse)
+
+**Zeit**: 20 min.
 
 ## Theoretische Fragen
 
@@ -502,6 +505,7 @@ Und auch Unterstützung für verschiedene HTTP-Methoden:
 ## Aufgabe 2
 
 Schreibt einen HTTP-Server mit Bun, der eine einfache `count` API bereitstellt:
+
 - GET `/api/count`: aktuelle Zahl (initial 0)
 - POST `/api/count`: Zahl um 1 erhöhen und neue Zahl zurückgeben
 - DELETE `/api/count`: Zahl auf 0 zurücksetzen und neue Zahl zurückgeben
