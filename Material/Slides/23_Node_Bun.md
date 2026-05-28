@@ -248,6 +248,7 @@ createServer((request, response) => {
 ## Node.js Non-Blocking I/O mit Promises (4)
 
 In diesem Beispiel ist der Unterschied noch nicht so groß, aber der Trend ist klar:
+
 - je mehr Operationen, desto mehr Callbacks, desto mehr Verschachtelung, desto unleserlicher
 - Promises ermöglichen eine flacheere Struktur, die leichter zu lesen und zu warten ist
   - \rightarrow{} ähnlicher zu synchronem Code, erleichtert intuitives Verständnis
