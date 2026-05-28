@@ -48,8 +48,13 @@ Entwicklung einer webbasierten Anwendung, die es Nutzern ermöglicht, Aufgaben z
   - Filter- oder Sortieroptionen implementiert
 - Mindestanforderungen Backend:
   - Backend-Repository eingerichtet
-  - Mindestens 1 Demo-Endpunkt implementiert
-  - Lokale Ausführung reicht aus
+  - Datenmodell für Aufgaben definiert
+    - Ressourcen + deren Eigenschaften
+    - Beziehungen zwischen Ressourcen
+    - Mögliche Aktionen auf Ressourcen
+  - Struktur der API definiert: Aktion, Methode, Endpunkt, Input/Output
+     - Siehe z.B. Tabelle Aufgabe 2 in 22_Backend_Grundlagen
+  - Kein Deployment
 - 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
 
 ## Finale Abgabe
@@ -90,8 +95,12 @@ Entwicklung einer Anwendung, die Arbeitszeiten erfasst, speichert und auswertet.
   - Anzeige von Wochenübersichten und Überstunden
 - Mindestanforderungen Backend:
   - Backend-Repository eingerichtet
-  - Mindestens 1 Demo-Endpunkt implementiert
-  - Lokale Ausführung reicht aus
+  - Datenmodell für Aufgaben definiert
+    - Ressourcen + deren Eigenschaften
+    - Beziehungen zwischen Ressourcen
+    - Mögliche Aktionen auf Ressourcen
+  - Struktur der API definiert: Aktion, Methode, Endpunkt, Input/Output
+     - Siehe z.B. Tabelle Aufgabe 2 in 22_Backend_Grundlagen
 - 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
 
 ## Finale Abgabe
@@ -130,8 +139,12 @@ Umsetzung einer Anwendung, die das Lernen mit Karteikarten erleichtert. Nutzer k
   - Karteikasten Funktion
 - Mindestanforderungen Backend:
   - Backend-Repository eingerichtet
-  - Mindestens 1 Demo-Endpunkt implementiert
-  - Lokale Ausführung reicht aus
+  - Datenmodell für Aufgaben definiert
+    - Ressourcen + deren Eigenschaften
+    - Beziehungen zwischen Ressourcen
+    - Mögliche Aktionen auf Ressourcen
+  - Struktur der API definiert: Aktion, Methode, Endpunkt, Input/Output
+     - Siehe z.B. Tabelle Aufgabe 2 in 22_Backend_Grundlagen
 - 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
 
 ## Finale Abgabe
