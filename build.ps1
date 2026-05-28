@@ -12,6 +12,12 @@ else {
 
 $jobs = @()
 
+Write-Host "Building PDFs for the following files:"
+foreach ($arg in $files) {
+  Write-Host "- $arg"
+}
+
+
 foreach ($arg in $files) {
   $pdfName = "build/" + ((Get-Item $arg).Directory.Basename) + "/" + ((Get-Item $arg).Basename) + ".pdf"
   New-Item -ItemType Directory -Path (Split-Path $pdfName) -Force > $null
@@ -20,6 +26,7 @@ foreach ($arg in $files) {
     param($arg, $pdfName)
     $pdfType = (Get-ChildItem $arg).Directory.Name
     if ($pdfType -eq "Slides") {
+      Write-Host "Building slides for $arg"
       pandoc -f markdown+smart+yaml_metadata_block+rebase_relative_paths --toc --slide-level 2 --number-section --pdf-engine lualatex -t beamer -H preamble.tex -F pandoc-plantuml -o $pdfName $arg
     }
     else {
