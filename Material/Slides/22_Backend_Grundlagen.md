@@ -216,6 +216,8 @@ Dokumentiert in Kleingruppen (2-3 Personen) die grundlegenden Informationen für
 ## Aufgabe 2
 
 Füllt die folgende Tabelle für eure Benutzerverwaltung aus:
+
+
 | **Aktion** | **HTTP Methode** | **Endpunkt** |
 | ------------ | ----------------- | ------------ |
 | Alle Benutzer abrufen | `GET` | `/users` |
