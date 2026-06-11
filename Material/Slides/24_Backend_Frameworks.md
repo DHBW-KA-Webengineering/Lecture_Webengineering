@@ -54,6 +54,7 @@ plantuml-format: svg
 
 **Route**: HTTP-Methode + Pfad  
 **Handler**: Funktion, die ausgeführt wird, wenn Route aufgerufen wird
+
 - Framework erleichtert Zuordnung von Route zu Handler, erzwingt aber noch nicht die Einhaltung von REST-Konventionen!
 - Struktur der Routen sollte auf Ressourcen-zentriertem Design aufbauen
 
@@ -131,7 +132,7 @@ Ressourcen:
 
 ## express Minimalbeispiel (2)
 
-Siehe [express-basics](https://github.com/DHBW-Webengineering/Lecture_Code/tree/2026/24_Backend_Frameworks/express-basics)
+Siehe [express-basics](https://github.com/DHBW-KA-Webengineering/Lecture_Code/tree/2026/Backend/24_Backend_Frameworks/express-basics)
 
 ### simple-express-server:
 
