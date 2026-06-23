@@ -10,32 +10,56 @@ else {
   $zip = 1
 }
 
-$jobs = @()
-
 Write-Host "Building PDFs for the following files:"
 foreach ($arg in $files) {
   Write-Host "- $arg"
 }
 
 
-foreach ($arg in $files) {
-  $pdfName = "build/" + ((Get-Item $arg).Directory.Basename) + "/" + ((Get-Item $arg).Basename) + ".pdf"
+# Pre-compute targets and create output directories in the main thread to avoid
+# races between parallel workers creating the same directory.
+$targets = foreach ($arg in $files) {
+  $item = Get-Item $arg
+  $pdfName = "build/" + $item.Directory.BaseName + "/" + $item.BaseName + ".pdf"
   New-Item -ItemType Directory -Path (Split-Path $pdfName) -Force > $null
-
-  $jobs += Start-Job -ScriptBlock { 
-    param($arg, $pdfName)
-    $pdfType = (Get-ChildItem $arg).Directory.Name
-    if ($pdfType -eq "Slides") {
-      Write-Host "Building slides for $arg"
-      pandoc -f markdown+smart+yaml_metadata_block+rebase_relative_paths --toc --slide-level 2 --number-section --pdf-engine lualatex -t beamer -H preamble.tex -F pandoc-plantuml -o $pdfName $arg
-    }
-    else {
-      pandoc -f markdown+smart+yaml_metadata_block+rebase_relative_paths --toc --toc-depth 1 --number-section --pdf-engine lualatex -F pandoc-plantuml -o $pdfName $arg
-    }
-  } -ArgumentList $arg, $pdfName
+  [PSCustomObject]@{
+    Source = $item.FullName
+    Pdf    = $pdfName
+    Type   = $item.Directory.Name
+  }
 }
 
-Wait-Job $jobs
+# Build PDFs in parallel, but throttle concurrency: unbounded parallel lualatex
+# (especially the heavy beamer slide decks) exhausts memory on CI runners and the
+# processes get killed, silently producing no output.
+$results = $targets | ForEach-Object -ThrottleLimit 2 -Parallel {
+  # Parallel runspaces do not reliably inherit the caller's location.
+  Set-Location $using:currentDir
+  $t = $_
+
+  if ($t.Type -eq "Slides") {
+    Write-Host "Building slides for $($t.Source)"
+    pandoc -f markdown+smart+yaml_metadata_block+rebase_relative_paths --toc --slide-level 2 --number-section --pdf-engine lualatex -t beamer -H preamble.tex -F pandoc-plantuml -o $t.Pdf $t.Source
+  }
+  else {
+    Write-Host "Building document for $($t.Source)"
+    pandoc -f markdown+smart+yaml_metadata_block+rebase_relative_paths --toc --toc-depth 1 --number-section --pdf-engine lualatex -F pandoc-plantuml -o $t.Pdf $t.Source
+  }
+
+  [PSCustomObject]@{
+    Pdf      = $t.Pdf
+    ExitCode = $LASTEXITCODE
+  }
+}
+
+# Fail the build if any PDF did not compile, instead of silently shipping a
+# partial result.
+$failed = $results | Where-Object { $_.ExitCode -ne 0 -or -not (Test-Path $_.Pdf) }
+if ($failed) {
+  Write-Host "##[error]The following PDF builds failed:"
+  $failed | ForEach-Object { Write-Host " - $($_.Pdf) (exit code $($_.ExitCode))" }
+  exit 1
+}
 
 
 
@@ -52,8 +76,13 @@ header-includes: |
   \fancyfoot[R]{Licensed under CC-BY-SA-4.0}
 ..."
   pandoc -f markdown+smart+yaml_metadata_block+rebase_relative_paths --toc --toc-depth 1 --pdf-engine lualatex -F pandoc-plantuml --title="Vorlesung Webengineering" -o "build/script.pdf" $(Get-ChildItem -Recurse -Path Material/Slides -Filter *.md)
+  $scriptExit = $LASTEXITCODE
   Remove-Item -Path "Material/Slides/99_Script.md" -Force
-  
+  if ($scriptExit -ne 0 -or -not (Test-Path "build/script.pdf")) {
+    Write-Host "##[error]Building build/script.pdf failed (exit code $scriptExit)"
+    exit 1
+  }
+
   Set-Location .\build
   Compress-Archive -Force -Path .\* -DestinationPath ..\build.zip
   Set-Location $currentDir
