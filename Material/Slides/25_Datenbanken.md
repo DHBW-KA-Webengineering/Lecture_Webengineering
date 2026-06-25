@@ -312,10 +312,13 @@ export const userGroupRelations = relations(userGroup, ({ one }) => ({
 ## Aufgabe 3
 
 Erstellt eine Drizzle-Schema mit Beziehungen für das folgende Datenmodell für eine Benutzerverwaltung: 
+
 - _User_ haben einen vollen Namen, eine E-Mail Adresse, ein Passwort-Hash und ein Salt
 - _Roles_ haben einen Namen und eine Beschreibung
 - _Permissions_ haben einen Namen und eine Beschreibung
+
 Beziehungen:
+
 - Benutzer haben genau eine Rolle
 - Rollen haben beliebig viele Berechtigungen
 
