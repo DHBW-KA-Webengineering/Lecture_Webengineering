@@ -29,35 +29,53 @@ $targets = foreach ($arg in $files) {
   }
 }
 
-# Build PDFs in parallel, but throttle concurrency: unbounded parallel lualatex
-# (especially the heavy beamer slide decks) exhausts memory on CI runners and the
-# processes get killed, silently producing no output.
+# Build PDFs in parallel, but throttle concurrency to keep peak load on CI
+# runners reasonable. Each worker captures pandoc's full output and exit code
+# into its result object instead of writing to the console: parallel runspaces
+# interleave their output unreadably, so we emit one clean, ordered report
+# afterwards in the main thread.
 $results = $targets | ForEach-Object -ThrottleLimit 2 -Parallel {
   # Parallel runspaces do not reliably inherit the caller's location.
   Set-Location $using:currentDir
   $t = $_
 
-  if ($t.Type -eq "Slides") {
-    Write-Host "Building slides for $($t.Source)"
-    pandoc -f markdown+smart+yaml_metadata_block+rebase_relative_paths --toc --slide-level 2 --number-section --pdf-engine lualatex -t beamer -H preamble.tex -F pandoc-plantuml -o $t.Pdf $t.Source
+  try {
+    if ($t.Type -eq "Slides") {
+      $log = pandoc -f markdown+smart+yaml_metadata_block+rebase_relative_paths --toc --slide-level 2 --number-section --pdf-engine lualatex -t beamer -H preamble.tex -F pandoc-plantuml -o $t.Pdf $t.Source 2>&1 | Out-String
+    }
+    else {
+      $log = pandoc -f markdown+smart+yaml_metadata_block+rebase_relative_paths --toc --toc-depth 1 --number-section --pdf-engine lualatex -F pandoc-plantuml -o $t.Pdf $t.Source 2>&1 | Out-String
+    }
+    $code = $LASTEXITCODE
   }
-  else {
-    Write-Host "Building document for $($t.Source)"
-    pandoc -f markdown+smart+yaml_metadata_block+rebase_relative_paths --toc --toc-depth 1 --number-section --pdf-engine lualatex -F pandoc-plantuml -o $t.Pdf $t.Source
+  catch {
+    $log = ($_ | Out-String)
+    $code = 1
   }
 
   [PSCustomObject]@{
     Pdf      = $t.Pdf
-    ExitCode = $LASTEXITCODE
+    Source   = $t.Source
+    ExitCode = $code
+    Ok       = ($code -eq 0 -and (Test-Path $t.Pdf))
+    Log      = $log
   }
 }
 
+# Emit an ordered status line per file so the build log is readable.
+foreach ($r in ($results | Sort-Object Pdf)) {
+  if ($r.Ok) { Write-Host "OK    $($r.Pdf)" }
+  else { Write-Host "FAIL  $($r.Pdf) (exit code $($r.ExitCode))" }
+}
+
 # Fail the build if any PDF did not compile, instead of silently shipping a
-# partial result.
-$failed = $results | Where-Object { $_.ExitCode -ne 0 -or -not (Test-Path $_.Pdf) }
+# partial result. Print the captured pandoc/LaTeX output for each failure.
+$failed = $results | Where-Object { -not $_.Ok }
 if ($failed) {
-  Write-Host "##[error]The following PDF builds failed:"
-  $failed | ForEach-Object { Write-Host " - $($_.Pdf) (exit code $($_.ExitCode))" }
+  foreach ($r in $failed) {
+    Write-Host "##[error]Build failed for $($r.Source) -> $($r.Pdf) (exit code $($r.ExitCode))"
+    Write-Host $r.Log
+  }
   exit 1
 }
 
