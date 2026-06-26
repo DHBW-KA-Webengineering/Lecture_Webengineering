@@ -18,7 +18,12 @@ jobs:
         uses: actions/checkout@v4
       - name: Install slide beamer theme
         shell: pwsh
-        run: tlmgr install beamertheme-metropolis pgfopts
+        # The container ships TeX Live 2024; tlmgr's default mirror is the current
+        # release and refuses cross-release installs, so pin the 2024 historic repo.
+        # metropolis pulls in pgfopts and defaults to the Fira fonts.
+        run: |
+          tlmgr option repository https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2024/tlnet-final
+          tlmgr install beamertheme-metropolis pgfopts fira
       - name: Build PDFs
         shell: pwsh
         run: ./build.ps1
