@@ -16,6 +16,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Install slide beamer theme
+        shell: pwsh
+        run: tlmgr install beamertheme-metropolis pgfopts
       - name: Build PDFs
         shell: pwsh
         run: ./build.ps1
