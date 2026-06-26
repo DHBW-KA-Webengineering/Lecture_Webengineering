@@ -16,12 +16,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Diagnose slide build (temporary)
-        shell: pwsh
-        continue-on-error: true
-        run: |
-          pandoc -f markdown+smart+yaml_metadata_block+rebase_relative_paths --slide-level 2 -t beamer -H preamble.tex -F pandoc-plantuml -o diag.tex Material/Slides/01_Vorstellung_Intro.md
-          lualatex -interaction=nonstopmode -halt-on-error diag.tex 2>&1 | Select-String -Pattern "! |not found|metropolis|fatal|Emergency" -Context 1,3
       - name: Build PDFs
         shell: pwsh
         run: ./build.ps1
