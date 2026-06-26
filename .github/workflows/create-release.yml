@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - "2026"
-      # Temporary: validate the build on this CI fix branch (no release is created
-      # because the create_release job is guarded by refs/heads/2026). Remove on merge.
-      - "ci/fix-slide-build"
   workflow_dispatch:
 
 jobs:
