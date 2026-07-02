@@ -314,10 +314,6 @@ const { payload: unparsed } = await jose.jwtVerify(token, key, {
   - Keine eigene Datenbank notwendig (ABER: weniger Kontrolle über User-Daten)
   - Kostenlose Version reicht für viele Fälle aus (10k monatliche aktive Nutzer)
     - im Dev-Mode sind auch alle Addons (z.B. MFA) kostenlos)
-- Open Source Alternative: [StackAuth](https://stack-auth.com)
-  - Noch nicht so ausgereift, aber grundsätzlich gleiche Features
-  - Auch hier sind erste 10k Nutzer kostenlos
-    - Zusätzlich Self-Hosting, da vollständig Open Source
 
 ## Theoretische Fragen
 
