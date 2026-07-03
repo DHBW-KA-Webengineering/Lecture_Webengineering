@@ -465,7 +465,7 @@ Erstellen einer `netlify.toml`-Konfigurationsdatei im Projekt-Root:
   - Zur Buildzeit: bei statischen Daten, z.B. aus lokalen Markdown-Files
   - Zur Laufzeit: bei dynamischen Daten, z.B. aus Datenbanken oder APIs
 - Vorteile
-  - Frontend-Bundles können kleinr werden
+  - Frontend-Bundles können kleiner werden
   - Zugriff auf Datenbanken etc. ohne separates Backend
   - Bei Kombination mit _Server-Side-Rendering (SSR)_: Browser muss nur HTML darstellen, keine React-Komponenten rendern
 
