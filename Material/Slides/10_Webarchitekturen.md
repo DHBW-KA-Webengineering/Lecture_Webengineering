@@ -1,6 +1,6 @@
 ---
 title: "Vorlesung Webengineering 1 - Webarchitekturen"
-topic: "Webengineering_1_11"
+topic: "Webengineering_1_10"
 author: "Lukas Panni"
 theme: "metropolis"
 fonttheme: "structurebold"
@@ -334,92 +334,6 @@ Auch nicht frei von Problemen:
 - **Alternative**: Frameworks für hybride Apps (Mix aus nativer App und Webanwendung)
   - Capacitor, Cordova, React Native, ...
 
-# Webcomponents
-
-## Motivation
-
-Problem:
-
-- HTML bietet nur Standard-Elemente (div, p, button, …)
-- Wiederverwendbare UI-Komponenten nur mit Frameworks (React, Angular, Vue)
-
-\rightarrow{} Frage: Wie können wir wiederverwendbare, gekapselte Komponenten ohne Framework erstellen?
-
-## Definition
-
-Web Components sind ein Webstandard zur Erstellung eigener HTML-Elemente.
-
-Basierend auf:
-
-- Custom Elements
-- Shadow DOM
-- HTML Templates
-- ES Modules
-
-## Custom Elements
-
-Ermöglichen es, eigene HTML-Tags zu definieren:
-
-**Registrierung in JavaScript**
-
-```javaScript
-class MyProductCard extends HTMLElement {
-  connectedCallback() {
-    this.innerHTML = "<p>Produkt</p>";
-  }
-}
-customElements.define("my-product-card", MyProductCard);
-```
-
-**Verwendung in HTML**
-
-```HTML
-<my-product-card></my-product-card>
-```
-
-## Shadow DOM
-
-Probleme beim erstellen von Komponenten mit Standard-HTML:
-
-- CSS ist global
-- Namenskonflikte möglich
-
-Lösung: Verwendung des Shadow DOM
-
-- Starke Isolation einer Komponente durch Kapselung von:
-  - HTML
-  - CSS
-  - JavaScript
-  - Keine Beeinflussung von außen
-
-## Eigenschaften von Web Components
-
-- Framework-unabhängig
-- Standardisiert
-- Wiederverwendbar
-- Kapselbar
-
-## Vorteile
-
-- Kein Framework-Zwang
-- Gute Wiederverwendbarkeit
-- Integration in Microfrontends möglich
-- Technologieneutral
-
-## Nachteile
-
-- Mehr Boilerplate-Code
-- Komplexere Zustandsverwaltung
-- Weniger Komfort als moderne Frameworks
-
-## Einordnung
-
-Web Components sind:
-
-- Eine technische Modularisierungsmöglichkeit
-- Keine vollständige Architektur
-- Häufig Baustein in Microfrontend-Architekturen (dazu später mehr)
-
 # Frontend Build-Prozess und Bundler
 
 ## Problemstellung
@@ -472,9 +386,10 @@ Bundler sind Werkzeuge, die:
 ## Code Splitting als Optimierung
 
 Nicht alles auf einmal laden!
-• Aufteilung in mehrere Bundles
-• Dynamisches Nachladen bei Bedarf
-• Wichtig für SPAs und Microfrontends
+
+- Aufteilung in mehrere Bundles
+- Dynamisches Nachladen bei Bedarf
+- Wichtig für SPAs und Microfrontends
 
 ## Exkurs Microfrontends (1) - Motivation
 
@@ -531,25 +446,27 @@ Beispiel:
 
 - Zusammensetzung nahe am Nutzer (z. B. CDN)
 
-## Exkurs Microfrontends (5) - Vorteile
+## Exkurs Microfrontends (5) - Vor- und Nachteile
+
+Vorteile
 
 - Skalierbarkeit von Entwicklungsteams
 - Kleinere, verständlichere Codebasen
 - Unabhängige Releases
 - Technologiemischung möglich
 
-## Exkurs Microfrontends (6) - Nachteile
+Nachteile
 
 - Höhere Komplexität
 - Abstimmung von UI/UX notwendig
 - Gemeinsame Zustandsverwaltung schwierig
 - Performance-Risiken durch Mehrfachladen von Abhängigkeiten
 
-## Exkurs Microfrontends (7) - Sinnvolle Einsatzbereiche
+## Exkurs Microfrontends (6) - Sinnvolle Einsatzbereiche
 
-- Großen Organisationen
-- Langlebigen Produkten
-- Mehreren unabhängigen Teams
+- Große Organisationen
+- Langlebige Produkte
+- Mehrere unabhängigen Teams
 - Für kleine Projekte meist überdimensioniert.
 
 ## Zusammenhang zwischen Bundler und Deployment

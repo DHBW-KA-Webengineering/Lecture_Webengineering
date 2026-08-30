@@ -1,6 +1,6 @@
 ---
 title: "Vorlesung Webengineering 1 - React & Next"
-topic: "Webengineering_1_10"
+topic: "Webengineering_1_9"
 date: 2026-02-18
 author: "Silas Schnurr"
 theme: "metropolis"

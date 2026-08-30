@@ -1,6 +1,6 @@
 ---
 title: "Vorlesung Webengineering 1 - TypeScript"
-topic: "Webengineering_1_7"
+topic: "Webengineering_1_8"
 date: 2026-02-17
 author: "Lukas Panni"
 theme: "metropolis"
