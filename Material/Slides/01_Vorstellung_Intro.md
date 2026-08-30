@@ -3,12 +3,11 @@ title: "Vorlesung Webengineering I - Einführung"
 topic: "Webengineering_1_1"
 author: "Lukas Panni"
 date: 2026-01-13
-theme: "Berlin"
-colortheme: "dove"
+theme: "metropolis"
 fonttheme: "structurebold"
 fontsize: 12pt
-urlcolor: olive
-linkstyle: boldslanted
+urlcolor: BrickRed
+linkcolor: BrickRed
 aspectratio: 169
 lang: de-DE
 section-titles: true
