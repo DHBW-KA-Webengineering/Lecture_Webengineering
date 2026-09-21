@@ -1,7 +1,7 @@
 ---
-title: "Vorlesung Webengineering 1 - Webarchitekturen"
-topic: "Webengineering_1_10"
-author: "Lukas Panni"
+title: "Webengineering 1 - Webarchitekturen"
+topic: "Webengineering_1_1_7"
+author: "Silas Schnurr"
 theme: "metropolis"
 fonttheme: "structurebold"
 fontsize: 12pt
@@ -9,13 +9,13 @@ urlcolor: BrickRed
 linkcolor: BrickRed
 aspectratio: 169
 lang: de-DE
-section-titles: true
-toc: true
 numbersections: true
 plantuml-format: svg
+toc: true
+section-titles: true
 ...
 
-# Grundlagen
+# Grundlagen Webarchitekturen
 
 ## Client vs. Server
 
@@ -85,8 +85,6 @@ Zentrale Punkte:
   - Monolithisch: gesamte Anwendung auf einem Server
   - (Micro)-Services: Eigenständige Komponenten auf verschiedenen Servern
   - \rightarrow{} Abstufungen und Mischformen möglich und sinnvoll
-
-# Webarchitekturen
 
 ## Klassische Architektur: Schichten
 
@@ -481,7 +479,7 @@ Bundler erzeugen:
 
 siehe Static Site Generation, CDN, Containerisierung
 
-# Deployment
+# Grundlagen Deployment
 
 ## Klassisches Deployment
 
@@ -621,3 +619,7 @@ Mehrere Anwendungen (Webserver-Instanzen) auf einem physischen Server?
   - CDN Funktionen integriert / einfach nutzbar
   - Security-Features
     \rightarrow{} Heute de facto Standard für viele Anwendungen
+
+## Vertiefung Deployment ...
+
+... im 2. Semester

@@ -1,7 +1,6 @@
 ---
-title: "Vorlesung Webengineering 1 - React & Next"
-topic: "Webengineering_1_9"
-date: 2026-02-18
+title: "Webengineering 1 - React & Next"
+topic: "Webengineering_1_1_6"
 author: "Silas Schnurr"
 theme: "metropolis"
 fonttheme: "structurebold"
@@ -10,11 +9,13 @@ urlcolor: BrickRed
 linkcolor: BrickRed
 aspectratio: 169
 lang: de-DE
-section-titles: true
+numbersections: true
 plantuml-format: svg
+toc: true
+section-titles: true
 ...
 
-# Starten mit React & Next.js
+# React & Next.js Grundlagen
 
 ## Was ist React?
 
@@ -68,7 +69,7 @@ Struktur eines neu erstellten Projekts:
 
 > [Referenz von nextjs.org](https://nextjs.org/docs/app/getting-started/project-structure)
 
-# Komponenten
+# React Komponenten
 
 ## Beispiel Komponente
 
@@ -228,7 +229,7 @@ $primary-color: olive;
 }
 ```
 
-# Navigation
+# React Navigation
 
 ## Dateibasiertes Routing (1)
 

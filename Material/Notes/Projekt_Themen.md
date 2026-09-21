@@ -52,7 +52,7 @@ Entwicklung einer webbasierten Anwendung, die es Nutzern ermöglicht, Aufgaben z
     - Beziehungen zwischen Ressourcen
     - Mögliche Aktionen auf Ressourcen
   - Struktur der API definiert: Aktion, Methode, Endpunkt, Input/Output
-     - Siehe z.B. Tabelle Aufgabe 2 in 22_Backend_Grundlagen
+    - Siehe z.B. Tabelle Aufgabe 2 in 22_Backend_Grundlagen
   - Kein Deployment
 - 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
 
@@ -98,7 +98,7 @@ Entwicklung einer Anwendung, die Arbeitszeiten erfasst, speichert und auswertet.
     - Beziehungen zwischen Ressourcen
     - Mögliche Aktionen auf Ressourcen
   - Struktur der API definiert: Aktion, Methode, Endpunkt, Input/Output
-     - Siehe z.B. Tabelle Aufgabe 2 in 22_Backend_Grundlagen
+    - Siehe z.B. Tabelle Aufgabe 2 in 22_Backend_Grundlagen
 - 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
 
 ## Finale Abgabe
@@ -141,7 +141,7 @@ Umsetzung einer Anwendung, die das Lernen mit Karteikarten erleichtert. Nutzer k
     - Beziehungen zwischen Ressourcen
     - Mögliche Aktionen auf Ressourcen
   - Struktur der API definiert: Aktion, Methode, Endpunkt, Input/Output
-     - Siehe z.B. Tabelle Aufgabe 2 in 22_Backend_Grundlagen
+    - Siehe z.B. Tabelle Aufgabe 2 in 22_Backend_Grundlagen
 - 10 Minuten Präsentation pro Gruppe (inkl. Funktionsdemo)
 
 ## Finale Abgabe

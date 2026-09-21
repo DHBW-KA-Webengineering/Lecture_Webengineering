@@ -1,8 +1,8 @@
 ---
-title: "Vorlesung Webengineering 1 - Webdesign"
-topic: "Webengineering_1_2"
-date: 2026-01-13
-author: "Lukas Panni"
+title: "Webengineering I - Webdesign"
+subtitle: "The Design is very Human - Warum gutes Design nicht wahrgenommen werden will"
+topic: "Webengineering_1_1_2"
+author: "Silas Schnurr"
 theme: "metropolis"
 fonttheme: "structurebold"
 fontsize: 12pt
@@ -10,13 +10,13 @@ urlcolor: BrickRed
 linkcolor: BrickRed
 aspectratio: 169
 lang: de-DE
-section-titles: true
-toc: true
 numbersections: true
 plantuml-format: svg
+toc: true
+section-titles: true
 ...
 
-# Grundlagen
+# Webdesign Grundlagen
 
 ## Wichtige Aspekte im Webdesign
 
@@ -84,7 +84,7 @@ Und natürlich Übersetzung!
 
 * Angenehme Erfahrung: Nutzung der Software wird als **angenehm** empfunden \rightarrow{} **positive User Experience**
 
-# Wahrnehmung
+# Wahrnehmung Grundlagen
 
 ## Kognitive Grundlagen
 
@@ -151,7 +151,7 @@ Einsatz:
   - Verkleinern, vergrößern von Fenstern
   - Auf- und Zuklappen von Elementen
 
-# Gestaltung
+# Gestaltung Grundlagen
 
 ## Gestaltung von Bedienelementen (1)
 

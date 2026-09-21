@@ -1,8 +1,8 @@
 ---
-title: "Vorlesung Webengineering I - HTTP & REST"
-topic: "Webengineering_1_3"
-date: 2026-01-20
-author: "Lukas Panni / Silas Schnurr"
+title: "Webengineering I - HTTP & REST"
+subtitle: "404 Not Found: Wie funktioniert das Internet - und warum manchmal nicht?"
+topic: "Webengineering_1_1_3"
+author: "Silas Schnurr"
 theme: "metropolis"
 fonttheme: "structurebold"
 fontsize: 12pt
@@ -10,8 +10,10 @@ urlcolor: BrickRed
 linkcolor: BrickRed
 aspectratio: 169
 lang: de-DE
-section-titles: true
+numbersections: true
 plantuml-format: svg
+toc: true
+section-titles: true
 ...
 
 # HTTP Grundlagen
@@ -81,7 +83,6 @@ Date: Fri, 17 Nov 2023 12:26:59 GMT
 ## HTTP-Request - Aufbau
 
 - Request besteht aus einzelnen Textzeilen (Header), jeweils mit `<CR><LF>` (Zeilenumbruch) getrennt
-
   - Header endet nach Leerzeile (= `<CR><LF><CR><LF>`)
 
 - Erste Zeile "Request-Line": `<Methode> <Resource> <Protokoll><CR><LF>`
@@ -237,7 +238,7 @@ Server->Client : 200 OK, Content-Type: application/json
 | Server-driven | Server kann nicht optimal entscheiden                                 | gute Unterstzützung                           |
 | Agent-driven  | - kein einheitliches Format \newline - zusätzlicher Request notwendig | Client kann die optimale Entscheidung treffen |
 
-# REST
+# REST Grundlagen
 
 ## REST?
 
@@ -245,7 +246,6 @@ Server->Client : 200 OK, Content-Type: application/json
 
 - Architekturstil des Webs
 - Geht auf Dissertation (2002) von Roy Fielding zurück:
-
   - "Architectural Styles and the Design of Network-based Software Architectures"
   - [Kapitel 5](https://ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm): REST
 
@@ -280,7 +280,6 @@ Zustandslosigkeit der _Interaktion_
 ## REST - Ressources with unique Identifiers
 
 - Jede Webanwendung stellt verschiedene Ressourcen bereit
-
   - z.B. Produkte, Songs, User, ...
   - aber auch abstraktere Dinge: Prozesse, Anfragen, ...
 

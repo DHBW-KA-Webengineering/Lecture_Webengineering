@@ -38,7 +38,8 @@ Das Projekt ist über beide Semester zu bearbeiten, nicht erst kurz vor der Abga
 - 1.⁠ ⁠Zwischenabgabe (ca. 2 - 3 Wochen nach dem Start der Vorlesung)
   - Projektidee, GitHub Repository mit (leerem) Projekt, funktionierender GitHub Action für den Build und GitHub Pages (oder einem Äquivalent).
   - Kurz die Idee / das Konzept der Anwendung mit Mockups, Wireframes, Zeichnungen vorstellen
-  - Präsentation ca. 5 - 10 Minuten pro Gruppe (zeigen dass alles geforderte da ist und funktioniert)
+  - Welches Gruppenmitglied setzte welche Funktion Ende-zu-Ende um? (verbindlich)
+  - Präsentation ca. 10 Minuten pro Gruppe
 
 - 2.⁠ ⁠Zwischenabgabe am Ende des ersten Semesters
   - Inhalt ist je nach gewähltem Projekt vorgegeben (nur Frontend)
@@ -50,6 +51,13 @@ Das Projekt ist über beide Semester zu bearbeiten, nicht erst kurz vor der Abga
   - Präsentation ca. 10 Minuten pro Gruppe
 
 - Finale Präsentation und Abgabe Quellcode + Dokumentation (15 Minuten pro Gruppe), genauer Termin folgt, Klausurwoche
+  - Vorstellung der gesamten Anwendung (Funktionen, Bedienung, Webdesign)
+  - Vorstelung der Projektstruktur
+  - Je Gruppenmitglied:
+    - Abgrenzung der Funktion (Ende-zu-Ende) & Integration in Gesamtprojekt
+    - Umsetzung Frontend
+    - REST Schnittstelle
+    - Umsetzung Backend
 
 Generell gilt für Zwischenabgaben und die Endabgabe:
 
@@ -57,7 +65,7 @@ Generell gilt für Zwischenabgaben und die Endabgabe:
 - Die gezeigten Folien müssen in Moodle abgegeben werden.
 - Jede Präsentation ab der zweiten Zwischenabgabe entspricht grob der folgenden Struktur:
   - Allgemeiner Projektteil, sodass alle im Raum verstehen um was es geht.
-  - Dann gibt es die personenspezifischen Teile. Hier wird **von jedem Gruppenmitglied** nacheinander gezeigt und erklärt, was und warum die Person etwas gemacht hat.
+  - Danach kommen die personenspezifischen Teile. Hier wird **von jedem Gruppenmitglied** nacheinander gezeigt und erklärt, was und warum die Person etwas gemacht hat.
   - Abschließend gibt es wieder einen allgemeinen Teil mit einem Fazit und den nächsten Schritten
   - nach der Präsentation werden Fragen gestellt und es wird Feedback gegeben.
 
@@ -106,6 +114,8 @@ Die Dokumentation muss einige Punkte zwingend enthalten, da sie zentraler Bestan
   - **4.2. Fachliche Beschreibung der Funktion**
     - Wann kommt die Funktion wie zum Einsatz, wie ist die Anwendung an der entsprechende Stelle zu bedienen. Beschreibung mithilfe von Screenshots
   - **4.3. Einbindung in das Gesamtprojekt**
+    - Wie kann innerhalb der Anwendung auf die Funktion zugegriffen werden?
+    - Welche Abhängigkeiten hat die Funktion innerhalb des Projekt?
   - **4.4. Webdesign**
     - Hier soll auf die grundsätzlichen Ideen und Ziele des UI-Designs eingegangen werden. Anhand der entwickelten Funktion sollen in der Vorlesung behandelte Grundprinzipien analysiert werden
   - **4.5. Zugrundeliegende Ideen und Entscheidungen**
@@ -116,9 +126,6 @@ Die Dokumentation muss einige Punkte zwingend enthalten, da sie zentraler Bestan
     - Darstellung der REST-API als Tabelle wie in den Folien / Übungsaufgaben mit Erklärungen zur Funktionsweise
   - **4.8. Entwickelter Backend Code**
     - Erklärung relevanter Teile des Backend Codes. Der Code muss entweder durch Screenshots in der Dokumentation sein, oder ein klickbarer Link zur entsprechenden Code-Datei
-  - **4.9. Reflexion**
-    - Was sind die größten learnings aus dem Projekt, welche für das weitere Studium und weitere Projekte hilfreich sind
-
 - **5. Eigenleistung von...** Für jedes Gruppenmitglied ein Kapitel wie bei 4...
 
 \pagebreak
