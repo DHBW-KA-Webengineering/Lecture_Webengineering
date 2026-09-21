@@ -34,7 +34,7 @@ jobs:
 
   create_release:
     needs: build_pdf
-    if: ${{ github.ref == 'refs/heads/2026' }}
+    if: ${{ github.ref == 'refs/heads/2027' }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
